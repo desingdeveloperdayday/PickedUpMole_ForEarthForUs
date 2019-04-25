@@ -8,4 +8,101 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="TitleBlackStyle">
+        <item name="android:textSize">24sp</item>
+        <item name="android:lineSpacingExtra">6sp</item>
+        <item name="android:textColor">@color/fefu_black</item>
+    </style>
+
+    <style name="TitleWhiteStyle">
+        <item name="android:textSize">24sp</item>
+        <item name="android:lineSpacingExtra">6sp</item>
+        <item name="android:textColor">@color/fefu_white</item>
+    </style>
+
+    <style name="ButtonBlackStyle">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/fefu_black</item>
+    </style>
+
+    <style name="ButtonWhiteCenterStyle">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/fefu_white</item>
+    </style>
+
+    <style name="SubTitleBodyStyle">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/fefu_black</item>
+    </style>
+
+    <style name="SubTitleHeaderCenterStyle">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/fefu_black</item>
+    </style>
+
+    <style name="SubTitleHeaderStyle">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/fefu_black</item>
+    </style>
+
+    <style name="ButtonBlackCenterStyle">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/fefu_black</item>
+    </style>
+
+    <style name="SubTitleBodyCenterStyle">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/fefu_black</item>
+    </style>
+
+    <style name="PlaceholderUnFillStyle">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/fefu_gray</item>
+    </style>
+
+    <style name="ButtonGrayCenterStyle">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/fefu_gray</item>
+    </style>
+
+    <style name="ContentsHeaderStyle">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/fefu_black</item>
+    </style>
+
+    <style name="ButtonMintCenterStyle">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/fefu_main</item>
+    </style>
+
+    <style name="ContentsBodyStyle">
+        <item name="android:textSize">14sp</item>
+        <item name="android:lineSpacingExtra">8sp</item>
+        <item name="android:textColor">@color/fefu_body</item>
+    </style>
+
+    <style name="ContentsBodyCenterStyle">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/fefu_body</item>
+    </style>
+
+    <style name="ContentsBodyWhiteStyle">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/fefu_white</item>
+    </style>
+
+    <style name="ContentsHeaderMintCenterStyle2">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/fefu_main</item>
+    </style>
+
+
 </resources>
