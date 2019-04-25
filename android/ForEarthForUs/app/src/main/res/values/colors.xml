@@ -3,4 +3,12 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+    <color name="fefu_main">#00bcd4</color>
+    <color name="fefu_black">#2f2f2f</color>
+    <color name="fefu_body">#4f4f4f</color>
+    <color name="fefu_gray">#c9cadd</color>
+    <color name="fefu_background">#f7f8fb</color>
+    <color name="fefu__sub">#ff6b31</color>
+    <color name="fefu_white">#ffffff</color>
 </resources>
