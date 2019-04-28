@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">ForEarthForUs</string>
+
+    <!--login-->
+    <string name="text_login_email">이메일</string>
+    <string name="text_login_password">패스워드</string>
+    <string name="text_login">로그인</string>
+    <string name="text_or">or</string>
+    <string name="text_google_login">구글 계정으로\n시작하기</string>
+    <string name="text_email_login">이메일로 \n회원가입</string>
+
+    <!--sign up-->
+    <string name="text_sign_up_title">지구를 위하는 당신을\n기다리고 있었어요</string>
+    <string name="text_sign_up_name">이름</string>
+    <string name="text_sign_up_email">이메일</string>
+    <string name="text_sign_up_password">패스워드</string>
+    <string name="text_sign_up_password_check">패스워드 확인</string>
+    <string name="text_sign_up">회원가입</string>
+
 </resources>

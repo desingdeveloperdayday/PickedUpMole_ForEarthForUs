@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--margin-->
+    <dimen name="margin_62dp">62dp</dimen>
+    <dimen name="margin_56dp">56dp</dimen>
+    <dimen name="margin_48dp">48dp</dimen>
+    <dimen name="margin_32dp">32dp</dimen>
+    <dimen name="margin_24dp">24dp</dimen>
+    <dimen name="margin_16dp">16dp</dimen>
+    <dimen name="margin_8dp">8dp</dimen>
+
+    <!--padding-->
+    <dimen name="padding_24dp">24dp</dimen>
+    <dimen name="padding_16dp">16dp</dimen>
+    <dimen name="padding_8dp">8dp</dimen>
+
+    <!--size-->
+    <dimen name="size_edit_text_height">48dp</dimen>
+
+    <!--text size-->
+    <dimen name="size_text_24dp">24dp</dimen>
+    <dimen name="size_text_20dp">20dp</dimen>
+    <dimen name="size_text_16dp">16dp</dimen>
+    <dimen name="size_text_14dp">14dp</dimen>
+</resources>
