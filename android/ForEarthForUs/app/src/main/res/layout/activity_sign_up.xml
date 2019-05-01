@@ -8,7 +8,7 @@
             xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".view.SignUpActivity"
+            tools:context=".view.sign.SignUpActivity"
             android:background="@color/fefu_white">
 
 
@@ -31,10 +31,11 @@
                 android:textColor="@color/fefu_black"
                 android:lineSpacingExtra="16sp"
                 android:textStyle="bold"
+                android:text="@string/text_sign_up_title"
                 app:layout_constraintTop_toBottomOf="@id/signUpToolbar"
                 app:layout_constraintStart_toStartOf="parent"
                 style="@style/TitleBlackStyle"
-                tools:text="@string/text_sign_up_title"
+
         />
 
         <EditText

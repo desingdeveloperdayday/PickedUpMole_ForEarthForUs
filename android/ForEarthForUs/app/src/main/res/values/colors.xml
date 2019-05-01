@@ -3,6 +3,7 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="colorBlack">#000000</color>
 
     <color name="fefu_main">#00bcd4</color>
     <color name="fefu_black">#2f2f2f</color>

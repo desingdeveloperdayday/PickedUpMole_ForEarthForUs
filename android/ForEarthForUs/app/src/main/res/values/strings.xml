@@ -17,4 +17,28 @@
     <string name="text_sign_up_password_check">패스워드 확인</string>
     <string name="text_sign_up">회원가입</string>
 
+    <!--field select-->
+    <string name="text_field_select_title">어떤 분야의\n환경보호에 관심이 있나요?</string>
+    <string name="text_field_select_button">관심사 선택완료</string>
+
+    <!--main-->
+    <string name="text_main_tab">메인</string>
+    <string name="text_main_mission">미션</string>
+    <string name="text_main_article">아티클</string>
+    <string name="text_main_my">마이</string>
+
+
+    <!--mission-->
+    <string name="text_mission_title">오늘 미션은?</string>
+    <string name="text_mission_content_title">갈 곳 잃은 북극곰을 구해주세요</string>
+    <string name="text_mission_select">미션 선택하기</string>
+
+    <!--mission detail-->
+    <string name="text_mission_detail_content_mock">옆 동네 토마토를 가져오기 위해서는 많은 연료가 필요하다고 해요! 토마토가 우리의 식탁에 오르기까지의 이산화탄소를 줄이기 위해 지역농산품을 이용해봐요!"</string>
+    <string name="text_mission_detail_title_mock">지역 농산물 이용하기</string>
+    <string name="text_mission_detail_cancel">그만두기</string>
+    <string name="text_mission_detail_complete">미션 완료하기</string>
+    <string name="text_mission_detail_mock_data">- 농산물 직거래 장터에서 농산물을 직접 구입\n- 지역에서 생산된 농산물을 구입</string>
+
+
 </resources>

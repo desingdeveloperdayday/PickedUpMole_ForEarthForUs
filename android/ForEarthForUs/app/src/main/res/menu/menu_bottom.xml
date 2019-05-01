@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+            android:id="@+id/navigation_main"
+            android:icon="@drawable/login_google_logo"
+            android:title="@string/text_main_tab"
+    />
+
+    <item
+            android:id="@+id/navigation_mission"
+            android:icon="@drawable/login_google_logo"
+            android:title="@string/text_main_mission"
+    />
+
+    <item
+            android:id="@+id/navigation_article"
+            android:icon="@drawable/login_google_logo"
+            android:title="@string/text_main_article"
+    />
+
+    <item
+            android:id="@+id/navigation_my"
+            android:icon="@drawable/login_google_logo"
+            android:title="@string/text_main_my"
+    />
+
+</menu>
