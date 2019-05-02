@@ -14,6 +14,7 @@
         <item name="android:textSize">@dimen/size_text_24dp</item>
         <item name="android:lineSpacingExtra">6sp</item>
         <item name="android:textColor">@color/fefu_black</item>
+        <item name="android:fontFamily">@font/notosanscjkkr_bold</item>
     </style>
 
     <style name="TitleWhiteStyle">
@@ -31,6 +32,7 @@
         <item name="android:gravity">center_horizontal</item>
         <item name="android:textSize">@dimen/size_text_16dp</item>
         <item name="android:textColor">@color/fefu_white</item>
+        <item name="android:fontFamily">@font/notosanscjkkr_regular</item>
     </style>
 
     <style name="SubTitleBodyStyle">
@@ -93,6 +95,7 @@
         <item name="android:gravity">center_horizontal</item>
         <item name="android:textSize">@dimen/size_text_14dp</item>
         <item name="android:textColor">@color/fefu_body</item>
+        <item name="android:fontFamily">@font/notosanscjkkr_regular</item>
     </style>
 
     <style name="ContentsBodyWhiteStyle">
@@ -104,6 +107,12 @@
         <item name="android:gravity">center_horizontal</item>
         <item name="android:textSize">@dimen/size_text_14dp</item>
         <item name="android:textColor">@color/fefu_main</item>
+    </style>
+
+    <style name="DetailContentsBodyStyle">
+        <item name="android:textSize">@dimen/size_text_14dp</item>
+        <item name="android:textColor">@color/fefu_black</item>
+        <item name="android:fontFamily">@font/notosanscjkkr_bold</item>
     </style>
 
     <!--Edit text-->
@@ -124,4 +133,10 @@
         <item name="colorControlNormal">@color/fefu_black</item>
     </style>
 
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light">
+        <item name="colorControlNormal">@color/fefu_white</item>
+        <item name="colorControlHighlight">@color/colorPrimaryDark</item>
+    </style>
 </resources>

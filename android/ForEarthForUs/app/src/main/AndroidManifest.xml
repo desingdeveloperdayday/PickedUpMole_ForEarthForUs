@@ -9,7 +9,13 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".view.SignUpActivity">
+        <activity android:name=".view.mission.MissionDetailActivity">
+        </activity>
+        <activity android:name=".view.mission.MissionSelectActivity">
+        </activity>
+        <activity android:name=".view.field.FieldSelectActivity">
+        </activity>
+        <activity android:name=".view.sign.SignUpActivity">
         </activity>
         <activity android:name=".MainActivity">
         </activity>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical"
+        android:layout_width="312dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/margin_16dp">
+
+    <RelativeLayout
+            android:id="@+id/itemMissionSelectLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border_item_list"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+                android:id="@+id/itemMissionSelectImage"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                android:layout_width="match_parent"
+                android:layout_height="328dp"
+                android:background="@color/fefu_main"/>
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+            app:layout_constraintTop_toBottomOf="@id/itemMissionSelectLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@drawable/border_item_list"
+            android:layout_width="312dp"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/padding_24dp"
+            android:paddingEnd="@dimen/padding_24dp"
+            android:orientation="vertical">
+
+        <TextView
+                android:layout_marginTop="@dimen/margin_24dp"
+                style="@style/TitleBlackStyle"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="지역 농산물 이용하기"
+        />
+
+
+        <TextView
+                android:layout_marginTop="@dimen/margin_16dp"
+                android:layout_marginBottom="24dp"
+                style="@style/ContentsBodyStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="옆 동네 토마토를 가져오기 위해서는 많은 연료가 필요하다고 해요! 토마토가 우리의 식탁에 오르기까지의 이산화탄소를 줄이기 위해 지역농산품을 이용해봐요!"
+        />
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
