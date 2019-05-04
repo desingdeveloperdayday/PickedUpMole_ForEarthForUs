@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/fefu_background">
+
+
+    <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/mypageAppbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/fefu_background"/>
+
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/mypageProfileLayout"
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:background="@color/fefu_white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mypageAppbar">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/mypageUserImage"
+                android:layout_width="56dp"
+                android:layout_height="@dimen/margin_56dp"
+                android:layout_marginStart="@dimen/margin_24dp"
+                android:src="@drawable/fufe_illust_jh_04"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+        />
+
+        <TextView
+
+                style="@style/SubTitleHeaderStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="두더지"
+                android:layout_marginStart="@dimen/margin_32dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toEndOf="@id/mypageUserImage"
+                app:layout_constraintTop_toTopOf="parent"
+        />
+
+        <TextView
+                style="@style/ContentsBodyStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DDD@ddd.com"
+                android:layout_marginBottom="8dp"
+                android:layout_marginStart="@dimen/margin_32dp"
+                app:layout_constraintStart_toEndOf="@id/mypageUserImage"
+                app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+            android:id="@+id/mypageCategoryLayout"
+            android:background="@color/fefu_white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mypageProfileLayout"
+            android:layout_marginTop="@dimen/margin_8dp"
+            android:layout_width="match_parent"
+            android:layout_height="114dp"
+            android:orientation="horizontal">
+
+
+        <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/mypageAchieveList"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/margin_24dp"/>
+
+            <TextView
+                    style="@style/ContentsBodyCenterStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_my_page_achieve_list"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@id/mypageAchieveList"
+                    android:layout_marginTop="@dimen/margin_8dp"
+            />
+
+        </RelativeLayout>
+        <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/mypageScrapList"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/margin_24dp"/>
+
+            <TextView
+                    style="@style/ContentsBodyCenterStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_my_page_scrap_list"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@id/mypageScrapList"
+                    android:layout_marginTop="@dimen/margin_8dp"
+            />
+
+        </RelativeLayout>
+        <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/mypageAlarm"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/margin_24dp"/>
+
+            <TextView
+                    style="@style/ContentsBodyCenterStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_my_page_alarm"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@id/mypageAlarm"
+                    android:layout_marginTop="@dimen/margin_8dp"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+            android:id="@+id/myPageMissionSuggest"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@color/fefu_white"
+            android:layout_marginTop="@dimen/margin_8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mypageCategoryLayout">
+
+        <TextView
+                style="@style/ContentsBodyStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_my_page_mission_suggest"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/margin_24dp"
+        />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:id="@+id/myPageCurrentVersion"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@color/fefu_white"
+            android:layout_marginTop="@dimen/margin_8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/myPageMissionSuggest">
+
+        <TextView
+                style="@style/ContentsBodyStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_my_page_current_version"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/margin_24dp"
+        />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:id="@+id/myPageLogOut"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@color/fefu_white"
+            android:layout_marginTop="@dimen/margin_8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/myPageCurrentVersion">
+
+        <TextView
+                style="@style/ContentsBodyStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_my_page_log_out"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/margin_24dp"
+        />
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

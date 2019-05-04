@@ -45,4 +45,7 @@ dependencies {
     // lifecycle
     implementation "androidx.lifecycle:lifecycle-extensions:2.1.0-alpha04"
 
+    // circle imageView
+    implementation 'de.hdodenhof:circleimageview:3.0.0'
+
 }
