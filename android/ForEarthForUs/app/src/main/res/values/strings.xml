@@ -39,6 +39,14 @@
     <string name="text_mission_detail_cancel">그만두기</string>
     <string name="text_mission_detail_complete">미션 완료하기</string>
     <string name="text_mission_detail_mock_data">- 농산물 직거래 장터에서 농산물을 직접 구입\n- 지역에서 생산된 농산물을 구입</string>
+    
+    <!--My page-->
+    <string name="text_my_page_achieve_list">달성리스트</string>
+    <string name="text_my_page_scrap_list">스크랩목록</string>
+    <string name="text_my_page_alarm">알람설정</string>
+    <string name="text_my_page_mission_suggest">미션 제안하기</string>
+    <string name="text_my_page_current_version">현재 버전</string>
+    <string name="text_my_page_log_out">로그아웃</string>
 
 
 </resources>

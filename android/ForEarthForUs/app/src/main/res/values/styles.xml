@@ -49,6 +49,8 @@
     <style name="SubTitleHeaderStyle">
         <item name="android:textSize">@dimen/size_text_20dp</item>
         <item name="android:textColor">@color/fefu_black</item>
+        <item name="android:fontFamily">@font/notosanscjkkr_bold</item>
+        <item name="android:includeFontPadding">false</item>
     </style>
 
     <style name="ButtonBlackCenterStyle">
@@ -89,6 +91,8 @@
         <item name="android:textSize">@dimen/size_text_14dp</item>
         <item name="android:lineSpacingExtra">8sp</item>
         <item name="android:textColor">@color/fefu_body</item>
+        <item name="android:fontFamily">@font/notosanscjkkr_regular</item>
+        <item name="android:includeFontPadding">false</item>
     </style>
 
     <style name="ContentsBodyCenterStyle">
@@ -96,6 +100,7 @@
         <item name="android:textSize">@dimen/size_text_14dp</item>
         <item name="android:textColor">@color/fefu_body</item>
         <item name="android:fontFamily">@font/notosanscjkkr_regular</item>
+        <item name="android:includeFontPadding">false</item>
     </style>
 
     <style name="ContentsBodyWhiteStyle">

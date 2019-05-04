@@ -14,8 +14,14 @@ class MissionFragment : Fragment() {
 
 
     companion object {
-        fun newInstance(): MissionFragment {
-            return MissionFragment()
+        private val ARGUMENT = "MissionFragment"
+        private var fragment: MissionFragment? = null
+
+        fun newInstance(): MissionFragment? {
+            if (fragment == null) {
+                fragment = MissionFragment.newInstance()
+            }
+            return fragment
         }
     }
 
