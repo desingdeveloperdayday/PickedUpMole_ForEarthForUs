@@ -15,8 +15,8 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
 
         loginButton.setOnClickListener {
-            //startActivity<SignUpActivity>()
-            startActivity<MissionDetailActivity>()
+            startActivity<SignUpActivity>()
+            //startActivity<MissionDetailActivity>()
         }
     }
 }

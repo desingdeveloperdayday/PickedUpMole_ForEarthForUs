@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import app.woovictory.forearthforus.view.mission.MissionFragment
+import app.woovictory.forearthforus.view.mypage.MyPageFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.toast
@@ -14,19 +15,20 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
     override fun onNavigationItemSelected(item: MenuItem): Boolean = when (item.itemId) {
         R.id.navigation_main -> {
             toast("ddd?")
-            changeFragment(MissionFragment.newInstance())
+            changeFragment(MissionFragment.newInstance()!!)
             true
         }
         R.id.navigation_mission -> {
-            changeFragment(MissionFragment.newInstance())
+            MissionFragment.newInstance()?.let {
+                changeFragment(it)
+            }
             true
         }
         R.id.navigation_article -> {
-            changeFragment(MissionFragment.newInstance())
             true
         }
         R.id.navigation_my -> {
-            changeFragment(MissionFragment.newInstance())
+            changeFragment(MyPageFragment.newInstance())
             true
         }
         else -> true
