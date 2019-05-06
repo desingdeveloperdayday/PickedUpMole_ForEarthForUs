@@ -13,7 +13,10 @@ import app.woovictory.forearthforus.R
 class MyPageFragment : Fragment() {
 
     companion object {
-
+        //private var fragment: MyPageFragment? = null
+        fun newInstance(): MyPageFragment {
+            return MyPageFragment()
+        }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

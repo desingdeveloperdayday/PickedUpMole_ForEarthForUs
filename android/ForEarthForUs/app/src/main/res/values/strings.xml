@@ -26,6 +26,8 @@
     <string name="text_main_mission">미션</string>
     <string name="text_main_article">아티클</string>
     <string name="text_main_my">마이</string>
+    <string name="text_main_item_title">지역 농산물 이용하기</string>
+    <string name="text_main_item_contents">지역에서 생산된 농산물을 구입해봐요!</string>
 
 
     <!--mission-->
@@ -45,7 +47,7 @@
     <string name="text_my_page_scrap_list">스크랩목록</string>
     <string name="text_my_page_alarm">알람설정</string>
     <string name="text_my_page_mission_suggest">미션 제안하기</string>
-    <string name="text_my_page_current_version">현재 버전</string>
+    <string name="text_my_page_current_version">현재 버전 1.0.0</string>
     <string name="text_my_page_log_out">로그아웃</string>
 
 
