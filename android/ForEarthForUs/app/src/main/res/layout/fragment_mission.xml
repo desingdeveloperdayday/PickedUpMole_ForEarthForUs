@@ -1,56 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<layout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        xmlns:tools="http://schemas.android.com/tools">
 
-    <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/missionAppbar"
-            android:background="@color/fefu_white"
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_height="match_parent">
 
-    </com.google.android.material.appbar.AppBarLayout>
+        <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/missionAppbar"
+                android:background="@color/fefu_white"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:elevation="0dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-    <androidx.core.widget.NestedScrollView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/missionAppbar"
-            app:layout_constraintBottom_toBottomOf="parent">
+        </com.google.android.material.appbar.AppBarLayout>
 
-        <LinearLayout android:layout_width="match_parent"
-                      android:layout_height="match_parent"
-                      android:orientation="vertical">
+        <androidx.core.widget.NestedScrollView
+                android:background="@color/fefu_white"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:overScrollMode="never"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/missionAppbar"
+                app:layout_constraintBottom_toBottomOf="parent">
 
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/text_mission_title"
-                    android:layout_marginStart="@dimen/margin_24dp"
-                    android:layout_marginTop="@dimen/margin_16dp"
-                    android:textStyle="bold"
-                    style="@style/SubTitleHeaderStyle"/>
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="match_parent"
+                          android:orientation="vertical">
 
-            <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/missionRv"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_24dp"
-                    android:clipToPadding="false"
-                    tools:listitem="@layout/item_list_mission_category"/>
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_mission_title"
+                        android:layout_marginStart="@dimen/margin_24dp"
+                        android:layout_marginTop="@dimen/margin_16dp"
+                        android:textStyle="bold"
+                        style="@style/SubTitleHeaderStyle"/>
 
-        </LinearLayout>
+                <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/missionRv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_24dp"
+                        android:clipToPadding="false"
+                        android:overScrollMode="never"
+                        tools:listitem="@layout/item_list_mission_category"/>
+
+            </LinearLayout>
 
 
-    </androidx.core.widget.NestedScrollView>
+        </androidx.core.widget.NestedScrollView>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

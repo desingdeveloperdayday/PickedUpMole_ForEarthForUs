@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import app.woovictory.forearthforus.base.BaseActivity
 import app.woovictory.forearthforus.databinding.ActivityMainBinding
+import app.woovictory.forearthforus.view.main.MainFragment
 import app.woovictory.forearthforus.view.mission.MissionFragment
 import app.woovictory.forearthforus.view.mypage.MyPageFragment
 import app.woovictory.forearthforus.vm.MainViewModel
@@ -23,14 +24,11 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(),
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean = when (item.itemId) {
         R.id.navigation_main -> {
-            toast("ddd?")
-            changeFragment(MissionFragment.newInstance()!!)
+            changeFragment(MainFragment.newInstance()!!)
             true
         }
         R.id.navigation_mission -> {
-            MissionFragment.newInstance()?.let {
-                changeFragment(it)
-            }
+            changeFragment(MissionFragment.newInstance()!!)
             true
         }
         R.id.navigation_article -> {
@@ -45,11 +43,12 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(),
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mainBottomNavigation.setOnNavigationItemSelectedListener(this@MainActivity)
+        initStartView()
     }
 
     override fun initStartView() {
-
+        changeFragment(MainFragment.newInstance()!!)
+        mainBottomNavigation.setOnNavigationItemSelectedListener(this@MainActivity)
     }
 
     override fun initDataBinding() {

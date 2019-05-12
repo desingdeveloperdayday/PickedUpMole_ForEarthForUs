@@ -1,244 +1,250 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/fefu_background">
-
-
-    <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/mypageAppbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-        <androidx.appcompat.widget.Toolbar
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:background="@color/fefu_background"/>
-
-
-    </com.google.android.material.appbar.AppBarLayout>
-
+<layout>
+    <data>
+        <variable name="viewModel" type="app.woovictory.forearthforus.vm.MyPageViewModel"/>
+    </data>
     <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/mypageProfileLayout"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="72dp"
-            android:background="@color/fefu_white"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/mypageAppbar">
+            android:layout_height="match_parent"
+            android:background="@color/fefu_background">
 
 
-        <TextView
-
-                android:id="@+id/myPageProfileUserName"
-                style="@style/SubTitleHeaderStyle"
-                android:layout_width="wrap_content"
+        <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/mypageAppbar"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="두더지"
-                android:layout_marginStart="@dimen/margin_32dp"
-                android:layout_marginTop="8dp"
+                app:elevation="0dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-        />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toEndOf="@id/myPageProfileUserName"
-                android:layout_marginTop="8dp"
-                style="@style/SubTitleBodyStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:text="님"
-        />
+            <androidx.appcompat.widget.Toolbar
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="@color/fefu_white"/>
 
-        <TextView
-                style="@style/ContentsBodyStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="DDD@ddd.com"
-                android:layout_marginBottom="8dp"
-                android:layout_marginStart="@dimen/margin_32dp"
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/mypageProfileLayout"
+                android:layout_width="match_parent"
+                android:layout_height="72dp"
+                android:background="@color/fefu_white"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-        />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/mypageAppbar">
 
+
+            <TextView
+
+                    android:id="@+id/myPageProfileUserName"
+                    style="@style/SubTitleHeaderStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="두더지"
+                    android:layout_marginStart="@dimen/margin_32dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+            />
+
+            <TextView
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/myPageProfileUserName"
+                    android:layout_marginTop="8dp"
+                    style="@style/SubTitleBodyStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:text="님"
+            />
+
+            <TextView
+                    style="@style/ContentsBodyStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="DDD@ddd.com"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginStart="@dimen/margin_32dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+                android:id="@+id/mypageCategoryLayout"
+                android:background="@color/fefu_white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/mypageProfileLayout"
+                android:layout_marginTop="@dimen/margin_8dp"
+                android:layout_width="match_parent"
+                android:layout_height="114dp"
+                android:orientation="horizontal">
+
+
+            <RelativeLayout
+                    android:id="@+id/myPageAchieveButton"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:onClick="@{() -> viewModel.clickToAchieve()}">
+
+                <ImageView
+                        android:id="@+id/mypageAchieveList"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/margin_16dp"
+                        app:srcCompat="@drawable/mypage_mission_finish"/>
+
+                <TextView
+                        style="@style/ContentsBodyCenterStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_my_page_achieve_list"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@id/mypageAchieveList"
+                        android:layout_marginTop="@dimen/margin_8dp"
+                />
+
+            </RelativeLayout>
+            <RelativeLayout
+                    android:id="@+id/myPageScrapButton"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent">
+
+                <ImageView
+                        android:id="@+id/mypageScrapList"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/margin_16dp"
+                        app:srcCompat="@drawable/mypage_scrap"
+                />
+
+                <TextView
+                        style="@style/ContentsBodyCenterStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_my_page_scrap_list"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@id/mypageScrapList"
+                        android:layout_marginTop="@dimen/margin_8dp"
+                />
+
+            </RelativeLayout>
+            <RelativeLayout
+                    android:id="@+id/myPageAlarmButton"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent">
+
+                <ImageView
+                        android:id="@+id/mypageAlarm"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/margin_16dp"
+                        app:srcCompat="@drawable/mypage_alarm_setting"
+                />
+
+                <TextView
+                        style="@style/ContentsBodyCenterStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_my_page_alarm"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@id/mypageAlarm"
+                        android:layout_marginTop="@dimen/margin_8dp"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <RelativeLayout
+                android:id="@+id/myPageMissionSuggest"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:background="@color/fefu_white"
+                android:layout_marginTop="@dimen/margin_8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/mypageCategoryLayout">
+
+            <TextView
+                    style="@style/ContentsBodyStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_my_page_mission_suggest"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/margin_24dp"
+            />
+
+            <ImageView
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="@dimen/margin_24dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/chevron_right"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+                android:id="@+id/myPageCurrentVersion"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:background="@color/fefu_white"
+                android:layout_marginTop="@dimen/margin_8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/myPageMissionSuggest">
+
+            <TextView
+                    style="@style/ContentsBodyStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_my_page_current_version"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/margin_24dp"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+                android:id="@+id/myPageLogOut"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:background="@color/fefu_white"
+                android:layout_marginTop="@dimen/margin_8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/myPageCurrentVersion">
+
+            <TextView
+                    style="@style/ContentsBodyStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_my_page_log_out"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/margin_24dp"
+            />
+
+            <ImageView
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="@dimen/margin_24dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/chevron_right"/>
+
+        </RelativeLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <LinearLayout
-            android:id="@+id/mypageCategoryLayout"
-            android:background="@color/fefu_white"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/mypageProfileLayout"
-            android:layout_marginTop="@dimen/margin_8dp"
-            android:layout_width="match_parent"
-            android:layout_height="114dp"
-            android:orientation="horizontal">
-
-
-        <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="match_parent">
-
-            <ImageView
-                    android:id="@+id/mypageAchieveList"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="@dimen/margin_16dp"
-                    app:srcCompat="@drawable/mypage_mission_finish"/>
-
-            <TextView
-                    style="@style/ContentsBodyCenterStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/text_my_page_achieve_list"
-                    android:layout_centerHorizontal="true"
-                    android:layout_below="@id/mypageAchieveList"
-                    android:layout_marginTop="@dimen/margin_8dp"
-            />
-
-        </RelativeLayout>
-        <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="match_parent">
-
-            <ImageView
-                    android:id="@+id/mypageScrapList"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="@dimen/margin_16dp"
-                    app:srcCompat="@drawable/mypage_scrap"
-            />
-
-            <TextView
-                    style="@style/ContentsBodyCenterStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/text_my_page_scrap_list"
-                    android:layout_centerHorizontal="true"
-                    android:layout_below="@id/mypageScrapList"
-                    android:layout_marginTop="@dimen/margin_8dp"
-            />
-
-        </RelativeLayout>
-        <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="match_parent">
-
-            <ImageView
-                    android:id="@+id/mypageAlarm"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="@dimen/margin_16dp"
-                    app:srcCompat="@drawable/mypage_alarm_setting"
-            />
-
-            <TextView
-                    style="@style/ContentsBodyCenterStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/text_my_page_alarm"
-                    android:layout_centerHorizontal="true"
-                    android:layout_below="@id/mypageAlarm"
-                    android:layout_marginTop="@dimen/margin_8dp"/>
-
-        </RelativeLayout>
-
-    </LinearLayout>
-
-    <RelativeLayout
-            android:id="@+id/myPageMissionSuggest"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:background="@color/fefu_white"
-            android:layout_marginTop="@dimen/margin_8dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/mypageCategoryLayout">
-
-        <TextView
-                style="@style/ContentsBodyStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/text_my_page_mission_suggest"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="@dimen/margin_24dp"
-        />
-
-        <ImageView
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:layout_marginEnd="@dimen/margin_24dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/chevron_right"/>
-
-    </RelativeLayout>
-
-    <RelativeLayout
-            android:id="@+id/myPageCurrentVersion"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:background="@color/fefu_white"
-            android:layout_marginTop="@dimen/margin_8dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/myPageMissionSuggest">
-
-        <TextView
-                style="@style/ContentsBodyStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/text_my_page_current_version"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="@dimen/margin_24dp"
-        />
-
-
-
-
-    </RelativeLayout>
-
-    <RelativeLayout
-            android:id="@+id/myPageLogOut"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:background="@color/fefu_white"
-            android:layout_marginTop="@dimen/margin_8dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/myPageCurrentVersion">
-
-        <TextView
-                style="@style/ContentsBodyStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/text_my_page_log_out"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="@dimen/margin_24dp"
-        />
-
-        <ImageView
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:layout_marginEnd="@dimen/margin_24dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/chevron_right"/>
-
-    </RelativeLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -28,6 +28,9 @@
     <string name="text_main_my">마이</string>
     <string name="text_main_item_title">지역 농산물 이용하기</string>
     <string name="text_main_item_contents">지역에서 생산된 농산물을 구입해봐요!</string>
+    <string name="text_main_earth_state_mock">너무 뜨거워요\n저 좀 살려주세요…!!!!!!!</string>
+    <string name="text_main_dudeaji">두더지</string>
+    <string name="text_main_nim">님</string>
 
 
     <!--mission-->
@@ -36,12 +39,14 @@
     <string name="text_mission_select">미션 선택하기</string>
 
     <!--mission detail-->
-    <string name="text_mission_detail_content_mock">옆 동네 토마토를 가져오기 위해서는 많은 연료가 필요하다고 해요! 토마토가 우리의 식탁에 오르기까지의 이산화탄소를 줄이기 위해 지역농산품을 이용해봐요!"</string>
+    <string name="text_mission_detail_content_mock">옆 동네 토마토를 가져오기 위해서는 많은 연료가 필요하다고 해요! 토마토가 우리의 식탁에 오르기까지의 이산화탄소를 줄이기
+        위해 지역농산품을 이용해봐요!"
+    </string>
     <string name="text_mission_detail_title_mock">지역 농산물 이용하기</string>
     <string name="text_mission_detail_cancel">그만두기</string>
     <string name="text_mission_detail_complete">미션 완료하기</string>
     <string name="text_mission_detail_mock_data">- 농산물 직거래 장터에서 농산물을 직접 구입\n- 지역에서 생산된 농산물을 구입</string>
-    
+
     <!--My page-->
     <string name="text_my_page_achieve_list">달성리스트</string>
     <string name="text_my_page_scrap_list">스크랩목록</string>

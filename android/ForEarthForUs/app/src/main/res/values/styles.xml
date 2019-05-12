@@ -12,9 +12,10 @@
 
     <style name="TitleBlackStyle">
         <item name="android:textSize">@dimen/size_text_24dp</item>
-        <item name="android:lineSpacingExtra">6sp</item>
+        <item name="android:lineSpacingExtra">6dp</item>
         <item name="android:textColor">@color/fefu_black</item>
         <item name="android:fontFamily">@font/notosanscjkkr_bold</item>
+        <item name="android:includeFontPadding">false</item>
     </style>
 
     <style name="TitleWhiteStyle">
@@ -93,7 +94,7 @@
 
     <style name="ContentsBodyStyle">
         <item name="android:textSize">@dimen/size_text_14dp</item>
-        <item name="android:lineSpacingExtra">8sp</item>
+        <item name="android:lineSpacingExtra">4dp</item>
         <item name="android:textColor">@color/fefu_body</item>
         <item name="android:fontFamily">@font/notosanscjkkr_regular</item>
         <item name="android:includeFontPadding">false</item>

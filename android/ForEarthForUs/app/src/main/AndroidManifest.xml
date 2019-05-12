@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="app.woovictory.forearthforus">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
@@ -9,6 +11,8 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+        <activity android:name=".view.main.detail.EarthDetailActivity">
+        </activity>
         <activity android:name=".view.mission.MissionDetailActivity">
         </activity>
         <activity android:name=".view.mission.MissionSelectActivity">
@@ -21,7 +25,7 @@
         </activity>
         <activity android:name=".view.SplashActivity">
         </activity>
-        <activity android:name=".view.LoginActivity">
+        <activity android:name=".view.sign.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
