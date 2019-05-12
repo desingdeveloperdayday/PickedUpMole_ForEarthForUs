@@ -38,7 +38,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0-alpha04'
 
     // material design
-    implementation 'com.google.android.material:material:1.1.0-alpha05'
+    implementation 'com.google.android.material:material:1.1.0-alpha06'
 
     // anko
     implementation "org.jetbrains.anko:anko:0.10.8"
@@ -52,5 +52,20 @@ dependencies {
     // RxJava
     implementation "io.reactivex.rxjava2:rxjava:2.2.8"
     implementation "io.reactivex.rxjava2:rxandroid:2.1.0"
+
+    // retrofit
+    implementation "com.squareup.retrofit2:retrofit:2.5.0"
+    implementation "com.squareup.retrofit2:converter-gson:2.5.0"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:2.5.0"
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.12.1'
+
+    // glide
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+
+    // rounded imageView
+    implementation 'com.makeramen:roundedimageview:2.3.0'
+
+    // circle indicator
+    implementation 'me.relex:circleindicator:2.1.0'
 
 }
