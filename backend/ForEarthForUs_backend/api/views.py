@@ -3,14 +3,14 @@ from rest_framework import generics
 from .models import Prefer, UserPrefer
 from .serializers import PreferSerializer, UserPreferSerializer
 from rest_framework import permissions
+from .permission import *
 from rest_framework.response import Response
 from rest_framework import status
 
 class PreferViewSet(viewsets.ModelViewSet):
     queryset = Prefer.objects.all()
     serializer_class = PreferSerializer
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
-    # permission_classes = (permissions.AllowAny,)
+    permission_classes = (IsAdminOrReadOnly,)
 
 class UserPreferCreate(generics.CreateAPIView):
     queryset = UserPrefer.objects.all()
