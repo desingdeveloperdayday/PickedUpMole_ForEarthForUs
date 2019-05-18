@@ -27,4 +27,12 @@ class Migration(migrations.Migration):
                 'db_table': 'prefers',
             },
         ),
+        migrations.CreateModel(
+            name='UserPrefer',
+            fields=[
+                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('prefer', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to='api.Prefer')),
+                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='prefer', to=settings.AUTH_USER_MODEL)),
+            ],
+        ),
     ]

@@ -12,3 +12,7 @@ class Prefer(models.Model):
         db_table = 'prefers'
         verbose_name = 'prefer'
         verbose_name_plural = 'prefers'
+
+class UserPrefer(models.Model):
+    user = models.ForeignKey(userModel, related_name='prefer', on_delete=models.CASCADE)
+    prefer = models.OneToOneField(Prefer, on_delete=models.CASCADE)

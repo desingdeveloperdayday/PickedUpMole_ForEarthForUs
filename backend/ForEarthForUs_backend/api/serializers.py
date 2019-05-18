@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Prefer
+from .models import Prefer, UserPrefer
 from django.contrib.auth import get_user_model
 
 userModel = get_user_model()
@@ -10,3 +10,9 @@ class PreferSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Prefer
         fields = ('id', 'name', 'image')
+
+class UserPreferSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = UserPrefer
+        fields = ('prefer', 'user')
