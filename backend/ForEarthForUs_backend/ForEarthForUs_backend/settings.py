@@ -25,9 +25,6 @@ SECRET_KEY = 'b_%ecwun!l!5(=xudwy5vmv2i*3%$#$&!nh&737ja_6i42y91)'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -46,6 +43,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'rest_framework',
+    'rest_framework.authtoken',
     'rest_auth',
     'rest_auth.registration',
 ]
@@ -144,7 +142,7 @@ ACCOUNT_ADAPTER = 'users.adapters.CustomUserAccountAdapter'
 
 REST_USE_JWT = True
 
-# TODO: stmp server
+# TODO: smtp server
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 REST_AUTH_SERIALIZERS = {
@@ -161,5 +159,11 @@ REST_FRAMEWORK = {
 }
 
 ALLOWED_HOSTS = [
-    'looksgoood.pythonanywhere.com'
+    'looksgoood.pythonanywhere.com',
+    '127.0.0.1',
+    'localhost'
 ]
+
+# Media file setting
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

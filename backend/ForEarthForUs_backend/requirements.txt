@@ -6,8 +6,11 @@ coreschema==0.0.4
 defusedxml==0.6.0
 Django==2.2.1
 django-allauth==0.39.1
+django-braces==1.13.0
 django-filter==2.1.0
+django-oauth-toolkit==1.2.0
 django-rest-auth==0.9.5
+django-rest-framework-social-oauth2==1.1.0
 django-rest-swagger==2.2.0
 djangorestframework==3.9.2
 djangorestframework-jwt==1.11.0
@@ -21,6 +24,7 @@ MarkupSafe==1.1.1
 mccabe==0.6.1
 oauthlib==3.0.1
 openapi-codec==1.3.2
+Pillow==6.0.0
 Pygments==2.3.1
 PyJWT==1.7.1
 pylint==2.3.1
