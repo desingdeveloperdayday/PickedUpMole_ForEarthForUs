@@ -1,9 +1,9 @@
 from rest_framework import viewsets
 from rest_framework import generics
-from .models import Prefer, UserPrefer
-from .serializers import PreferSerializer, UserPreferSerializer
+from api.models.prefer_models import Prefer, UserPrefer
+from api.serializers.prefer_serializer import PreferSerializer, UserPreferSerializer
 from rest_framework import permissions
-from .permission import *
+from api.permission import *
 from rest_framework.response import Response
 from rest_framework import status
 

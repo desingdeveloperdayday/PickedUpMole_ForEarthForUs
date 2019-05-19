@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Prefer, UserPrefer
+from api.models.prefer_models import Prefer, UserPrefer
 from django.contrib.auth import get_user_model
 
 userModel = get_user_model()
