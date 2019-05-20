@@ -8,13 +8,12 @@ import androidx.core.view.ViewCompat
 import app.woovictory.forearthforus.R
 import com.google.android.material.appbar.AppBarLayout
 import kotlinx.android.synthetic.main.activity_mission_detail.*
+import org.jetbrains.anko.startActivity
 
 class MissionDetailActivity : AppCompatActivity(), AppBarLayout.OnOffsetChangedListener {
     override fun onOffsetChanged(appBarLayout: AppBarLayout?, verticalOffset: Int) {
         if (missionDetailCollapsingToolbar.height + verticalOffset < 2 * ViewCompat.getMinimumHeight(
-                missionDetailCollapsingToolbar
-            )
-        ) {
+                missionDetailCollapsingToolbar)) {
 
             // collapsingToolbar의 title 설정을 위함.
             missionDetailCollapsingToolbar.isTitleEnabled = true
@@ -36,6 +35,13 @@ class MissionDetailActivity : AppCompatActivity(), AppBarLayout.OnOffsetChangedL
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mission_detail)
         initToolbar()
+
+
+        // 임시 방편.
+        missionDetailCompleteButton.setOnClickListener {
+            startActivity<MissionCompleteActivity>()
+            //startActivity<MissionCompleteWriteActivity>()
+        }
     }
 
     private fun initToolbar() {

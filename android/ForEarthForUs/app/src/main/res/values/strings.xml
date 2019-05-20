@@ -38,6 +38,10 @@
     <string name="text_mission_content_title">갈 곳 잃은 북극곰을 구해주세요</string>
     <string name="text_mission_select">미션 선택하기</string>
 
+    <!--mission complete-->
+    <string name="text_mission_complete_before">이전으로</string>
+    <string name="text_mission_complete_write_hint">오늘 하루의 미션일기를 담아주세요.</string>
+
     <!--mission detail-->
     <string name="text_mission_detail_content_mock">옆 동네 토마토를 가져오기 위해서는 많은 연료가 필요하다고 해요! 토마토가 우리의 식탁에 오르기까지의 이산화탄소를 줄이기
         위해 지역농산품을 이용해봐요!"

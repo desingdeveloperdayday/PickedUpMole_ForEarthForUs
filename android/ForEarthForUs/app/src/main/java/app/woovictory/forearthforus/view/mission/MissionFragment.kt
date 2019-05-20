@@ -37,7 +37,8 @@ class MissionFragment : Fragment() {
     private lateinit var itemList: ArrayList<TodayMissionResponse>
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        fragmentMissionDataBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_mission,
+        fragmentMissionDataBinding = DataBindingUtil.inflate(
+            inflater, R.layout.fragment_mission,
             container, false
         )
         return fragmentMissionDataBinding.root
@@ -50,11 +51,18 @@ class MissionFragment : Fragment() {
         initRecyclerView()
     }
 
+    // Mock 데이터를 위한 코딩.
     private fun initMockData() {
         itemList = ArrayList()
-        for (i in 0..5) {
-            itemList.add(TodayMissionResponse(R.drawable.fufe_illust_jh_04, "갈 곳 잃은 북극곰을 구해주세요"))
-        }
+
+        itemList.add(TodayMissionResponse(R.drawable.mission_category_greenlife))
+        itemList.add(TodayMissionResponse(R.drawable.mission_category_desert))
+        itemList.add(TodayMissionResponse(R.drawable.mission_category_dust))
+        itemList.add(TodayMissionResponse(R.drawable.mission_category_bear))
+        itemList.add(TodayMissionResponse(R.drawable.mission_category_earth))
+        itemList.add(TodayMissionResponse(R.drawable.mission_category_fish))
+        itemList.add(TodayMissionResponse(R.drawable.mission_category_reduce))
+
     }
 
     private fun initRecyclerView() {
@@ -67,7 +75,6 @@ class MissionFragment : Fragment() {
     }
 
     private fun startMissionSelectActivity() {
-        //toast("떠주세요..ㅜㅜ")
         startActivity<MissionSelectActivity>()
     }
 
