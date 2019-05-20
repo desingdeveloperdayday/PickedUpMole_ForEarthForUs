@@ -10,12 +10,13 @@ from rest_framework import status
 class PreferViewSet(viewsets.ModelViewSet):
     queryset = Prefer.objects.all()
     serializer_class = PreferSerializer
-    permission_classes = (IsAdminOrReadOnly,)
+    permission_classes = (permissions.IsAuthenticated,
+                          IsAdminOrReadOnly,)
 
 class UserPreferCreate(generics.CreateAPIView):
     queryset = UserPrefer.objects.all()
     serializer_class = UserPreferSerializer
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    permission_classes = (permissions.IsAuthenticated,)
 
     def create(self, request, *args, **kwargs):
         """
@@ -30,9 +31,6 @@ class UserPreferCreate(generics.CreateAPIView):
 
         prefer_id_list = []
         for prefer_dic in data:
-            user_prefer_set = UserPrefer.objects.filter(
-                user=prefer_dic['user'], prefer_id=prefer_dic['prefer'])
-
             # 보낸 user id를 알아서 맞는지 확인해야함
             if request.user.id is not prefer_dic['user']:
                 return Response(
