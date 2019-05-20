@@ -19,7 +19,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(primary_key=True, serialize=False)),
                 ('name', models.CharField(max_length=20, unique=True)),
-                ('image', models.ImageField(default='dafault/default_image.png', upload_to='images/')),
+                ('image', models.ImageField(default='dafault/default_image.png', upload_to='images/prefer/')),
             ],
             options={
                 'verbose_name': 'prefer',
