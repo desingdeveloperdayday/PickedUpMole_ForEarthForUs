@@ -28,7 +28,6 @@
                 android:layout_height="60dp"
                 android:background="@color/fefu_white"
                 app:itemTextColor="@color/selector_bottom_navigation"
-                app:itemIconTint="@color/selector_bottom_navigation"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"

@@ -3,25 +3,25 @@
 
     <item
             android:id="@+id/navigation_main"
-            android:icon="@drawable/login_google_logo"
+            android:icon="@drawable/animation_main_drawable"
             android:title="@string/text_main_tab"
     />
 
     <item
             android:id="@+id/navigation_mission"
-            android:icon="@drawable/login_google_logo"
+            android:icon="@drawable/animation_mission_drawable"
             android:title="@string/text_main_mission"
     />
 
     <item
             android:id="@+id/navigation_article"
-            android:icon="@drawable/login_google_logo"
+            android:icon="@drawable/animation_article_drawable"
             android:title="@string/text_main_article"
     />
 
     <item
             android:id="@+id/navigation_my"
-            android:icon="@drawable/login_google_logo"
+            android:icon="@drawable/animation_my_drawable"
             android:title="@string/text_main_my"
     />
 
