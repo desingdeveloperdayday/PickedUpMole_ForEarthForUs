@@ -2,9 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        >
+>
 
     <androidx.cardview.widget.CardView
             android:id="@+id/itemMainLayout"
@@ -34,7 +34,7 @@
                     app:riv_border_color="#333333"
                     app:riv_mutate_background="true"
                     app:riv_oval="false"
-                    />
+            />
 
             <ImageView
                     android:background="@drawable/background_gradient_opacity"

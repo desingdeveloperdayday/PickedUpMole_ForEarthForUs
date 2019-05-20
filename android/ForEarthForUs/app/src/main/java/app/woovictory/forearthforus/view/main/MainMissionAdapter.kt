@@ -20,7 +20,7 @@ class MainMissionAdapter(private val itemsMock: ArrayList<MissionResponse>) :
     override fun getItemCount(): Int = itemsMock.size
 
     override fun onBindViewHolder(holder: MainMissionViewHolder, position: Int) {
-        holder?.apply {
+        holder.apply {
             onBind(itemsMock[position])
         }
     }

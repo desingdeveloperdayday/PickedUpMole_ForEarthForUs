@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".view.mission.MissionCompleteWriteActivity"
+            android:background="@color/fefu_white">
+
+        <androidx.appcompat.widget.Toolbar
+                android:id="@+id/missionCompleteWriteToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:elevation="0dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/missionCompleteWriteImage"
+                android:src="@drawable/fufe_illust_jh_04"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:layout_marginStart="@dimen/margin_24dp"
+                android:layout_marginTop="@dimen/margin_8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/missionCompleteWriteToolbar"/>
+
+        <LinearLayout
+                android:id="@+id/missionCompleteWriteLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="@dimen/margin_8dp"
+                android:layout_marginStart="@dimen/margin_24dp"
+                app:layout_constraintStart_toEndOf="@id/missionCompleteWriteImage"
+                app:layout_constraintTop_toBottomOf="@id/missionCompleteWriteToolbar">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="지역 농산물 이용하기"
+                    style="@style/SubTitleHeaderStyle"
+            />
+
+        </LinearLayout>
+
+        <TextView
+                android:id="@+id/missionCompleteWriteScore"
+                android:layout_marginStart="@dimen/margin_24dp"
+                android:layout_marginTop="@dimen/margin_8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4점만큼"
+                app:layout_constraintTop_toBottomOf="@id/missionCompleteWriteLayout"
+                app:layout_constraintStart_toEndOf="@id/missionCompleteWriteImage"
+                style="@style/ContentsHeaderMintCenterStyle2"
+
+        />
+
+        <TextView
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="@dimen/margin_8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="달성했어요!"
+                app:layout_constraintStart_toEndOf="@id/missionCompleteWriteScore"
+                app:layout_constraintTop_toBottomOf="@id/missionCompleteWriteLayout"
+                style="@style/ContentsBodyStyle"
+        />
+
+        <EditText
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/missionCompleteButtonLayout"
+                app:layout_constraintTop_toBottomOf="@id/missionCompleteWriteImage"
+                android:layout_marginTop="16dp"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:padding="@dimen/padding_24dp"
+                android:hint="@string/text_mission_complete_write_hint"
+                android:gravity="top"
+                style="@style/ButtonBlackStyle"
+                android:maxLength="100"
+                android:background="@color/fefu_background"/>
+
+        <LinearLayout
+                android:id="@+id/missionCompleteButtonLayout"
+                android:layout_width="0dp"
+                android:layout_height="123dp"
+                android:background="@color/fefu_white"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+
+            <Button
+                    android:layout_width="0dp"
+                    android:layout_weight="1.6"
+                    android:layout_height="@dimen/size_button_height"
+                    android:layout_marginTop="@dimen/margin_32dp"
+                    android:stateListAnimator="@null"
+                    android:layout_marginStart="@dimen/margin_24dp"
+                    android:text="@string/text_mission_complete_before"
+                    android:background="@drawable/border_button_background_mission_complete"
+                    style="@style/ButtonGrayCenterStyle"/>
+
+            <Button
+                    android:id="@+id/missionSelectButton"
+                    android:layout_width="0dp"
+                    android:layout_weight="2.4"
+                    android:layout_height="@dimen/size_button_height"
+                    android:layout_marginEnd="@dimen/margin_24dp"
+                    android:background="@drawable/selector_button"
+                    android:layout_marginTop="@dimen/margin_32dp"
+                    android:layout_marginStart="@dimen/margin_24dp"
+                    android:layout_marginBottom="@dimen/margin_16dp"
+                    android:text="@string/text_mission_select"
+                    android:textColor="@color/fefu_white"
+                    android:textSize="@dimen/size_text_16dp"
+                    android:stateListAnimator="@null"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    tools:ignore="SpUsage"/>
+
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
