@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-selector xmlns:tools="http://schemas.android.com/tools"
+                   xmlns:android="http://schemas.android.com/apk/res/android"
+                   tools:targetApi="lollipop">
+    <!-- 각 상태 정의 -->
+    <item android:id="@+id/state_on"
+          android:drawable="@drawable/tab_icon_on_mission"
+          android:state_checked="true"/>
+    <item android:id="@+id/state_off"
+          android:drawable="@drawable/tab_icon_off_mission"/>
+
+    <!-- 애니메이션을 위한 이동 -->
+    <transition
+            android:drawable="@drawable/avd_anim_mission"
+            android:fromId="@id/state_off"
+            android:toId="@id/state_on"/>
+
+</animated-selector>
