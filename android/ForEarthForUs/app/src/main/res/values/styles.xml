@@ -66,6 +66,8 @@
         <item name="android:gravity">center_horizontal</item>
         <item name="android:textSize">@dimen/size_text_16dp</item>
         <item name="android:textColor">@color/fefu_black</item>
+        <item name="android:fontFamily">@font/notosanscjkkr_regular</item>
+        <item name="android:includeFontPadding">false</item>
     </style>
 
     <style name="SubTitleBodyCenterStyle">

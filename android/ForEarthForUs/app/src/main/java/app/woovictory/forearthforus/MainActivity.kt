@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import app.woovictory.forearthforus.base.BaseActivity
 import app.woovictory.forearthforus.databinding.ActivityMainBinding
+import app.woovictory.forearthforus.view.article.ArticleFragment
 import app.woovictory.forearthforus.view.main.MainFragment
 import app.woovictory.forearthforus.view.mission.MissionFragment
 import app.woovictory.forearthforus.view.mypage.MyPageFragment
@@ -42,7 +43,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
                 changeFragment(MissionFragment.newInstance()!!)
             }
             R.id.navigation_article -> {
-                changeFragment(MainFragment.newInstance()!!)
+                changeFragment(ArticleFragment.newInstance())
             }
             R.id.navigation_my -> {
                 changeFragment(MyPageFragment.newInstance())
