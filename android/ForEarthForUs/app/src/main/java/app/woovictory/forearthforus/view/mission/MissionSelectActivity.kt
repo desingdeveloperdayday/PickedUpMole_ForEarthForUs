@@ -24,7 +24,7 @@ class MissionSelectActivity : BaseActivity<ActivityMissionSelectBinding, Mission
     override val layoutResourceId: Int
         get() = R.layout.activity_mission_select
     override val viewModel: MissionSelectViewModel = MissionSelectViewModel()
-    lateinit var items: ArrayList<MissionSelectResponse>
+    private lateinit var items: ArrayList<MissionSelectResponse>
     private var missionSelectAdapter: MissionSelectAdapter? = null
     private lateinit var size: Point
 

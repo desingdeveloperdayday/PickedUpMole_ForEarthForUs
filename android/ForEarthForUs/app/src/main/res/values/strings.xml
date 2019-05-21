@@ -60,4 +60,8 @@
     <string name="text_my_page_log_out">로그아웃</string>
 
 
+    <string name="text_article_title">For Earth</string>
+    <string name="text_article_show_more">더보기</string>
+    <string name="text_article_sub_title">For Us</string>
+
 </resources>
