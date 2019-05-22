@@ -12,4 +12,5 @@
     <color name="fefu_background">#f7f8fb</color>
     <color name="fefu__sub">#ff6b31</color>
     <color name="fefu_white">#ffffff</color>
+    <color name="fefu_transparent">@android:color/transparent</color>
 </resources>

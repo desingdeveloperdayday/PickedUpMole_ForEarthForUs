@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import app.woovictory.forearthforus.base.BaseActivity
@@ -59,6 +60,8 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
         mainBottomNavigation.selectedItemId = R.id.navigation_main
 
         mainBottomNavigation.itemIconTintList = null
+        // bottom navigation ripple 투명으로 변경.
+        mainBottomNavigation.itemRippleColor = ContextCompat.getColorStateList(this, R.color.fefu_transparent)
         mainBottomNavigation.setOnNavigationItemSelectedListener { item: MenuItem ->
             addFragmentBasedOnId(item.itemId)
             true

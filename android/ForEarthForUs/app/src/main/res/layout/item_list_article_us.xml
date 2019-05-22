@@ -1,17 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
+    <data>
+        <variable name="articleItems" type="app.woovictory.forearthforus.model.article.ArticleUsResponse"/>
+    </data>
     <androidx.constraintlayout.widget.ConstraintLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
             android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
         <androidx.cardview.widget.CardView
                 android:layout_marginTop="@dimen/margin_8dp"
-                android:layout_width="100dp"
-                android:layout_height="106dp"
+                android:layout_width="296dp"
+                android:layout_height="340dp"
+                android:orientation="vertical"
                 app:cardCornerRadius="4dp"
+                app:cardUseCompatPadding="true"
+                app:cardElevation="0dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent">
@@ -20,14 +26,48 @@
                     android:id="@+id/itemArticleEarthImage"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/fufe_illust_jh_04"
+                    android:src="@color/fefu_body"
                     android:scaleType="fitXY"
                     app:riv_corner_radius="4dp"
                     app:riv_border_color="#333333"
                     app:riv_mutate_background="true"
                     app:riv_oval="false"/>
 
-        </androidx.cardview.widget.CardView>
+            <ImageView
+                    android:id="@+id/itemArticleLikeButton"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="@dimen/margin_16dp"
+                    android:layout_marginEnd="@dimen/margin_16dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/selector_like_button"/>
 
+            <LinearLayout
+                    android:layout_marginStart="@dimen/margin_16dp"
+                    android:layout_marginBottom="@dimen/margin_16dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="bottom">
+
+                <TextView
+                        android:layout_gravity="bottom"
+                        android:layout_marginBottom="@dimen/margin_8dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{articleItems.articleUsTitle}"
+                        style="@style/TitleWhiteStyle"
+                />
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{articleItems.articleUsContent}"
+                        style="@style/ContentsBodyWhiteStyle"
+
+                />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

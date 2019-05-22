@@ -12,8 +12,8 @@
 
         <androidx.cardview.widget.CardView
                 android:layout_marginTop="@dimen/margin_8dp"
-                android:layout_width="110dp"
-                android:layout_height="116dp"
+                android:layout_width="100dp"
+                android:layout_height="106dp"
                 android:orientation="vertical"
                 app:cardCornerRadius="4dp"
                 app:cardUseCompatPadding="true"
