@@ -2,7 +2,7 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-            android:state_checked="true" android:color="@color/fefu_main"/>
+            android:state_checked="true" android:color="@color/fefu__sub"/>
     <item
             android:color="@color/fefu_white"/>
 
