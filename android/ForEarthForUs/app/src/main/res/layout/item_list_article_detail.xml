@@ -10,12 +10,13 @@
             xmlns:android="http://schemas.android.com/apk/res/android"
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_16dp">
 
         <ImageView
                 android:id="@+id/itemArticleDetailImage"
                 android:layout_width="match_parent"
-                android:layout_height="232dp"
+                android:layout_height="242dp"
                 android:src="@color/fefu_gray"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -38,6 +39,7 @@
                 android:textSize="24sp"
                 android:textColor="@color/fefu_black"
                 android:lineSpacingExtra="16sp"
+                style="@style/TitleBlackStyle"
                 android:text="@{articleDetailItems.articleDetailTitle}"
                 android:layout_marginTop="@dimen/margin_8dp"
                 android:layout_marginStart="@dimen/margin_24dp"

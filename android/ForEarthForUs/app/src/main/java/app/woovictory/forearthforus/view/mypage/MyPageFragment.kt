@@ -24,7 +24,7 @@ class MyPageFragment : Fragment() {
         }
     }
 
-    lateinit var fragmentMyPageDataBinding: FragmentMypageBinding
+    private lateinit var fragmentMyPageDataBinding: FragmentMypageBinding
     var myPageViewModel: MyPageViewModel = MyPageViewModel()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
