@@ -11,6 +11,8 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+        <activity android:name=".view.article.detail.ArticleIntroActivity">
+        </activity>
         <activity android:name=".view.mission.MissionCompleteWriteActivity">
         </activity>
         <activity android:name=".view.mission.MissionCompleteActivity">

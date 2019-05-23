@@ -4,10 +4,14 @@ import android.content.Context
 import android.graphics.Point
 import android.os.Bundle
 import android.util.Log
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.view.WindowManager
 import android.widget.LinearLayout
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import app.woovictory.forearthforus.R
@@ -17,6 +21,9 @@ import app.woovictory.forearthforus.model.article.ArticleUsResponse
 import app.woovictory.forearthforus.util.ItemDecoration
 import app.woovictory.forearthforus.view.article.adapter.ArticleEarthAdapter
 import app.woovictory.forearthforus.view.article.adapter.ArticleUsAdapter
+import app.woovictory.forearthforus.view.article.detail.ArticleIntroActivity
+import app.woovictory.forearthforus.vm.ArticleViewModel
+import org.jetbrains.anko.support.v4.startActivity
 import org.jetbrains.anko.support.v4.toast
 
 /**
@@ -31,6 +38,7 @@ class ArticleFragment : Fragment() {
     }
 
     private lateinit var fragmentArticleBinding: FragmentArticleBinding
+    var articleViewModel = ArticleViewModel()
     private var itemEarthList = ArrayList<ArticleEarthResponse>() // Earth 데이터.
     private var itemUsList = ArrayList<ArticleUsResponse>()
     private lateinit var size: Point
@@ -67,7 +75,27 @@ class ArticleFragment : Fragment() {
         getWindowSize()
         setUpRecyclerView()
         addSnapHelper()
+        setViewModel()
+        setUpDataBinding()
     }
+
+    private fun setViewModel() {
+        fragmentArticleBinding.apply {
+            viewModel = articleViewModel
+            lifecycleOwner = this@ArticleFragment
+        }
+
+    }
+
+    private fun setUpDataBinding() {
+        articleViewModel.clickToArticleEarthDetail.observe(this, Observer {
+            startActivity<ArticleIntroActivity>("key" to "For Earth")
+        })
+        articleViewModel.clickToArticleUsDetail.observe(this, Observer {
+            startActivity<ArticleIntroActivity>("key" to "For Us")
+        })
+    }
+
 
     private fun getWindowSize() {
         val windowManager = activity?.applicationContext?.getSystemService(Context.WINDOW_SERVICE)
@@ -110,7 +138,6 @@ class ArticleFragment : Fragment() {
     }
 
     private fun initImageData() {
-
         for (i in 0..5) {
             itemEarthList.add(ArticleEarthResponse(R.drawable.fufe_illust_jh_04))
             itemUsList.add(
