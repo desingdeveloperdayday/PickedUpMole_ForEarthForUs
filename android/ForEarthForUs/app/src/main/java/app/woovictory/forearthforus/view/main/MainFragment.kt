@@ -35,6 +35,11 @@ class MainFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         initMockData()
         initRecyclerView()
+        setUpDataBinding()
+    }
+
+    private fun setUpDataBinding() {
+
     }
 
     // mock 데이터 생성.
