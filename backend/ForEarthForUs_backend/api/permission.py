@@ -1,4 +1,5 @@
 from rest_framework import permissions
+from api.models.feed_models import Feed
 
 class IsOwnerOrReadOnly(permissions.BasePermission):
     """
@@ -28,3 +29,19 @@ class IsAdminOrReadOnly(permissions.BasePermission):
         
         # Write permissions are only admin user.
         return bool(request.user and request.user.is_staff)
+
+class IsOwnerFeed(permissions.BasePermission):
+
+    def has_permission(self, request, view):
+        # can write custom code
+        print(view.kwargs)
+        try:
+            feed = Feed.objects.get(
+                pk=view.kwargs['pk'])
+        except:
+            return False
+
+        if request.user.id == feed.user.id:
+            return True
+
+        return False

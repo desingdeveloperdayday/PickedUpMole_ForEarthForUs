@@ -10,6 +10,7 @@ class Mission(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     image = models.ImageField(null=False, upload_to='images/mission/')
     title = models.CharField(max_length=TITLE_LENGTH)
+    comment = models.CharField(max_length=CONTENT_LENGTH)
     content = models.CharField(max_length=CONTENT_LENGTH)
     missionTipTitle = models.CharField(max_length=TITLE_LENGTH)
     missionTipContent = models.CharField(max_length=CONTENT_LENGTH)

@@ -3,6 +3,7 @@ from api.urls.prefer_urls import PreferUrls
 from api.urls.earth_urls import EarthUrls
 from api.urls.category_urls import CategoryUrls
 from api.urls.mission_urls import MissionUrls
+from api.urls.feed_urls import FeedUrls
 
 urlpatterns = [
     path('v1/account/', include('rest_auth.urls')),
@@ -13,3 +14,4 @@ urlpatterns += PreferUrls.urlpatterns
 urlpatterns += EarthUrls.urlpatterns
 urlpatterns += CategoryUrls.urlpatterns
 urlpatterns += MissionUrls.urlpatterns
+urlpatterns += FeedUrls.urlpatterns
