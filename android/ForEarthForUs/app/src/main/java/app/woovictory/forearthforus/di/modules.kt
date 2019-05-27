@@ -1,7 +1,7 @@
 package app.woovictory.forearthforus.di
 
 import app.woovictory.forearthforus.api.ApiService
-import app.woovictory.forearthforus.data.Repository
+import app.woovictory.forearthforus.data.repository.LoginRepository
 import app.woovictory.forearthforus.data.repository.SignUpRepository
 import app.woovictory.forearthforus.data.source.LoginRemoteDataSource
 import app.woovictory.forearthforus.data.source.SignUpRemoteDataSource
@@ -26,17 +26,18 @@ val apiModule = module {
 }
 
 val sourceModule = module {
-    factory {
-        LoginRemoteDataSource(get())
-    }
+    factory { LoginRemoteDataSource(get()) }
+    factory { SignUpRemoteDataSource(get()) }
 
-    factory {
-        SignUpRemoteDataSource(get())
-    }
+}
 
+val repositoryModule = module {
     factory {
         SignUpRepository(get())
     }
+    factory {
+        LoginRepository(get())
+    }
 }
 
-var appModules = listOf(apiModule, sourceModule, viewModelModule)
+var appModules = listOf(apiModule, sourceModule, viewModelModule, repositoryModule)

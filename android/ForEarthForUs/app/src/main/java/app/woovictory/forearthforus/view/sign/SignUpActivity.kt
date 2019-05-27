@@ -5,11 +5,14 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import androidx.lifecycle.Observer
+import app.woovictory.forearthforus.MainActivity
 import app.woovictory.forearthforus.R
 import app.woovictory.forearthforus.base.BaseActivity
 import app.woovictory.forearthforus.databinding.ActivitySignUpBinding
+import app.woovictory.forearthforus.util.SharedPreferenceManager
 import app.woovictory.forearthforus.vm.SignUpViewModel
 import kotlinx.android.synthetic.main.activity_sign_up.*
+import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -26,7 +29,7 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding, SignUpViewModel>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setUpToolbar()
-        checkInformation()
+        checkEditText()
         initStartView()
         initDataBinding()
     }
@@ -37,7 +40,7 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding, SignUpViewModel>() {
         supportActionBar?.setDisplayShowTitleEnabled(false)
     }
 
-    private fun checkInformation() {
+    private fun checkEditText() {
         viewDataBinding.apply {
             signNameEt.addTextChangedListener(object : TextWatcher {
                 override fun afterTextChanged(e: Editable?) {
@@ -126,7 +129,6 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding, SignUpViewModel>() {
             })
 
         }
-
     }
 
     fun checkAllInfo() {
@@ -155,7 +157,13 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding, SignUpViewModel>() {
             } else {
                 toast("정보를 모두 입력해주세요.")
             }
+        })
 
+        viewModel.signUpResponse.observe(this, Observer {
+            if(it){
+                startActivity<MainActivity>()
+                finish()
+            }
         })
     }
 

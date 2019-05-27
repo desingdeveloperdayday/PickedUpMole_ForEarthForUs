@@ -1,5 +1,6 @@
 package app.woovictory.forearthforus.di
 
+import app.woovictory.forearthforus.vm.LoginViewModel
 import app.woovictory.forearthforus.vm.SignUpViewModel
 import org.koin.androidx.viewmodel.ext.koin.viewModel
 import org.koin.dsl.module.module
@@ -9,7 +10,6 @@ import org.koin.dsl.module.module
  */
 
 val viewModelModule = module {
-    viewModel {
-        SignUpViewModel(get())
-    }
+    viewModel { SignUpViewModel(get()) }
+    viewModel { LoginViewModel(get()) }
 }

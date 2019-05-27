@@ -14,13 +14,13 @@ import retrofit2.http.POST
 interface ApiService {
 
     // 1. email 로그인.
-    @POST("api/v1/rest-auth/login/")
+    @POST("api/v1/account/login/")
     fun loginByEmail(
         @Body user: LoginByEmailRequest
     ): Single<LoginByEmailResponse>
 
     // 2. email 회원가입.
-    @POST("api/v1/rest-auth/registration/")
+    @POST("api/v1/account/registration/")
     fun signUpByEmail(
         @Body signUser: SignByEmailRequest
     ): Single<LoginByEmailResponse>
