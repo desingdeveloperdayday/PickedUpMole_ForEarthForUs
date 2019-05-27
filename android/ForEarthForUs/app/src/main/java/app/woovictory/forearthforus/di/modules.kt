@@ -4,6 +4,7 @@ import app.woovictory.forearthforus.api.ApiService
 import app.woovictory.forearthforus.data.Repository
 import app.woovictory.forearthforus.data.repository.SignUpRepository
 import app.woovictory.forearthforus.data.source.LoginRemoteDataSource
+import app.woovictory.forearthforus.data.source.SignUpRemoteDataSource
 import org.koin.dsl.module.module
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -29,7 +30,11 @@ val sourceModule = module {
         LoginRemoteDataSource(get())
     }
 
-    factory<Repository> {
+    factory {
+        SignUpRemoteDataSource(get())
+    }
+
+    factory {
         SignUpRepository(get())
     }
 }

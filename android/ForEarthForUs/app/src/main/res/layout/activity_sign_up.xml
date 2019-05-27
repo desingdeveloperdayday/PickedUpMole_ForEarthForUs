@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
-
+        <variable name="vm" type="app.woovictory.forearthforus.vm.SignUpViewModel"/>
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
@@ -103,6 +103,7 @@
                 android:layout_height="60dp"
                 android:text="@string/text_sign_up"
                 android:stateListAnimator="@null"
+                android:onClick="@{()-> vm.clickToSignUp()}"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/signPasswordCheckEt"
