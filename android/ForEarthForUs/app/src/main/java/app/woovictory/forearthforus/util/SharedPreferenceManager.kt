@@ -6,6 +6,7 @@ import android.content.SharedPreferences
 /**
  * Created by VictoryWoo
  * 확장 함수를 사용해서 SharedPreference 구현.
+ * 사용 시 token 과 같은 변수 추가해서 사용하면 된다.
  */
 object SharedPreferenceManager {
 
