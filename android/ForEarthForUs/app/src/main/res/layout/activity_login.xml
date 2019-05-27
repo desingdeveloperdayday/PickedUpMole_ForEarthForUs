@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
     <data>
-
+        <variable name="vm" type="app.woovictory.forearthforus.vm.LoginViewModel"/>
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
@@ -18,7 +18,7 @@
                 android:layout_width="92dp"
                 android:layout_height="60dp"
                 android:background="@color/fefu_main"
-                android:text="로고"
+                tools:text="로고"
                 android:gravity="center"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -63,6 +63,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:text="@string/text_login"
+                android:onClick="@{()-> vm.clickToLogin()}"
                 android:stateListAnimator="@null"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -114,9 +115,10 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:gravity="center_horizontal"
-                app:layout_constraintTop_toBottomOf="@id/loginLineLayout"
                 android:layout_marginEnd="@dimen/margin_48dp"
                 android:layout_marginTop="@dimen/margin_48dp"
+                android:onClick="@{()-> vm.clickToGoogleLogin()}"
+                app:layout_constraintTop_toBottomOf="@id/loginLineLayout"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/loginEmail"
                 app:layout_constraintHorizontal_chainStyle="packed">
@@ -147,6 +149,7 @@
                 android:orientation="vertical"
                 android:gravity="center_horizontal"
                 android:layout_marginTop="@dimen/margin_48dp"
+                android:onClick="@{()->vm.clickToSignActivity()}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/loginLineLayout"
                 app:layout_constraintStart_toEndOf="@id/loginGoogle"

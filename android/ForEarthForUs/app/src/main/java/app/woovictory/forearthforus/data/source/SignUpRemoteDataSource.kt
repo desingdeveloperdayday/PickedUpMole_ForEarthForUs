@@ -4,6 +4,7 @@ import app.woovictory.forearthforus.api.ApiService
 import app.woovictory.forearthforus.model.login.LoginByEmailResponse
 import app.woovictory.forearthforus.model.sign.SignByEmailRequest
 import io.reactivex.Single
+import retrofit2.Response
 
 /**
  * Created by VictoryWoo
