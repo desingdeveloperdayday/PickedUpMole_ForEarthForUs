@@ -49,13 +49,14 @@ interface ApiService {
 
 
     // 6. 특정 mission item 의 상세 정보를 가져오는 api
-    @GET("api/v1/mission/1/")
+    @GET("api/v1/mission/{id}/")
     fun getMissionList(
-        @Header("Authorization") Authorization: String
+        @Header("Authorization") Authorization: String,
+        @Path("id") id: Int
     )
 
     // 7. category 에 관련된 mission list 를 가져오는 api
-    @GET("api/v1/mission/?category={category}")
+    @GET("api/v1/mission/?category={category}/")
     fun getMissionCategoryList(
         @Header("Authorization") Authorization: String,
         @Path("category") category: Int
@@ -64,7 +65,7 @@ interface ApiService {
 
     // 8. 사용자의 mission list를 얻어오는 api query는 status field에 progress/complete를 넣을 수 있으며
     // , progress는 오늘 진행중인 미션, complete는 완료한 미션을 response로 준다.
-    @GET("api/v1/feed/?status={progress}")
+    @GET("api/v1/feed/?status={progress}/")
     fun getUserHistory(
         @Header("Authorization") Authorization: String,
         @Path("progress") progress: String
@@ -86,9 +87,10 @@ interface ApiService {
 
 
     // 12. 사용자가 선택한 특정 미션의 detail 내용을 보여주는 api
-    @GET("api/v1/feed/2/")
+    @GET("api/v1/feed/{id}/")
     fun getMissionDetail(
-        @Header("Authorization") Authorization: String
+        @Header("Authorization") Authorization: String,
+        @Path("id") id: Int
     )
 
     // admin - 관리자.
