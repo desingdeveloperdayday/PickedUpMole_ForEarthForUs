@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
     <data>
-        <variable name="viewModel" type="app.woovictory.forearthforus.vm.MyPageViewModel"/>
+        <variable name="vm" type="app.woovictory.forearthforus.vm.MyPageViewModel"/>
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
@@ -94,7 +94,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="match_parent"
-                    android:onClick="@{() -> viewModel.clickToAchieve()}">
+                    android:onClick="@{() -> vm.clickToAchieve()}">
 
                 <ImageView
                         android:id="@+id/mypageAchieveList"
@@ -223,6 +223,7 @@
                 android:layout_height="56dp"
                 android:background="@color/fefu_white"
                 android:layout_marginTop="@dimen/margin_8dp"
+                android:onClick="@{()-> vm.clickToLogOut()}"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/myPageCurrentVersion">

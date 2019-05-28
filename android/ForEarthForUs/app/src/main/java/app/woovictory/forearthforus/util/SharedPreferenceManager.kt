@@ -26,6 +26,11 @@ object SharedPreferenceManager {
         editor.apply()
     }
 
+    fun removeAllData(){
+        val editor = preferences.edit()
+        editor.clear()
+        editor.apply()
+    }
 
     var token: String?
         get() = preferences.getString(PREF_USER, "")

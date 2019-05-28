@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import app.woovictory.forearthforus.base.BaseViewModel
 import app.woovictory.forearthforus.data.repository.LoginRepository
+import app.woovictory.forearthforus.util.SharedPreferenceManager
 import app.woovictory.forearthforus.util.SingleLiveEvent
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -24,6 +25,10 @@ class LoginViewModel(private val loginRepository: LoginRepository) : BaseViewMod
     val clickToGoogleLogin: LiveData<Any>
         get() = _clickToGoogleLogin
 
+    private val _loginResponse = SingleLiveEvent<Boolean>()
+    val loginResponse: LiveData<Boolean>
+        get() = _loginResponse
+
     fun clickToLogin() {
         _clickToLogin.call()
     }
@@ -42,7 +47,8 @@ class LoginViewModel(private val loginRepository: LoginRepository) : BaseViewMod
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
-                    Log.v("success login 9871", it.token)
+                    SharedPreferenceManager.token = it.token
+                    _loginResponse.value = true
                 }, {
                     Log.v("fail login 9871", it.message)
                 })
