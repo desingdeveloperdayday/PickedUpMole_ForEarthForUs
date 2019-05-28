@@ -9,7 +9,6 @@ import app.woovictory.forearthforus.MainActivity
 import app.woovictory.forearthforus.R
 import app.woovictory.forearthforus.base.BaseActivity
 import app.woovictory.forearthforus.databinding.ActivitySignUpBinding
-import app.woovictory.forearthforus.util.SharedPreferenceManager
 import app.woovictory.forearthforus.vm.SignUpViewModel
 import kotlinx.android.synthetic.main.activity_sign_up.*
 import org.jetbrains.anko.startActivity
@@ -155,12 +154,12 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding, SignUpViewModel>() {
                     , signPasswordEt.text.toString(), signPasswordCheckEt.text.toString()
                 )
             } else {
-                toast("정보를 모두 입력해주세요.")
+                toast(getString(R.string.text_login_alert_text))
             }
         })
 
         viewModel.signUpResponse.observe(this, Observer {
-            if(it){
+            if (it) {
                 startActivity<MainActivity>()
                 finish()
             }

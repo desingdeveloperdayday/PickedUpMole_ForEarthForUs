@@ -8,6 +8,7 @@
     <string name="text_or">or</string>
     <string name="text_google_login">구글 계정으로\n시작하기</string>
     <string name="text_email_login">이메일로 \n회원가입</string>
+    <string name="text_login_alert_text">정보를 모두 입력해주세요.</string>
 
     <!--sign up-->
     <string name="text_sign_up_title">지구를 위하는 당신을\n기다리고 있었어요</string>
@@ -63,5 +64,7 @@
     <string name="text_article_title">For Earth</string>
     <string name="text_article_show_more">더보기</string>
     <string name="text_article_sub_title">For Us</string>
+
+
 
 </resources>

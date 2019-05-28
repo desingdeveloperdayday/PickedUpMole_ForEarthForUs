@@ -7,9 +7,13 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import app.woovictory.forearthforus.R
 import app.woovictory.forearthforus.databinding.FragmentMypageBinding
+import app.woovictory.forearthforus.util.SharedPreferenceManager
+import app.woovictory.forearthforus.view.sign.LoginActivity
 import app.woovictory.forearthforus.vm.MyPageViewModel
+import org.jetbrains.anko.support.v4.startActivity
 import org.jetbrains.anko.support.v4.toast
 
 /**
@@ -18,14 +22,21 @@ import org.jetbrains.anko.support.v4.toast
 class MyPageFragment : Fragment() {
 
     companion object {
-        //private var fragment: MyPageFragment? = null
+        private var fragment: MyPageFragment? = null
         fun newInstance(): MyPageFragment {
+            if (fragment == null) {
+                fragment = MyPageFragment()
+            }
+
             return MyPageFragment()
         }
     }
 
     private lateinit var fragmentMyPageDataBinding: FragmentMypageBinding
-    var myPageViewModel: MyPageViewModel = MyPageViewModel()
+    private val myPageViewModel: MyPageViewModel
+        get() = ViewModelProviders.of(this@MyPageFragment).get(MyPageViewModel::class.java)
+
+    //= MyPageViewModel()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         fragmentMyPageDataBinding = DataBindingUtil.inflate(
@@ -43,7 +54,7 @@ class MyPageFragment : Fragment() {
 
     private fun setViewModel() {
         fragmentMyPageDataBinding.apply {
-            viewModel = myPageViewModel
+            vm = myPageViewModel
             lifecycleOwner = this@MyPageFragment
         }
     }
@@ -52,6 +63,12 @@ class MyPageFragment : Fragment() {
         myPageViewModel.clickToAchieve.observe(this, Observer {
             toast("아아아아")
             //myPageViewModel.clickToAchieve()
+        })
+
+        myPageViewModel.clickToLogOut.observe(this, Observer {
+            SharedPreferenceManager.removeAllData()
+            startActivity<LoginActivity>()
+            activity?.finish()
         })
     }
 }
