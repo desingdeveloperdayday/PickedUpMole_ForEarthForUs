@@ -2,7 +2,6 @@ package app.woovictory.forearthforus.vm
 
 import androidx.lifecycle.LiveData
 import app.woovictory.forearthforus.base.BaseViewModel
-import app.woovictory.forearthforus.util.SharedPreferenceManager
 import app.woovictory.forearthforus.util.SingleLiveEvent
 
 /**
@@ -18,6 +17,13 @@ class MyPageViewModel : BaseViewModel() {
     val clickToLogOut: LiveData<Any>
         get() = _clickToLogOut
 
+    private val _clickToScrapList = SingleLiveEvent<Any>()
+    val clickToScrapList: LiveData<Any>
+        get() = _clickToScrapList
+
+    private val _clickToAlarm = SingleLiveEvent<Any>()
+    val clickToAlarm: LiveData<Any>
+        get() = _clickToAlarm
 
     fun clickToAchieve() {
         _clickToAchieve.call()
@@ -27,5 +33,12 @@ class MyPageViewModel : BaseViewModel() {
         _clickToLogOut.call()
     }
 
+    fun clickToScrapList() {
+        _clickToScrapList.call()
+    }
+
+    fun clickToAlarm(){
+        _clickToAlarm.call()
+    }
 
 }
