@@ -61,14 +61,21 @@ class MyPageFragment : Fragment() {
 
     private fun initDataBinding() {
         myPageViewModel.clickToAchieve.observe(this, Observer {
-            toast("아아아아")
-            //myPageViewModel.clickToAchieve()
+            startActivity<AchieveListActivity>()
         })
 
         myPageViewModel.clickToLogOut.observe(this, Observer {
             SharedPreferenceManager.removeAllData()
             startActivity<LoginActivity>()
             activity?.finish()
+        })
+
+        myPageViewModel.clickToScrapList.observe(this, Observer {
+            startActivity<ScrapListActivity>()
+        })
+
+        myPageViewModel.clickToAlarm.observe(this, Observer {
+            startActivity<AlarmActivity>()
         })
     }
 }

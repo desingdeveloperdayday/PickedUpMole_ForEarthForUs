@@ -59,12 +59,16 @@
     <string name="text_my_page_mission_suggest">미션 제안하기</string>
     <string name="text_my_page_current_version">현재 버전 1.0.0</string>
     <string name="text_my_page_log_out">로그아웃</string>
+    <string name="text_my_page_alarm_receive">미션시작 알람받기</string>
+    <string name="text_my_page_alarm_time_set">알람시간설정</string>
+    <string name="text_my_page_alarm_time_save">저장하기</string>
+    <string name="text_my_page_scrap_list_title">스크랩</string>
+    <string name="text_my_page_achieve_list_title">달성했어요!</string>
 
 
     <string name="text_article_title">For Earth</string>
     <string name="text_article_show_more">더보기</string>
     <string name="text_article_sub_title">For Us</string>
-
 
 
 </resources>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:tools="http://schemas.android.com/tools">
     <data>
         <variable name="vm" type="app.woovictory.forearthforus.vm.MyPageViewModel"/>
     </data>
@@ -45,7 +45,7 @@
                     style="@style/SubTitleHeaderStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="두더지"
+                    tools:text="두더지"
                     android:layout_marginStart="@dimen/margin_32dp"
                     android:layout_marginTop="8dp"
                     app:layout_constraintStart_toStartOf="parent"
@@ -53,21 +53,22 @@
             />
 
             <TextView
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/myPageProfileUserName"
                     android:layout_marginTop="8dp"
-                    style="@style/SubTitleBodyStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
-                    android:text="님"
+                    tools:text="님"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/myPageProfileUserName"
+                    style="@style/SubTitleBodyStyle"
+
             />
 
             <TextView
                     style="@style/ContentsBodyStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="DDD@ddd.com"
+                    tools:text="DDD@ddd.com"
                     android:layout_marginBottom="8dp"
                     android:layout_marginStart="@dimen/margin_32dp"
                     app:layout_constraintStart_toStartOf="parent"
@@ -117,6 +118,7 @@
             </RelativeLayout>
             <RelativeLayout
                     android:id="@+id/myPageScrapButton"
+                    android:onClick="@{()->vm.clickToScrapList()}"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="match_parent">
@@ -144,6 +146,7 @@
             <RelativeLayout
                     android:id="@+id/myPageAlarmButton"
                     android:layout_width="0dp"
+                    android:onClick="@{()-> vm.clickToAlarm()}"
                     android:layout_weight="1"
                     android:layout_height="match_parent">
 
@@ -198,12 +201,20 @@
 
         </RelativeLayout>
 
+        <View
+                android:layout_width="0dp"
+                android:layout_height="0.1dp"
+                android:background="#e3e3e3"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/myPageMissionSuggest"/>
+
         <RelativeLayout
                 android:id="@+id/myPageCurrentVersion"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
                 android:background="@color/fefu_white"
-                android:layout_marginTop="@dimen/margin_8dp"
+                android:layout_marginTop="1dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/myPageMissionSuggest">
@@ -217,12 +228,20 @@
                     android:layout_marginStart="@dimen/margin_24dp"/>
         </RelativeLayout>
 
+        <View
+                android:layout_width="0dp"
+                android:layout_height="0.1dp"
+                android:background="#e3e3e3"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/myPageCurrentVersion"/>
+
         <RelativeLayout
                 android:id="@+id/myPageLogOut"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
                 android:background="@color/fefu_white"
-                android:layout_marginTop="@dimen/margin_8dp"
+                android:layout_marginTop="1dp"
                 android:onClick="@{()-> vm.clickToLogOut()}"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -246,6 +265,14 @@
                     app:srcCompat="@drawable/chevron_right"/>
 
         </RelativeLayout>
+
+        <View
+                android:layout_width="0dp"
+                android:layout_height="0.1dp"
+                android:background="#e3e3e3"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/myPageLogOut"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

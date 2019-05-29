@@ -34,10 +34,11 @@
     </style>
 
     <style name="ButtonWhiteCenterStyle">
-        <item name="android:gravity">center_horizontal</item>
+        <!--<item name="android:gravity">center_horizontal</item>-->
         <item name="android:textSize">@dimen/size_text_16dp</item>
         <item name="android:textColor">@color/fefu_white</item>
         <item name="android:fontFamily">@font/notosanscjkkr_regular</item>
+        <item name="android:includeFontPadding">false</item>
     </style>
 
     <style name="SubTitleBodyStyle">
@@ -162,5 +163,19 @@
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light">
         <item name="colorControlNormal">@color/fefu_white</item>
         <item name="colorControlHighlight">@color/colorPrimaryDark</item>
+    </style>
+
+
+    <!--Switch 버튼 커스텀 색상 지정.-->
+    <style name="CustomSwitchTheme" parent="">
+        <!-- active thumb & track color (30% transparency) -->
+        <item name="colorControlActivated">@color/fefu_main</item>
+
+        <!-- inactive thumb color -->
+        <item name="colorSwitchThumbNormal">#bdbdbd</item>
+
+        <!-- inactive track color (30% transparency) -->
+        <item name="android:colorForeground">#666666
+        </item>
     </style>
 </resources>
