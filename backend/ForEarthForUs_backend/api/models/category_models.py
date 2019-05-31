@@ -4,7 +4,7 @@ from api.utils.media_clean import file_cleanup
 
 class Category(models.Model):
     categoryId = models.IntegerField(primary_key=True, unique=True)
-    image = models.ImageField(null=False, upload_to='images/category/')
+    image = models.FileField(null=False, upload_to='images/category/')
     completeMessage = models.CharField(max_length=100)
 
     class Meta:

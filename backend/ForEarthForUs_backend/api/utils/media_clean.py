@@ -1,6 +1,6 @@
 import os
 from django.core.files.storage import default_storage
-from django.db.models import ImageField
+from django.db.models import FileField
 
 def file_cleanup(sender, **kwargs):
     """
@@ -14,7 +14,7 @@ def file_cleanup(sender, **kwargs):
     """
     for fieldname in get_readonly_fields(sender):
         field = sender._meta.get_field(fieldname)
-        if field and isinstance(field, ImageField):
+        if field and isinstance(field, FileField):
             inst = kwargs['instance']
             f = getattr(inst, fieldname)
             m = inst.__class__._default_manager

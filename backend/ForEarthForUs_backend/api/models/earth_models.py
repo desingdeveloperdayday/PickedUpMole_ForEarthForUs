@@ -24,7 +24,7 @@ EARTH_LEVEL_CHOICES = (
 class Earth(models.Model):
     earthLevel = models.IntegerField(
         primary_key=True, unique=True, choices=EARTH_LEVEL_CHOICES)
-    image = models.ImageField(null=False, upload_to='images/earth/')
+    image = models.FileField(null=False, upload_to='images/earth/')
     content = models.CharField(max_length=100)
 
     class Meta:

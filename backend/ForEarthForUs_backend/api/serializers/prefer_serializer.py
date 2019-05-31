@@ -1,11 +1,12 @@
 from rest_framework import serializers
 from api.models.prefer_models import Prefer, UserPrefer
 from django.contrib.auth import get_user_model
+from api.utils.validate_svg import validate_svg
 
 userModel = get_user_model()
 
 class PreferSerializer(serializers.HyperlinkedModelSerializer):
-    image = serializers.ImageField(max_length=None, use_url=True)
+    image = serializers.FileField(max_length=None, use_url=True, validators=[validate_svg])
 
     class Meta:
         model = Prefer
