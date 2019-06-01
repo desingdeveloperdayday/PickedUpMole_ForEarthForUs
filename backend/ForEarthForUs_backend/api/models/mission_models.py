@@ -8,15 +8,13 @@ CONTENT_LENGTH=256
 
 class Mission(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    image = models.ImageField(null=False, upload_to='images/mission/')
+    image = models.FileField(null=False, upload_to='images/mission/')
     title = models.CharField(max_length=TITLE_LENGTH)
     comment = models.CharField(max_length=CONTENT_LENGTH)
     content = models.CharField(max_length=CONTENT_LENGTH)
     missionTipTitle = models.CharField(max_length=TITLE_LENGTH)
     missionTipContent = models.CharField(max_length=CONTENT_LENGTH)
-    missionMethodTitle = models.CharField(max_length=TITLE_LENGTH)
     missionMethodContent = models.CharField(max_length=CONTENT_LENGTH)
-    missionEffectTitle = models.CharField(max_length=TITLE_LENGTH)
     missionEffectContent = models.CharField(max_length=CONTENT_LENGTH)
 
     class Meta:
