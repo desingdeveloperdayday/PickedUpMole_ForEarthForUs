@@ -7,6 +7,7 @@
                   type="app.woovictory.forearthforus.model.article.detail.ArticleDetailResponse"/>
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
+
             xmlns:android="http://schemas.android.com/apk/res/android"
             android:orientation="vertical"
             android:layout_width="match_parent"
@@ -36,12 +37,11 @@
                 android:id="@+id/itemArticleDetailTitle"
                 android:layout_width="312dp"
                 android:layout_height="wrap_content"
-                android:textSize="24sp"
                 android:textColor="@color/fefu_black"
                 android:lineSpacingExtra="16sp"
                 style="@style/TitleBlackStyle"
                 android:text="@{articleDetailItems.articleDetailTitle}"
-                android:layout_marginTop="@dimen/margin_8dp"
+                android:layout_marginTop="@dimen/margin_16dp"
                 android:layout_marginStart="@dimen/margin_24dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/itemArticleDetailImage"

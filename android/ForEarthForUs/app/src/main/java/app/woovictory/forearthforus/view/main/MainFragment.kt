@@ -6,10 +6,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import app.woovictory.forearthforus.R
 import app.woovictory.forearthforus.databinding.FragmentMainBinding
 import app.woovictory.forearthforus.model.mission.MissionResponse
+import app.woovictory.forearthforus.view.main.detail.EarthDetailActivity
+import app.woovictory.forearthforus.vm.MainViewModel
+import org.jetbrains.anko.support.v4.startActivity
+import org.jetbrains.anko.support.v4.toast
 
 /**
  * Created by VictoryWoo
@@ -25,6 +31,8 @@ class MainFragment : Fragment() {
     private lateinit var fragmentMainBinding: FragmentMainBinding
     private lateinit var itemList: ArrayList<MissionResponse>
     private lateinit var mainMissionAdapter: MainMissionAdapter
+    private val mainViewModel: MainViewModel
+        get() = ViewModelProviders.of(this@MainFragment).get(MainViewModel::class.java)
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         fragmentMainBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_main, container, false)
@@ -35,11 +43,8 @@ class MainFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         initMockData()
         initRecyclerView()
+        setUpViewModel()
         setUpDataBinding()
-    }
-
-    private fun setUpDataBinding() {
-
     }
 
     // mock 데이터 생성.
@@ -64,5 +69,18 @@ class MainFragment : Fragment() {
             adapter = mainMissionAdapter
             setHasFixedSize(true)
         }
+    }
+
+    private fun setUpViewModel() {
+        fragmentMainBinding.apply {
+            vm = mainViewModel
+            lifecycleOwner = this@MainFragment
+        }
+    }
+
+    private fun setUpDataBinding() {
+        mainViewModel.clickToEarthDetail.observe(this, Observer {
+            startActivity<EarthDetailActivity>()
+        })
     }
 }

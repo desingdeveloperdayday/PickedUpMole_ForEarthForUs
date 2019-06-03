@@ -33,7 +33,8 @@ class AlarmActivity : AppCompatActivity() {
     private fun setVisibility(isChecked: Boolean) {
         if (isChecked) {
             alarmTimeSetLayout.visibility = View.VISIBLE
-            //alarmPickerLayout.visibility = View.VISIBLE
+            alarmPickerLayout.visibility = View.VISIBLE
+            flag = true
         } else {
             alarmTimeSetLayout.visibility = View.GONE
             alarmPickerLayout.visibility = View.GONE

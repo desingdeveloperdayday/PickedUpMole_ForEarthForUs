@@ -95,7 +95,7 @@
 
         <RelativeLayout
                 android:id="@+id/alarmTimeSetLayout"
-                android:visibility="visible"
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/margin_56dp"
                 android:background="@color/fefu_background"
@@ -116,7 +116,7 @@
 
         <RelativeLayout
                 android:id="@+id/alarmPickerLayout"
-                android:visibility="visible"
+                android:visibility="gone"
                 android:layout_width="0dp"
                 android:layout_height="200dp"
                 android:background="@color/fefu_background"
