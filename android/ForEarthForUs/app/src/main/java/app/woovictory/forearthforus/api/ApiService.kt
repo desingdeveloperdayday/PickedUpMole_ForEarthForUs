@@ -1,5 +1,6 @@
 package app.woovictory.forearthforus.api
 
+import app.woovictory.forearthforus.model.earth.EarthResponse
 import app.woovictory.forearthforus.model.login.LoginByEmailRequest
 import app.woovictory.forearthforus.model.login.LoginByEmailResponse
 import app.woovictory.forearthforus.model.sign.PreferenceRequest
@@ -35,10 +36,11 @@ interface ApiService {
 
 
     // 4. earth 리스트 main 화면
-    @GET("api/v1/earth/")
+    @GET("api/v1/earth/{earthLevel}")
     fun getEarthList(
-        @Header("Authorization") Authorization: String
-    ): Single<List<PreferenceResponse>>
+        @Header("Authorization") Authorization: String,
+        @Path("earthLevel") earthLevel: Int
+    ): Single<EarthResponse>
 
 
     // 5. category 리스트

@@ -19,7 +19,9 @@ abstract class BaseActivity<B : ViewDataBinding, V : BaseViewModel> : AppCompatA
         viewDataBinding = DataBindingUtil.setContentView(this, layoutResourceId)
     }
 
+    // view 초기화 작업
     abstract fun initStartView()
 
+    // 데이터 바인딩을 통해 observe 할 때 주로 사용.
     abstract fun initDataBinding()
 }

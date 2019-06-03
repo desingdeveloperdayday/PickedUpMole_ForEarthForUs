@@ -31,7 +31,7 @@ class SharedPreferenceServcie private constructor() {
             editor.apply()
         }
 
-    val lastDiarySaveTime: String
+    val lastDiarySaveTime: String?
         get() = preferences!!.getString(PREF_LAST_SAVE_TIME, "")
 
     var workerState: Boolean

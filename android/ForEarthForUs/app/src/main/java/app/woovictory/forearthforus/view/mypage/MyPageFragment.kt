@@ -13,8 +13,8 @@ import app.woovictory.forearthforus.databinding.FragmentMypageBinding
 import app.woovictory.forearthforus.util.SharedPreferenceManager
 import app.woovictory.forearthforus.view.sign.LoginActivity
 import app.woovictory.forearthforus.vm.MyPageViewModel
+import org.jetbrains.anko.support.v4.alert
 import org.jetbrains.anko.support.v4.startActivity
-import org.jetbrains.anko.support.v4.toast
 
 /**
  * Created by VictoryWoo
@@ -36,7 +36,6 @@ class MyPageFragment : Fragment() {
     private val myPageViewModel: MyPageViewModel
         get() = ViewModelProviders.of(this@MyPageFragment).get(MyPageViewModel::class.java)
 
-    //= MyPageViewModel()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         fragmentMyPageDataBinding = DataBindingUtil.inflate(
@@ -64,10 +63,19 @@ class MyPageFragment : Fragment() {
             startActivity<AchieveListActivity>()
         })
 
+        // TODO : 로그아웃 로직을 ViewModel 에서 처리할지 View 에서 처리할지 생각해봐야 함.
         myPageViewModel.clickToLogOut.observe(this, Observer {
-            SharedPreferenceManager.removeAllData()
-            startActivity<LoginActivity>()
-            activity?.finish()
+            alert(title = "로그아웃", message = "로그아웃을 하시겠습니까?") {
+                positiveButton("예") {
+                    SharedPreferenceManager.removeAllData()
+                    startActivity<LoginActivity>()
+                    activity?.finish()
+                }
+                negativeButton("아니오") {
+                    it.dismiss()
+                }
+            }.show()
+
         })
 
         myPageViewModel.clickToScrapList.observe(this, Observer {

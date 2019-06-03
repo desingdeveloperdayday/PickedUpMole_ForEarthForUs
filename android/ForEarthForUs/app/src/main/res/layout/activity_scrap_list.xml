@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
+    <data>
+        <variable name="vm" type="app.woovictory.forearthforus.vm.ScrapListViewModel"/>
+    </data>
     <androidx.constraintlayout.widget.ConstraintLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:tools="http://schemas.android.com/tools"
@@ -20,6 +23,7 @@
 
             <RelativeLayout
                     android:id="@+id/scrapListBackButton"
+                    android:onClick="@{()->vm.clickToBack()}"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:paddingEnd="@dimen/margin_12dp">
@@ -44,6 +48,7 @@
                 app:layout_constraintBottom_toBottomOf="parent">
 
             <LinearLayout
+                    android:descendantFocusability="blocksDescendants"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
@@ -59,8 +64,11 @@
 
                 <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/scrapListRv"
+                        android:layout_marginTop="@dimen/margin_24dp"
+                        android:overScrollMode="never"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"/>
+                        android:layout_height="match_parent"
+                />
 
             </LinearLayout>
 

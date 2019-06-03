@@ -26,7 +26,7 @@ object SharedPreferenceManager {
         editor.apply()
     }
 
-    fun removeAllData(){
+    fun removeAllData() {
         val editor = preferences.edit()
         editor.clear()
         editor.apply()
@@ -38,4 +38,9 @@ object SharedPreferenceManager {
             it.putString(PREF_USER, value)
         }
 
+    var earthLevel: Int
+        get() = preferences.getInt(PREF_USER, 1)
+        set(value) = preferences.edit {
+            it.putInt(PREF_USER, value)
+        }
 }
