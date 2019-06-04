@@ -5,6 +5,6 @@ package app.woovictory.forearthforus.model.earth
  */
 data class EarthResponse(
     val earthLevel: Int,
-    val image: String = "",
+    val image: String? = "",
     val content: String = ""
 )

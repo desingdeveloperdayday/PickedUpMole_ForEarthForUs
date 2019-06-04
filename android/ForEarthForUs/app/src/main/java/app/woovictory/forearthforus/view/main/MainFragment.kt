@@ -7,15 +7,16 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import app.woovictory.forearthforus.R
+import app.woovictory.forearthforus.TestActivity
 import app.woovictory.forearthforus.databinding.FragmentMainBinding
 import app.woovictory.forearthforus.model.mission.MissionResponse
+import app.woovictory.forearthforus.util.SharedPreferenceManager
 import app.woovictory.forearthforus.view.main.detail.EarthDetailActivity
 import app.woovictory.forearthforus.vm.MainViewModel
 import org.jetbrains.anko.support.v4.startActivity
-import org.jetbrains.anko.support.v4.toast
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 /**
  * Created by VictoryWoo
@@ -31,8 +32,8 @@ class MainFragment : Fragment() {
     private lateinit var fragmentMainBinding: FragmentMainBinding
     private lateinit var itemList: ArrayList<MissionResponse>
     private lateinit var mainMissionAdapter: MainMissionAdapter
-    private val mainViewModel: MainViewModel
-        get() = ViewModelProviders.of(this@MainFragment).get(MainViewModel::class.java)
+    private val mainViewModel: MainViewModel by viewModel()
+        //get() = ViewModelProviders.of(this@MainFragment).get(MainViewModel::class.java)
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         fragmentMainBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_main, container, false)
@@ -45,6 +46,8 @@ class MainFragment : Fragment() {
         initRecyclerView()
         setUpViewModel()
         setUpDataBinding()
+
+        fragmentMainBinding.itemMainEarthUserName.text = SharedPreferenceManager.userName
     }
 
     // mock 데이터 생성.
@@ -80,7 +83,16 @@ class MainFragment : Fragment() {
 
     private fun setUpDataBinding() {
         mainViewModel.clickToEarthDetail.observe(this, Observer {
-            startActivity<EarthDetailActivity>()
+            //startActivity<EarthDetailActivity>()
+            startActivity<TestActivity>()
         })
+
+        mainViewModel.getEarthInformation()
+//        mainViewModel.earthResponse.observe(this, Observer {
+//            Log.v("11333",it.image)
+//            Log.v("11333",it.earthLevel.toString())
+//        })
+
+
     }
 }

@@ -5,7 +5,7 @@ package app.woovictory.forearthforus.model.login
  */
 data class LoginByEmailResponse(
     val token : String,
-    val user : User?
+    val user : User
 ){
     data class User(
         val id: Int,

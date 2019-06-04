@@ -11,7 +11,9 @@ import android.content.SharedPreferences
 object SharedPreferenceManager {
 
     private const val NAME = "ForEarth"
-    private const val PREF_USER = "ForEarthForUs"
+    private const val PREF_USER_TOKEN = "ForEarthForUs"
+    private const val PREF_EARTH_LEVEL = "EarthLevel"
+    private const val PREF_USER_NAME = "UserName"
     private const val MODE = Context.MODE_PRIVATE
     private lateinit var preferences: SharedPreferences
 
@@ -32,15 +34,21 @@ object SharedPreferenceManager {
         editor.apply()
     }
 
-    var token: String?
-        get() = preferences.getString(PREF_USER, "")
+    var token: String
+        get() = preferences.getString(PREF_USER_TOKEN, " ")!!
         set(value) = preferences.edit {
-            it.putString(PREF_USER, value)
+            it.putString(PREF_USER_TOKEN, value)
         }
 
     var earthLevel: Int
-        get() = preferences.getInt(PREF_USER, 1)
+        get() = preferences.getInt(PREF_EARTH_LEVEL, 1)
         set(value) = preferences.edit {
-            it.putInt(PREF_USER, value)
+            it.putInt(PREF_EARTH_LEVEL, value)
+        }
+
+    var userName: String
+        get() = preferences.getString(PREF_USER_NAME, " ")!!
+        set(value) = preferences.edit {
+            it.putString(PREF_USER_NAME, value)
         }
 }
