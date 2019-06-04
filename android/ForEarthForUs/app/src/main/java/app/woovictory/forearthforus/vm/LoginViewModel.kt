@@ -48,6 +48,8 @@ class LoginViewModel(private val loginRepository: LoginRepository) : BaseViewMod
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
                     SharedPreferenceManager.token = it.token
+                    SharedPreferenceManager.earthLevel = it.user.earthLevel
+                    SharedPreferenceManager.userName = it.user.name
                     _loginResponse.value = true
                 }, {
                     Log.v("fail login 9871", it.message)

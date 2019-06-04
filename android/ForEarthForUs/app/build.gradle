@@ -63,7 +63,10 @@ dependencies {
     implementation 'com.squareup.okhttp3:logging-interceptor:3.12.1'
 
     // glide
-    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    implementation 'com.github.bumptech.glide:glide:4.8.0'
+    //implementation 'com.github.bumptech.glide:annotations:4.9.0'
+    //annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+
 
     // rounded imageView
     implementation 'com.makeramen:roundedimageview:2.3.0'
@@ -74,4 +77,8 @@ dependencies {
     // koin
     implementation 'org.koin:koin-android:1.0.0-beta-3'
     implementation "org.koin:koin-androidx-viewmodel:1.0.2"
+
+
+    // 잘 머름
+    implementation 'com.github.2coffees1team:GlideToVectorYou:v1.2.0'
 }

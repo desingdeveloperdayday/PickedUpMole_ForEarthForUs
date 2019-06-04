@@ -33,10 +33,13 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
     }
 
     private fun checkSavedToken() {
-        if (SharedPreferenceManager.token!!.isNotEmpty()) {
+        if (SharedPreferenceManager.token.isNotBlank()) {
+            Log.d(tag+19992, "token exist")
+            Log.d(tag+19992, SharedPreferenceManager.token.isBlank().toString())
+
             goToMainActivity()
         } else {
-            Log.d(tag, "No token")
+            Log.d(tag+19992, "No token")
         }
     }
 

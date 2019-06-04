@@ -9,6 +9,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import app.woovictory.forearthforus.base.BaseActivity
+import app.woovictory.forearthforus.base.BaseViewModel
 import app.woovictory.forearthforus.databinding.ActivityMainBinding
 import app.woovictory.forearthforus.view.article.ArticleFragment
 import app.woovictory.forearthforus.view.main.MainFragment
@@ -19,15 +20,18 @@ import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.google.android.material.bottomnavigation.BottomNavigationMenuView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
+class MainActivity : BaseActivity<ActivityMainBinding, BaseViewModel>() {
+    override val viewModel: BaseViewModel = BaseViewModel()
 
     override val layoutResourceId: Int
         get() = R.layout.activity_main
 
-    override val viewModel: MainViewModel = MainViewModel()
+
     private var selectedItem: Int = 0
     private val TAG = javaClass.`package`?.name.toString()
+    private val mainFragment: Fragment = MainFragment.newInstance() as Fragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,7 +42,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
         selectedItem = itemId
         when (itemId) {
             R.id.navigation_main -> {
-                changeFragment(MainFragment.newInstance()!!)
+                changeFragment(mainFragment)
             }
             R.id.navigation_mission -> {
                 changeFragment(MissionFragment.newInstance()!!)
