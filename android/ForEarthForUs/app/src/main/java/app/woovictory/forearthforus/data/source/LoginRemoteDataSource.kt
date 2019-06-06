@@ -4,6 +4,7 @@ import app.woovictory.forearthforus.api.ApiService
 import app.woovictory.forearthforus.model.login.LoginByEmailRequest
 import app.woovictory.forearthforus.model.login.LoginByEmailResponse
 import io.reactivex.Single
+import retrofit2.Response
 
 /**
  * Created by VictoryWoo
@@ -13,7 +14,7 @@ import io.reactivex.Single
  * ViewModel 로 넘긴다.
  */
 class LoginRemoteDataSource(val api: ApiService) {
-    fun login(email: String, password: String): Single<LoginByEmailResponse> {
+    fun login(email: String, password: String): Single<Response<LoginByEmailResponse>> {
         return api.loginByEmail(LoginByEmailRequest(email, password))
     }
 }

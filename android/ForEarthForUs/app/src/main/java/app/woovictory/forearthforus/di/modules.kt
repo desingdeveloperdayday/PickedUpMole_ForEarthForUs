@@ -3,10 +3,12 @@ package app.woovictory.forearthforus.di
 import app.woovictory.forearthforus.BuildConfig
 import app.woovictory.forearthforus.api.ApiService
 import app.woovictory.forearthforus.data.repository.EarthRepository
-import app.woovictory.forearthforus.data.repository.LoginRepository
-import app.woovictory.forearthforus.data.repository.SignUpRepository
+import app.woovictory.forearthforus.data.repository.feed.MissionFeedRepository
+import app.woovictory.forearthforus.data.repository.user.LoginRepository
+import app.woovictory.forearthforus.data.repository.user.SignUpRepository
 import app.woovictory.forearthforus.data.source.LoginRemoteDataSource
 import app.woovictory.forearthforus.data.source.SignUpRemoteDataSource
+import app.woovictory.forearthforus.data.source.feed.MissionFeedRemoteDataSource
 import app.woovictory.forearthforus.data.source.main.EarthRemoteDataSource
 import app.woovictory.forearthforus.util.baseURL
 import app.woovictory.forearthforus.util.headerInterceptor
@@ -60,10 +62,11 @@ val apiModule = module {
     }
 }
 
-val sourceModule = module {
+val dataSourceModule = module {
     factory { LoginRemoteDataSource(get()) }
     factory { SignUpRemoteDataSource(get()) }
     factory { EarthRemoteDataSource(get()) }
+    factory { MissionFeedRemoteDataSource(get()) }
 
 }
 
@@ -71,6 +74,7 @@ val repositoryModule = module {
     factory { SignUpRepository(get()) }
     factory { LoginRepository(get()) }
     factory { EarthRepository(get()) }
+    factory { MissionFeedRepository(get()) }
 }
 
-var appModules = listOf(apiModule, sourceModule, viewModelModule, repositoryModule)
+var appModules = listOf(apiModule, dataSourceModule, viewModelModule, repositoryModule)

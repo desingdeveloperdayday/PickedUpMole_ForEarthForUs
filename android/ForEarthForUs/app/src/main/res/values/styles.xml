@@ -151,6 +151,8 @@
     <style name="ButtonStyle">
         <item name="android:background">@drawable/selector_button</item>
         <item name="android:theme">@style/ButtonWhiteCenterStyle</item>
+        <item name="android:fontFamily">@font/notosanscjkkr_regular</item>
+        <item name="android:includeFontPadding">false</item>
     </style>
 
     <style name="ToolbarStyle" parent="@style/ThemeOverlay.AppCompat.ActionBar">
