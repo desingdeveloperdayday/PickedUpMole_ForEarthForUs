@@ -1,4 +1,4 @@
-package app.woovictory.forearthforus.data.repository
+package app.woovictory.forearthforus.data.repository.user
 
 import app.woovictory.forearthforus.data.Repository
 import app.woovictory.forearthforus.data.source.SignUpRemoteDataSource

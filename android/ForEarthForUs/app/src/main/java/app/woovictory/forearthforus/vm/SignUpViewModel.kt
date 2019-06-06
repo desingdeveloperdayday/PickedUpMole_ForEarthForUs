@@ -3,8 +3,7 @@ package app.woovictory.forearthforus.vm
 import android.util.Log
 import androidx.lifecycle.LiveData
 import app.woovictory.forearthforus.base.BaseViewModel
-import app.woovictory.forearthforus.data.repository.SignUpRepository
-import app.woovictory.forearthforus.model.login.LoginByEmailResponse
+import app.woovictory.forearthforus.data.repository.user.SignUpRepository
 import app.woovictory.forearthforus.util.SharedPreferenceManager
 import app.woovictory.forearthforus.util.SingleLiveEvent
 import io.reactivex.android.schedulers.AndroidSchedulers

@@ -2,9 +2,7 @@
 <layout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-
->
+        xmlns:tools="http://schemas.android.com/tools">
 
     <data>
         <variable name="vm" type="app.woovictory.forearthforus.vm.MainViewModel"/>
@@ -43,6 +41,7 @@
                         android:layout_marginStart="@dimen/margin_24dp"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
+                        android:loadUrlImage="@{String.valueOf(vm.earthResponse.image)}"
                         android:onClick="@{()-> vm.clickToDetail()}"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"/>
@@ -81,7 +80,6 @@
                         android:id="@+id/mainBarGraph"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/main_bar_graph2"
                         android:layout_marginStart="@dimen/margin_24dp"
                         android:layout_marginEnd="@dimen/margin_24dp"
                         android:layout_marginTop="@dimen/margin_24dp"

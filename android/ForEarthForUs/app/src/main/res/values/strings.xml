@@ -69,6 +69,17 @@
     <string name="text_article_title">For Earth</string>
     <string name="text_article_show_more">더보기</string>
     <string name="text_article_sub_title">For Us</string>
+    
+    <!--관심도 설정-->
+    <string name="text_field_air_pollution">대기오염</string>
+    <string name="text_field_water_pollution">수질오염</string>
+    <string name="text_field_ground_pollution">토양오염</string>
+    <string name="text_field_global_warming">지구온난화</string>
+    <string name="text_field_saving_energy">에너지절약</string>
+    <string name="text_field_desert">사막화</string>
+    <string name="text_field_acid_rain">산성비</string>
+    <string name="text_field_weather_change">기후변화</string>
+    <string name="text_field_endangered_species_">멸종위기 동물</string>
 
 
 </resources>
