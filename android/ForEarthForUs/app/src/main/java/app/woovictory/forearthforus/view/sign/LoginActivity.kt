@@ -11,7 +11,7 @@ import app.woovictory.forearthforus.base.BaseActivity
 import app.woovictory.forearthforus.databinding.ActivityLoginBinding
 import app.woovictory.forearthforus.util.SharedPreferenceManager
 import app.woovictory.forearthforus.view.field.FieldSelectActivity
-import app.woovictory.forearthforus.vm.LoginViewModel
+import app.woovictory.forearthforus.vm.account.LoginViewModel
 import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -35,12 +35,12 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
 
     private fun checkSavedToken() {
         if (SharedPreferenceManager.token.isNotBlank()) {
-            Log.d(tag+19992, "token exist")
-            Log.d(tag+19992, SharedPreferenceManager.token.isBlank().toString())
+            Log.d(tag + 19992, "token exist")
+            Log.d(tag + 19992, SharedPreferenceManager.token.isBlank().toString())
 
             goToMainActivity()
         } else {
-            Log.d(tag+19992, "No token")
+            Log.d(tag + 19992, "No token")
         }
     }
 
@@ -122,8 +122,8 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
     }
 
     private fun goToMainActivity() {
-        //startActivity<MainActivity>()
         startActivity<FieldSelectActivity>()
+        //startActivity<MainActivity>()
         finish()
     }
 }

@@ -1,13 +1,11 @@
 package app.woovictory.forearthforus.api
 
 import app.woovictory.forearthforus.model.earth.EarthResponse
-import app.woovictory.forearthforus.model.login.LoginByEmailRequest
-import app.woovictory.forearthforus.model.login.LoginByEmailResponse
+import app.woovictory.forearthforus.model.account.LoginByEmailRequest
+import app.woovictory.forearthforus.model.account.LoginByEmailResponse
 import app.woovictory.forearthforus.model.mission.Example
-import app.woovictory.forearthforus.model.mission.MissionFeedResponse
-import app.woovictory.forearthforus.model.sign.PreferenceRequest
-import app.woovictory.forearthforus.model.sign.PreferenceResponse
-import app.woovictory.forearthforus.model.sign.SignByEmailRequest
+import app.woovictory.forearthforus.model.account.PreferenceModel
+import app.woovictory.forearthforus.model.account.SignByEmailRequest
 import io.reactivex.Single
 import retrofit2.Response
 import retrofit2.http.*
@@ -34,8 +32,8 @@ interface ApiService {
     @POST("api/v1/account/prefer/")
     fun selectPreference(
         @Header("Authorization") Authorization: String,
-        @Body prefer: PreferenceRequest
-    ): Single<List<PreferenceResponse>>
+        @Body list: ArrayList<PreferenceModel>
+    ): Single<Response<ArrayList<PreferenceModel>>>
 
 
     // 4. earth 리스트 main 화면
@@ -71,13 +69,11 @@ interface ApiService {
     // 8. 사용자의 mission list를 얻어오는 api query는 status field에 progress/complete를 넣을 수 있으며
     // , progress는 오늘 진행중인 미션, complete는 완료한 미션을 response로 준다.
     // ?status={progress}/
-
-
     @GET("api/v1/feed/")
     fun getUserMissionFeed(
         @Header("Authorization") Authorization: String,
         @Query("status") progress: String
-    ): Single<Response<Array<Example>>>
+    ): Single<Response<ArrayList<Example>>>
 
 
     // 9. 사용자가 새로운 미션을 선택하는 api

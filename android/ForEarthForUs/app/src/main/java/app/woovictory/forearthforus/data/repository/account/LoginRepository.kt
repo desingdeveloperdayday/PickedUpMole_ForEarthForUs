@@ -1,7 +1,7 @@
-package app.woovictory.forearthforus.data.repository.user
+package app.woovictory.forearthforus.data.repository.account
 
-import app.woovictory.forearthforus.data.source.LoginRemoteDataSource
-import app.woovictory.forearthforus.model.login.LoginByEmailResponse
+import app.woovictory.forearthforus.data.source.account.LoginRemoteDataSource
+import app.woovictory.forearthforus.model.account.LoginByEmailResponse
 import io.reactivex.Single
 import retrofit2.Response
 

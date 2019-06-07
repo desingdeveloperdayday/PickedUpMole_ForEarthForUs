@@ -12,7 +12,7 @@ import retrofit2.Response
 class MissionFeedRemoteDataSource(val api: ApiService) {
 
     fun getUserMissionFeed(token: String, progress: String)
-            : Single<Response<Array<Example>>> {
+            : Single<Response<ArrayList<Example>>> {
         return api.getUserMissionFeed("JWT $token", progress)
     }
 }

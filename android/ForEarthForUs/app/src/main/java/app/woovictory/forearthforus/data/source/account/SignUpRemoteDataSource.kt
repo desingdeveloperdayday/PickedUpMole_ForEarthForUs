@@ -1,10 +1,9 @@
-package app.woovictory.forearthforus.data.source
+package app.woovictory.forearthforus.data.source.account
 
 import app.woovictory.forearthforus.api.ApiService
-import app.woovictory.forearthforus.model.login.LoginByEmailResponse
-import app.woovictory.forearthforus.model.sign.SignByEmailRequest
+import app.woovictory.forearthforus.model.account.LoginByEmailResponse
+import app.woovictory.forearthforus.model.account.SignByEmailRequest
 import io.reactivex.Single
-import retrofit2.Response
 
 /**
  * Created by VictoryWoo

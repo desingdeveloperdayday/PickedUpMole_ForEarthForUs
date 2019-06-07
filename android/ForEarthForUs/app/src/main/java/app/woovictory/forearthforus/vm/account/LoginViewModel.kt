@@ -1,9 +1,9 @@
-package app.woovictory.forearthforus.vm
+package app.woovictory.forearthforus.vm.account
 
 import android.util.Log
 import androidx.lifecycle.LiveData
 import app.woovictory.forearthforus.base.BaseViewModel
-import app.woovictory.forearthforus.data.repository.user.LoginRepository
+import app.woovictory.forearthforus.data.repository.account.LoginRepository
 import app.woovictory.forearthforus.util.SharedPreferenceManager
 import app.woovictory.forearthforus.util.SingleLiveEvent
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -46,12 +46,13 @@ class LoginViewModel(private val loginRepository: LoginRepository) : BaseViewMod
             loginRepository.login(email, password)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({response->
-                    if(response.isSuccessful){
+                .subscribe({ response ->
+                    if (response.isSuccessful) {
                         response.body()?.let {
                             SharedPreferenceManager.token = it.token
                             SharedPreferenceManager.earthLevel = it.user.earthLevel
                             SharedPreferenceManager.userName = it.user.name
+                            SharedPreferenceManager.userId = it.user.id
                         }
                         _loginResponse.value = true
                     }

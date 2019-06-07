@@ -9,7 +9,7 @@ import app.woovictory.forearthforus.MainActivity
 import app.woovictory.forearthforus.R
 import app.woovictory.forearthforus.base.BaseActivity
 import app.woovictory.forearthforus.databinding.ActivitySignUpBinding
-import app.woovictory.forearthforus.vm.SignUpViewModel
+import app.woovictory.forearthforus.vm.account.SignUpViewModel
 import kotlinx.android.synthetic.main.activity_sign_up.*
 import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
