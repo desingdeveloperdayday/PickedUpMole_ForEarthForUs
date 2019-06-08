@@ -9,6 +9,7 @@ class Prefer(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=20, unique=True)
     image = models.FileField(null=False, upload_to='images/prefer/')
+    selectImage = models.FileField(null=False, upload_to='images/prefer/')
 
     class Meta:
         db_table = 'prefers'

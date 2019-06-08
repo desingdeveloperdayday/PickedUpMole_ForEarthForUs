@@ -8,10 +8,12 @@ userModel = get_user_model()
 class PreferSerializer(serializers.HyperlinkedModelSerializer):
     image = serializers.FileField(max_length=None, use_url=True,
                                 validators=[validate_image_extension])
+    selectImage = serializers.FileField(max_length=None, use_url=True,
+                                validators=[validate_image_extension])
 
     class Meta:
         model = Prefer
-        fields = ('id', 'name', 'image')
+        fields = ('id', 'name', 'image', 'selectImage')
 
 class UserPreferSerializer(serializers.ModelSerializer):
 
