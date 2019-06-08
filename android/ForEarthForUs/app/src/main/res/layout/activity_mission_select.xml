@@ -73,7 +73,7 @@
                 android:layout_marginStart="@dimen/margin_24dp"
                 android:layout_marginEnd="@dimen/margin_24dp"
                 android:layout_marginBottom="@dimen/margin_16dp"
-                android:text="@string/text_mission_select"
+                android:text="@string/text_mission_start"
                 android:textColor="@color/fefu_white"
                 android:textSize="@dimen/size_text_16dp"
                 android:stateListAnimator="@null"

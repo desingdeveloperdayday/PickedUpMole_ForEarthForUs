@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
-        <variable name="vm" type="app.woovictory.forearthforus.vm.SignUpViewModel"/>
+        <variable name="vm" type="app.woovictory.forearthforus.vm.account.SignUpViewModel"/>
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".view.sign.SignUpActivity"
+            tools:context=".view.account.SignUpActivity"
             android:background="@color/fefu_white">
 
 

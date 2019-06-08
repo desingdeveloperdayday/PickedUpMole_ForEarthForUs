@@ -13,14 +13,12 @@ import app.woovictory.forearthforus.base.BaseViewModel
 import app.woovictory.forearthforus.databinding.ActivityMainBinding
 import app.woovictory.forearthforus.view.article.ArticleFragment
 import app.woovictory.forearthforus.view.main.MainFragment
-import app.woovictory.forearthforus.view.mission.MissionFragment
+import app.woovictory.forearthforus.view.category.MissionCategoryFragment
 import app.woovictory.forearthforus.view.mypage.MyPageFragment
-import app.woovictory.forearthforus.vm.MainViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.google.android.material.bottomnavigation.BottomNavigationMenuView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
-import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : BaseActivity<ActivityMainBinding, BaseViewModel>() {
     override val viewModel: BaseViewModel = BaseViewModel()
@@ -45,7 +43,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, BaseViewModel>() {
                 changeFragment(mainFragment)
             }
             R.id.navigation_mission -> {
-                changeFragment(MissionFragment.newInstance()!!)
+                changeFragment(MissionCategoryFragment.newInstance()!!)
             }
             R.id.navigation_article -> {
                 changeFragment(ArticleFragment.newInstance())

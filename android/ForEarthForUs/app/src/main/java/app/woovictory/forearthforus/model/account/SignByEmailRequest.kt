@@ -1,4 +1,4 @@
-package app.woovictory.forearthforus.model.sign
+package app.woovictory.forearthforus.model.account
 
 /**
  * Created by VictoryWoo

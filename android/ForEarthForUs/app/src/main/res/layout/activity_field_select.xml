@@ -1,233 +1,256 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/fefu_white"
-        tools:context=".view.field.FieldSelectActivity">
 
-    <!--<com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/fieldAppbar"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+<layout>
+    <data>
+        <variable name="vm" type="app.woovictory.forearthforus.vm.account.FieldSelectViewModel"/>
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@color/fefu_white">
-
-    </com.google.android.material.appbar.AppBarLayout>-->
-
-    <RelativeLayout
-            android:id="@+id/fieldAppbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="match_parent"
             android:background="@color/fefu_white"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            tools:context=".view.field.FieldSelectActivity">
 
-    <TextView
-            android:id="@+id/fieldSelectTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/text_field_select_title"
-            android:textStyle="bold"
-            android:layout_marginTop="@dimen/margin_16dp"
-            android:layout_marginStart="@dimen/margin_24dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/fieldAppbar"
-            style="@style/SubTitleHeaderStyle"/>
-
-    <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:orientation="vertical"
-            android:layout_marginTop="@dimen/margin_32dp"
-            app:layout_constraintTop_toBottomOf="@id/fieldSelectTitle"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/fieldSelectButton">
-
-        <LinearLayout
+        <RelativeLayout
+                android:id="@+id/fieldAppbar"
                 android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/fefu_white"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+                android:id="@+id/fieldSelectTitle"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-            <ImageView android:layout_width="0dp"
-                       android:layout_height="wrap_content"
-                       android:layout_weight="1"
-                       android:src="@drawable/selector_field_airpollution"/>
-
-            <ImageView android:layout_width="0dp"
-                       android:layout_height="wrap_content"
-                       android:layout_weight="1"
-                       android:src="@drawable/selector_field_waterpollution"/>
-
-            <ImageView android:layout_width="0dp"
-                       android:layout_height="wrap_content"
-                       android:layout_weight="1"
-                       android:src="@drawable/selector_field_groundpollution"/>
-
-        </LinearLayout>
+                android:text="@string/text_field_select_title"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/margin_16dp"
+                android:layout_marginStart="@dimen/margin_24dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fieldAppbar"
+                style="@style/SubTitleHeaderStyle"/>
 
         <LinearLayout
-                android:layout_marginTop="8dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-            <TextView
-                    style="@style/ContentsBodyCenterStyle"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:text="@string/text_field_air_pollution"
-            />
-
-            <TextView
-                    style="@style/ContentsBodyCenterStyle"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:text="@string/text_field_water_pollution"
-            />
-
-            <TextView
-                    style="@style/ContentsBodyCenterStyle"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:text="@string/text_field_ground_pollution"
-            />
-
-        </LinearLayout>
-
-        <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:orientation="vertical"
                 android:layout_marginTop="@dimen/margin_32dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                app:layout_constraintTop_toBottomOf="@id/fieldSelectTitle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/fieldSelectButton">
 
-            <ImageView android:layout_width="0dp"
-                       android:layout_height="wrap_content"
-                       android:layout_weight="1"
-                       android:src="@drawable/selector_field_groundpollution"/>
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
-            <ImageView android:layout_width="0dp"
-                       android:layout_height="wrap_content"
-                       android:layout_weight="1"
-                       android:src="@drawable/selector_field_savingenergy"/>
+                <ImageView
+                        android:id="@+id/fieldAirPollution"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/selector_field_airpollution"/>
 
-            <ImageView android:layout_width="0dp"
-                       android:layout_height="wrap_content"
-                       android:layout_weight="1"
-                       android:src="@drawable/selector_field_desert"/>
+                <ImageView
+                        android:id="@+id/fieldWaterPollution"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/selector_field_waterpollution"/>
+
+                <ImageView
+                        android:id="@+id/fieldGroundPollution"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/selector_field_groundpollution"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_marginTop="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                <TextView
+                        android:id="@+id/fieldAirPollutionText"
+                        style="@style/ContentsBodyCenterStyle"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_field_air_pollution"
+                />
+
+                <TextView
+                        android:id="@+id/fieldWaterPollutionText"
+                        style="@style/ContentsBodyCenterStyle"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_field_water_pollution"
+                />
+
+                <TextView
+                        android:id="@+id/fieldGroundPollutionText"
+                        style="@style/ContentsBodyCenterStyle"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_field_ground_pollution"
+                />
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_marginTop="@dimen/margin_32dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                <ImageView
+                        android:id="@+id/fieldGlobalWarming"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/selector_field_groundpollution"/>
+
+                <ImageView
+                        android:id="@+id/fieldSavingEnergy"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/selector_field_savingenergy"/>
+
+                <ImageView
+                        android:id="@+id/fieldDesert"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/selector_field_desert"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_marginTop="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                <TextView
+                        android:id="@+id/fieldGlobalWarmingText"
+                        style="@style/ContentsBodyCenterStyle"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_field_global_warming"
+                />
+
+                <TextView
+                        android:id="@+id/fieldSavingEnergyText"
+                        style="@style/ContentsBodyCenterStyle"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_field_saving_energy"
+                />
+
+                <TextView
+                        android:id="@+id/fieldDesertText"
+                        style="@style/ContentsBodyCenterStyle"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_field_desert"
+                />
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_marginTop="@dimen/margin_32dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                <ImageView
+                        android:id="@+id/fieldAcidRain"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/selector_field_acidrain"/>
+
+                <ImageView
+                        android:id="@+id/fieldWeatherChange"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/selector_field_weather_change"/>
+
+                <ImageView
+                        android:id="@+id/fieldEndangeredSpecies"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/selector_field_endangeredspecies"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_marginTop="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                <TextView
+                        android:id="@+id/fieldAcidRainText"
+                        style="@style/ContentsBodyCenterStyle"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_field_acid_rain"
+                />
+
+                <TextView
+                        android:id="@+id/fieldWeatherChangeText"
+                        style="@style/ContentsBodyCenterStyle"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_field_weather_change"
+                />
+
+                <TextView
+                        android:id="@+id/fieldEndangeredSpeciesText"
+                        style="@style/ContentsBodyCenterStyle"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_field_endangered_species_"
+                />
+
+            </LinearLayout>
 
         </LinearLayout>
 
-        <LinearLayout
-                android:layout_marginTop="8dp"
+        <Button
+                android:id="@+id/fieldSelectButton"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_height="60dp"
+                android:text="@string/text_field_select_button"
+                android:layout_marginBottom="@dimen/margin_16dp"
+                android:layout_marginStart="@dimen/margin_24dp"
+                android:layout_marginEnd="@dimen/margin_24dp"
+                android:stateListAnimator="@null"
+                android:onClick="@{()->vm.clickToSelectPreference()}"
+                app:layout_constraintEnd_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                style="@style/ButtonStyle"/>
 
-            <TextView
-                    style="@style/ContentsBodyCenterStyle"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:text="@string/text_field_global_warming"
-            />
-
-            <TextView
-                    style="@style/ContentsBodyCenterStyle"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:text="@string/text_field_saving_energy"
-            />
-
-            <TextView
-                    style="@style/ContentsBodyCenterStyle"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:text="@string/text_field_desert"
-            />
-
-        </LinearLayout>
-
-        <LinearLayout
-                android:layout_marginTop="@dimen/margin_32dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-            <ImageView android:layout_width="0dp"
-                       android:layout_height="wrap_content"
-                       android:layout_weight="1"
-                       android:src="@drawable/selector_field_acidrain"/>
-
-            <ImageView android:layout_width="0dp"
-                       android:layout_height="wrap_content"
-                       android:layout_weight="1"
-                       android:src="@drawable/selector_field_weather_change"/>
-
-            <ImageView android:layout_width="0dp"
-                       android:layout_height="wrap_content"
-                       android:layout_weight="1"
-                       android:src="@drawable/selector_field_endangeredspecies"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-                android:layout_marginTop="8dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-            <TextView
-                    style="@style/ContentsBodyCenterStyle"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:text="@string/text_field_acid_rain"
-            />
-
-            <TextView
-                    style="@style/ContentsBodyCenterStyle"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:text="@string/text_field_weather_change"
-            />
-
-            <TextView
-                    style="@style/ContentsBodyCenterStyle"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:text="@string/text_field_endangered_species_"
-            />
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <Button
-            android:id="@+id/fieldSelectButton"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:text="@string/text_field_select_button"
-            android:layout_marginBottom="@dimen/margin_16dp"
-            android:layout_marginStart="@dimen/margin_24dp"
-            android:layout_marginEnd="@dimen/margin_24dp"
-            android:stateListAnimator="@null"
-            app:layout_constraintEnd_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            style="@style/ButtonStyle"/>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

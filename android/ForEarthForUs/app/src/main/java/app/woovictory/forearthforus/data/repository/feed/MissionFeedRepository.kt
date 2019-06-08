@@ -12,7 +12,7 @@ import retrofit2.Response
 class MissionFeedRepository(private val missionFeedRemoteDataSource: MissionFeedRemoteDataSource) {
 
     fun getUserMissionFeed(token: String, progress: String)
-            : Single<Response<Array<Example>>> {
+            : Single<Response<ArrayList<Example>>> {
         return missionFeedRemoteDataSource.getUserMissionFeed(token, progress)
     }
 }

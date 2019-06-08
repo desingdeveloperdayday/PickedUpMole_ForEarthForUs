@@ -2,10 +2,10 @@
 <layout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools">
+>
 
     <data>
-        <variable name="item" type="app.woovictory.forearthforus.model.TodayMissionResponse"/>
+        <variable name="item" type="app.woovictory.forearthforus.model.category.MissionCategoryResponse"/>
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/itemMissionLayout"
@@ -14,47 +14,17 @@
             android:layout_marginTop="@dimen/margin_16dp"
     >
 
-    <!--    <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/border_item_list"
-                app:layout_constraintEnd_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-            <ImageView
-                    android:id="@+id/itemMissionCategoryImage"
-                    android:layout_width="match_parent"
-                    android:layout_height="112dp"/>
-
-            <TextView
-                    android:id="@+id/itemMissionCategoryText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/text_mission_content_title"
-                    android:layout_marginStart="@dimen/margin_24dp"
-                    android:layout_marginBottom="@dimen/margin_22dp"
-                    android:layout_gravity="bottom"
-                    android:text="@{item.todayMissionTitle}"
-                    style="@style/SubTitleHeaderStyle"/>
-
-        </FrameLayout>-->
-
-        <com.makeramen.roundedimageview.RoundedImageView
-                android:loadImage="@{item.todayMissionImage}"
+        <ImageView
+                android:id="@+id/itemMissionCategoryImage"
+                android:layout_width="0dp"
+                android:layout_height="130dp"
+                android:layout_marginStart="@dimen/margin_24dp"
+                android:layout_marginEnd="@dimen/margin_24dp"
+                android:loadUrlImage="@{String.valueOf(item.image)}"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:id="@+id/itemMissionCategoryImage"
-                android:layout_width="0dp"
-                android:scaleType="fitXY"
-                app:riv_corner_radius="8dp"
-                app:riv_border_color="#333333"
-                app:riv_mutate_background="true"
-                app:riv_oval="false"
-                android:layout_marginStart="@dimen/margin_24dp"
-                android:layout_marginEnd="@dimen/margin_24dp"
-                android:layout_height="125dp"/>
+        />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
