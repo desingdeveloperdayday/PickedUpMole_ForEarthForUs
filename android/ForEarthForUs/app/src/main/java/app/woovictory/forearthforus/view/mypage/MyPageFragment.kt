@@ -11,7 +11,7 @@ import androidx.lifecycle.ViewModelProviders
 import app.woovictory.forearthforus.R
 import app.woovictory.forearthforus.databinding.FragmentMypageBinding
 import app.woovictory.forearthforus.util.SharedPreferenceManager
-import app.woovictory.forearthforus.view.sign.LoginActivity
+import app.woovictory.forearthforus.view.account.LoginActivity
 import app.woovictory.forearthforus.vm.MyPageViewModel
 import org.jetbrains.anko.support.v4.alert
 import org.jetbrains.anko.support.v4.startActivity

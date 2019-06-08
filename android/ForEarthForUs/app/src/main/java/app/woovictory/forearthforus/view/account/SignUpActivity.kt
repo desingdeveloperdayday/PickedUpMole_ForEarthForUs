@@ -1,4 +1,4 @@
-package app.woovictory.forearthforus.view.sign
+package app.woovictory.forearthforus.view.account
 
 import android.os.Bundle
 import android.text.Editable

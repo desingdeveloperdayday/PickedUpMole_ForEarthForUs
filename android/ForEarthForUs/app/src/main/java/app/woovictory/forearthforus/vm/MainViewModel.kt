@@ -72,13 +72,13 @@ class MainViewModel(
                             //it[0].missionFeed.id
 
                             Log.v("199427 success", it.size.toString())
-                            if(it.isEmpty()){
+                            /*if(it.isEmpty()){
                                 Log.v("199427 success 0번째", it[0].id.toString())
                                 Log.v("199427 success 1번째", "비어있음.")
                             }else{
                                 Log.v("199427 success el", it[0].id.toString())
                                 Log.v("199427 success el", it[0].mission?.category?.completeMessage)
-                            }
+                            }*/
 
 
 

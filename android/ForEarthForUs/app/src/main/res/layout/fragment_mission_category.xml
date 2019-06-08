@@ -3,6 +3,9 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="vm" type="app.woovictory.forearthforus.vm.category.MissionCategoryViewModel"/>
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
             android:orientation="vertical"

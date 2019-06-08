@@ -1,10 +1,11 @@
 package app.woovictory.forearthforus.view.mission.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import app.woovictory.forearthforus.databinding.ItemListMissionCategoryBinding
-import app.woovictory.forearthforus.model.TodayMissionResponse
+import app.woovictory.forearthforus.model.category.MissionCategoryResponse
 import app.woovictory.forearthforus.view.mission.viewholder.TodayMissionViewHolder
 
 /**
@@ -12,7 +13,7 @@ import app.woovictory.forearthforus.view.mission.viewholder.TodayMissionViewHold
  */
 class TodayMissionAdapter : RecyclerView.Adapter<TodayMissionViewHolder>() {
 
-    private val itemList = ArrayList<TodayMissionResponse>()
+    private val itemList = ArrayList<MissionCategoryResponse>()
     var onMissionItemClickListener: (() -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TodayMissionViewHolder {
@@ -33,7 +34,10 @@ class TodayMissionAdapter : RecyclerView.Adapter<TodayMissionViewHolder>() {
         }
     }
 
-    fun addItem(items: ArrayList<TodayMissionResponse>) {
-        itemList.addAll(items)
+    fun addItem(items: ArrayList<MissionCategoryResponse>) {
+        this.itemList.addAll(items)
+        notifyDataSetChanged()
+        Log.v("970822", itemList.size.toString())
+        //Log.v("970822",itemList[0].image)
     }
 }

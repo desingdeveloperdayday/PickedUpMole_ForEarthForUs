@@ -22,6 +22,7 @@ import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target
+import com.makeramen.roundedimageview.RoundedImageView
 
 /**
  * Created by VictoryWoo
@@ -37,55 +38,6 @@ object BindingUtil {
 
     @SuppressLint("StaticFieldLeak")
     private var requestBuilder: RequestBuilder<PictureDrawable>? = null
-
-    /*@JvmStatic
-    @BindingAdapter("android:loadImageString")
-    fun loadImage(imageView: ImageView, path: String) {
-        Log.v("11882 path", path.toString())
-        Glide.with(imageView.context)
-            .applyDefaultRequestOptions(requestOptions)
-            .load(path)
-            .into(imageView)
-    }*/
-
-  /*  @JvmStatic
-    @BindingAdapter("android:loadImage")
-    fun loadImage(imageView: ImageView, path: String?) {
-        Log.v("11882 path", path.toString())
-        if (path != null) {
-            Log.v("11882 path", "if 안으로?!")
-            Glide.with(imageView.context)
-                .applyDefaultRequestOptions(requestOptions)
-                .load(path)
-                .listener(object : RequestListener<Drawable>{
-                    override fun onLoadFailed(
-                        e: GlideException?,
-                        model: Any?,
-                        target: Target<Drawable>?,
-                        isFirstResource: Boolean
-                    ): Boolean {
-                        Log.v("11882 fail", "${e?.message}")
-                        Log.v("11882 fail", "${e?.printStackTrace()}")
-                        return true
-                    }
-
-                    override fun onResourceReady(
-                        resource: Drawable?,
-                        model: Any?,
-                        target: Target<Drawable>?,
-                        dataSource: DataSource?,
-                        isFirstResource: Boolean
-                    ): Boolean {
-                        Log.v("11882 success", "성공.")
-                        return true
-                    }
-
-                })
-                .into(imageView)
-        }
-        Log.v("11882 path", "여기까지 떨어지니?")
-    }
-*/
 
 
 
@@ -109,4 +61,5 @@ object BindingUtil {
 
         requestBuilder?.load(Uri.parse(path))?.into(imageView)
     }
+
 }

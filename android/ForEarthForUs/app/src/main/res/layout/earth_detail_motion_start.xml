@@ -45,11 +45,10 @@
 
     <TextView
             android:id="@+id/earthDetailLevel"
-            android:textColor="@color/fefu__sub"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="LV.1 지구씌"
-            style="@style/SubTitleHeaderCenterStyle"
+            style="@style/SubTitleBodyCenterStyle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/earth_image"
@@ -72,8 +71,8 @@
     <ImageView
             android:id="@+id/earthDetailBar"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/main_bar_graph2"
+            android:layout_height="35dp"
+            android:src="@drawable/main_bar_graph1"
             android:layout_marginTop="@dimen/padding_16dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

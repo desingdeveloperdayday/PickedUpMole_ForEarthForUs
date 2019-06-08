@@ -6,6 +6,7 @@ import app.woovictory.forearthforus.model.account.LoginByEmailResponse
 import app.woovictory.forearthforus.model.mission.Example
 import app.woovictory.forearthforus.model.account.PreferenceModel
 import app.woovictory.forearthforus.model.account.SignByEmailRequest
+import app.woovictory.forearthforus.model.category.MissionCategoryResponse
 import io.reactivex.Single
 import retrofit2.Response
 import retrofit2.http.*
@@ -35,7 +36,6 @@ interface ApiService {
         @Body list: ArrayList<PreferenceModel>
     ): Single<Response<ArrayList<PreferenceModel>>>
 
-
     // 4. earth 리스트 main 화면
     @GET("api/v1/earth/{earthLevel}")
     fun getEarthList(
@@ -48,7 +48,7 @@ interface ApiService {
     @GET("api/v1/category/")
     fun getCategoryList(
         @Header("Authorization") Authorization: String
-    )
+    ): Single<Response<ArrayList<MissionCategoryResponse>>>
 
 
     // 6. 특정 mission item 의 상세 정보를 가져오는 api

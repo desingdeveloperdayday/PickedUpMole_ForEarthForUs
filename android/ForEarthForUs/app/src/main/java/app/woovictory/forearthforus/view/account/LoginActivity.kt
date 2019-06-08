@@ -1,4 +1,4 @@
-package app.woovictory.forearthforus.view.sign
+package app.woovictory.forearthforus.view.account
 
 import android.os.Bundle
 import android.text.Editable
@@ -10,7 +10,6 @@ import app.woovictory.forearthforus.R
 import app.woovictory.forearthforus.base.BaseActivity
 import app.woovictory.forearthforus.databinding.ActivityLoginBinding
 import app.woovictory.forearthforus.util.SharedPreferenceManager
-import app.woovictory.forearthforus.view.field.FieldSelectActivity
 import app.woovictory.forearthforus.vm.account.LoginViewModel
 import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
@@ -122,8 +121,8 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
     }
 
     private fun goToMainActivity() {
-        startActivity<FieldSelectActivity>()
-        //startActivity<MainActivity>()
+        //startActivity<FieldSelectActivity>()
+        startActivity<MainActivity>()
         finish()
     }
 }
