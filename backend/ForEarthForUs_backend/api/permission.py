@@ -34,7 +34,6 @@ class IsOwnerFeed(permissions.BasePermission):
 
     def has_permission(self, request, view):
         # can write custom code
-        print(view.kwargs)
         try:
             feed = Feed.objects.get(
                 pk=view.kwargs['pk'])
