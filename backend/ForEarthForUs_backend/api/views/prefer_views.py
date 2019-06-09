@@ -30,24 +30,21 @@ class UserPreferCreate(generics.CreateAPIView):
             data = request.data
 
         prefer_id_list = []
-        for prefer_dic in data:
-            # 보낸 user id를 알아서 맞는지 확인해야함
-            if request.user.id is not prefer_dic['user']:
-                return Response(
-                    {"message": "Forbidden request (user id invalid)"},
-                    status=status.HTTP_403_FORBIDDEN)
+        json_arr = []
+        for prefer_item in data:
             # 보낸 prefer id중에 중복이 있는지 체크
-            if prefer_dic['prefer'] in prefer_id_list:
+            if prefer_item in prefer_id_list:
                 return Response(
                     {"message": "Forbidden request (duplicated prefer id)"},
                     status=status.HTTP_403_FORBIDDEN)
-            prefer_id_list.append(prefer_dic['prefer'])
+            prefer_id_list.append(prefer_item)
+            json_arr.append({'prefer': prefer_item, 'user':request.user.id})
 
         if not is_many:
             return super(UserPreferCreate, self).create(request, *args, **kwargs)
         else:
-            serializer = self.get_serializer(data=request.data, many=True)
+            serializer = self.get_serializer(data=json_arr, many=True)
             serializer.is_valid(raise_exception=True)
             self.perform_create(serializer)
             headers = self.get_success_headers(serializer.data)
-            return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
+            return Response(status=status.HTTP_201_CREATED, headers=headers)
