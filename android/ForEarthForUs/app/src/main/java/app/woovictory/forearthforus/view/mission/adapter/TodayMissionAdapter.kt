@@ -35,9 +35,12 @@ class TodayMissionAdapter : RecyclerView.Adapter<TodayMissionViewHolder>() {
     }
 
     fun addItem(items: ArrayList<MissionCategoryResponse>) {
-        this.itemList.addAll(items)
-        notifyDataSetChanged()
-        Log.v("970822", itemList.size.toString())
+        if(this.itemList.size == 0){
+            this.itemList.addAll(items)
+            notifyDataSetChanged()
+        }else{
+            Log.v("970822", itemList.size.toString())
+        }
         //Log.v("970822",itemList[0].image)
     }
 }

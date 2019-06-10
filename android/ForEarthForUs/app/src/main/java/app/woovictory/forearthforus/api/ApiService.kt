@@ -3,7 +3,7 @@ package app.woovictory.forearthforus.api
 import app.woovictory.forearthforus.model.earth.EarthResponse
 import app.woovictory.forearthforus.model.account.LoginByEmailRequest
 import app.woovictory.forearthforus.model.account.LoginByEmailResponse
-import app.woovictory.forearthforus.model.mission.Example
+import app.woovictory.forearthforus.model.mission.MissionFeedResponse
 import app.woovictory.forearthforus.model.account.PreferenceModel
 import app.woovictory.forearthforus.model.account.SignByEmailRequest
 import app.woovictory.forearthforus.model.category.MissionCategoryResponse
@@ -73,7 +73,7 @@ interface ApiService {
     fun getUserMissionFeed(
         @Header("Authorization") Authorization: String,
         @Query("status") progress: String
-    ): Single<Response<ArrayList<Example>>>
+    ): Single<Response<ArrayList<MissionFeedResponse>>>
 
 
     // 9. 사용자가 새로운 미션을 선택하는 api

@@ -25,7 +25,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class MainFragment : Fragment() {
 
     companion object {
-        fun newInstance(): MainFragment? {
+        fun newInstance(): MainFragment {
             return MainFragment()
         }
     }
@@ -36,7 +36,6 @@ class MainFragment : Fragment() {
     private val mainViewModel: MainViewModel by viewModel()
     private var earthLevelList = arrayListOf(R.drawable.main_bar_graph1, R.drawable.main_bar_graph2)
 
-
     //get() = ViewModelProviders.of(this@MainFragment).get(MainViewModel::class.java)
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -46,36 +45,13 @@ class MainFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        initMockData()
-        initRecyclerView()
+        //initRecyclerView()
+        mainMissionAdapter = MainMissionAdapter()
+        fragmentMainBinding.itemMainEarthUserName.text = SharedPreferenceManager.userName
+
         setUpViewModel()
         setUpDataBinding()
 
-        fragmentMainBinding.itemMainEarthUserName.text = SharedPreferenceManager.userName
-    }
-
-    // mock 데이터 생성.
-    private fun initMockData() {
-        itemList = ArrayList()
-
-        for (i in 0..5) {
-            itemList.add(
-                MissionResponse(
-                    R.drawable.fufe_illust_jh_04,
-                    "지구 재활용",
-                    "재활용 하자."
-                )
-            )
-        }
-        mainMissionAdapter = MainMissionAdapter(itemList)
-    }
-
-    private fun initRecyclerView() {
-        fragmentMainBinding.mainRv.apply {
-            layoutManager = LinearLayoutManager(context.applicationContext)
-            adapter = mainMissionAdapter
-            setHasFixedSize(true)
-        }
     }
 
     private fun setUpViewModel() {
@@ -96,9 +72,30 @@ class MainFragment : Fragment() {
         mainViewModel.earthResponse.observe(this, Observer {
             Log.v("40032", it.earthLevel.toString())
             setEarthLevel(it.earthLevel - 1)
-
         })
 
+        mainViewModel.missionFeedResponse.observe(this, Observer {
+            Log.v("22883", it.size.toString())
+            if (it.size > 0) {
+                fragmentMainBinding.apply {
+                    mainRv.visibility = View.VISIBLE
+                    mainMissionAdapter.addItems(it)
+                    initRecyclerView()
+                }
+                fragmentMainBinding.mainNullIconImage.visibility = View.GONE
+            } else {
+                fragmentMainBinding.mainNullIconImage.visibility = View.VISIBLE
+                fragmentMainBinding.mainRv.visibility = View.GONE
+            }
+        })
+    }
+
+    private fun initRecyclerView() {
+        fragmentMainBinding.mainRv.apply {
+            layoutManager = LinearLayoutManager(context.applicationContext)
+            adapter = mainMissionAdapter
+            setHasFixedSize(true)
+        }
     }
 
     private fun setEarthLevel(earthLevel: Int) {

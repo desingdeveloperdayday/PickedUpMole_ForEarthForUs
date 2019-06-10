@@ -25,10 +25,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class MissionCategoryFragment : Fragment() {
 
     companion object {
-        private val ARGUMENT = "MissionCategoryFragment"
-        private var categoryFragment: MissionCategoryFragment? = null
-
-        fun newInstance(): MissionCategoryFragment? {
+        fun newInstance(): MissionCategoryFragment {
             return MissionCategoryFragment()
         }
     }

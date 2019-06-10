@@ -3,18 +3,23 @@ package app.woovictory.forearthforus.view.main
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import app.woovictory.forearthforus.R
-import app.woovictory.forearthforus.model.mission.MissionResponse
+import app.woovictory.forearthforus.databinding.ItemListMainMissionBinding
+import app.woovictory.forearthforus.model.mission.MissionFeedResponse
 
 /**
  * Created by VictoryWoo
  */
-class MainMissionAdapter(private val itemsMock: ArrayList<MissionResponse>) :
+class MainMissionAdapter :
     RecyclerView.Adapter<MainMissionViewHolder>() {
 
+    private var itemsMock = ArrayList<MissionFeedResponse>()
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainMissionViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_list_main_mission, parent, false)
-        return MainMissionViewHolder(view)
+        val binding = ItemListMainMissionBinding.inflate(
+            LayoutInflater.from(parent.context)
+            , parent, false
+        )
+        return MainMissionViewHolder(binding)
     }
 
     override fun getItemCount(): Int = itemsMock.size
@@ -24,4 +29,10 @@ class MainMissionAdapter(private val itemsMock: ArrayList<MissionResponse>) :
             onBind(itemsMock[position])
         }
     }
+
+    fun addItems(items: ArrayList<MissionFeedResponse>) {
+        itemsMock.addAll(items)
+        notifyDataSetChanged()
+    }
+
 }

@@ -1,34 +1,32 @@
 package app.woovictory.forearthforus.view.main
 
-import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import app.woovictory.forearthforus.model.mission.MissionResponse
-import com.bumptech.glide.Glide
+import app.woovictory.forearthforus.databinding.ItemListMainMissionBinding
+import app.woovictory.forearthforus.model.mission.MissionFeedResponse
 import kotlinx.android.synthetic.main.item_list_main_mission.view.*
 
 /**
  * Created by VictoryWoo
  */
-class MainMissionViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
+class MainMissionViewHolder(private val binding: ItemListMainMissionBinding) : RecyclerView.ViewHolder(binding.root) {
 
-    private val itemImage : ImageView by lazy {
+    private val itemImage: ImageView by lazy {
         itemView.itemMainImage
     }
 
-    private val itemTitle : TextView by lazy {
+    private val itemTitle: TextView by lazy {
         itemView.itemMainTitle
     }
 
-    private val itemContents : TextView by lazy {
+    private val itemContents: TextView by lazy {
         itemView.itemMainContents
     }
 
-    fun onBind(item: MissionResponse){
-        Glide.with(itemView.context).load(item.mainImage).into(itemImage)
-        itemTitle.text = item.mainTitle
-        itemContents.text = item.mainContents
+    fun onBind(item: MissionFeedResponse) {
+        binding.item = item
+        binding.executePendingBindings()
 
     }
 }
