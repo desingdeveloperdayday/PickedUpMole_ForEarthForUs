@@ -39,6 +39,7 @@
     <string name="text_mission_content_title">갈 곳 잃은 북극곰을 구해주세요</string>
     <string name="text_mission_select">미션 선택하기</string>
     <string name="text_mission_start">미션 시작하기</string>
+    <string name="text_mission_select_title">실천하는 그린 라이프</string>
 
     <!--mission complete-->
     <string name="text_mission_complete_before">이전으로</string>

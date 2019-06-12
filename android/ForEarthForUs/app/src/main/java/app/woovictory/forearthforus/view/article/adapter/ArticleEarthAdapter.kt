@@ -31,9 +31,6 @@ class ArticleEarthAdapter : RecyclerView.Adapter<ArticleEarthViewHolder>() {
         itemList[position].let {
             holder.onBind(it, position)
         }
-        /*holder.apply {
-            onBind(itemList,position)
-        }*/
     }
 
     fun addItem(items: ArrayList<ArticleEarthResponse>) {

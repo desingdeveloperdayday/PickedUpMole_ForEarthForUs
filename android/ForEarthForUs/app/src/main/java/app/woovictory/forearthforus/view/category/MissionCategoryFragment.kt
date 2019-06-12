@@ -1,7 +1,6 @@
 package app.woovictory.forearthforus.view.category
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,10 +10,8 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import app.woovictory.forearthforus.R
 import app.woovictory.forearthforus.databinding.FragmentMissionCategoryBinding
-import app.woovictory.forearthforus.model.TodayMissionResponse
-import app.woovictory.forearthforus.model.category.MissionCategoryResponse
 import app.woovictory.forearthforus.view.mission.MissionSelectActivity
-import app.woovictory.forearthforus.view.mission.adapter.TodayMissionAdapter
+import app.woovictory.forearthforus.view.category.adapter.MissionCategoryAdapter
 import app.woovictory.forearthforus.vm.category.MissionCategoryViewModel
 import org.jetbrains.anko.support.v4.startActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -24,21 +21,15 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
  */
 class MissionCategoryFragment : Fragment() {
 
-    companion object {
-        fun newInstance(): MissionCategoryFragment {
-            return MissionCategoryFragment()
-        }
-    }
-
     private lateinit var fragmentMissionDataBinding: FragmentMissionCategoryBinding
-    private var todayMissionAdapter: TodayMissionAdapter? = null
+    private var missionCategoryAdapter: MissionCategoryAdapter? = null
         set(value) {
             field = value
-            field?.onMissionItemClickListener = { startMissionSelectActivity() }
+            field?.onMissionItemClickListener = { categoryId ->
+                startMissionSelectActivity(categoryId)
+            }
         }
     private val missionCategoryViewModel: MissionCategoryViewModel by viewModel()
-
-    //private lateinit var itemList: ArrayList<MissionCategoryResponse>
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         fragmentMissionDataBinding = DataBindingUtil.inflate(
@@ -50,7 +41,7 @@ class MissionCategoryFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        todayMissionAdapter = TodayMissionAdapter()
+        missionCategoryAdapter = MissionCategoryAdapter()
         initRecyclerView()
         initStartView()
         initDataBinding()
@@ -64,12 +55,11 @@ class MissionCategoryFragment : Fragment() {
     }
 
     private fun initDataBinding() {
+        // mission category 리스트를 불러오는 함수 호출.
         missionCategoryViewModel.getMissionCategoryList()
 
         missionCategoryViewModel.missionCategoryResponse.observe(this, Observer {
-            Log.v("991239 전",it.size.toString())
-            todayMissionAdapter?.addItem(it)
-            Log.v("991239 후",it.size.toString())
+            missionCategoryAdapter?.addItem(it)
         })
     }
 
@@ -77,13 +67,19 @@ class MissionCategoryFragment : Fragment() {
     private fun initRecyclerView() {
         fragmentMissionDataBinding.missionRv.apply {
             layoutManager = LinearLayoutManager(context.applicationContext)
-            adapter = todayMissionAdapter
+            adapter = missionCategoryAdapter
             setHasFixedSize(true)
         }
     }
 
-    private fun startMissionSelectActivity() {
-        startActivity<MissionSelectActivity>()
+    private fun startMissionSelectActivity(categoryId: Int) {
+        startActivity<MissionSelectActivity>("categoryId" to categoryId)
+    }
+
+    companion object {
+        fun newInstance(): MissionCategoryFragment {
+            return MissionCategoryFragment()
+        }
     }
 
 }

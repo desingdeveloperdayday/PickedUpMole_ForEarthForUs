@@ -10,13 +10,13 @@
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/fefu_white">
+            android:background="@color/fe_fu_white">
 
         <com.google.android.material.appbar.AppBarLayout
                 android:id="@+id/mainAppbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="@color/fefu_white"
+                android:background="@color/fe_fu_white"
                 app:elevation="0dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

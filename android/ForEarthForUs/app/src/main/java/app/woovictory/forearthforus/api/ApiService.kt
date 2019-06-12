@@ -7,6 +7,7 @@ import app.woovictory.forearthforus.model.mission.MissionFeedResponse
 import app.woovictory.forearthforus.model.account.PreferenceModel
 import app.woovictory.forearthforus.model.account.SignByEmailRequest
 import app.woovictory.forearthforus.model.category.MissionCategoryResponse
+import app.woovictory.forearthforus.model.mission.MissionSelectResponsee
 import io.reactivex.Single
 import retrofit2.Response
 import retrofit2.http.*
@@ -59,11 +60,12 @@ interface ApiService {
     )
 
     // 7. category 에 관련된 mission list 를 가져오는 api
-    @GET("api/v1/mission/?category={category}/")
+    // ?category={category}/
+    @GET("api/v1/mission/")
     fun getMissionCategoryList(
         @Header("Authorization") Authorization: String,
-        @Path("category") category: Int
-    )
+        @Query("category") category: Int
+    ): Single<Response<ArrayList<MissionSelectResponsee>>>
 
 
     // 8. 사용자의 mission list를 얻어오는 api query는 status field에 progress/complete를 넣을 수 있으며

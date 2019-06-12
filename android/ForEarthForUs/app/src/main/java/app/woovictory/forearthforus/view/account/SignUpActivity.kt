@@ -9,6 +9,7 @@ import app.woovictory.forearthforus.MainActivity
 import app.woovictory.forearthforus.R
 import app.woovictory.forearthforus.base.BaseActivity
 import app.woovictory.forearthforus.databinding.ActivitySignUpBinding
+import app.woovictory.forearthforus.view.field.FieldSelectActivity
 import app.woovictory.forearthforus.vm.account.SignUpViewModel
 import kotlinx.android.synthetic.main.activity_sign_up.*
 import org.jetbrains.anko.startActivity
@@ -160,7 +161,8 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding, SignUpViewModel>() {
 
         viewModel.signUpResponse.observe(this, Observer {
             if (it) {
-                startActivity<MainActivity>()
+                //startActivity<MainActivity>()
+                startActivity<FieldSelectActivity>()
                 finish()
             }
         })

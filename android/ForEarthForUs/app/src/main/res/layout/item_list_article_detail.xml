@@ -18,7 +18,7 @@
                 android:id="@+id/itemArticleDetailImage"
                 android:layout_width="match_parent"
                 android:layout_height="242dp"
-                android:src="@color/fefu_gray"
+                android:src="@color/fe_fu_gray"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"/>
@@ -37,7 +37,7 @@
                 android:id="@+id/itemArticleDetailTitle"
                 android:layout_width="312dp"
                 android:layout_height="wrap_content"
-                android:textColor="@color/fefu_black"
+                android:textColor="@color/fe_fu_black"
                 android:lineSpacingExtra="16sp"
                 style="@style/TitleBlackStyle"
                 android:text="@{articleDetailItems.articleDetailTitle}"

@@ -1,4 +1,4 @@
-package app.woovictory.forearthforus.vm
+package app.woovictory.forearthforus.vm.mission
 
 import app.woovictory.forearthforus.base.BaseViewModel
 

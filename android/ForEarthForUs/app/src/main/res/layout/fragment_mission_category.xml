@@ -14,7 +14,7 @@
 
         <com.google.android.material.appbar.AppBarLayout
                 android:id="@+id/missionAppbar"
-                android:background="@color/fefu_white"
+                android:background="@color/fe_fu_white"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:elevation="0dp"
@@ -25,7 +25,7 @@
         </com.google.android.material.appbar.AppBarLayout>
 
         <androidx.core.widget.NestedScrollView
-                android:background="@color/fefu_white"
+                android:background="@color/fe_fu_white"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:overScrollMode="never"

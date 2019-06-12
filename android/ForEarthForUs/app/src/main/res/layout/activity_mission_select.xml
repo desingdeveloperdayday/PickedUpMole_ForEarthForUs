@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
+    <data>
+        <variable name="vm" type="app.woovictory.forearthforus.vm.mission.MissionSelectViewModel"/>
+    </data>
     <androidx.constraintlayout.widget.ConstraintLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:tools="http://schemas.android.com/tools"
@@ -32,7 +35,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         style="@style/SubTitleBodyCenterStyle"
-                        android:text="실천하는 그린 라이프"
+                        android:text="@string/text_mission_select_title"
                 />
 
             </androidx.appcompat.widget.Toolbar>
@@ -74,9 +77,10 @@
                 android:layout_marginEnd="@dimen/margin_24dp"
                 android:layout_marginBottom="@dimen/margin_16dp"
                 android:text="@string/text_mission_start"
-                android:textColor="@color/fefu_white"
-                android:textSize="@dimen/size_text_16dp"
+                android:textColor="@color/fe_fu_white"
                 android:stateListAnimator="@null"
+                android:onClick="@{()-> vm.clickToMissionStart()}"
+                style="@style/ButtonWhiteCenterStyle"
                 app:layout_constraintTop_toBottomOf="@id/missionSelectIndicator"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

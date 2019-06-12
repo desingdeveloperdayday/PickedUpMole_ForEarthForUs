@@ -5,7 +5,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layoutDescription="@xml/motion_scene2"
-            android:background="@color/fefu_white">
+            android:background="@color/fe_fu_white">
 
         <ImageView
                 android:id="@+id/toolbar_image"
@@ -18,7 +18,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 android:fitsSystemWindows="true"
                 android:scaleType="center"
-                android:background="@color/fefu_white"
+                android:background="@color/fe_fu_white"
         />
 
         <ImageView

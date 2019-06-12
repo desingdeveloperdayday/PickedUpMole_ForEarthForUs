@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
+    <data>
+        <variable name="vm" type="app.woovictory.forearthforus.vm.mission.MissionDetailViewModel"/>
+    </data>
     <androidx.coordinatorlayout.widget.CoordinatorLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:tools="http://schemas.android.com/tools"
@@ -22,7 +25,7 @@
                     android:layout_height="match_parent"
                     android:fitsSystemWindows="true"
                     app:layout_scrollFlags="scroll|exitUntilCollapsed"
-                    app:contentScrim="@color/fefu_white"
+                    app:contentScrim="@color/fe_fu_white"
             >
 
                 <ImageView
@@ -63,7 +66,7 @@
                         android:id="@+id/missionDetailTitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/fefu_black"
+                        android:textColor="@color/fe_fu_black"
                         android:text="@string/text_mission_detail_title_mock"
                         style="@style/TitleBlackStyle"
                 />
@@ -139,7 +142,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:background="@drawable/border_button_background_active"
-                android:visibility="gone">
+                android:visibility="visible">
 
             <TextView
                     style="@style/ButtonWhiteCenterStyle"
@@ -155,6 +158,7 @@
                 android:layout_gravity="bottom"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
+                android:visibility="gone"
                 android:orientation="horizontal">
 
             <TextView
@@ -165,7 +169,7 @@
                     android:text="@string/text_mission_detail_cancel"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:background="@color/fefu_gray"/>
+                    android:background="@color/fe_fu_gray"/>
 
             <TextView
                     android:id="@+id/missionDetailCompleteButton"
@@ -175,7 +179,7 @@
                     android:text="@string/text_mission_detail_complete"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:background="@color/fefu_main"/>
+                    android:background="@color/fe_fu_main"/>
 
         </LinearLayout>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

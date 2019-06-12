@@ -66,7 +66,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, BaseViewModel>() {
 
         mainBottomNavigation.itemIconTintList = null
         // bottom navigation ripple 투명으로 변경.
-        mainBottomNavigation.itemRippleColor = ContextCompat.getColorStateList(this, R.color.fefu_transparent)
+        mainBottomNavigation.itemRippleColor = ContextCompat.getColorStateList(this, R.color.fe_fu_transparent)
         mainBottomNavigation.setOnNavigationItemSelectedListener { item: MenuItem ->
             addFragmentBasedOnId(item.itemId)
             true

@@ -6,13 +6,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
-import app.woovictory.forearthforus.MainActivity
 import app.woovictory.forearthforus.R
 import app.woovictory.forearthforus.base.BaseActivity
 import app.woovictory.forearthforus.databinding.ActivityFieldSelectBinding
 import app.woovictory.forearthforus.vm.account.FieldSelectViewModel
 import kotlinx.android.synthetic.main.activity_field_select.*
-import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.textColor
 import org.jetbrains.anko.toast
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -23,9 +21,9 @@ class FieldSelectActivity : BaseActivity<ActivityFieldSelectBinding, FieldSelect
         imageView.isSelected = !imageView.isSelected
 
         if (imageView.isSelected) {
-            textView.textColor = ContextCompat.getColor(applicationContext, R.color.fefu_main)
+            textView.textColor = ContextCompat.getColor(applicationContext, R.color.fe_fu_main)
         } else {
-            textView.textColor = ContextCompat.getColor(this, R.color.fefu_body)
+            textView.textColor = ContextCompat.getColor(this, R.color.fe_fu_body)
         }
 
         fieldSelectButton.isSelected = fieldAirPollution.isSelected || fieldWaterPollution.isSelected ||

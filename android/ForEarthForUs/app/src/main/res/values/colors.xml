@@ -5,12 +5,12 @@
     <color name="colorAccent">#D81B60</color>
     <color name="colorBlack">#000000</color>
 
-    <color name="fefu_main">#00bcd4</color>
-    <color name="fefu_black">#2f2f2f</color>
-    <color name="fefu_body">#4f4f4f</color>
-    <color name="fefu_gray">#c9cadd</color>
-    <color name="fefu_background">#f7f8fb</color>
-    <color name="fefu__sub">#ff6b31</color>
-    <color name="fefu_white">#ffffff</color>
-    <color name="fefu_transparent">@android:color/transparent</color>
+    <color name="fe_fu_main">#00bcd4</color>
+    <color name="fe_fu_black">#2f2f2f</color>
+    <color name="fe_fu_body">#4f4f4f</color>
+    <color name="fe_fu_gray">#c9cadd</color>
+    <color name="fe_fu_background">#f7f8fb</color>
+    <color name="fe_fu_sub">#ff6b31</color>
+    <color name="fe_fu_white">#ffffff</color>
+    <color name="fe_fu_transparent">@android:color/transparent</color>
 </resources>

@@ -4,7 +4,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import app.woovictory.forearthforus.base.BaseViewModel
-import app.woovictory.forearthforus.data.repository.EarthRepository
+import app.woovictory.forearthforus.data.repository.main.EarthRepository
 import app.woovictory.forearthforus.data.repository.feed.MissionFeedRepository
 import app.woovictory.forearthforus.model.earth.EarthResponse
 import app.woovictory.forearthforus.model.mission.MissionFeedResponse

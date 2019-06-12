@@ -1,4 +1,4 @@
-package app.woovictory.forearthforus.view.mission.adapter
+package app.woovictory.forearthforus.view.category.adapter
 
 import android.util.Log
 import android.view.LayoutInflater
@@ -6,21 +6,21 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import app.woovictory.forearthforus.databinding.ItemListMissionCategoryBinding
 import app.woovictory.forearthforus.model.category.MissionCategoryResponse
-import app.woovictory.forearthforus.view.mission.viewholder.TodayMissionViewHolder
+import app.woovictory.forearthforus.view.category.viewholder.MissionCategoryViewHolder
 
 /**
  * Created by VictoryWoo
  */
-class TodayMissionAdapter : RecyclerView.Adapter<TodayMissionViewHolder>() {
+class MissionCategoryAdapter : RecyclerView.Adapter<MissionCategoryViewHolder>() {
 
     private val itemList = ArrayList<MissionCategoryResponse>()
-    var onMissionItemClickListener: (() -> Unit)? = null
+    var onMissionItemClickListener: ((Int) -> Unit)? = null
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TodayMissionViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MissionCategoryViewHolder {
         val binding = ItemListMissionCategoryBinding.inflate(
             LayoutInflater.from(parent.context), parent, false
         )
-        return TodayMissionViewHolder(
+        return MissionCategoryViewHolder(
             binding,
             onMissionItemClickListener
         )
@@ -28,8 +28,8 @@ class TodayMissionAdapter : RecyclerView.Adapter<TodayMissionViewHolder>() {
 
     override fun getItemCount(): Int = itemList.size
 
-    override fun onBindViewHolder(holder: TodayMissionViewHolder, position: Int) {
-        holder.apply {
+    override fun onBindViewHolder(holderCategory: MissionCategoryViewHolder, position: Int) {
+        holderCategory.apply {
             onBind(itemList[position])
         }
     }
@@ -41,6 +41,5 @@ class TodayMissionAdapter : RecyclerView.Adapter<TodayMissionViewHolder>() {
         }else{
             Log.v("970822", itemList.size.toString())
         }
-        //Log.v("970822",itemList[0].image)
     }
 }

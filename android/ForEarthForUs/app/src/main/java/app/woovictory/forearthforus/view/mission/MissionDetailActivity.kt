@@ -2,45 +2,44 @@ package app.woovictory.forearthforus.view.mission
 
 import android.graphics.PorterDuff
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import android.util.Log
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import app.woovictory.forearthforus.R
+import app.woovictory.forearthforus.base.BaseActivity
+import app.woovictory.forearthforus.databinding.ActivityMissionDetailBinding
+import app.woovictory.forearthforus.vm.mission.MissionDetailViewModel
 import com.google.android.material.appbar.AppBarLayout
 import kotlinx.android.synthetic.main.activity_mission_detail.*
 import org.jetbrains.anko.startActivity
 
-class MissionDetailActivity : AppCompatActivity(), AppBarLayout.OnOffsetChangedListener {
-    override fun onOffsetChanged(appBarLayout: AppBarLayout?, verticalOffset: Int) {
-        if (missionDetailCollapsingToolbar.height + verticalOffset < 2 * ViewCompat.getMinimumHeight(
-                missionDetailCollapsingToolbar)) {
-
-            // collapsingToolbar의 title 설정을 위함.
-            missionDetailCollapsingToolbar.isTitleEnabled = true
-            missionDetailCollapsingToolbar.title = missionDetailTitle.text.toString()
-            missionDetailToolbar.navigationIcon?.setColorFilter(
-                ContextCompat.getColor(this, R.color.colorBlack),
-                PorterDuff.Mode.SRC_ATOP
-            )
-        } else {
-            missionDetailCollapsingToolbar.isTitleEnabled = false
-            /*missionDetailToolbar.navigationIcon?.setColorFilter(
-                ContextCompat.getColor(this, R.color.fefu_white),
-                PorterDuff.Mode.SRC_ATOP
-            )*/
-        }
-    }
+class MissionDetailActivity : BaseActivity<ActivityMissionDetailBinding, MissionDetailViewModel>(),
+    AppBarLayout.OnOffsetChangedListener {
+    override val layoutResourceId: Int
+        get() = R.layout.activity_mission_detail
+    override val viewModel: MissionDetailViewModel
+        get() = MissionDetailViewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_mission_detail)
         initToolbar()
-
+        initStartView()
+        initDataBinding()
 
         // 임시 방편.
         missionDetailCompleteButton.setOnClickListener {
             startActivity<MissionCompleteActivity>()
             //startActivity<MissionCompleteWriteActivity>()
+        }
+    }
+
+    override fun initStartView() {
+    }
+
+    override fun initDataBinding() {
+        viewDataBinding.missionDetailToolbar.setNavigationOnClickListener {
+            Log.v("18238",it.toString())
+            finish()
         }
     }
 
@@ -65,5 +64,29 @@ class MissionDetailActivity : AppCompatActivity(), AppBarLayout.OnOffsetChangedL
         // listener 등록.
         missionDetailAppbar.addOnOffsetChangedListener(this@MissionDetailActivity)
 
+
+
+    }
+
+    override fun onOffsetChanged(appBarLayout: AppBarLayout?, verticalOffset: Int) {
+        if (missionDetailCollapsingToolbar.height + verticalOffset < 2 * ViewCompat.getMinimumHeight(
+                missionDetailCollapsingToolbar
+            )
+        ) {
+
+            // collapsingToolbar의 title 설정을 위함.
+            missionDetailCollapsingToolbar.isTitleEnabled = true
+            missionDetailCollapsingToolbar.title = missionDetailTitle.text.toString()
+            missionDetailToolbar.navigationIcon?.setColorFilter(
+                ContextCompat.getColor(this, R.color.colorBlack),
+                PorterDuff.Mode.SRC_ATOP
+            )
+        } else {
+            missionDetailCollapsingToolbar.isTitleEnabled = false
+            /*missionDetailToolbar.navigationIcon?.setColorFilter(
+                ContextCompat.getColor(this, R.color.fefu_white),
+                PorterDuff.Mode.SRC_ATOP
+            )*/
+        }
     }
 }
