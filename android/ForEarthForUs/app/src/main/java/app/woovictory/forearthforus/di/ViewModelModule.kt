@@ -5,6 +5,7 @@ import app.woovictory.forearthforus.vm.MainViewModel
 import app.woovictory.forearthforus.vm.account.FieldSelectViewModel
 import app.woovictory.forearthforus.vm.account.SignUpViewModel
 import app.woovictory.forearthforus.vm.category.MissionCategoryViewModel
+import app.woovictory.forearthforus.vm.mission.MissionSelectViewModel
 import org.koin.androidx.viewmodel.ext.koin.viewModel
 import org.koin.dsl.module.module
 
@@ -18,4 +19,5 @@ val viewModelModule = module {
     viewModel { MainViewModel(get(), get()) }
     viewModel { FieldSelectViewModel(get()) }
     viewModel { MissionCategoryViewModel(get()) }
+    viewModel { MissionSelectViewModel(get()) }
 }

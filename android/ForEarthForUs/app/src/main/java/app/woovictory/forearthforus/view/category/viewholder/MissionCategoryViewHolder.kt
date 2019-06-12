@@ -1,4 +1,4 @@
-package app.woovictory.forearthforus.view.mission.viewholder
+package app.woovictory.forearthforus.view.category.viewholder
 
 import androidx.recyclerview.widget.RecyclerView
 import app.woovictory.forearthforus.databinding.ItemListMissionCategoryBinding
@@ -7,9 +7,9 @@ import app.woovictory.forearthforus.model.category.MissionCategoryResponse
 /**
  * Created by VictoryWoo
  */
-class TodayMissionViewHolder(
+class MissionCategoryViewHolder(
     private val binding: ItemListMissionCategoryBinding,
-    private val onClickListener: (() -> Unit)?
+    private val onClickListener: ((Int) -> Unit)?
 ) :
     RecyclerView.ViewHolder(binding.root) {
 
@@ -17,7 +17,7 @@ class TodayMissionViewHolder(
         binding.item = item
         binding.executePendingBindings()
         binding.itemMissionLayout.setOnClickListener {
-            onClickListener?.invoke()
+            onClickListener?.invoke(item.categoryId)
         }
     }
 }

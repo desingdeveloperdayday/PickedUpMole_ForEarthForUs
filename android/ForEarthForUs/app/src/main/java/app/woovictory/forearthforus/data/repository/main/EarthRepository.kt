@@ -1,4 +1,4 @@
-package app.woovictory.forearthforus.data.repository
+package app.woovictory.forearthforus.data.repository.main
 
 import app.woovictory.forearthforus.data.source.main.EarthRemoteDataSource
 import app.woovictory.forearthforus.model.earth.EarthResponse

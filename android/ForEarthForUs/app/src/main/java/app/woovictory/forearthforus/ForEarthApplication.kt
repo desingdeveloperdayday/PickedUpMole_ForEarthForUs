@@ -10,6 +10,7 @@ import org.koin.android.ext.android.startKoin
  */
 class ForEarthApplication : Application() {
 
+
     override fun onCreate() {
         super.onCreate()
         SharedPreferenceManager.init(applicationContext)

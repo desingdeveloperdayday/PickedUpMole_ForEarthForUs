@@ -2,44 +2,43 @@ package app.woovictory.forearthforus.model.mission
 
 import com.google.gson.annotations.SerializedName
 
-/**
- * Created by VictoryWoo
- */
 data class MissionFeedResponse(
-    val missionFeed: ArrayList<MissionFeed>
+    @SerializedName("id")
+    var id: Int,
+    @SerializedName("mission")
+    var mission: Mission,
+    @SerializedName("result")
+    var result: Int,
+    @SerializedName("message")
+    var message: String,
+    @SerializedName("created")
+    var created: String
+
 ) {
-    data class MissionFeed(
-        @SerializedName("id")
-        val id: Int,
-        @SerializedName("mission")
-        val mission: Mission,
-        @SerializedName("result")
-        val result: Int,
-        @SerializedName("message")
-        val message: String,
-        @SerializedName("created")
-        val created: String
-    )
-
-    data class Mission(
-        @SerializedName("id")
-        val id: Int,
-        @SerializedName("category")
-        val category: Category,
-        @SerializedName("image")
-        val image: String,
-        @SerializedName("title")
-        val title: String,
-        @SerializedName("comment")
-        val comment: String
-    )
-
     data class Category(
         @SerializedName("categoryId")
-        val categoryId: Int,
+        var categoryId: Int?,
         @SerializedName("image")
-        val image: String,
+        var image: String,
         @SerializedName("completeMessage")
-        val completeMessage: String
+        var completeMessage: String
+
+    )
+
+
+    data class Mission(
+
+        @SerializedName("id")
+        var id: Int,
+        @SerializedName("category")
+        var category: Category,
+        @SerializedName("image")
+        var image: String,
+        @SerializedName("title")
+        var title: String,
+        @SerializedName("comment")
+        var comment: String
     )
 }
+
+

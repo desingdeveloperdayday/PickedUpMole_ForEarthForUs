@@ -10,14 +10,14 @@
             xmlns:app="http://schemas.android.com/apk/res-auto"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/fefu_white"
+            android:background="@color/fe_fu_white"
             tools:context=".view.field.FieldSelectActivity">
 
         <RelativeLayout
                 android:id="@+id/fieldAppbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="@color/fefu_white"
+                android:background="@color/fe_fu_white"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"/>

@@ -26,7 +26,7 @@
                     android:id="@+id/itemArticleEarthImage"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@color/fefu_body"
+                    android:src="@color/fe_fu_body"
                     android:scaleType="fitXY"
                     app:riv_corner_radius="4dp"
                     app:riv_border_color="#333333"

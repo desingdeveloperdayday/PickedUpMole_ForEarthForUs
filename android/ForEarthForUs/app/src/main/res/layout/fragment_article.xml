@@ -8,13 +8,13 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/fefu_white">
+            android:background="@color/fe_fu_white">
 
         <com.google.android.material.appbar.AppBarLayout
                 android:id="@+id/articleAppbar"
                 android:layout_width="0dp"
                 android:layout_height="?attr/actionBarSize"
-                android:background="@color/fefu_white"
+                android:background="@color/fe_fu_white"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"

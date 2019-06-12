@@ -5,7 +5,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:context=".view.mission.MissionCompleteWriteActivity"
-            android:background="@color/fefu_white">
+            android:background="@color/fe_fu_white">
 
         <androidx.appcompat.widget.Toolbar
                 android:id="@+id/missionCompleteWriteToolbar"
@@ -83,13 +83,13 @@
                 android:gravity="top"
                 style="@style/ButtonBlackStyle"
                 android:maxLength="100"
-                android:background="@color/fefu_background"/>
+                android:background="@color/fe_fu_background"/>
 
         <LinearLayout
                 android:id="@+id/missionCompleteButtonLayout"
                 android:layout_width="0dp"
                 android:layout_height="123dp"
-                android:background="@color/fefu_white"
+                android:background="@color/fe_fu_white"
                 android:orientation="horizontal"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -118,7 +118,7 @@
                     android:layout_marginStart="@dimen/margin_24dp"
                     android:layout_marginBottom="@dimen/margin_16dp"
                     android:text="@string/text_mission_select"
-                    android:textColor="@color/fefu_white"
+                    android:textColor="@color/fe_fu_white"
                     android:textSize="@dimen/size_text_16dp"
                     android:stateListAnimator="@null"
                     app:layout_constraintStart_toStartOf="parent"

@@ -4,7 +4,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import app.woovictory.forearthforus.base.BaseViewModel
-import app.woovictory.forearthforus.data.repository.EarthRepository
+import app.woovictory.forearthforus.data.repository.main.EarthRepository
 import app.woovictory.forearthforus.data.repository.feed.MissionFeedRepository
 import app.woovictory.forearthforus.model.earth.EarthResponse
 import app.woovictory.forearthforus.model.mission.MissionFeedResponse
@@ -31,17 +31,15 @@ class MainViewModel(
     val clickToEarthDetail: LiveData<Any>
         get() = _clickToEarthDetail
 
-    private lateinit var missionFeedResponse: MissionFeedResponse
+    private val _missionFeedResponse = MutableLiveData<ArrayList<MissionFeedResponse>>()
+    val missionFeedResponse: LiveData<ArrayList<MissionFeedResponse>>
+        get() = _missionFeedResponse
 
     fun clickToDetail() {
         _clickToEarthDetail.call()
     }
 
-    override fun onCleared() {
-        super.onCleared()
-    }
-
-
+    // 상단 지구 정보.
     fun getEarthInformation() {
         addDisposable(
             earthRepository
@@ -60,6 +58,7 @@ class MainViewModel(
         )
     }
 
+    // 아래에 진행 중인 미션.
     fun getMissionFeed() {
         addDisposable(
             missionFeedRepository
@@ -69,23 +68,9 @@ class MainViewModel(
                 .subscribe({ response ->
                     if (response.isSuccessful) {
                         response.body()?.let {
-                            //it[0].missionFeed.id
+                            _missionFeedResponse.value = it
 
                             Log.v("199427 success", it.size.toString())
-                            /*if(it.isEmpty()){
-                                Log.v("199427 success 0번째", it[0].id.toString())
-                                Log.v("199427 success 1번째", "비어있음.")
-                            }else{
-                                Log.v("199427 success el", it[0].id.toString())
-                                Log.v("199427 success el", it[0].mission?.category?.completeMessage)
-                            }*/
-
-
-
-
-
-                            // TODO 리스폰스 어떻게 받아야 하지..?
-
                         }
                     }
 

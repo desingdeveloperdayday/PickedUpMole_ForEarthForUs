@@ -7,7 +7,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:context=".view.mission.MissionCompleteActivity"
-            android:background="@color/fefu_white">
+            android:background="@color/fe_fu_white">
         <!--
                 <com.google.android.material.appbar.AppBarLayout
                         android:id="@+id/missionCompleteAppbar"
@@ -22,7 +22,7 @@
 
         <RelativeLayout
                 android:id="@+id/missionCompleteToolbar"
-                android:background="@color/fefu_white"
+                android:background="@color/fe_fu_white"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:layout_constraintStart_toStartOf="parent"

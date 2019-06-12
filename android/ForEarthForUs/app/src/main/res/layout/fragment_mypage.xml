@@ -9,7 +9,7 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/fefu_background">
+            android:background="@color/fe_fu_background">
 
 
         <com.google.android.material.appbar.AppBarLayout
@@ -24,7 +24,7 @@
             <androidx.appcompat.widget.Toolbar
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
-                    android:background="@color/fefu_white"/>
+                    android:background="@color/fe_fu_white"/>
 
 
         </com.google.android.material.appbar.AppBarLayout>
@@ -33,7 +33,7 @@
                 android:id="@+id/mypageProfileLayout"
                 android:layout_width="match_parent"
                 android:layout_height="72dp"
-                android:background="@color/fefu_white"
+                android:background="@color/fe_fu_white"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/mypageAppbar">
@@ -80,7 +80,7 @@
 
         <LinearLayout
                 android:id="@+id/mypageCategoryLayout"
-                android:background="@color/fefu_white"
+                android:background="@color/fe_fu_white"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/mypageProfileLayout"
@@ -176,7 +176,7 @@
                 android:id="@+id/myPageMissionSuggest"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
-                android:background="@color/fefu_white"
+                android:background="@color/fe_fu_white"
                 android:layout_marginTop="@dimen/margin_8dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -213,7 +213,7 @@
                 android:id="@+id/myPageCurrentVersion"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
-                android:background="@color/fefu_white"
+                android:background="@color/fe_fu_white"
                 android:layout_marginTop="1dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -240,7 +240,7 @@
                 android:id="@+id/myPageLogOut"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
-                android:background="@color/fefu_white"
+                android:background="@color/fe_fu_white"
                 android:layout_marginTop="1dp"
                 android:onClick="@{()-> vm.clickToLogOut()}"
                 app:layout_constraintStart_toStartOf="parent"

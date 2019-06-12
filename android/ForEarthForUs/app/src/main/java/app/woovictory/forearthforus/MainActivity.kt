@@ -12,8 +12,8 @@ import app.woovictory.forearthforus.base.BaseActivity
 import app.woovictory.forearthforus.base.BaseViewModel
 import app.woovictory.forearthforus.databinding.ActivityMainBinding
 import app.woovictory.forearthforus.view.article.ArticleFragment
-import app.woovictory.forearthforus.view.main.MainFragment
 import app.woovictory.forearthforus.view.category.MissionCategoryFragment
+import app.woovictory.forearthforus.view.main.MainFragment
 import app.woovictory.forearthforus.view.mypage.MyPageFragment
 import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.google.android.material.bottomnavigation.BottomNavigationMenuView
@@ -29,7 +29,10 @@ class MainActivity : BaseActivity<ActivityMainBinding, BaseViewModel>() {
 
     private var selectedItem: Int = 0
     private val TAG = javaClass.`package`?.name.toString()
-    private val mainFragment: Fragment = MainFragment.newInstance() as Fragment
+    private val mainFragment: Fragment = MainFragment.newInstance()
+    private val missionCategoryFragment: Fragment = MissionCategoryFragment.newInstance()
+    private val articleFragment: Fragment = ArticleFragment.newInstance()
+    private val myPageFragment: Fragment = MyPageFragment.newInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,13 +46,13 @@ class MainActivity : BaseActivity<ActivityMainBinding, BaseViewModel>() {
                 changeFragment(mainFragment)
             }
             R.id.navigation_mission -> {
-                changeFragment(MissionCategoryFragment.newInstance()!!)
+                changeFragment(missionCategoryFragment)
             }
             R.id.navigation_article -> {
-                changeFragment(ArticleFragment.newInstance())
+                changeFragment(articleFragment)
             }
             R.id.navigation_my -> {
-                changeFragment(MyPageFragment.newInstance())
+                changeFragment(myPageFragment)
             }
             else -> {
                 Toast.makeText(this, "home", Toast.LENGTH_SHORT).show()
@@ -58,12 +61,12 @@ class MainActivity : BaseActivity<ActivityMainBinding, BaseViewModel>() {
     }
 
     override fun initStartView() {
-        changeFragment(MainFragment.newInstance()!!)
+        changeFragment(MainFragment.newInstance())
         mainBottomNavigation.selectedItemId = R.id.navigation_main
 
         mainBottomNavigation.itemIconTintList = null
         // bottom navigation ripple 투명으로 변경.
-        mainBottomNavigation.itemRippleColor = ContextCompat.getColorStateList(this, R.color.fefu_transparent)
+        mainBottomNavigation.itemRippleColor = ContextCompat.getColorStateList(this, R.color.fe_fu_transparent)
         mainBottomNavigation.setOnNavigationItemSelectedListener { item: MenuItem ->
             addFragmentBasedOnId(item.itemId)
             true

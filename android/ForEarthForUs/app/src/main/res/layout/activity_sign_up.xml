@@ -9,7 +9,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:context=".view.account.SignUpActivity"
-            android:background="@color/fefu_white">
+            android:background="@color/fe_fu_white">
 
 
         <androidx.appcompat.widget.Toolbar
@@ -28,7 +28,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_24dp"
                 android:layout_marginStart="@dimen/margin_24dp"
-                android:textColor="@color/fefu_black"
+                android:textColor="@color/fe_fu_black"
                 android:lineSpacingExtra="16sp"
                 android:textStyle="bold"
                 android:text="@string/text_sign_up_title"
