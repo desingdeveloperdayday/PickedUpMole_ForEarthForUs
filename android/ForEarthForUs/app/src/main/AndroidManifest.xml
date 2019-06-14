@@ -12,9 +12,11 @@
             android:label="@string/app_name"
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
-            android:usesCleartextTraffic="true"
             android:theme="@style/AppTheme"
+            android:usesCleartextTraffic="true"
             tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".MotionLayoutActivity">
+        </activity>
         <activity android:name=".view.mypage.AlarmActivity">
         </activity>
         <activity android:name=".view.mypage.ScrapListActivity">
@@ -29,7 +31,8 @@
         </activity>
         <activity android:name=".view.main.detail.EarthDetailActivity">
         </activity>
-        <activity android:name=".view.mission.MissionDetailActivity">
+        <activity android:name=".view.mission.MissionDetailActivity"
+        >
         </activity>
         <activity android:name=".view.mission.MissionSelectActivity">
         </activity>

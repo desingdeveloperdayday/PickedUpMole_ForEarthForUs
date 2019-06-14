@@ -1,10 +1,19 @@
 package app.woovictory.forearthforus.model.mission
 
+import com.google.gson.annotations.SerializedName
+
 /**
  * Created by VictoryWoo
  */
 data class MissionSelectResponse(
-    val selectImage : Int,
-    val selectTitle : String,
-    val selectContents : String
+    @SerializedName("id")
+    val id: Int,
+    @SerializedName("category")
+    val category: Int,
+    @SerializedName("image")
+    val image: String,
+    @SerializedName("title")
+    val title: String,
+    @SerializedName("content")
+    val content: String
 )

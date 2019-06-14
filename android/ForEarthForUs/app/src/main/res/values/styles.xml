@@ -180,4 +180,8 @@
         <item name="android:colorForeground">#666666
         </item>
     </style>
+
+    <style name="NonStatusBar" parent="AppTheme">
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
 </resources>

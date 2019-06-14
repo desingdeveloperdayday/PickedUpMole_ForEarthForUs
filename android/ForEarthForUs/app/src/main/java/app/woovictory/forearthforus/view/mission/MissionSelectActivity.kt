@@ -5,7 +5,6 @@ import android.graphics.Point
 import android.graphics.PorterDuff
 import android.os.Bundle
 import android.util.Log
-import android.view.MenuItem
 import android.view.WindowManager
 import android.widget.LinearLayout
 import androidx.core.content.ContextCompat
@@ -15,7 +14,7 @@ import androidx.recyclerview.widget.PagerSnapHelper
 import app.woovictory.forearthforus.R
 import app.woovictory.forearthforus.base.BaseActivity
 import app.woovictory.forearthforus.databinding.ActivityMissionSelectBinding
-import app.woovictory.forearthforus.model.mission.MissionSelectResponsee
+import app.woovictory.forearthforus.model.mission.MissionSelectResponse
 import app.woovictory.forearthforus.util.ItemDecoration
 import app.woovictory.forearthforus.view.mission.adapter.MissionSelectAdapter
 import app.woovictory.forearthforus.vm.mission.MissionSelectViewModel
@@ -29,15 +28,15 @@ class MissionSelectActivity : BaseActivity<ActivityMissionSelectBinding
     override val layoutResourceId: Int
         get() = R.layout.activity_mission_select
     override val viewModel: MissionSelectViewModel by viewModel()
-    private lateinit var items: ArrayList<MissionSelectResponsee>
+    private lateinit var items: ArrayList<MissionSelectResponse>
     private var missionSelectAdapter: MissionSelectAdapter? = null
-        /*set(value) {
-            field = value
-            field?.onMissionSelectItemClickListener = { position ->
-                Log.v("878723","1")
-                startDetailActivity(position)
-            }
-        }*/
+    /*set(value) {
+        field = value
+        field?.onMissionSelectItemClickListener = { position ->
+            Log.v("878723","1")
+            startDetailActivity(position)
+        }
+    }*/
 
     private lateinit var size: Point
 
@@ -91,7 +90,7 @@ class MissionSelectActivity : BaseActivity<ActivityMissionSelectBinding
     }
 
     private fun setUpRecyclerView() {
-        missionSelectAdapter = MissionSelectAdapter{
+        missionSelectAdapter = MissionSelectAdapter {
             startDetailActivity(it)
         }
 
@@ -126,8 +125,8 @@ class MissionSelectActivity : BaseActivity<ActivityMissionSelectBinding
         })
     }
 
-    private fun startDetailActivity(position: Int) {
-        startActivity<MissionDetailActivity>()
+    private fun startDetailActivity(categoryId: Int) {
+        startActivity<MissionDetailActivity>("categoryId" to categoryId)
     }
 
 }

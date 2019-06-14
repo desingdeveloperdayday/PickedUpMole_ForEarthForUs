@@ -10,7 +10,7 @@ import app.woovictory.forearthforus.base.BaseActivity
 import app.woovictory.forearthforus.databinding.ActivityArticleIntroBinding
 import app.woovictory.forearthforus.model.article.detail.ArticleDetailResponse
 import app.woovictory.forearthforus.view.article.adapter.ArticleDetailAdapter
-import app.woovictory.forearthforus.vm.ArticleDetailViewModel
+import app.woovictory.forearthforus.vm.article.ArticleDetailViewModel
 
 class ArticleIntroActivity : BaseActivity<ActivityArticleIntroBinding, ArticleDetailViewModel>() {
     override val layoutResourceId: Int

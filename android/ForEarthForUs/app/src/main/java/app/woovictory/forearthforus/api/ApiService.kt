@@ -7,7 +7,8 @@ import app.woovictory.forearthforus.model.mission.MissionFeedResponse
 import app.woovictory.forearthforus.model.account.PreferenceModel
 import app.woovictory.forearthforus.model.account.SignByEmailRequest
 import app.woovictory.forearthforus.model.category.MissionCategoryResponse
-import app.woovictory.forearthforus.model.mission.MissionSelectResponsee
+import app.woovictory.forearthforus.model.mission.MissionDetailResponse
+import app.woovictory.forearthforus.model.mission.MissionSelectResponse
 import io.reactivex.Single
 import retrofit2.Response
 import retrofit2.http.*
@@ -54,10 +55,10 @@ interface ApiService {
 
     // 6. 특정 mission item 의 상세 정보를 가져오는 api
     @GET("api/v1/mission/{id}/")
-    fun getMissionList(
+    fun getMissionDetailInformation(
         @Header("Authorization") Authorization: String,
         @Path("id") id: Int
-    )
+    ): Single<Response<MissionDetailResponse>>
 
     // 7. category 에 관련된 mission list 를 가져오는 api
     // ?category={category}/
@@ -65,7 +66,7 @@ interface ApiService {
     fun getMissionCategoryList(
         @Header("Authorization") Authorization: String,
         @Query("category") category: Int
-    ): Single<Response<ArrayList<MissionSelectResponsee>>>
+    ): Single<Response<ArrayList<MissionSelectResponse>>>
 
 
     // 8. 사용자의 mission list를 얻어오는 api query는 status field에 progress/complete를 넣을 수 있으며
@@ -94,7 +95,7 @@ interface ApiService {
 
     // 12. 사용자가 선택한 특정 미션의 detail 내용을 보여주는 api
     @GET("api/v1/feed/{id}/")
-    fun getMissionDetail(
+    fun getMissionFeedDetail(
         @Header("Authorization") Authorization: String,
         @Path("id") id: Int
     )

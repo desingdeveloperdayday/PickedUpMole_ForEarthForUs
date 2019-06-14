@@ -1,7 +1,7 @@
 package app.woovictory.forearthforus.data.repository.mission
 
 import app.woovictory.forearthforus.data.source.mission.MissionSelectRemoteDataSource
-import app.woovictory.forearthforus.model.mission.MissionSelectResponsee
+import app.woovictory.forearthforus.model.mission.MissionSelectResponse
 import io.reactivex.Single
 import retrofit2.Response
 
@@ -14,7 +14,7 @@ class MissionSelectRepository(
 ) {
 
     fun getMissionSelectList(token: String, categoryId: Int)
-            : Single<Response<ArrayList<MissionSelectResponsee>>> {
+            : Single<Response<ArrayList<MissionSelectResponse>>> {
         return missionSelectRemoteDataSource.getMissionSelectList(token, categoryId)
     }
 }

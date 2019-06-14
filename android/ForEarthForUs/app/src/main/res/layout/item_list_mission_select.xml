@@ -3,7 +3,7 @@
 
     <data>
         <variable name="selectItem"
-                  type="app.woovictory.forearthforus.model.mission.MissionSelectResponsee"/>
+                  type="app.woovictory.forearthforus.model.mission.MissionSelectResponse"/>
     </data>
     <LinearLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
