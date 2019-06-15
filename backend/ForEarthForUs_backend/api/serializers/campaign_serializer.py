@@ -4,7 +4,7 @@ from api.utils.validate_svg import validate_image_extension
 
 class CampaignSerializer(serializers.HyperlinkedModelSerializer):
     image = serializers.FileField(max_length=None, use_url=True,
-                                validators=[validate_image_extension])
+                                  validators=[validate_image_extension])
 
     class Meta:
         model = Campaign
