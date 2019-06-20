@@ -9,7 +9,7 @@ import app.woovictory.forearthforus.model.mission.MissionFeedResponse
 /**
  * Created by VictoryWoo
  */
-class MainMissionAdapter :
+class MainMissionAdapter(private var onMainMissionItemClick: (Int) -> Unit) :
     RecyclerView.Adapter<MainMissionViewHolder>() {
 
     private var itemsMock = ArrayList<MissionFeedResponse>()
@@ -19,7 +19,7 @@ class MainMissionAdapter :
             LayoutInflater.from(parent.context)
             , parent, false
         )
-        return MainMissionViewHolder(binding)
+        return MainMissionViewHolder(binding, onMainMissionItemClick)
     }
 
     override fun getItemCount(): Int = itemsMock.size
