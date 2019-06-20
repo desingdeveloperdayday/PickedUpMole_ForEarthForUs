@@ -15,6 +15,7 @@ object SharedPreferenceManager {
     private const val PREF_EARTH_LEVEL = "EarthLevel"
     private const val PREF_USER_NAME = "UserName"
     private const val PREF_USER_ID = "UserId"
+    private const val PREF_USER_EMAIL = "UserEmail"
     private const val MODE = Context.MODE_PRIVATE
     private lateinit var preferences: SharedPreferences
 
@@ -57,5 +58,11 @@ object SharedPreferenceManager {
         get() = preferences.getInt(PREF_USER_ID, 0)
         set(value) = preferences.edit {
             it.putInt(PREF_USER_ID, value)
+        }
+
+    var userEmail: String
+        get() = preferences?.getString(PREF_USER_EMAIL, " ")!!
+        set(value) = preferences.edit {
+            it.putString(PREF_USER_EMAIL, value)
         }
 }

@@ -18,7 +18,8 @@
         <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/itemMissionSelectLayout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:background="@color/fe_fu_transparent">
 
             <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
@@ -26,19 +27,18 @@
                     android:orientation="vertical"
                     app:cardCornerRadius="4dp"
                     app:cardElevation="0dp"
+                    android:background="@color/fe_fu_transparent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
-                <com.makeramen.roundedimageview.RoundedImageView
+                <ImageView
                         android:id="@+id/itemMissionSelectImage"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/fufe_illust_jh_04"
-                        app:riv_corner_radius="4dp"
-                        app:riv_border_color="#333333"
-                        app:riv_mutate_background="true"
-                        app:riv_oval="false"/>
+                        android:layout_width="312dp"
+                        android:layout_height="336dp"
+                        android:loadUrlImage="@{String.valueOf(selectItem.image)}"
+                        android:background="@color/fe_fu_white"
+                />
 
             </androidx.cardview.widget.CardView>
 

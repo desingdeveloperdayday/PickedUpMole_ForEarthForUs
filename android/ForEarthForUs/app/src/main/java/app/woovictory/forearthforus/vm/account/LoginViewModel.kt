@@ -53,6 +53,8 @@ class LoginViewModel(private val loginRepository: LoginRepository) : BaseViewMod
                             SharedPreferenceManager.earthLevel = it.user.earthLevel
                             SharedPreferenceManager.userName = it.user.name
                             SharedPreferenceManager.userId = it.user.id
+                            SharedPreferenceManager.userEmail = it.user.email
+
                         }
                         _loginResponse.value = true
                     }

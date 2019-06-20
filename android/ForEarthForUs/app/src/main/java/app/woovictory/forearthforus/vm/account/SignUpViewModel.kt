@@ -34,6 +34,10 @@ class SignUpViewModel(private val signUpRepository: SignUpRepository) : BaseView
                 .subscribe({
                     Log.v("success: ${it.token}", "990")
                     SharedPreferenceManager.token = it.token
+                    SharedPreferenceManager.earthLevel = it.user.earthLevel
+                    SharedPreferenceManager.userName = it.user.name
+                    SharedPreferenceManager.userId = it.user.id
+                    SharedPreferenceManager.userEmail = it.user.email
                     Log.v("success token: ${SharedPreferenceManager.token}", "9901")
                     _signUpResponse.value = true
 

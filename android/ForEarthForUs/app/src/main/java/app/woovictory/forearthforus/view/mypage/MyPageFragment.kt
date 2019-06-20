@@ -85,5 +85,10 @@ class MyPageFragment : Fragment() {
         myPageViewModel.clickToAlarm.observe(this, Observer {
             startActivity<AlarmActivity>()
         })
+
+        fragmentMyPageDataBinding.apply {
+            myPageProfileUserName.text = SharedPreferenceManager.userName
+            myPageProfileEmail.text = SharedPreferenceManager.userEmail
+        }
     }
 }

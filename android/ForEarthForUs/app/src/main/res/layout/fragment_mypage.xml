@@ -57,7 +57,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
-                    tools:text="님"
+                    android:text="님"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toEndOf="@id/myPageProfileUserName"
                     style="@style/SubTitleBodyStyle"
@@ -65,6 +65,7 @@
             />
 
             <TextView
+                    android:id="@+id/myPageProfileEmail"
                     style="@style/ContentsBodyStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

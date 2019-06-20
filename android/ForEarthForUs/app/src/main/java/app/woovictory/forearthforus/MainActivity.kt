@@ -27,6 +27,13 @@ class MainActivity : BaseActivity<ActivityMainBinding, BaseViewModel>() {
         get() = R.layout.activity_main
 
 
+    val fragment1: Fragment = MainFragment.newInstance()
+    val fragment2: Fragment = MissionCategoryFragment.newInstance()
+    val fragment3: Fragment = ArticleFragment.newInstance()
+    val fragment4: Fragment = MyPageFragment.newInstance()
+    val fm = supportFragmentManager
+    var active = fragment1
+
     private var selectedItem: Int = 0
     private val TAG = javaClass.`package`?.name.toString()
     private val mainFragment: Fragment = MainFragment.newInstance()
@@ -37,22 +44,34 @@ class MainActivity : BaseActivity<ActivityMainBinding, BaseViewModel>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initStartView()
+        fm.beginTransaction().add(R.id.mainFrameContainer, fragment4, "4").hide(fragment4).commit()
+        fm.beginTransaction().add(R.id.mainFrameContainer, fragment3, "3").hide(fragment3).commit()
+        fm.beginTransaction().add(R.id.mainFrameContainer, fragment2, "2").hide(fragment2).commit()
+        fm.beginTransaction().add(R.id.mainFrameContainer, fragment1, "1").commit()
     }
 
     private fun addFragmentBasedOnId(itemId: Int) {
         selectedItem = itemId
         when (itemId) {
             R.id.navigation_main -> {
-                changeFragment(mainFragment)
+                fm.beginTransaction().hide(active).show(fragment1).commit()
+                active = fragment1
+                //changeFragment(mainFragment)
             }
             R.id.navigation_mission -> {
-                changeFragment(missionCategoryFragment)
+                fm.beginTransaction().hide(active).show(fragment2).commit()
+                active = fragment2
+                //changeFragment(missionCategoryFragment)
             }
             R.id.navigation_article -> {
-                changeFragment(articleFragment)
+                fm.beginTransaction().hide(active).show(fragment3).commit()
+                active = fragment3
+                //changeFragment(articleFragment)
             }
             R.id.navigation_my -> {
-                changeFragment(myPageFragment)
+                fm.beginTransaction().hide(active).show(fragment4).commit()
+                active = fragment4
+                //changeFragment(myPageFragment)
             }
             else -> {
                 Toast.makeText(this, "home", Toast.LENGTH_SHORT).show()
