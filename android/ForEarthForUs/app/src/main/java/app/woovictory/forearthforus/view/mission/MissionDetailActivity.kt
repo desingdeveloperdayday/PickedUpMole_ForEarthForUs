@@ -5,9 +5,11 @@ import android.os.Bundle
 import android.util.Log
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
+import androidx.lifecycle.Observer
 import app.woovictory.forearthforus.R
 import app.woovictory.forearthforus.base.BaseActivity
 import app.woovictory.forearthforus.databinding.ActivityMissionDetailBinding
+import app.woovictory.forearthforus.model.mission.MissionSelectRequest
 import app.woovictory.forearthforus.util.SharedPreferenceManager
 import app.woovictory.forearthforus.vm.mission.MissionDetailViewModel
 import com.google.android.material.appbar.AppBarLayout
@@ -53,9 +55,15 @@ class MissionDetailActivity : BaseActivity<ActivityMissionDetailBinding, Mission
 
     override fun initDataBinding() {
         viewDataBinding.missionDetailToolbar.setNavigationOnClickListener {
+            onBackPressed()
             Log.v("18238", it.toString())
-            finish()
+            //finish()
         }
+
+        viewModel.clickToMissionSelect.observe(this, Observer {
+            val mission = MissionSelectRequest(categoryId)
+            viewModel.postaMissionSelect(SharedPreferenceManager.token, mission)
+        })
     }
 
     private fun initToolbar() {

@@ -21,5 +21,5 @@ val viewModelModule = module {
     viewModel { FieldSelectViewModel(get()) }
     viewModel { MissionCategoryViewModel(get()) }
     viewModel { MissionSelectViewModel(get()) }
-    viewModel { MissionDetailViewModel(get()) }
+    viewModel { MissionDetailViewModel(get(), get()) }
 }

@@ -9,6 +9,7 @@ import app.woovictory.forearthforus.data.repository.account.SignUpRepository
 import app.woovictory.forearthforus.data.repository.category.MissionCategoryRepository
 import app.woovictory.forearthforus.data.repository.feed.MissionFeedRepository
 import app.woovictory.forearthforus.data.repository.mission.MissionDetailRepository
+import app.woovictory.forearthforus.data.repository.mission.MissionSelectListRepository
 import app.woovictory.forearthforus.data.repository.mission.MissionSelectRepository
 import app.woovictory.forearthforus.data.source.account.LoginRemoteDataSource
 import app.woovictory.forearthforus.data.source.account.PreferenceRemoteDataSource
@@ -17,6 +18,7 @@ import app.woovictory.forearthforus.data.source.category.MissionCategoryRemoteDa
 import app.woovictory.forearthforus.data.source.feed.MissionFeedRemoteDataSource
 import app.woovictory.forearthforus.data.source.main.EarthRemoteDataSource
 import app.woovictory.forearthforus.data.source.mission.MissionDetailRemoteDataSource
+import app.woovictory.forearthforus.data.source.mission.MissionSelectListRemoteDataSource
 import app.woovictory.forearthforus.data.source.mission.MissionSelectRemoteDataSource
 import app.woovictory.forearthforus.util.baseURL
 import app.woovictory.forearthforus.util.headerInterceptor
@@ -78,8 +80,9 @@ val dataSourceModule = module {
     factory { MissionFeedRemoteDataSource(get()) }
     factory { PreferenceRemoteDataSource(get()) }
     factory { MissionCategoryRemoteDataSource(get()) }
-    factory { MissionSelectRemoteDataSource(get()) }
+    factory { MissionSelectListRemoteDataSource(get()) }
     factory { MissionDetailRemoteDataSource(get()) }
+    factory { MissionSelectRemoteDataSource(get()) }
 }
 
 val repositoryModule = module {
@@ -89,8 +92,9 @@ val repositoryModule = module {
     factory { MissionFeedRepository(get()) }
     factory { PreferenceRepository(get()) }
     factory { MissionCategoryRepository(get()) }
-    factory { MissionSelectRepository(get()) }
+    factory { MissionSelectListRepository(get()) }
     factory { MissionDetailRepository(get()) }
+    factory { MissionSelectRepository(get()) }
 }
 
 var appModules = listOf(apiModule, dataSourceModule, viewModelModule, repositoryModule)

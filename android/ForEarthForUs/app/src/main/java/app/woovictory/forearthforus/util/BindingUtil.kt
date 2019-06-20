@@ -52,17 +52,5 @@ object BindingUtil {
         requestBuilder?.load(Uri.parse(path))?.into(imageView)
     }
 
-    @JvmStatic
-    @BindingAdapter("android:loadUrlRoundedImage")
-    fun loadRoundedImage(imageView: RoundedImageView, path: String) {
-
-        requestBuilder = GlideApp.with(imageView.context)
-            .`as`(PictureDrawable::class.java)
-            .error(R.color.fe_fu_white)
-            .transition(DrawableTransitionOptions.withCrossFade())
-            .listener(SvgSoftwareLayerSetter())
-
-        requestBuilder?.load(Uri.parse(path))?.into(imageView)
-    }
 
 }
