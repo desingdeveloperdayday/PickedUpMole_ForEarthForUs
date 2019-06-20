@@ -71,7 +71,7 @@
     <string name="text_article_title">For Earth</string>
     <string name="text_article_show_more">더보기</string>
     <string name="text_article_sub_title">For Us</string>
-    
+
     <!--관심도 설정-->
     <string name="text_field_air_pollution">대기오염</string>
     <string name="text_field_water_pollution">수질오염</string>

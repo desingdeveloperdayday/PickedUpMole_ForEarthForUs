@@ -22,7 +22,7 @@ import app.woovictory.forearthforus.util.ItemDecoration
 import app.woovictory.forearthforus.view.article.adapter.ArticleEarthAdapter
 import app.woovictory.forearthforus.view.article.adapter.ArticleUsAdapter
 import app.woovictory.forearthforus.view.article.detail.ArticleIntroActivity
-import app.woovictory.forearthforus.vm.ArticleViewModel
+import app.woovictory.forearthforus.vm.article.ArticleViewModel
 import org.jetbrains.anko.support.v4.startActivity
 import org.jetbrains.anko.support.v4.toast
 

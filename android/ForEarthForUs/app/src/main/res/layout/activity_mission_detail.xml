@@ -9,7 +9,6 @@
             xmlns:app="http://schemas.android.com/apk/res-auto"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:fitsSystemWindows="true"
             tools:context=".view.mission.MissionDetailActivity">
 
         <com.google.android.material.appbar.AppBarLayout
@@ -17,7 +16,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:theme="@style/AppTheme.AppBarOverlay"
-                android:fitsSystemWindows="true">
+                >
 
             <com.google.android.material.appbar.CollapsingToolbarLayout
                     android:id="@+id/missionDetailCollapsingToolbar"
@@ -26,14 +25,25 @@
                     android:fitsSystemWindows="true"
                     app:layout_scrollFlags="scroll|exitUntilCollapsed"
                     app:contentScrim="@color/fe_fu_white"
+                    android:background="@color/fe_fu_sub"
             >
+
+                <!--<ImageView
+                        android:id="@+id/missionDetailImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="444dp"
+                        android:adjustViewBounds="true"
+                        android:loadUrlImage="@{String.valueOf(vm.missionDetailResponse.image)}"
+                        app:layout_collapseMode="parallax"/>-->
 
                 <ImageView
                         android:id="@+id/missionDetailImage"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/fufe_illust_jh_04"
+                        android:layout_height="443dp"
+                        android:layout_gravity="center"
+                        android:adjustViewBounds="true"
+                        android:fitsSystemWindows="true"
+                        android:loadUrlImage="@{String.valueOf(vm.missionDetailResponse.image)}"
                         app:layout_collapseMode="parallax"/>
 
                 <androidx.appcompat.widget.Toolbar
@@ -41,6 +51,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="?attr/actionBarSize"
                         app:popupTheme="@style/AppTheme.PopupOverlay"
+                        android:background="@android:color/transparent"
                         app:layout_collapseMode="pin"/>
 
 
@@ -51,6 +62,7 @@
         <androidx.core.widget.NestedScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:overScrollMode="never"
                 app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
             <LinearLayout
@@ -60,14 +72,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="200dp"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
                 <TextView
                         android:id="@+id/missionDetailTitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/fe_fu_black"
-                        android:text="@string/text_mission_detail_title_mock"
+                        android:text="@{vm.missionDetailResponse.title}"
                         style="@style/TitleBlackStyle"
                 />
 
@@ -76,7 +89,7 @@
                         style="@style/ContentsBodyStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/text_mission_detail_content_mock"
+                        android:text="@{vm.missionDetailResponse.content}"
                 />
 
                 <View
@@ -90,7 +103,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         style="@style/DetailContentsBodyStyle"
-                        android:text="옆 동네 토마토를 먹으면,"
+                        android:text="@{vm.missionDetailResponse.missionTipTitle}"
                 />
 
                 <TextView
@@ -98,7 +111,7 @@
                         style="@style/ContentsBodyStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="전국 방방곡곡 및 전세계에서 농산물을 실어 나르려면 연료가 많이 들어요. 이렇게 연료를 지나치게 많이 사용하는 것은 대기 오염의 원인이 된답니다."
+                        android:text="@{vm.missionDetailResponse.missionTipContent}"
                 />
 
                 <TextView
@@ -114,7 +127,7 @@
                         style="@style/ContentsBodyStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/text_mission_detail_mock_data"
+                        android:text="@{vm.missionDetailResponse.missionMethodContent}"
                 />
 
                 <TextView
@@ -130,7 +143,7 @@
                         style="@style/ContentsBodyStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/text_mission_detail_mock_data"
+                        android:text="@{vm.missionDetailResponse.missionEffectContent}"
                 />
             </LinearLayout>
 
@@ -141,7 +154,7 @@
                 android:layout_gravity="bottom"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:background="@drawable/border_button_background_active"
+                android:background="@drawable/border_button_background_no_radius"
                 android:visibility="visible">
 
             <TextView

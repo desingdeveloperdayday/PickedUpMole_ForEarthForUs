@@ -8,20 +8,24 @@ import androidx.core.view.ViewCompat
 import app.woovictory.forearthforus.R
 import app.woovictory.forearthforus.base.BaseActivity
 import app.woovictory.forearthforus.databinding.ActivityMissionDetailBinding
+import app.woovictory.forearthforus.util.SharedPreferenceManager
 import app.woovictory.forearthforus.vm.mission.MissionDetailViewModel
 import com.google.android.material.appbar.AppBarLayout
 import kotlinx.android.synthetic.main.activity_mission_detail.*
 import org.jetbrains.anko.startActivity
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MissionDetailActivity : BaseActivity<ActivityMissionDetailBinding, MissionDetailViewModel>(),
     AppBarLayout.OnOffsetChangedListener {
     override val layoutResourceId: Int
         get() = R.layout.activity_mission_detail
-    override val viewModel: MissionDetailViewModel
-        get() = MissionDetailViewModel()
+    override val viewModel: MissionDetailViewModel by viewModel()
+
+    var categoryId: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        getData()
         initToolbar()
         initStartView()
         initDataBinding()
@@ -33,12 +37,23 @@ class MissionDetailActivity : BaseActivity<ActivityMissionDetailBinding, Mission
         }
     }
 
+    private fun getData() {
+        categoryId = intent.getIntExtra("categoryId", 0)
+        Log.v("1823899", categoryId.toString())
+        viewModel.getMissionDetailInformation(SharedPreferenceManager.token, categoryId)
+    }
+
+
     override fun initStartView() {
+        viewDataBinding.apply {
+            vm = viewModel
+            lifecycleOwner = this@MissionDetailActivity
+        }
     }
 
     override fun initDataBinding() {
         viewDataBinding.missionDetailToolbar.setNavigationOnClickListener {
-            Log.v("18238",it.toString())
+            Log.v("18238", it.toString())
             finish()
         }
     }
@@ -63,8 +78,6 @@ class MissionDetailActivity : BaseActivity<ActivityMissionDetailBinding, Mission
         )
         // listener 등록.
         missionDetailAppbar.addOnOffsetChangedListener(this@MissionDetailActivity)
-
-
 
     }
 

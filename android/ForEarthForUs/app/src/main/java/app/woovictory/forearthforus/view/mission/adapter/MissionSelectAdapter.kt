@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import app.woovictory.forearthforus.databinding.ItemListMissionSelectBinding
 import app.woovictory.forearthforus.model.mission.MissionSelectResponse
-import app.woovictory.forearthforus.model.mission.MissionSelectResponsee
 import app.woovictory.forearthforus.view.mission.viewholder.MissionSelectViewHolder
 
 /**
@@ -15,7 +14,7 @@ import app.woovictory.forearthforus.view.mission.viewholder.MissionSelectViewHol
 class MissionSelectAdapter(private var onMissionSelectItemClickListener: (Int) -> Unit) :
     RecyclerView.Adapter<MissionSelectViewHolder>() {
 
-    private var selectMissionList = ArrayList<MissionSelectResponsee>()
+    private var selectMissionList = ArrayList<MissionSelectResponse>()
     // mission select 화면에서 아이템 클릭 리스너를 달기 위해 함수를 정의한다.
     // 코틀린에서는 함수를 정의해서 변수에 담을 수 있다.
     // Int 를 인자로 받고 아무것도 반환하지 않는다.
@@ -38,7 +37,7 @@ class MissionSelectAdapter(private var onMissionSelectItemClickListener: (Int) -
         }
     }
 
-    fun addItem(items: ArrayList<MissionSelectResponsee>) {
+    fun addItem(items: ArrayList<MissionSelectResponse>) {
         selectMissionList.addAll(items)
         notifyDataSetChanged()
     }

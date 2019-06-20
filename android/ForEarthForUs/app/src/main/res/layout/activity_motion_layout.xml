@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.motion.widget.MotionLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity"
+        app:layoutDescription="@xml/collapsing_toolbar"
+        tools:showPaths="true">
+
+    <androidx.core.widget.NestedScrollView
+            android:id="@+id/scroll"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar_image">
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+            <TextView android:layout_width="match_parent" android:layout_height="100dp"
+                      android:text="1111"/>
+
+            <TextView android:layout_width="match_parent" android:layout_height="100dp"
+                      android:text="1111"/>
+
+            <TextView android:layout_width="match_parent" android:layout_height="100dp"
+                      android:text="1111"/>
+
+            <TextView android:layout_width="match_parent" android:layout_height="100dp"
+                      android:text="1111"/>
+
+            <TextView android:layout_width="match_parent" android:layout_height="100dp"
+                      android:text="1111"/>
+
+            <TextView android:layout_width="match_parent" android:layout_height="100dp"
+                      android:text="1111"/>
+
+            <TextView android:layout_width="match_parent" android:layout_height="100dp"
+                      android:text="1111"/>
+
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <!--    <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerview"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/toolbar_image"/>-->
+
+    <ImageView
+            android:id="@+id/toolbar_image"
+            android:layout_width="0dp"
+            android:layout_height="380dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="@null"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:fitsSystemWindows="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/fufe_illust_jh_04"
+            android:background="@color/fe_fu_white"/>
+
+    <ImageView
+            android:id="@android:id/home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:src="@drawable/abc_ic_ab_back_material"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="24dp"
+            android:text="@string/app_name"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/toolbar_image"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+    <!--android:textColor="?android:attr/textColorPrimaryInverse"-->
+
+</androidx.constraintlayout.motion.widget.MotionLayout>

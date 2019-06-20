@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import app.woovictory.forearthforus.base.BaseViewModel
 import app.woovictory.forearthforus.data.repository.mission.MissionSelectRepository
-import app.woovictory.forearthforus.model.mission.MissionSelectResponsee
+import app.woovictory.forearthforus.model.mission.MissionSelectResponse
 import app.woovictory.forearthforus.util.SharedPreferenceManager
 import app.woovictory.forearthforus.util.SingleLiveEvent
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -20,8 +20,8 @@ class MissionSelectViewModel(private val missionSelectRepository: MissionSelectR
     val clickToMissionStart: LiveData<Any>
         get() = _clickToMissionStart
 
-    private val _missionSelectResponse = MutableLiveData<ArrayList<MissionSelectResponsee>>()
-    val missionSelectResponse: LiveData<ArrayList<MissionSelectResponsee>>
+    private val _missionSelectResponse = MutableLiveData<ArrayList<MissionSelectResponse>>()
+    val missionSelectResponse: LiveData<ArrayList<MissionSelectResponse>>
         get() = _missionSelectResponse
 
     fun clickToMissionStart() {
