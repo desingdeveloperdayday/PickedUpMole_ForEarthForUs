@@ -10,7 +10,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/fe_fu_white"
-            tools:context=".view.article.detail.ArticleIntroActivity">
+            tools:context=".view.article.detail.ArticleDetailActivity">
 
         <ProgressBar
                 android:id="@+id/loading"

@@ -26,7 +26,7 @@ class AchieveListAdapter : RecyclerView.Adapter<AchieveListViewHolder>() {
 
     override fun onBindViewHolder(holder: AchieveListViewHolder, position: Int) {
         holder.apply {
-            onBind(itemList[position], position)
+            onBind(itemList[position])
         }
     }
 

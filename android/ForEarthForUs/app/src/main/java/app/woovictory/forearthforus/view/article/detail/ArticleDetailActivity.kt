@@ -7,15 +7,15 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import app.woovictory.forearthforus.R
 import app.woovictory.forearthforus.base.BaseActivity
-import app.woovictory.forearthforus.databinding.ActivityArticleIntroBinding
+import app.woovictory.forearthforus.databinding.ActivityArticleDetailBinding
 import app.woovictory.forearthforus.util.SharedPreferenceManager
 import app.woovictory.forearthforus.view.article.adapter.ArticleDetailAdapter
 import app.woovictory.forearthforus.vm.article.ArticleDetailViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class ArticleIntroActivity : BaseActivity<ActivityArticleIntroBinding, ArticleDetailViewModel>() {
+class ArticleDetailActivity : BaseActivity<ActivityArticleDetailBinding, ArticleDetailViewModel>() {
     override val layoutResourceId: Int
-        get() = R.layout.activity_article_intro
+        get() = R.layout.activity_article_detail
 
     /*
     * viewModel 의 초기화는 viewModel() 이렇게 하면 안된다.
@@ -63,7 +63,7 @@ class ArticleIntroActivity : BaseActivity<ActivityArticleIntroBinding, ArticleDe
     override fun initStartView() {
         viewDataBinding.apply {
             vm = viewModel
-            lifecycleOwner = this@ArticleIntroActivity
+            lifecycleOwner = this@ArticleDetailActivity
         }
 
     }
@@ -93,7 +93,7 @@ class ArticleIntroActivity : BaseActivity<ActivityArticleIntroBinding, ArticleDe
     private fun setUpRecyclerView() {
         viewDataBinding.articleDetailRv.apply {
             adapter = articleDetailAdapter
-            layoutManager = LinearLayoutManager(this@ArticleIntroActivity)
+            layoutManager = LinearLayoutManager(this@ArticleDetailActivity)
             setHasFixedSize(true)
         }
     }

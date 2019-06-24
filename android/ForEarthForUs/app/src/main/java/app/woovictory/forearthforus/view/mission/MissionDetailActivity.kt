@@ -3,6 +3,7 @@ package app.woovictory.forearthforus.view.mission
 import android.graphics.PorterDuff
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.lifecycle.Observer
@@ -62,7 +63,15 @@ class MissionDetailActivity : BaseActivity<ActivityMissionDetailBinding, Mission
 
         viewModel.clickToMissionSelect.observe(this, Observer {
             val mission = MissionSelectRequest(categoryId)
-            viewModel.postaMissionSelect(SharedPreferenceManager.token, mission)
+            viewModel.postMissionSelect(SharedPreferenceManager.token, mission)
+        })
+
+        viewModel.isLoading.observe(this, Observer { loading ->
+            if (loading) {
+                viewDataBinding.loading.visibility = View.VISIBLE
+            } else {
+                viewDataBinding.loading.visibility = View.GONE
+            }
         })
     }
 

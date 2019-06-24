@@ -11,6 +11,17 @@
             android:layout_height="match_parent"
             tools:context=".view.mission.MissionDetailActivity">
 
+        <ProgressBar
+                android:id="@+id/loading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:indeterminateTint="@color/fe_fu_main"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
         <com.google.android.material.appbar.AppBarLayout
                 android:id="@+id/missionDetailAppbar"
                 android:layout_width="match_parent"
@@ -25,7 +36,7 @@
                     android:fitsSystemWindows="true"
                     app:layout_scrollFlags="scroll|exitUntilCollapsed"
                     app:contentScrim="@color/fe_fu_white"
-                    android:background="@color/fe_fu_sub"
+                    android:background="@color/fe_fu_white"
             >
 
                 <!--<ImageView
