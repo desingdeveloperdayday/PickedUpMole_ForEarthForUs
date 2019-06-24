@@ -96,6 +96,12 @@
         <item name="android:textSize">@dimen/size_text_14dp</item>
         <item name="android:textColor">@color/fe_fu_black</item>
     </style>
+    <style name="ContentsHeaderWhiteStyle">
+        <item name="android:textSize">@dimen/size_text_14dp</item>
+        <item name="android:textColor">@color/fe_fu_white</item>
+        <item name="android:fontFamily">@font/notosanscjkkr_bold</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
 
     <style name="ButtonMintCenterStyle">
         <item name="android:gravity">center_horizontal</item>

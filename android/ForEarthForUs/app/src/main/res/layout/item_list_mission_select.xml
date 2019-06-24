@@ -19,7 +19,7 @@
                 android:id="@+id/itemMissionSelectLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/fe_fu_transparent">
+                >
 
             <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
@@ -27,7 +27,6 @@
                     android:orientation="vertical"
                     app:cardCornerRadius="4dp"
                     app:cardElevation="0dp"
-                    android:background="@color/fe_fu_transparent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
@@ -37,7 +36,7 @@
                         android:layout_width="312dp"
                         android:layout_height="336dp"
                         android:loadUrlImage="@{String.valueOf(selectItem.image)}"
-                        android:background="@color/fe_fu_white"
+
                 />
 
             </androidx.cardview.widget.CardView>
@@ -53,7 +52,8 @@
                 app:layout_constraintTop_toBottomOf="@id/itemMissionSelectLayout"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent" android:orientation="vertical">
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:orientation="vertical">
 
             <TextView
                     android:layout_marginTop="@dimen/margin_24dp"
