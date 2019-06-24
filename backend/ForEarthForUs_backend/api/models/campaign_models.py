@@ -6,7 +6,7 @@ class Campaign(models.Model):
     title = models.CharField(max_length=50)
     subTitle = models.CharField(max_length=100)
     image = models.FileField(null=False, upload_to='images/campaign/')
-    link = models.URLField(max_length=256)
+    link = models.URLField(max_length=256, unique=True)
 
     class Meta:
         db_table = 'campaigns'

@@ -5,7 +5,7 @@ from api.utils.media_clean import file_cleanup
 class Donation(models.Model):
     name = models.CharField(max_length=50)
     image = models.FileField(null=False, upload_to='images/donation/')
-    link = models.URLField(max_length=256)
+    link = models.URLField(max_length=256, unique=True)
 
     class Meta:
         db_table = 'donations'

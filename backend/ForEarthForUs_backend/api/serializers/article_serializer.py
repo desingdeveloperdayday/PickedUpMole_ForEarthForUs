@@ -9,4 +9,4 @@ class ArticleSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Article
-        fields = ('title', 'subTitle', 'image', 'link')
+        fields = ('id', 'title', 'subTitle', 'image', 'link')
