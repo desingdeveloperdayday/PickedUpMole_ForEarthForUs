@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:tools="http://schemas.android.com/tools">
     <data>
-        <variable name="vm" type="app.woovictory.forearthforus.vm.MyPageViewModel"/>
+        <variable name="vm" type="app.woovictory.forearthforus.vm.mypage.MyPageViewModel"/>
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
@@ -57,7 +57,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
-                    tools:text="님"
+                    android:text="님"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toEndOf="@id/myPageProfileUserName"
                     style="@style/SubTitleBodyStyle"
@@ -65,6 +65,7 @@
             />
 
             <TextView
+                    android:id="@+id/myPageProfileEmail"
                     style="@style/ContentsBodyStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

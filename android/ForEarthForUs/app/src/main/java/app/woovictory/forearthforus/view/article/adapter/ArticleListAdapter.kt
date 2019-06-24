@@ -5,16 +5,17 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import app.woovictory.forearthforus.databinding.ItemListArticleUsBinding
+import app.woovictory.forearthforus.model.article.ArticleResponse
 import app.woovictory.forearthforus.model.article.ArticleUsResponse
 import app.woovictory.forearthforus.view.article.viewholder.ArticleUsViewHolder
 
 /**
  * Created by VictoryWoo
  */
-class ArticleUsAdapter : RecyclerView.Adapter<ArticleUsViewHolder>() {
+class ArticleListAdapter : RecyclerView.Adapter<ArticleUsViewHolder>() {
 
-    private val itemList = ArrayList<ArticleUsResponse>()
-    var articleUsItemClickListener: ((Int) -> Unit)? = null
+    private val itemList = ArrayList<ArticleResponse>()
+    var articleUsItemClickListener: ((String) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArticleUsViewHolder {
         val binding = ItemListArticleUsBinding.inflate(
@@ -33,7 +34,7 @@ class ArticleUsAdapter : RecyclerView.Adapter<ArticleUsViewHolder>() {
         }
     }
 
-    fun addItem(items: ArrayList<ArticleUsResponse>) {
+    fun addItem(items: List<ArticleResponse>) {
         this.itemList.addAll(items)
     }
 }

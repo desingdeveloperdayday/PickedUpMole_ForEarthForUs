@@ -4,7 +4,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import app.woovictory.forearthforus.base.BaseViewModel
-import app.woovictory.forearthforus.data.repository.mission.MissionSelectRepository
+import app.woovictory.forearthforus.data.repository.mission.MissionSelectListRepository
 import app.woovictory.forearthforus.model.mission.MissionSelectResponse
 import app.woovictory.forearthforus.util.SharedPreferenceManager
 import app.woovictory.forearthforus.util.SingleLiveEvent
@@ -14,7 +14,7 @@ import io.reactivex.schedulers.Schedulers
 /**
  * Created by VictoryWoo
  */
-class MissionSelectViewModel(private val missionSelectRepository: MissionSelectRepository) : BaseViewModel() {
+class MissionSelectViewModel(private val missionSelectListRepository: MissionSelectListRepository) : BaseViewModel() {
 
     private val _clickToMissionStart = SingleLiveEvent<Any>()
     val clickToMissionStart: LiveData<Any>
@@ -30,7 +30,7 @@ class MissionSelectViewModel(private val missionSelectRepository: MissionSelectR
 
 
     fun getMissionSelectList(categoryId: Int) {
-        addDisposable(missionSelectRepository.getMissionSelectList(SharedPreferenceManager.token, categoryId)
+        addDisposable(missionSelectListRepository.getMissionSelectList(SharedPreferenceManager.token, categoryId)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ response ->

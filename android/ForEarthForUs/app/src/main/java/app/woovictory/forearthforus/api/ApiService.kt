@@ -6,8 +6,12 @@ import app.woovictory.forearthforus.model.account.LoginByEmailResponse
 import app.woovictory.forearthforus.model.mission.MissionFeedResponse
 import app.woovictory.forearthforus.model.account.PreferenceModel
 import app.woovictory.forearthforus.model.account.SignByEmailRequest
+import app.woovictory.forearthforus.model.article.ArticleDetailResponse
+import app.woovictory.forearthforus.model.article.ArticleResponse
+import app.woovictory.forearthforus.model.article.DonationResponse
 import app.woovictory.forearthforus.model.category.MissionCategoryResponse
 import app.woovictory.forearthforus.model.mission.MissionDetailResponse
+import app.woovictory.forearthforus.model.mission.MissionSelectRequest
 import app.woovictory.forearthforus.model.mission.MissionSelectResponse
 import io.reactivex.Single
 import retrofit2.Response
@@ -84,8 +88,8 @@ interface ApiService {
     @POST("api/v1/feed/")
     fun selectNewMission(
         @Header("Authorization") Authorization: String,
-        @Body user: SignByEmailRequest
-    )
+        @Body mission: MissionSelectRequest
+    ) : Single<Response<MissionFeedResponse>>
 
     // 10. 사용자가 진행중인 미션을 완료할 때 사용하는 api
 
@@ -99,6 +103,24 @@ interface ApiService {
         @Header("Authorization") Authorization: String,
         @Path("id") id: Int
     )
+
+    // 13. 후원처 리스트를 가져오는 api
+    @GET("api/v1/donation/")
+    fun getDonationList(
+        @Header("Authorization") Authorization: String
+    ): Single<Response<List<DonationResponse>>>
+
+    // 14. 기부 더보기 리스트를 가져오는 api
+    @GET("api/v1/campaign/")
+    fun getCampaignList(
+        @Header("Authorization") Authorization: String
+    ): Single<Response<List<ArticleDetailResponse>>>
+
+    // 15.Article 리스트를 가져오는 api
+    @GET("api/v1/article/")
+    fun getArticleList(
+        @Header("Authorization") Authorization: String
+    ): Single<Response<List<ArticleResponse>>>
 
     // admin - 관리자.
 

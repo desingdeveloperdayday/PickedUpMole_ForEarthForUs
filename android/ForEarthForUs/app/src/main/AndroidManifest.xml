@@ -21,7 +21,7 @@
         </activity>
         <activity android:name=".view.mypage.ScrapListActivity">
         </activity>
-        <activity android:name=".view.mypage.AchieveListActivity">
+        <activity android:name=".view.mypage.achieve.AchieveListActivity">
         </activity>
         <activity android:name=".view.article.detail.ArticleIntroActivity">
         </activity>

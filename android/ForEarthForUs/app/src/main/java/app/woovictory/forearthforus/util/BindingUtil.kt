@@ -13,6 +13,7 @@ import com.bumptech.glide.RequestBuilder
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestOptions
+import com.makeramen.roundedimageview.RoundedImageView
 
 /**
  * Created by VictoryWoo
@@ -30,12 +31,11 @@ object BindingUtil {
     private var requestBuilder: RequestBuilder<PictureDrawable>? = null
 
 
-
     @JvmStatic
-    @BindingAdapter("android:loadImage")
-    fun loadImage(imageView: ImageView, resId: Int) {
+    @BindingAdapter("android:loadPngImage")
+    fun loadPngImage(imageView: ImageView, path: String) {
         GlideApp.with(imageView.context)
-            .load(resId)
+            .load(path)
             .into(imageView)
     }
 
@@ -51,5 +51,6 @@ object BindingUtil {
 
         requestBuilder?.load(Uri.parse(path))?.into(imageView)
     }
+
 
 }

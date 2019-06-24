@@ -12,7 +12,8 @@ import app.woovictory.forearthforus.R
 import app.woovictory.forearthforus.databinding.FragmentMypageBinding
 import app.woovictory.forearthforus.util.SharedPreferenceManager
 import app.woovictory.forearthforus.view.account.LoginActivity
-import app.woovictory.forearthforus.vm.MyPageViewModel
+import app.woovictory.forearthforus.view.mypage.achieve.AchieveListActivity
+import app.woovictory.forearthforus.vm.mypage.MyPageViewModel
 import org.jetbrains.anko.support.v4.alert
 import org.jetbrains.anko.support.v4.startActivity
 
@@ -85,5 +86,10 @@ class MyPageFragment : Fragment() {
         myPageViewModel.clickToAlarm.observe(this, Observer {
             startActivity<AlarmActivity>()
         })
+
+        fragmentMyPageDataBinding.apply {
+            myPageProfileUserName.text = SharedPreferenceManager.userName
+            myPageProfileEmail.text = SharedPreferenceManager.userEmail
+        }
     }
 }

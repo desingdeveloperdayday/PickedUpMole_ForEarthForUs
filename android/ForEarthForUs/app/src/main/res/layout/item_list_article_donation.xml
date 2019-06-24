@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable name="donationItem" type="app.woovictory.forearthforus.model.article.DonationResponse"/>
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        <!--    <androidx.cardview.widget.CardView
+                    android:layout_marginTop="@dimen/margin_8dp"
+                    android:layout_width="130dp"
+                    android:layout_height="136dp"
+                    android:orientation="vertical"
+                    app:cardCornerRadius="4dp"
+                    app:cardUseCompatPadding="true"
+                    app:cardElevation="0dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+            </androidx.cardview.widget.CardView>-->
+
+        <RelativeLayout
+                android:layout_width="100dp"
+                android:layout_height="106dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:background="@drawable/border_button_background_mission_complete"
+        >
+            <ImageView
+                    android:id="@+id/itemArticleEarthImage"
+                    android:layout_width="90dp"
+                    android:layout_height="96dp"
+                    android:layout_centerInParent="true"
+                    android:loadPngImage="@{donationItem.image}"
+                    app:riv_corner_radius="4dp"
+                    app:riv_border_color="#333333"
+                    app:riv_mutate_background="true"
+                    app:riv_oval="false"/>
+
+        </RelativeLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
