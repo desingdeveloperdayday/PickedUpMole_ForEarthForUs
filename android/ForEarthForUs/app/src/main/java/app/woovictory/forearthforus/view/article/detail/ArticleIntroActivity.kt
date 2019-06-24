@@ -2,15 +2,16 @@ package app.woovictory.forearthforus.view.article.detail
 
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import app.woovictory.forearthforus.R
 import app.woovictory.forearthforus.base.BaseActivity
 import app.woovictory.forearthforus.databinding.ActivityArticleIntroBinding
-import app.woovictory.forearthforus.model.article.detail.ArticleDetailResponse
+import app.woovictory.forearthforus.util.SharedPreferenceManager
 import app.woovictory.forearthforus.view.article.adapter.ArticleDetailAdapter
 import app.woovictory.forearthforus.vm.article.ArticleDetailViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ArticleIntroActivity : BaseActivity<ActivityArticleIntroBinding, ArticleDetailViewModel>() {
     override val layoutResourceId: Int
@@ -24,10 +25,8 @@ class ArticleIntroActivity : BaseActivity<ActivityArticleIntroBinding, ArticleDe
     * TODO
     * ViewModel 초기화에 대해서 조금 더 찾아보기.
     * */
-    override val viewModel: ArticleDetailViewModel
-        get() = ViewModelProviders.of(this).get(ArticleDetailViewModel::class.java)
-
-    private var itemList = ArrayList<ArticleDetailResponse>()
+    override val viewModel: ArticleDetailViewModel by viewModel()
+    //ViewModelProviders.of(this).get(ArticleDetailViewModel::class.java)
     private var articleDetailAdapter: ArticleDetailAdapter? = null
         set(value) {
             field = value
@@ -37,52 +36,65 @@ class ArticleIntroActivity : BaseActivity<ActivityArticleIntroBinding, ArticleDe
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // adapter 초기화.
         articleDetailAdapter = ArticleDetailAdapter()
         getData()
-        setUpData()
         initStartView()
-        setUpViewModel()
         initDataBinding()
+        // 비동기 호출이기 때문에 후원처 리스트를 불러오는 동안 함수가 아래를 타고 내려간다.
+        // 따라서 여기서 호출하는 것이 아니라 구독하는 곳에서 호출해야 한다.
+        //setUpRecyclerView()
     }
 
     private fun getData() {
         intent?.getStringExtra("key").also {
             viewDataBinding.articleDetailTitle.text = it
-        }
-    }
+            when (it) {
+                "For Earth" -> { // 기부 후원처 리스트.
+                    viewModel.getDetailList(SharedPreferenceManager.token)
+                }
+                "For Us" -> {
 
-    private fun setUpData() {
-        for (i in 0..5) {
-            itemList.add(
-                ArticleDetailResponse(
-                    R.drawable.fufe_illust_jh_04, "하나뿐인 지구, One Planet"
-                    , "후원기관 : WWF"
-                )
-            )
+                }
+            }
         }
-        articleDetailAdapter?.addItem(itemList)
     }
 
     override fun initStartView() {
+        viewDataBinding.apply {
+            vm = viewModel
+            lifecycleOwner = this@ArticleIntroActivity
+        }
+
+    }
+
+    override fun initDataBinding() {
+        viewModel.clickToBack.observe(this, Observer {
+            finish()
+        })
+
+        viewModel.articleDetailResponse.observe(this, Observer {
+            if (it.isNotEmpty()) {
+                Log.v("0099", it.size.toString())
+                articleDetailAdapter?.addItem(it)
+                setUpRecyclerView()
+            }
+        })
+
+        viewModel.isLoading.observe(this, Observer { isLoading ->
+            if (isLoading) {
+                viewDataBinding.loading.visibility = View.VISIBLE
+            } else {
+                viewDataBinding.loading.visibility = View.GONE
+            }
+        })
+    }
+
+    private fun setUpRecyclerView() {
         viewDataBinding.articleDetailRv.apply {
             adapter = articleDetailAdapter
             layoutManager = LinearLayoutManager(this@ArticleIntroActivity)
             setHasFixedSize(true)
         }
-    }
-
-    private fun setUpViewModel() {
-        viewDataBinding.apply {
-            vm = viewModel
-            lifecycleOwner = this@ArticleIntroActivity
-        }
-    }
-
-    override fun initDataBinding() {
-        Log.v("0099", "들어오니? 3")
-        viewModel.clickToBack.observe(this, Observer {
-            Log.v("0099", "들어오니? 2")
-            finish()
-        })
     }
 }

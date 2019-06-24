@@ -1,10 +1,11 @@
 package app.woovictory.forearthforus.view.article.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import app.woovictory.forearthforus.databinding.ItemListArticleEarthBinding
-import app.woovictory.forearthforus.model.article.ArticleEarthResponse
+import app.woovictory.forearthforus.databinding.ItemListArticleDonationBinding
+import app.woovictory.forearthforus.model.article.DonationResponse
 import app.woovictory.forearthforus.view.article.viewholder.ArticleEarthViewHolder
 
 /**
@@ -12,19 +13,22 @@ import app.woovictory.forearthforus.view.article.viewholder.ArticleEarthViewHold
  */
 class ArticleEarthAdapter : RecyclerView.Adapter<ArticleEarthViewHolder>() {
 
-    private var itemList = ArrayList<ArticleEarthResponse>()
-    var onArticleEarthItemClickListener: ((Int) -> Unit)? = null
+    private var itemList = ArrayList<DonationResponse>()
+    var onArticleEarthItemClickListener: ((String) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArticleEarthViewHolder {
 
-        val binding = ItemListArticleEarthBinding.inflate(
+        val binding = ItemListArticleDonationBinding.inflate(
             LayoutInflater.from(parent.context)
             , parent, false
         )
         return ArticleEarthViewHolder(binding, onArticleEarthItemClickListener)
     }
 
-    override fun getItemCount(): Int = itemList.size
+    override fun getItemCount(): Int {
+        Log.v("9929d size",itemList.size.toString())
+        return itemList.size
+    }
 
     override fun onBindViewHolder(holder: ArticleEarthViewHolder, position: Int) {
 
@@ -33,7 +37,8 @@ class ArticleEarthAdapter : RecyclerView.Adapter<ArticleEarthViewHolder>() {
         }
     }
 
-    fun addItem(items: ArrayList<ArticleEarthResponse>) {
+    fun addItem(items: List<DonationResponse>) {
         this.itemList.addAll(items)
+        Log.v("9929 addItem",itemList.size.toString())
     }
 }

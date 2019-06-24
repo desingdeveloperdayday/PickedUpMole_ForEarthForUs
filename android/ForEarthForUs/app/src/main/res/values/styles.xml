@@ -190,4 +190,8 @@
     <style name="NonStatusBar" parent="AppTheme">
         <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
+    
+    <style name="MainColorProgressBar" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:colorAccent">@color/fe_fu_main</item>
+    </style>
 </resources>

@@ -32,10 +32,10 @@ object BindingUtil {
 
 
     @JvmStatic
-    @BindingAdapter("android:loadImage")
-    fun loadImage(imageView: ImageView, resId: Int) {
+    @BindingAdapter("android:loadPngImage")
+    fun loadPngImage(imageView: ImageView, path: String) {
         GlideApp.with(imageView.context)
-            .load(resId)
+            .load(path)
             .into(imageView)
     }
 

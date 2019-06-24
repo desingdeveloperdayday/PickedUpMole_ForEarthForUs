@@ -6,6 +6,9 @@ import app.woovictory.forearthforus.data.repository.main.EarthRepository
 import app.woovictory.forearthforus.data.repository.account.LoginRepository
 import app.woovictory.forearthforus.data.repository.account.PreferenceRepository
 import app.woovictory.forearthforus.data.repository.account.SignUpRepository
+import app.woovictory.forearthforus.data.repository.article.ArticleDetailRepository
+import app.woovictory.forearthforus.data.repository.article.ArticleDonationRepository
+import app.woovictory.forearthforus.data.repository.article.ArticleRepository
 import app.woovictory.forearthforus.data.repository.category.MissionCategoryRepository
 import app.woovictory.forearthforus.data.repository.feed.MissionFeedRepository
 import app.woovictory.forearthforus.data.repository.mission.MissionDetailRepository
@@ -14,6 +17,9 @@ import app.woovictory.forearthforus.data.repository.mission.MissionSelectReposit
 import app.woovictory.forearthforus.data.source.account.LoginRemoteDataSource
 import app.woovictory.forearthforus.data.source.account.PreferenceRemoteDataSource
 import app.woovictory.forearthforus.data.source.account.SignUpRemoteDataSource
+import app.woovictory.forearthforus.data.source.article.ArticleDetailRemoteDataSource
+import app.woovictory.forearthforus.data.source.article.ArticleDonationRemoteDataSource
+import app.woovictory.forearthforus.data.source.article.ArticleRemoteDataSource
 import app.woovictory.forearthforus.data.source.category.MissionCategoryRemoteDataSource
 import app.woovictory.forearthforus.data.source.feed.MissionFeedRemoteDataSource
 import app.woovictory.forearthforus.data.source.main.EarthRemoteDataSource
@@ -83,6 +89,9 @@ val dataSourceModule = module {
     factory { MissionSelectListRemoteDataSource(get()) }
     factory { MissionDetailRemoteDataSource(get()) }
     factory { MissionSelectRemoteDataSource(get()) }
+    factory { ArticleDonationRemoteDataSource(get()) }
+    factory { ArticleDetailRemoteDataSource(get()) }
+    factory { ArticleRepository(get()) }
 }
 
 val repositoryModule = module {
@@ -95,6 +104,9 @@ val repositoryModule = module {
     factory { MissionSelectListRepository(get()) }
     factory { MissionDetailRepository(get()) }
     factory { MissionSelectRepository(get()) }
+    factory { ArticleDonationRepository(get()) }
+    factory { ArticleDetailRepository(get()) }
+    factory { ArticleRemoteDataSource(get()) }
 }
 
 var appModules = listOf(apiModule, dataSourceModule, viewModelModule, repositoryModule)

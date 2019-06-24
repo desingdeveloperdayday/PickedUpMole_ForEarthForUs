@@ -1,7 +1,9 @@
 package app.woovictory.forearthforus.view.article
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Point
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -18,13 +20,16 @@ import app.woovictory.forearthforus.R
 import app.woovictory.forearthforus.databinding.FragmentArticleBinding
 import app.woovictory.forearthforus.model.article.ArticleEarthResponse
 import app.woovictory.forearthforus.model.article.ArticleUsResponse
+import app.woovictory.forearthforus.model.article.DonationResponse
 import app.woovictory.forearthforus.util.ItemDecoration
+import app.woovictory.forearthforus.util.SharedPreferenceManager
 import app.woovictory.forearthforus.view.article.adapter.ArticleEarthAdapter
-import app.woovictory.forearthforus.view.article.adapter.ArticleUsAdapter
+import app.woovictory.forearthforus.view.article.adapter.ArticleListAdapter
 import app.woovictory.forearthforus.view.article.detail.ArticleIntroActivity
 import app.woovictory.forearthforus.vm.article.ArticleViewModel
 import org.jetbrains.anko.support.v4.startActivity
 import org.jetbrains.anko.support.v4.toast
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 /**
  * Created by VictoryWoo
@@ -38,9 +43,11 @@ class ArticleFragment : Fragment() {
     }
 
     private lateinit var fragmentArticleBinding: FragmentArticleBinding
-    var articleViewModel = ArticleViewModel()
+    private val articleViewModel: ArticleViewModel by viewModel()
     private var itemEarthList = ArrayList<ArticleEarthResponse>() // Earth 데이터.
     private var itemUsList = ArrayList<ArticleUsResponse>()
+
+    private lateinit var itemDonationList: ArrayList<DonationResponse>
     private lateinit var size: Point
     private var articleEarthAdapter: ArticleEarthAdapter? = null
         set(value) {
@@ -48,14 +55,13 @@ class ArticleFragment : Fragment() {
             field?.onArticleEarthItemClickListener = { startWebView(it) }
         }
 
-    private var articleUsAdapter: ArticleUsAdapter? = null
+    private var articleListAdapter: ArticleListAdapter? = null
         set(value) {
             field = value
-            field?.articleUsItemClickListener = { position ->
-                startUsDetail(position)
+            field?.articleUsItemClickListener = { link ->
+                startWebView(link)
             }
         }
-
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         fragmentArticleBinding = DataBindingUtil.inflate(
@@ -68,15 +74,21 @@ class ArticleFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        // adapter 초기화.
-        articleEarthAdapter = ArticleEarthAdapter()
-        articleUsAdapter = ArticleUsAdapter()
-        initImageData()
+        // 요청.
+        articleViewModel.getDonationList(SharedPreferenceManager.token)
+        articleViewModel.getArticleList(SharedPreferenceManager.token)
+
+        initAdapter()
         getWindowSize()
-        setUpRecyclerView()
         addSnapHelper()
         setViewModel()
         setUpDataBinding()
+    }
+
+    private fun initAdapter() {
+        // adapter 초기화.
+        articleEarthAdapter = ArticleEarthAdapter()
+        articleListAdapter = ArticleListAdapter()
     }
 
     private fun setViewModel() {
@@ -84,7 +96,6 @@ class ArticleFragment : Fragment() {
             viewModel = articleViewModel
             lifecycleOwner = this@ArticleFragment
         }
-
     }
 
     private fun setUpDataBinding() {
@@ -94,6 +105,20 @@ class ArticleFragment : Fragment() {
         articleViewModel.clickToArticleUsDetail.observe(this, Observer {
             startActivity<ArticleIntroActivity>("key" to "For Us")
         })
+
+        articleViewModel.donationResponse.observe(this, Observer {
+            if (it.isNotEmpty()) {
+                articleEarthAdapter?.addItem(it)
+            }
+        })
+
+        articleViewModel.articleResponse.observe(this, Observer {
+            if(it.isNotEmpty()){
+                articleListAdapter?.addItem(it)
+            }
+        })
+
+        setUpRecyclerView()
     }
 
 
@@ -107,25 +132,21 @@ class ArticleFragment : Fragment() {
 
 
     private fun setUpRecyclerView() {
-        // Earth RecyclerView 세팅.
+        // Donation RecyclerView
         fragmentArticleBinding.articleEarthRv.apply {
             adapter = articleEarthAdapter
             layoutManager = LinearLayoutManager(context.applicationContext, LinearLayout.HORIZONTAL, false)
-            addItemDecoration(ItemDecoration(size.x / 200, size.x / 20))
-            Log.v("9988", "size.x : ${size.x}")
-            Log.v("9988", "size.y : ${size.y}")
+            addItemDecoration(ItemDecoration(size.x / 80, size.x / 20))
             setHasFixedSize(true)
         }
-        articleEarthAdapter?.addItem(itemEarthList)
 
-        // Us RecyclerView 세팅.
+        // 아티클 리싸이클러뷰
         fragmentArticleBinding.articleUsRv.apply {
-            adapter = articleUsAdapter
+            adapter = articleListAdapter
             layoutManager = LinearLayoutManager(activity?.applicationContext, LinearLayout.HORIZONTAL, false)
             addItemDecoration(ItemDecoration(size.x / 110, size.x / 20))
             setHasFixedSize(true)
         }
-        articleUsAdapter?.addItem(itemUsList)
     }
 
     private fun addSnapHelper() {
@@ -137,27 +158,11 @@ class ArticleFragment : Fragment() {
 
     }
 
-    private fun initImageData() {
-        for (i in 0..5) {
-            itemEarthList.add(ArticleEarthResponse(R.drawable.fufe_illust_jh_04))
-            itemUsList.add(
-                ArticleUsResponse(
-                    R.drawable.fufe_illust_jh_04
-                    , "생태발자국 줄이기", "WWF의 하나뿐인 지구를 위한 중점사업"
-                )
-            )
-        }
+    private fun startWebView(link: String) {
+        val intent = Intent(Intent.ACTION_VIEW)
+        intent.data = Uri.parse(link)
+        startActivity(intent)
+        //toast("$link 눌림")
     }
 
-    /*
-    * TODO
-    * 나중에 WebView 호출하는 로직 넣자.
-    * */
-    private fun startWebView(position: Int) {
-        toast("$position 눌림")
-    }
-
-    private fun startUsDetail(position: Int) {
-        toast("us $position item click")
-    }
 }
