@@ -4,6 +4,8 @@ import app.woovictory.forearthforus.vm.account.LoginViewModel
 import app.woovictory.forearthforus.vm.MainViewModel
 import app.woovictory.forearthforus.vm.account.FieldSelectViewModel
 import app.woovictory.forearthforus.vm.account.SignUpViewModel
+import app.woovictory.forearthforus.vm.article.ArticleDetailViewModel
+import app.woovictory.forearthforus.vm.article.ArticleViewModel
 import app.woovictory.forearthforus.vm.category.MissionCategoryViewModel
 import app.woovictory.forearthforus.vm.mission.MissionDetailViewModel
 import app.woovictory.forearthforus.vm.mission.MissionSelectViewModel
@@ -21,5 +23,7 @@ val viewModelModule = module {
     viewModel { FieldSelectViewModel(get()) }
     viewModel { MissionCategoryViewModel(get()) }
     viewModel { MissionSelectViewModel(get()) }
-    viewModel { MissionDetailViewModel(get()) }
+    viewModel { MissionDetailViewModel(get(), get()) }
+    viewModel { ArticleViewModel(get(),get()) }
+    viewModel { ArticleDetailViewModel(get()) }
 }

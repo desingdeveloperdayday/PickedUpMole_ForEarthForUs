@@ -66,6 +66,7 @@ class MissionCategoryFragment : Fragment() {
 
     private fun initRecyclerView() {
         fragmentMissionDataBinding.missionRv.apply {
+            scrollToPosition(0)
             layoutManager = LinearLayoutManager(context.applicationContext)
             adapter = missionCategoryAdapter
             setHasFixedSize(true)

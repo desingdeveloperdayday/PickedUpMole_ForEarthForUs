@@ -16,7 +16,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:theme="@style/AppTheme.AppBarOverlay"
-                >
+        >
 
             <com.google.android.material.appbar.CollapsingToolbarLayout
                     android:id="@+id/missionDetailCollapsingToolbar"
@@ -160,6 +160,7 @@
             <TextView
                     style="@style/ButtonWhiteCenterStyle"
                     android:layout_centerInParent="true"
+                    android:onClick="@{()->vm.clickToMissionSelect()}"
                     android:text="@string/text_mission_select"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>

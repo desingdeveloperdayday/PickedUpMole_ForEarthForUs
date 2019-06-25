@@ -4,10 +4,9 @@
 >
     <data>
         <variable name="articleDetailItems"
-                  type="app.woovictory.forearthforus.model.article.detail.ArticleDetailResponse"/>
+                  type="app.woovictory.forearthforus.model.article.ArticleDetailResponse"/>
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
-
             xmlns:android="http://schemas.android.com/apk/res/android"
             android:orientation="vertical"
             android:layout_width="match_parent"
@@ -16,9 +15,11 @@
 
         <ImageView
                 android:id="@+id/itemArticleDetailImage"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="242dp"
+                android:scaleType="fitXY"
                 android:src="@color/fe_fu_gray"
+                android:loadPngImage="@{articleDetailItems.image}"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"/>
@@ -40,7 +41,7 @@
                 android:textColor="@color/fe_fu_black"
                 android:lineSpacingExtra="16sp"
                 style="@style/TitleBlackStyle"
-                android:text="@{articleDetailItems.articleDetailTitle}"
+                android:text="@{articleDetailItems.title}"
                 android:layout_marginTop="@dimen/margin_16dp"
                 android:layout_marginStart="@dimen/margin_24dp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -53,11 +54,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_24dp"
                 android:layout_marginTop="8dp"
-                android:text="@{articleDetailItems.articleDetailSubTitle}"
+                android:text="@{articleDetailItems.subTitle}"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/itemArticleDetailTitle"
                 style="@style/ContentsBodyStyle"
         />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

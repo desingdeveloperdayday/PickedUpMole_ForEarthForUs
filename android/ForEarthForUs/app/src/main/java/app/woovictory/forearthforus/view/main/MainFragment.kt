@@ -15,6 +15,7 @@ import app.woovictory.forearthforus.model.mission.MissionResponse
 import app.woovictory.forearthforus.util.SharedPreferenceManager
 import app.woovictory.forearthforus.util.glide.GlideApp
 import app.woovictory.forearthforus.view.main.detail.EarthDetailActivity
+import app.woovictory.forearthforus.view.mission.MissionDetailActivity
 import app.woovictory.forearthforus.vm.MainViewModel
 import org.jetbrains.anko.support.v4.startActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -32,7 +33,7 @@ class MainFragment : Fragment() {
 
     private lateinit var fragmentMainBinding: FragmentMainBinding
     private lateinit var itemList: ArrayList<MissionResponse>
-    private lateinit var mainMissionAdapter: MainMissionAdapter
+    private var mainMissionAdapter: MainMissionAdapter? = null
     private val mainViewModel: MainViewModel by viewModel()
     private var earthLevelList = arrayListOf(R.drawable.main_bar_graph1, R.drawable.main_bar_graph2)
 
@@ -45,13 +46,17 @@ class MainFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        //initRecyclerView()
-        mainMissionAdapter = MainMissionAdapter()
-        fragmentMainBinding.itemMainEarthUserName.text = SharedPreferenceManager.userName
-
+        init()
         setUpViewModel()
         setUpDataBinding()
 
+    }
+
+    private fun init() {
+        mainMissionAdapter = MainMissionAdapter {
+            startToDetailActivity(it)
+        }
+        fragmentMainBinding.itemMainEarthUserName.text = SharedPreferenceManager.userName
     }
 
     private fun setUpViewModel() {
@@ -79,8 +84,8 @@ class MainFragment : Fragment() {
             if (it.size > 0) {
                 fragmentMainBinding.apply {
                     mainRv.visibility = View.VISIBLE
-                    mainMissionAdapter.addItems(it)
-                    initRecyclerView()
+                    mainMissionAdapter?.addItems(it)
+                    setUpRecyclerView()
                 }
                 fragmentMainBinding.mainNullIconImage.visibility = View.GONE
             } else {
@@ -90,7 +95,8 @@ class MainFragment : Fragment() {
         })
     }
 
-    private fun initRecyclerView() {
+    private fun setUpRecyclerView() {
+
         fragmentMainBinding.mainRv.apply {
             layoutManager = LinearLayoutManager(context.applicationContext)
             adapter = mainMissionAdapter
@@ -109,5 +115,9 @@ class MainFragment : Fragment() {
             6 -> GlideApp.with(this).load(earthLevelList[earthLevel]).into(fragmentMainBinding.mainBarGraph)
             7 -> GlideApp.with(this).load(earthLevelList[earthLevel]).into(fragmentMainBinding.mainBarGraph)
         }
+    }
+
+    private fun startToDetailActivity(id: Int) {
+        startActivity<MissionDetailActivity>("categoryId" to id)
     }
 }

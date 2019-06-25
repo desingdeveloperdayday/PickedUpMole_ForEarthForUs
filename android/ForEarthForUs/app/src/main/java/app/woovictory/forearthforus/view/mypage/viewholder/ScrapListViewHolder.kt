@@ -2,7 +2,7 @@ package app.woovictory.forearthforus.view.mypage.viewholder
 
 import androidx.recyclerview.widget.RecyclerView
 import app.woovictory.forearthforus.databinding.ItemListArticleDetailBinding
-import app.woovictory.forearthforus.model.article.detail.ArticleDetailResponse
+import app.woovictory.forearthforus.model.article.ArticleDetailResponse
 
 /**
  * Created by VictoryWoo

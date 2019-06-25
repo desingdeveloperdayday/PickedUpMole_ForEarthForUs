@@ -13,12 +13,11 @@
             android:background="@color/fe_fu_white">
 
 
-        <TextView
+        <ImageView
                 android:id="@+id/loginLogoImage"
-                android:layout_width="92dp"
-                android:layout_height="60dp"
-                android:background="@color/fe_fu_main"
-                tools:text="로고"
+                android:layout_width="80dp"
+                android:layout_height="66dp"
+                android:src="@drawable/logo_main"
                 android:gravity="center"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -33,7 +32,7 @@
                 android:layout_marginStart="@dimen/margin_24dp"
                 android:layout_marginEnd="@dimen/margin_24dp"
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
+                android:layout_height="50dp"
                 android:hint="@string/text_login_email"
                 android:inputType="textEmailAddress"
                 app:layout_constraintStart_toStartOf="parent"
@@ -47,7 +46,7 @@
                 android:layout_marginStart="@dimen/margin_24dp"
                 android:layout_marginEnd="@dimen/margin_24dp"
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
+                android:layout_height="50dp"
                 android:hint="@string/text_login_password"
                 android:inputType="textPassword"
                 app:layout_constraintStart_toStartOf="parent"
@@ -70,7 +69,7 @@
                 app:layout_constraintTop_toBottomOf="@id/loginPasswordEt"
                 style="@style/ButtonStyle"/>
 
-        <RelativeLayout
+        <!--<RelativeLayout
                 android:id="@+id/loginLineLayout"
                 android:layout_marginStart="@dimen/margin_24dp"
                 android:layout_marginEnd="@dimen/margin_24dp"
@@ -106,10 +105,10 @@
                     android:layout_height="1dp"
                     android:background="@color/fe_fu_gray"/>
 
-        </RelativeLayout>
+        </RelativeLayout>-->
 
 
-        <LinearLayout
+     <!--   <LinearLayout
                 android:id="@+id/loginGoogle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -122,6 +121,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/loginEmail"
                 app:layout_constraintHorizontal_chainStyle="packed">
+
             <ImageView
                     android:id="@+id/loginGoogleImage"
                     android:layout_width="wrap_content"
@@ -140,7 +140,7 @@
                     android:hint="@string/text_google_login"
                     style="@style/ContentsBodyCenterStyle"/>
 
-        </LinearLayout>
+        </LinearLayout>-->
 
         <LinearLayout
                 android:id="@+id/loginEmail"
@@ -150,11 +150,11 @@
                 android:gravity="center_horizontal"
                 android:layout_marginTop="@dimen/margin_48dp"
                 android:onClick="@{()->vm.clickToSignActivity()}"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/loginLineLayout"
-                app:layout_constraintStart_toEndOf="@id/loginGoogle"
+                app:layout_constraintTop_toBottomOf="@id/loginButton"
         >
-            <ImageView
+            <!--<ImageView
                     android:id="@+id/loginEmailImage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -162,15 +162,16 @@
                     android:layout_gravity="center_horizontal"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintHorizontal_chainStyle="packed"
-                    app:layout_constraintTop_toBottomOf="@id/loginLineLayout"
-            />
+                    app:layout_constraintTop_toBottomOf="@id/loginButton"
+            />-->
 
             <TextView
                     android:layout_gravity="center"
                     android:layout_marginTop="@dimen/margin_8dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="@string/text_email_login"
+                    android:hint="@string/text_sign_up"
+                    android:textColor="@color/fe_fu_main"
                     style="@style/ContentsBodyCenterStyle"
             />
 

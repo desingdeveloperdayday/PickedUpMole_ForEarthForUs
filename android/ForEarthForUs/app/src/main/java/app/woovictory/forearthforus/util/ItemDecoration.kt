@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView
 /**
  * Created by VictoryWoo
  * RecyclerView Item Decoration
+ * side : 양 끝 넓이.
+ * space : 아이템 사이 간격.
  */
 class ItemDecoration(private val space: Int, private val side: Int) : RecyclerView.ItemDecoration() {
 

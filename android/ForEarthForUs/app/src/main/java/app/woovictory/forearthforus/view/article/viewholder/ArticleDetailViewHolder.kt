@@ -1,8 +1,9 @@
 package app.woovictory.forearthforus.view.article.viewholder
 
+import android.util.Log
 import androidx.recyclerview.widget.RecyclerView
 import app.woovictory.forearthforus.databinding.ItemListArticleDetailBinding
-import app.woovictory.forearthforus.model.article.detail.ArticleDetailResponse
+import app.woovictory.forearthforus.model.article.ArticleDetailResponse
 
 /**
  * Created by VictoryWoo
@@ -14,6 +15,7 @@ class ArticleDetailViewHolder(
 ) : RecyclerView.ViewHolder(binding.root) {
 
     fun onBind(item: ArticleDetailResponse, position: Int) {
+        Log.v("06606",item.toString())
         binding.articleDetailItems = item
         binding.executePendingBindings()
 

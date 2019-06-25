@@ -1,4 +1,4 @@
-package app.woovictory.forearthforus.vm
+package app.woovictory.forearthforus.vm.mypage
 
 import androidx.lifecycle.LiveData
 import app.woovictory.forearthforus.base.BaseViewModel

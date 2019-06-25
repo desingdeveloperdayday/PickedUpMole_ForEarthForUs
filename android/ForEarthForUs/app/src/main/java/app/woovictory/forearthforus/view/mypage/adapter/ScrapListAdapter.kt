@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import app.woovictory.forearthforus.databinding.ItemListArticleDetailBinding
-import app.woovictory.forearthforus.model.article.detail.ArticleDetailResponse
+import app.woovictory.forearthforus.model.article.ArticleDetailResponse
 import app.woovictory.forearthforus.view.mypage.viewholder.ScrapListViewHolder
 
 /**

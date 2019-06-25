@@ -7,15 +7,15 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import app.woovictory.forearthforus.R
 import app.woovictory.forearthforus.base.BaseActivity
 import app.woovictory.forearthforus.databinding.ActivityScrapListBinding
-import app.woovictory.forearthforus.model.article.detail.ArticleDetailResponse
+import app.woovictory.forearthforus.model.article.ArticleDetailResponse
 import app.woovictory.forearthforus.view.mypage.adapter.ScrapListAdapter
-import app.woovictory.forearthforus.vm.ScrapListViewModel
+import app.woovictory.forearthforus.vm.mypage.ScrapListViewModel
 
 class ScrapListActivity : BaseActivity<ActivityScrapListBinding, ScrapListViewModel>() {
     override val layoutResourceId: Int
         get() = R.layout.activity_scrap_list
     override val viewModel: ScrapListViewModel
-        get() = ViewModelProviders.of(this).get(ScrapListViewModel::class.java)
+        get() = ViewModelProviders.of(this@ScrapListActivity).get(ScrapListViewModel::class.java)
 
 
     private val itemList = ArrayList<ArticleDetailResponse>()
@@ -26,18 +26,19 @@ class ScrapListActivity : BaseActivity<ActivityScrapListBinding, ScrapListViewMo
         setUpData()
         setUpAdapter()
         initStartView()
+        setUpRecyclerView()
         initDataBinding()
     }
 
     private fun setUpData() {
-        for (i in 1..5) {
+      /*  for (i in 1..5) {
             itemList.add(
                 ArticleDetailResponse(
                     R.drawable.fufe_illust_jh_04, "하나뿐인 지구, One Planet"
                     , "후원기관 : WWFff"
                 )
             )
-        }
+        }*/
     }
 
     private fun setUpAdapter() {
@@ -46,8 +47,14 @@ class ScrapListActivity : BaseActivity<ActivityScrapListBinding, ScrapListViewMo
         }
     }
 
-
     override fun initStartView() {
+        viewDataBinding.apply {
+            vm = viewModel
+            lifecycleOwner = this@ScrapListActivity
+        }
+    }
+
+    private fun setUpRecyclerView() {
         viewDataBinding.scrapListRv.apply {
             adapter = scrapListAdapter
             layoutManager = LinearLayoutManager(this@ScrapListActivity)
