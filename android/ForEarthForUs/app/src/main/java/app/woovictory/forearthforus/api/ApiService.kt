@@ -4,7 +4,6 @@ import app.woovictory.forearthforus.model.earth.EarthResponse
 import app.woovictory.forearthforus.model.account.LoginByEmailRequest
 import app.woovictory.forearthforus.model.account.LoginByEmailResponse
 import app.woovictory.forearthforus.model.mission.MissionFeedResponse
-import app.woovictory.forearthforus.model.account.PreferenceModel
 import app.woovictory.forearthforus.model.account.SignByEmailRequest
 import app.woovictory.forearthforus.model.article.ArticleDetailResponse
 import app.woovictory.forearthforus.model.article.ArticleResponse
@@ -13,6 +12,7 @@ import app.woovictory.forearthforus.model.category.MissionCategoryResponse
 import app.woovictory.forearthforus.model.mission.MissionDetailResponse
 import app.woovictory.forearthforus.model.mission.MissionSelectRequest
 import app.woovictory.forearthforus.model.mission.MissionSelectResponse
+import io.reactivex.Completable
 import io.reactivex.Single
 import retrofit2.Response
 import retrofit2.http.*
@@ -39,8 +39,10 @@ interface ApiService {
     @POST("api/v1/account/prefer/")
     fun selectPreference(
         @Header("Authorization") Authorization: String,
-        @Body list: ArrayList<PreferenceModel>
-    ): Single<Response<ArrayList<PreferenceModel>>>
+        @Body preferList: MutableList<Int>
+    ): Completable
+    //: Maybe<Response<ArrayList<PreferenceModel>>>
+
 
     // 4. earth 리스트 main 화면
     @GET("api/v1/earth/{earthLevel}")
@@ -89,7 +91,7 @@ interface ApiService {
     fun selectNewMission(
         @Header("Authorization") Authorization: String,
         @Body mission: MissionSelectRequest
-    ) : Single<Response<MissionFeedResponse>>
+    ): Single<Response<MissionFeedResponse>>
 
     // 10. 사용자가 진행중인 미션을 완료할 때 사용하는 api
 

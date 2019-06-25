@@ -11,103 +11,120 @@
             tools:context=".view.account.SignUpActivity"
             android:background="@color/fe_fu_white">
 
-
-        <androidx.appcompat.widget.Toolbar
-                android:id="@+id/signUpToolbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:theme="@style/ToolbarStyle"
+        <ScrollView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-        />
+                app:layout_constraintBottom_toBottomOf="parent">
 
-        <TextView
-                android:id="@+id/signTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_24dp"
-                android:layout_marginStart="@dimen/margin_24dp"
-                android:textColor="@color/fe_fu_black"
-                android:lineSpacingExtra="16sp"
-                android:textStyle="bold"
-                android:text="@string/text_sign_up_title"
-                app:layout_constraintTop_toBottomOf="@id/signUpToolbar"
-                app:layout_constraintStart_toStartOf="parent"
-                style="@style/TitleBlackStyle"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-        />
+                <androidx.appcompat.widget.Toolbar
+                        android:id="@+id/signUpToolbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="?attr/actionBarSize"
+                        android:theme="@style/ToolbarStyle"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                />
 
-        <EditText
-                android:id="@+id/signNameEt"
-                android:layout_marginTop="@dimen/margin_48dp"
-                android:layout_marginStart="@dimen/margin_24dp"
-                android:layout_marginEnd="@dimen/margin_24dp"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/size_edit_text_height"
-                android:hint="@string/text_sign_up_name"
-                android:inputType="text"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/signTitle"
-                style="@style/EditTextStyle"/>
+                <TextView
+                        android:id="@+id/signTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_24dp"
+                        android:layout_marginStart="@dimen/margin_24dp"
+                        android:textColor="@color/fe_fu_black"
+                        android:lineSpacingExtra="16sp"
+                        android:textStyle="bold"
+                        android:text="@string/text_sign_up_title"
+                        app:layout_constraintTop_toBottomOf="@id/signUpToolbar"
+                        app:layout_constraintStart_toStartOf="parent"
+                        style="@style/TitleBlackStyle"
 
-        <EditText
-                android:id="@+id/signEmailEt"
-                android:layout_marginTop="@dimen/margin_16dp"
-                android:layout_marginStart="@dimen/margin_24dp"
-                android:layout_marginEnd="@dimen/margin_24dp"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/size_edit_text_height"
-                android:hint="@string/text_sign_up_email"
-                android:inputType="textEmailAddress"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/signNameEt"
-                style="@style/EditTextStyle"/>
+                />
 
-        <EditText
-                android:id="@+id/signPasswordEt"
-                android:layout_marginTop="@dimen/margin_16dp"
-                android:layout_marginStart="@dimen/margin_24dp"
-                android:layout_marginEnd="@dimen/margin_24dp"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/size_edit_text_height"
-                android:hint="@string/text_sign_up_password"
-                android:inputType="textPassword"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/signEmailEt"
-                style="@style/EditTextStyle"/>
+                <EditText
+                        android:id="@+id/signNameEt"
+                        android:layout_marginTop="@dimen/margin_48dp"
+                        android:layout_marginStart="@dimen/margin_24dp"
+                        android:layout_marginEnd="@dimen/margin_24dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/size_edit_text_height"
+                        android:hint="@string/text_sign_up_name"
+                        android:inputType="text"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/signTitle"
+                        style="@style/EditTextStyle"/>
 
-        <EditText
-                android:id="@+id/signPasswordCheckEt"
-                android:layout_marginTop="@dimen/margin_16dp"
-                android:layout_marginStart="@dimen/margin_24dp"
-                android:layout_marginEnd="@dimen/margin_24dp"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/size_edit_text_height"
-                android:hint="@string/text_sign_up_password_check"
-                android:inputType="textPassword"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/signPasswordEt"
-                style="@style/EditTextStyle"/>
+                <EditText
+                        android:id="@+id/signEmailEt"
+                        android:layout_marginTop="@dimen/margin_16dp"
+                        android:layout_marginStart="@dimen/margin_24dp"
+                        android:layout_marginEnd="@dimen/margin_24dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/size_edit_text_height"
+                        android:hint="@string/text_sign_up_email"
+                        android:inputType="textEmailAddress"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/signNameEt"
+                        style="@style/EditTextStyle"/>
 
-        <Button
-                android:id="@+id/signButton"
-                android:layout_marginTop="@dimen/margin_32dp"
-                android:layout_marginStart="@dimen/margin_24dp"
-                android:layout_marginEnd="@dimen/margin_24dp"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:text="@string/text_sign_up"
-                android:stateListAnimator="@null"
-                android:onClick="@{()-> vm.clickToSignUp()}"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/signPasswordCheckEt"
-                style="@style/ButtonStyle"/>
+                <EditText
+                        android:id="@+id/signPasswordEt"
+                        android:layout_marginTop="@dimen/margin_16dp"
+                        android:layout_marginStart="@dimen/margin_24dp"
+                        android:layout_marginEnd="@dimen/margin_24dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/size_edit_text_height"
+                        android:hint="@string/text_sign_up_password"
+                        android:inputType="textPassword"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/signEmailEt"
+                        style="@style/EditTextStyle"/>
+
+                <EditText
+                        android:id="@+id/signPasswordCheckEt"
+                        android:layout_marginTop="@dimen/margin_16dp"
+                        android:layout_marginStart="@dimen/margin_24dp"
+                        android:layout_marginEnd="@dimen/margin_24dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/size_edit_text_height"
+                        android:hint="@string/text_sign_up_password_check"
+                        android:inputType="textPassword"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/signPasswordEt"
+                        style="@style/EditTextStyle"/>
+
+                <Button
+                        android:id="@+id/signButton"
+                        android:layout_marginTop="@dimen/margin_32dp"
+                        android:layout_marginStart="@dimen/margin_24dp"
+                        android:layout_marginEnd="@dimen/margin_24dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:text="@string/text_sign_up"
+                        android:stateListAnimator="@null"
+                        android:onClick="@{()-> vm.clickToSignUp()}"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/signPasswordCheckEt"
+                        style="@style/ButtonStyle"/>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

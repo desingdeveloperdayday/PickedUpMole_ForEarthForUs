@@ -15,33 +15,20 @@
             android:theme="@style/AppTheme"
             android:usesCleartextTraffic="true"
             tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".view.mypage.AlarmActivity">
-        </activity>
-        <activity android:name=".view.mypage.ScrapListActivity">
-        </activity>
-        <activity android:name=".view.mypage.achieve.AchieveListActivity">
-        </activity>
-        <activity android:name=".view.article.detail.ArticleDetailActivity">
-        </activity>
-        <activity android:name=".view.mission.MissionCompleteWriteActivity">
-        </activity>
-        <activity android:name=".view.mission.MissionCompleteActivity">
-        </activity>
-        <activity android:name=".view.main.detail.EarthDetailActivity">
-        </activity>
-        <activity android:name=".view.mission.MissionDetailActivity"
-        >
-        </activity>
-        <activity android:name=".view.mission.MissionSelectActivity">
-        </activity>
-        <activity android:name=".view.account.FieldSelectActivity">
-        </activity>
-        <activity android:name=".view.account.SignUpActivity">
-        </activity>
-        <activity android:name=".MainActivity">
-        </activity>
-        <activity android:name=".view.SplashActivity">
-        </activity>
+        <activity android:name=".view.mypage.AlarmActivity"/>
+        <activity android:name=".view.mypage.ScrapListActivity"/>
+        <activity android:name=".view.mypage.achieve.AchieveListActivity"/>
+        <activity android:name=".view.article.detail.ArticleDetailActivity"/>
+        <activity android:name=".view.mission.MissionCompleteWriteActivity"/>
+        <activity android:name=".view.mission.MissionCompleteActivity"/>
+        <activity android:name=".view.main.detail.EarthDetailActivity"/>
+        <activity android:name=".view.mission.MissionDetailActivity"/>
+        <activity android:name=".view.mission.MissionSelectActivity"/>
+        <activity android:name=".view.account.FieldSelectActivity"/>
+        <activity android:name=".view.account.SignUpActivity"
+                  android:windowSoftInputMode="adjustResize"/>
+        <activity android:name=".MainActivity"/>
+        <activity android:name=".view.SplashActivity"/>
         <activity android:name=".view.account.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

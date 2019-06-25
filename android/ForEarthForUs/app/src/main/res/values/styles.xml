@@ -132,6 +132,13 @@
         <item name="android:includeFontPadding">false</item>
     </style>
 
+    <style name="ContentsBodyMintCenterStyle">
+        <item name="android:textSize">@dimen/size_text_14dp</item>
+        <item name="android:textColor">@color/fe_fu_main</item>
+        <item name="android:fontFamily">@font/notosanscjkkr_regular</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
     <style name="ContentsHeaderMintCenterStyle2">
         <item name="android:gravity">center_horizontal</item>
         <item name="android:textSize">@dimen/size_text_14dp</item>

@@ -2,12 +2,11 @@ package app.woovictory.forearthforus.vm.account
 
 import android.util.Log
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import app.woovictory.forearthforus.base.BaseViewModel
 import app.woovictory.forearthforus.data.repository.account.PreferenceRepository
-import app.woovictory.forearthforus.model.account.PreferenceModel
 import app.woovictory.forearthforus.util.SharedPreferenceManager
 import app.woovictory.forearthforus.util.SingleLiveEvent
-import com.google.gson.JsonObject
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
@@ -20,31 +19,30 @@ class FieldSelectViewModel(private val preferenceRepository: PreferenceRepositor
     val clickToSelectPreference: LiveData<Any>
         get() = _clickToSelectPreference
 
-    private lateinit var list: ArrayList<PreferenceModel>
+    private val _preferenceResponse = MutableLiveData<Boolean>()
+    val preferenceResponse: LiveData<Boolean>
+        get() = _preferenceResponse
 
     fun clickToSelectPreference() {
         _clickToSelectPreference.call()
     }
 
-    fun selectUserPreference() {
-        list = ArrayList()
-        list.add(PreferenceModel(8, SharedPreferenceManager.userId))
-        list.add(PreferenceModel(9, SharedPreferenceManager.userId))
+    fun selectUserPreference(preferList: MutableList<Int>) {
 
-
+        Log.v("8822 type ", preferList.toString())
 
         addDisposable(
-            preferenceRepository.selectUserPreference(SharedPreferenceManager.token, list)
+            preferenceRepository.selectUserPreference(SharedPreferenceManager.token, preferList)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ response ->
-                    if (response.isSuccessful) {
-                        Log.v("8822", response.code().toString())
-                    }
-                    Log.v("8822 s", response.code().toString())
-                }, { e ->
-                    Log.v("8822 f", e.message)
+                .subscribe({
+                    Log.v("8822 s", "success")
+                    _preferenceResponse.value = true
+                }, { error ->
+                    Log.v("Field Select error", error.message)
+                    _preferenceResponse.value = false
                 })
         )
+
     }
 }
