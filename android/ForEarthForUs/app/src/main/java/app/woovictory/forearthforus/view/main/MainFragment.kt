@@ -93,6 +93,14 @@ class MainFragment : Fragment() {
                 fragmentMainBinding.mainRv.visibility = View.GONE
             }
         })
+        
+        mainViewModel.isLoading.observe(this, Observer {loading->
+            if(loading){
+                fragmentMainBinding.loading.visibility = View.VISIBLE
+            }else{
+                fragmentMainBinding.loading.visibility = View.GONE
+            }
+        })
     }
 
     private fun setUpRecyclerView() {

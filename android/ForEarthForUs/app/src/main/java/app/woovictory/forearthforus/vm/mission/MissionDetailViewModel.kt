@@ -28,16 +28,8 @@ class MissionDetailViewModel(
     val clickToMissionSelect: LiveData<Any>
         get() = _clickToMissionSelect
 
-    private val _isLoading = MutableLiveData<Boolean>()
-    val isLoading: LiveData<Boolean>
-        get() = _isLoading
-
-    init {
-        _isLoading.value = true
-    }
 
     fun getMissionDetailInformation(token: String, categoryId: Int) {
-        _isLoading.value = true
         addDisposable(
             missionDetailRepository.getMissionDetailInformation(token, categoryId)
                 .subscribeOn(Schedulers.io())
@@ -50,10 +42,8 @@ class MissionDetailViewModel(
                             //var url = Url(it.body()?.image)
                         }
                     }
-                    _isLoading.value = false
                 }, { error ->
                     Log.v("MissionDetail Error", error.message)
-                    _isLoading.value = true
                 })
         )
     }

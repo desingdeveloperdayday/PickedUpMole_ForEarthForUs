@@ -65,14 +65,6 @@ class MissionDetailActivity : BaseActivity<ActivityMissionDetailBinding, Mission
             val mission = MissionSelectRequest(categoryId)
             viewModel.postMissionSelect(SharedPreferenceManager.token, mission)
         })
-
-        viewModel.isLoading.observe(this, Observer { loading ->
-            if (loading) {
-                viewDataBinding.loading.visibility = View.VISIBLE
-            } else {
-                viewDataBinding.loading.visibility = View.GONE
-            }
-        })
     }
 
     private fun initToolbar() {

@@ -15,8 +15,6 @@
             android:theme="@style/AppTheme"
             android:usesCleartextTraffic="true"
             tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".MotionLayoutActivity">
-        </activity>
         <activity android:name=".view.mypage.AlarmActivity">
         </activity>
         <activity android:name=".view.mypage.ScrapListActivity">

@@ -10,7 +10,6 @@
             android:layout_height="match_parent"
             tools:context=".MainActivity">
 
-
         <FrameLayout
                 android:id="@+id/mainFrameContainer"
                 app:layout_constraintStart_toStartOf="@dimen/padding_24dp"
