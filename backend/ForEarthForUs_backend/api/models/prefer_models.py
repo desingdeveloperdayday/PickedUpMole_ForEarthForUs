@@ -18,6 +18,6 @@ class Prefer(models.Model):
 
 class UserPrefer(models.Model):
     user = models.ForeignKey(userModel, related_name='prefer', on_delete=models.CASCADE)
-    prefer = models.OneToOneField(Prefer, on_delete=models.CASCADE)
+    prefer = models.ForeignKey(Prefer, on_delete=models.CASCADE)
 
 post_delete.connect(file_cleanup, sender=Prefer, dispatch_uid="prefer.file_cleanup")
