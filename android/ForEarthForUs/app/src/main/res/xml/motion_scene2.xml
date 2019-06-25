@@ -4,7 +4,7 @@
     <Transition
             app:constraintSetStart="@layout/earth_detail_motion_start"
             app:constraintSetEnd="@layout/earth_detail_motion_end"
-            app:duration="1000">
+            app:duration="500">
 
         <OnSwipe
                 app:dragDirection="dragUp"

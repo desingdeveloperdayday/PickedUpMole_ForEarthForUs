@@ -1,14 +1,81 @@
 package app.woovictory.forearthforus.view.main.detail
 
+import android.content.Context
+import android.graphics.Point
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import android.util.Log
+import android.view.WindowManager
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.GridLayoutManager
 import app.woovictory.forearthforus.R
+import app.woovictory.forearthforus.base.BaseActivity
+import app.woovictory.forearthforus.databinding.ActivityEarthDetailBinding
+import app.woovictory.forearthforus.model.mypage.AchieveResponseMock
+import app.woovictory.forearthforus.util.GridItemDecoration
+import app.woovictory.forearthforus.view.mypage.adapter.AchieveListAdapter
+import app.woovictory.forearthforus.vm.mypage.AchieveListViewModel
+import org.jetbrains.anko.dip
 
-class EarthDetailActivity : AppCompatActivity() {
+class EarthDetailActivity : BaseActivity<ActivityEarthDetailBinding, AchieveListViewModel>() {
+    override val layoutResourceId: Int
+        get() = R.layout.activity_earth_detail
+    override val viewModel: AchieveListViewModel
+        get() = ViewModelProviders.of(this@EarthDetailActivity).get(AchieveListViewModel::class.java)
+
+    private var achieveListAdapter = AchieveListAdapter()
+    private var itemList = ArrayList<AchieveResponseMock>()
+    private val itemCount: Int = 2
+    private lateinit var size: Point
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_earth_detail)
+        getWindowSize()
+        setUpMockData()
+        initStartView()
+        setUpRecyclerView()
+        initDataBinding()
     }
 
+    override fun initStartView() {
+        viewDataBinding.apply {
+            vm = viewModel
+            lifecycleOwner = this@EarthDetailActivity
+        }
+    }
+
+    override fun initDataBinding() {
+        viewModel.clickToBack.observe(this, Observer {
+            finish()
+        })
+    }
+
+    private fun getWindowSize() {
+        val windowManager = this.applicationContext?.getSystemService(Context.WINDOW_SERVICE)
+                as WindowManager
+        val display = windowManager.defaultDisplay
+        size = Point()
+        display.getSize(size)
+    }
+
+    private fun setUpMockData() {
+        for (i in 0..7) {
+            itemList.add(AchieveResponseMock(R.drawable.fufe_illust_jh_04, "지역 농산물 이용하기"))
+        }
+    }
+
+    private fun setUpRecyclerView() {
+        viewDataBinding.earthDetailAchieveRv.apply {
+            adapter = achieveListAdapter
+            layoutManager = GridLayoutManager(this@EarthDetailActivity, itemCount)
+            val space = dip(20)
+            val side = dip(8)
+            addItemDecoration(GridItemDecoration(space, side))
+            Log.v("9988990", "size.x : ${size.x}")
+            Log.v("9988990", "size.y : ${size.y}")
+            Log.v("9988990", "space : $space")
+            Log.v("9988990", "side : $side")
+        }
+        achieveListAdapter.addAllItem(itemList)
+    }
 }
