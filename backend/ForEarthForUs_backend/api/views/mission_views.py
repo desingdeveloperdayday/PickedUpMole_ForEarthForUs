@@ -20,3 +20,20 @@ class MissionDetailViewSet(viewsets.ModelViewSet):
         queryset = queryset.filter(category=category)
         serializer = MissionSerializer(queryset, many=True, context={"request": request})
         return Response(serializer.data)
+
+    def create(self, request, *args, **kwargs):
+        queryset = Mission.objects.filter(
+                        category=request.data['category'],
+                        title=request.data['title']
+                    )
+        
+        if queryset:
+            return Response({"message": "Mission is already exist"},
+                status=status.HTTP_400_BAD_REQUEST)
+
+        serializer = MissionDetailSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        instance = self.perform_create(serializer)
+
+        read_serializer = MissionDetailSerializer(instance, context={"request": request})
+        return Response(read_serializer.data, status=status.HTTP_201_CREATED)

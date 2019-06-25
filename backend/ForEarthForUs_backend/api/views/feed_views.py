@@ -6,7 +6,7 @@ from api.serializers.feed_serializer import (
 from api.permission import *
 from rest_framework.response import Response
 from rest_framework import status
-from datetime import datetime, timedelta, time
+from api.utils.time_func import calc_today
 from django.contrib.auth import get_user_model
 from api.utils.earth_check import increase_earthLevel, decrease_earthLevel
 
@@ -59,7 +59,7 @@ class FeedViewSet(viewsets.ModelViewSet):
         instance = self.perform_create(write_serializer)
 
         read_serializer = FeedReadSerializer(instance, context={"request": request})
-        return Response(read_serializer.data, status=status.HTTP_202_ACCEPTED)
+        return Response(read_serializer.data, status=status.HTTP_201_CREATED)
 
     def partial_update(self, request, pk=None):
         if not 'result' in request.data.keys():
@@ -100,10 +100,3 @@ class FeedViewSet(viewsets.ModelViewSet):
        if self.request.method == 'PATCH':
            self.permission_classes = (permissions.IsAuthenticated, IsOwnerFeed)
        return super(FeedViewSet, self).get_permissions()
-
-def calc_today():
-    today = datetime.now().date()
-    tomorrow = today + timedelta(1)
-    today_start = datetime.combine(today, time())
-    today_end = datetime.combine(tomorrow, time())
-    return (today_start, today_end)
