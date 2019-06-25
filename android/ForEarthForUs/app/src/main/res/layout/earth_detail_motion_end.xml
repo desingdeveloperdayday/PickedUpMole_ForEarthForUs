@@ -10,7 +10,7 @@
     <ImageView
             android:id="@+id/toolbar_image"
             android:layout_width="0dp"
-            android:layout_height="200dp"
+            android:layout_height="60dp"
             android:adjustViewBounds="true"
             android:contentDescription="@null"
             app:layout_constraintStart_toStartOf="parent"
@@ -72,7 +72,7 @@
     <ImageView
             android:id="@+id/earthDetailBar"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
             android:src="@drawable/main_bar_graph2"
             android:layout_marginTop="@dimen/padding_16dp"
             android:visibility="invisible"

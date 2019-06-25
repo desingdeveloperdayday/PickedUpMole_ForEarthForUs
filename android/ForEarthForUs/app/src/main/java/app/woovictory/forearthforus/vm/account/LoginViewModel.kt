@@ -21,10 +21,6 @@ class LoginViewModel(private val loginRepository: LoginRepository) : BaseViewMod
     val clickToSignActivity: LiveData<Any>
         get() = _clickToSignActivity
 
-  /*  private val _clickToGoogleLogin = SingleLiveEvent<Any>()
-    val clickToGoogleLogin: LiveData<Any>
-        get() = _clickToGoogleLogin*/
-
     private val _loginResponse = SingleLiveEvent<Boolean>()
     val loginResponse: LiveData<Boolean>
         get() = _loginResponse
@@ -37,9 +33,6 @@ class LoginViewModel(private val loginRepository: LoginRepository) : BaseViewMod
         _clickToSignActivity.call()
     }
 
- /*   fun clickToGoogleLogin() {
-        _clickToGoogleLogin.call()
-    }*/
 
     fun postLogin(email: String, password: String) {
         addDisposable(

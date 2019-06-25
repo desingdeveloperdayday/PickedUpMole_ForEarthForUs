@@ -10,7 +10,7 @@ import app.woovictory.forearthforus.model.article.ArticleDetailResponse
 class ScrapListViewHolder(private val binding: ItemListArticleDetailBinding) : RecyclerView.ViewHolder(binding.root) {
 
 
-    fun onBind(item: ArticleDetailResponse, position: Int) {
+    fun onBind(item: ArticleDetailResponse) {
         binding.articleDetailItems = item
     }
 

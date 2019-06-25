@@ -12,6 +12,17 @@
             android:background="#edeef6"
             tools:context=".view.mission.MissionSelectActivity">
 
+        <ProgressBar
+                android:id="@+id/loading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:indeterminateTint="@color/fe_fu_main"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
         <com.google.android.material.appbar.AppBarLayout
                 android:id="@+id/missionSelectAppbar"
                 android:layout_width="match_parent"

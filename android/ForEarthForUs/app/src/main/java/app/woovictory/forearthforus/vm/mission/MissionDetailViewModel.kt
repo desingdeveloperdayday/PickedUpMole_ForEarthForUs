@@ -28,6 +28,7 @@ class MissionDetailViewModel(
     val clickToMissionSelect: LiveData<Any>
         get() = _clickToMissionSelect
 
+
     fun getMissionDetailInformation(token: String, categoryId: Int) {
         addDisposable(
             missionDetailRepository.getMissionDetailInformation(token, categoryId)
@@ -41,24 +42,24 @@ class MissionDetailViewModel(
                             //var url = Url(it.body()?.image)
                         }
                     }
-
-                }, {
-
+                }, { error ->
+                    Log.v("MissionDetail Error", error.message)
                 })
         )
     }
 
-    fun postaMissionSelect(token: String, mission: MissionSelectRequest) {
-        addDisposable(missionSelectRepository.selectNewMission(token, mission)
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({ response ->
-                if (response.isSuccessful) {
-                    Log.v("2285223", response.code().toString())
-                }
-            }, { e ->
-                Log.v("2285223", e.message)
-            })
+    fun postMissionSelect(token: String, mission: MissionSelectRequest) {
+        addDisposable(
+            missionSelectRepository.selectNewMission(token, mission)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({ response ->
+                    if (response.isSuccessful) {
+                        Log.v("2285223", response.code().toString())
+                    }
+                }, { e ->
+                    Log.v("2285223", e.message)
+                })
         )
     }
 

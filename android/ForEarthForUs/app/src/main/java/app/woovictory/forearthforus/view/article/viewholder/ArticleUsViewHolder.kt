@@ -12,7 +12,7 @@ class ArticleUsViewHolder(
     private val articleUsItemClickListener: ((String) -> Unit)?
 ) : RecyclerView.ViewHolder(binding.root) {
 
-    fun onBind(item: ArticleResponse, position: Int) {
+    fun onBind(item: ArticleResponse) {
         binding.articleItems = item
         binding.executePendingBindings()
 

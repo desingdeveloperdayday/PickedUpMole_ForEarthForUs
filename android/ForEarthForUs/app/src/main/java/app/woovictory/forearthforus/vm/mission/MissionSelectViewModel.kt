@@ -24,25 +24,38 @@ class MissionSelectViewModel(private val missionSelectListRepository: MissionSel
     val missionSelectResponse: LiveData<ArrayList<MissionSelectResponse>>
         get() = _missionSelectResponse
 
+    private val _isLoading = MutableLiveData<Boolean>()
+    val isLoading: LiveData<Boolean>
+        get() = _isLoading
+
+    init {
+        _isLoading.value = true
+    }
+
     fun clickToMissionStart() {
         _clickToMissionStart.call()
     }
 
 
     fun getMissionSelectList(categoryId: Int) {
-        addDisposable(missionSelectListRepository.getMissionSelectList(SharedPreferenceManager.token, categoryId)
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({ response ->
-                if (response.isSuccessful) {
-                    response?.let {
-                        Log.v("228874", it.code().toString())
-                        _missionSelectResponse.value = it.body()
+        _isLoading.value = true
+
+        addDisposable(
+            missionSelectListRepository.getMissionSelectList(SharedPreferenceManager.token, categoryId)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({ response ->
+                    if (response.isSuccessful) {
+                        response?.let {
+                            Log.v("228874", it.code().toString())
+                            _missionSelectResponse.value = it.body()
+                        }
                     }
-                }
-            }, { e ->
-                Log.v("228874", e.message)
-            })
+                    _isLoading.value = false
+                }, { e ->
+                    Log.v("228874", e.message)
+                    _isLoading.value = true
+                })
         )
     }
 

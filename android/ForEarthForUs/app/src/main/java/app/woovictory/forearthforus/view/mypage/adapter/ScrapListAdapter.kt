@@ -26,11 +26,11 @@ class ScrapListAdapter : RecyclerView.Adapter<ScrapListViewHolder>() {
 
     override fun onBindViewHolder(holder: ScrapListViewHolder, position: Int) {
         holder.apply {
-            onBind(itemList[position],position)
+            onBind(itemList[position])
         }
     }
 
-    fun addItem(items: ArrayList<ArticleDetailResponse>){
+    fun addItem(items: ArrayList<ArticleDetailResponse>) {
         itemList.addAll(items)
     }
 

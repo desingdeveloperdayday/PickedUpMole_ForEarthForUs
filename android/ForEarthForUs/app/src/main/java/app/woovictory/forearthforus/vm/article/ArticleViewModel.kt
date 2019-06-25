@@ -77,7 +77,7 @@ class ArticleViewModel(
                         }
                     }
                 }, { error ->
-
+                    Log.v("Article Error", error.message)
                 })
         )
     }

@@ -9,7 +9,7 @@ import app.woovictory.forearthforus.model.mypage.AchieveResponseMock
  */
 class AchieveListViewHolder(val binding: ItemListAchieveMissionBinding) : RecyclerView.ViewHolder(binding.root) {
 
-    fun onBind(item: AchieveResponseMock, position: Int) {
+    fun onBind(item: AchieveResponseMock) {
         binding.achieveListItem = item
     }
 

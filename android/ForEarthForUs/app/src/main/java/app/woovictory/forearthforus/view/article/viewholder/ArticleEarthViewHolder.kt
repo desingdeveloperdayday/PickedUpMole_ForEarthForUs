@@ -12,7 +12,7 @@ class ArticleEarthViewHolder(
     private val onArticleEarthItemClickListener: ((String) -> Unit)?
 ) : RecyclerView.ViewHolder(binding.root) {
 
-    fun onBind(item: DonationResponse, position: Int) {
+    fun onBind(item: DonationResponse) {
         binding.donationItem = item
         binding.executePendingBindings()
         // item 클릭 리스너 달아줌.

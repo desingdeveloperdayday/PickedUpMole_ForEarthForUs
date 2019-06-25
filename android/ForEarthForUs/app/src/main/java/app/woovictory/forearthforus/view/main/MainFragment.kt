@@ -16,7 +16,7 @@ import app.woovictory.forearthforus.util.SharedPreferenceManager
 import app.woovictory.forearthforus.util.glide.GlideApp
 import app.woovictory.forearthforus.view.main.detail.EarthDetailActivity
 import app.woovictory.forearthforus.view.mission.MissionDetailActivity
-import app.woovictory.forearthforus.vm.MainViewModel
+import app.woovictory.forearthforus.vm.main.MainViewModel
 import org.jetbrains.anko.support.v4.startActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -91,6 +91,14 @@ class MainFragment : Fragment() {
             } else {
                 fragmentMainBinding.mainNullIconImage.visibility = View.VISIBLE
                 fragmentMainBinding.mainRv.visibility = View.GONE
+            }
+        })
+
+        mainViewModel.isLoading.observe(this, Observer {loading->
+            if(loading){
+                fragmentMainBinding.loading.visibility = View.VISIBLE
+            }else{
+                fragmentMainBinding.loading.visibility = View.GONE
             }
         })
     }

@@ -11,7 +11,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/fe_fu_white"
-            tools:context=".view.field.FieldSelectActivity">
+            tools:context=".view.account.FieldSelectActivity">
 
         <RelativeLayout
                 android:id="@+id/fieldAppbar"

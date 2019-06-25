@@ -26,19 +26,19 @@ class ArticleEarthAdapter : RecyclerView.Adapter<ArticleEarthViewHolder>() {
     }
 
     override fun getItemCount(): Int {
-        Log.v("9929d size",itemList.size.toString())
+        Log.v("9929d size", itemList.size.toString())
         return itemList.size
     }
 
     override fun onBindViewHolder(holder: ArticleEarthViewHolder, position: Int) {
 
         itemList[position].let {
-            holder.onBind(it, position)
+            holder.onBind(it)
         }
     }
 
     fun addItem(items: List<DonationResponse>) {
         this.itemList.addAll(items)
-        Log.v("9929 addItem",itemList.size.toString())
+        Log.v("9929 addItem", itemList.size.toString())
     }
 }

@@ -61,7 +61,7 @@ object SharedPreferenceManager {
         }
 
     var userEmail: String
-        get() = preferences?.getString(PREF_USER_EMAIL, " ")!!
+        get() = preferences.getString(PREF_USER_EMAIL, " ")!!
         set(value) = preferences.edit {
             it.putString(PREF_USER_EMAIL, value)
         }

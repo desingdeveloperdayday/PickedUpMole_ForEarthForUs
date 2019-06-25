@@ -16,7 +16,7 @@
     <string name="text_sign_up_email">이메일</string>
     <string name="text_sign_up_password">패스워드</string>
     <string name="text_sign_up_password_check">패스워드 확인</string>
-    <string name="text_sign_up">회원가입</string>
+    <string name="text_sign_up"><u>회원가입</u></string>
 
     <!--field select-->
     <string name="text_field_select_title">어떤 분야의\n환경보호에 관심이 있나요?</string>

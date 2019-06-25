@@ -1,7 +1,7 @@
 package app.woovictory.forearthforus.di
 
 import app.woovictory.forearthforus.vm.account.LoginViewModel
-import app.woovictory.forearthforus.vm.MainViewModel
+import app.woovictory.forearthforus.vm.main.MainViewModel
 import app.woovictory.forearthforus.vm.account.FieldSelectViewModel
 import app.woovictory.forearthforus.vm.account.SignUpViewModel
 import app.woovictory.forearthforus.vm.article.ArticleDetailViewModel

@@ -15,18 +15,25 @@ import app.woovictory.forearthforus.view.article.ArticleFragment
 import app.woovictory.forearthforus.view.category.MissionCategoryFragment
 import app.woovictory.forearthforus.view.main.MainFragment
 import app.woovictory.forearthforus.view.mypage.MyPageFragment
+import app.woovictory.forearthforus.vm.main.MainViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.google.android.material.bottomnavigation.BottomNavigationMenuView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : BaseActivity<ActivityMainBinding, BaseViewModel>() {
-    override val viewModel: BaseViewModel = BaseViewModel()
 
     override val layoutResourceId: Int
         get() = R.layout.activity_main
 
+    override val viewModel: MainViewModel by viewModel()
 
+    //get() = ViewModelProviders.of(this@MainActivity).get(MainViewModel::class.java)
+
+    /*
+    * TODO : 이 부분 수정해야 한다.
+    * */
     val fragment1: Fragment = MainFragment.newInstance()
     val fragment2: Fragment = MissionCategoryFragment.newInstance()
     val fragment3: Fragment = ArticleFragment.newInstance()
@@ -44,6 +51,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, BaseViewModel>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initStartView()
+        initDataBinding()
         fm.beginTransaction().add(R.id.mainFrameContainer, fragment4, "4").hide(fragment4).commit()
         fm.beginTransaction().add(R.id.mainFrameContainer, fragment3, "3").hide(fragment3).commit()
         fm.beginTransaction().add(R.id.mainFrameContainer, fragment2, "2").hide(fragment2).commit()
@@ -80,6 +88,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, BaseViewModel>() {
     }
 
     override fun initStartView() {
+
         changeFragment(MainFragment.newInstance())
         mainBottomNavigation.selectedItemId = R.id.navigation_main
 
@@ -91,6 +100,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, BaseViewModel>() {
             true
         }
         disableShiftMode(mainBottomNavigation)
+
     }
 
     override fun initDataBinding() {

@@ -5,6 +5,7 @@ import android.graphics.Point
 import android.graphics.PorterDuff
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.view.WindowManager
 import android.widget.LinearLayout
 import androidx.core.content.ContextCompat
@@ -121,6 +122,14 @@ class MissionSelectActivity : BaseActivity<ActivityMissionSelectBinding
         viewModel.missionSelectResponse.observe(this, Observer {
             if (it.size != 0) {
                 missionSelectAdapter?.addItem(it)
+            }
+        })
+
+        viewModel.isLoading.observe(this, Observer { loading ->
+            if (loading) {
+                viewDataBinding.loading.visibility = View.VISIBLE
+            } else {
+                viewDataBinding.loading.visibility = View.GONE
             }
         })
     }

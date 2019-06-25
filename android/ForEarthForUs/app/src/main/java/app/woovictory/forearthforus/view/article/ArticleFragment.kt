@@ -5,7 +5,6 @@ import android.content.Intent
 import android.graphics.Point
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -25,10 +24,9 @@ import app.woovictory.forearthforus.util.ItemDecoration
 import app.woovictory.forearthforus.util.SharedPreferenceManager
 import app.woovictory.forearthforus.view.article.adapter.ArticleEarthAdapter
 import app.woovictory.forearthforus.view.article.adapter.ArticleListAdapter
-import app.woovictory.forearthforus.view.article.detail.ArticleIntroActivity
+import app.woovictory.forearthforus.view.article.detail.ArticleDetailActivity
 import app.woovictory.forearthforus.vm.article.ArticleViewModel
 import org.jetbrains.anko.support.v4.startActivity
-import org.jetbrains.anko.support.v4.toast
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 /**
@@ -100,10 +98,10 @@ class ArticleFragment : Fragment() {
 
     private fun setUpDataBinding() {
         articleViewModel.clickToArticleEarthDetail.observe(this, Observer {
-            startActivity<ArticleIntroActivity>("key" to "For Earth")
+            startActivity<ArticleDetailActivity>("key" to "For Earth")
         })
         articleViewModel.clickToArticleUsDetail.observe(this, Observer {
-            startActivity<ArticleIntroActivity>("key" to "For Us")
+            startActivity<ArticleDetailActivity>("key" to "For Us")
         })
 
         articleViewModel.donationResponse.observe(this, Observer {

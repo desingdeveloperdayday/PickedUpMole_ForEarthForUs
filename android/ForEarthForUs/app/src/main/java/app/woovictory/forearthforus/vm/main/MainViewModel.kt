@@ -1,11 +1,11 @@
-package app.woovictory.forearthforus.vm
+package app.woovictory.forearthforus.vm.main
 
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import app.woovictory.forearthforus.base.BaseViewModel
-import app.woovictory.forearthforus.data.repository.main.EarthRepository
 import app.woovictory.forearthforus.data.repository.feed.MissionFeedRepository
+import app.woovictory.forearthforus.data.repository.main.EarthRepository
 import app.woovictory.forearthforus.model.earth.EarthResponse
 import app.woovictory.forearthforus.model.mission.MissionFeedResponse
 import app.woovictory.forearthforus.util.SharedPreferenceManager
@@ -35,12 +35,21 @@ class MainViewModel(
     val missionFeedResponse: LiveData<ArrayList<MissionFeedResponse>>
         get() = _missionFeedResponse
 
+    private val _isLoading = MutableLiveData<Boolean>()
+    val isLoading: LiveData<Boolean>
+        get() = _isLoading
+
     fun clickToDetail() {
         _clickToEarthDetail.call()
     }
 
+    init {
+        _isLoading.value = true
+    }
+
     // 상단 지구 정보.
     fun getEarthInformation() {
+        _isLoading.value = true
         addDisposable(
             earthRepository
                 .getEarthInformation(SharedPreferenceManager.token, SharedPreferenceManager.earthLevel)
@@ -52,14 +61,17 @@ class MainViewModel(
                     Log.v("11882 ${it.earthLevel}", it.earthLevel.toString())
                     Log.v("11882", it.content)
                     Log.v("11882", it.image)
+                    _isLoading.value = false
                 }, {
                     Log.v("11882", it.message)
+                    _isLoading.value = true
                 })
         )
     }
 
     // 아래에 진행 중인 미션.
     fun getMissionFeed() {
+        _isLoading.value = true
         addDisposable(
             missionFeedRepository
                 .getUserMissionFeed(SharedPreferenceManager.token, "progress")
@@ -73,9 +85,10 @@ class MainViewModel(
                             Log.v("199427 success", it.size.toString())
                         }
                     }
-
+                    _isLoading.value = false
                 }, { e ->
                     Log.v("199427 fail", e.message)
+                    _isLoading.value = true
                 })
         )
     }

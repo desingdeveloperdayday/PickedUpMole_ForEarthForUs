@@ -117,17 +117,12 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
             }
         })
 
-        /*viewModel.clickToGoogleLogin.observe(this, Observer {
-            toast("Google login 준비중..")
-        })*/
-
         viewModel.clickToSignActivity.observe(this, Observer {
             startActivity<SignUpActivity>()
         })
     }
 
     private fun goToMainActivity() {
-        //startActivity<FieldSelectActivity>()
         startActivity<MainActivity>()
         finish()
     }
