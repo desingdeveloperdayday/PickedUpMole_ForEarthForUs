@@ -1,4 +1,4 @@
-package app.woovictory.forearthforus.view.field
+package app.woovictory.forearthforus.view.account
 
 import android.os.Bundle
 import android.view.View

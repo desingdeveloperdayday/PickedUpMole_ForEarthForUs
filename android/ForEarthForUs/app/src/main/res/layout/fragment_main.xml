@@ -5,7 +5,7 @@
         xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <variable name="vm" type="app.woovictory.forearthforus.vm.MainViewModel"/>
+        <variable name="vm" type="app.woovictory.forearthforus.vm.main.MainViewModel"/>
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

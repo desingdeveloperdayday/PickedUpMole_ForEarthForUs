@@ -15,7 +15,7 @@ import app.woovictory.forearthforus.view.article.ArticleFragment
 import app.woovictory.forearthforus.view.category.MissionCategoryFragment
 import app.woovictory.forearthforus.view.main.MainFragment
 import app.woovictory.forearthforus.view.mypage.MyPageFragment
-import app.woovictory.forearthforus.vm.MainViewModel
+import app.woovictory.forearthforus.vm.main.MainViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.google.android.material.bottomnavigation.BottomNavigationMenuView
 import com.google.android.material.bottomnavigation.BottomNavigationView

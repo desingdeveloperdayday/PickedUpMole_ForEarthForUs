@@ -34,7 +34,7 @@
         </activity>
         <activity android:name=".view.mission.MissionSelectActivity">
         </activity>
-        <activity android:name=".view.field.FieldSelectActivity">
+        <activity android:name=".view.account.FieldSelectActivity">
         </activity>
         <activity android:name=".view.account.SignUpActivity">
         </activity>

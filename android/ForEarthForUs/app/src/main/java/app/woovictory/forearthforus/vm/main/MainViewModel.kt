@@ -1,4 +1,4 @@
-package app.woovictory.forearthforus.vm
+package app.woovictory.forearthforus.vm.main
 
 import android.util.Log
 import androidx.lifecycle.LiveData
