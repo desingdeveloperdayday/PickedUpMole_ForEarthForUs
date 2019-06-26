@@ -2,6 +2,7 @@ package app.woovictory.forearthforus.view.mypage
 
 import android.app.AlertDialog
 import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,12 +13,14 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import app.woovictory.forearthforus.R
 import app.woovictory.forearthforus.databinding.FragmentMypageBinding
+import app.woovictory.forearthforus.util.CustomDialog
 import app.woovictory.forearthforus.util.SharedPreferenceManager
 import app.woovictory.forearthforus.view.account.LoginActivity
 import app.woovictory.forearthforus.view.mypage.achieve.AchieveListActivity
 import app.woovictory.forearthforus.vm.mypage.MyPageViewModel
 import org.jetbrains.anko.support.v4.alert
 import org.jetbrains.anko.support.v4.startActivity
+import org.jetbrains.anko.support.v4.toast
 import org.jetbrains.anko.textColor
 
 /**
@@ -53,6 +56,15 @@ class MyPageFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         setViewModel()
         initDataBinding()
+
+        fragmentMyPageDataBinding.myPageMissionSuggest.setOnClickListener {
+            toast(requireContext().toString())
+            val dialog = CustomDialog(requireContext())
+            dialog.setCanceledOnTouchOutside(false)
+            dialog.show()
+        }
+
+
     }
 
     private fun setViewModel() {
@@ -65,6 +77,15 @@ class MyPageFragment : Fragment() {
     private fun initDataBinding() {
         myPageViewModel.clickToAchieve.observe(this, Observer {
             startActivity<AchieveListActivity>()
+
+
+
+            /*CustomDialog.CustomBuilder(activity!!.applicationContext)
+                .setTitle("지역 농산물 이용하기 미션 성공!")
+                .setContent("일상 속에서 그린라이프를 실천해주다니!\n" +
+                        "우리를 위해 노력해줘서 고마워요.")
+                .show()*/
+
         })
 
         // TODO : 로그아웃 로직을 ViewModel 에서 처리할지 View 에서 처리할지 생각해봐야 함.
