@@ -1,5 +1,7 @@
 package app.woovictory.forearthforus.view.mypage
 
+import android.app.AlertDialog
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -16,6 +18,7 @@ import app.woovictory.forearthforus.view.mypage.achieve.AchieveListActivity
 import app.woovictory.forearthforus.vm.mypage.MyPageViewModel
 import org.jetbrains.anko.support.v4.alert
 import org.jetbrains.anko.support.v4.startActivity
+import org.jetbrains.anko.textColor
 
 /**
  * Created by VictoryWoo
@@ -75,7 +78,14 @@ class MyPageFragment : Fragment() {
                 negativeButton("아니오") {
                     it.dismiss()
                 }
-            }.show()
+            }.show().apply {
+                getButton(AlertDialog.BUTTON_POSITIVE)?.let { button ->
+                    button.textColor = Color.BLACK
+                }
+                getButton(AlertDialog.BUTTON_NEGATIVE)?.let { button ->
+                    button.textColor = Color.BLACK
+                }
+            }
 
         })
 
