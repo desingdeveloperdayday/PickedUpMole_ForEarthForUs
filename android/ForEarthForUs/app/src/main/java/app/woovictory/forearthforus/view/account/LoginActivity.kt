@@ -114,6 +114,8 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
         viewModel.loginResponse.observe(this, Observer {
             if (it) {
                 goToMainActivity()
+            }else{
+                toast("정보를 확인해주세요.")
             }
         })
 
