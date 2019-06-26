@@ -50,6 +50,8 @@ class LoginViewModel(private val loginRepository: LoginRepository) : BaseViewMod
 
                         }
                         _loginResponse.value = true
+                    }else{
+                        _loginResponse.value = false
                     }
 
                     Log.v("success login 9871", response.code().toString())
