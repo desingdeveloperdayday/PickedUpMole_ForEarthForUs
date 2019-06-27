@@ -13,6 +13,8 @@ import app.woovictory.forearthforus.base.BaseActivity
 import app.woovictory.forearthforus.databinding.ActivityEarthDetailBinding
 import app.woovictory.forearthforus.model.mypage.AchieveResponseMock
 import app.woovictory.forearthforus.util.GridItemDecoration
+import app.woovictory.forearthforus.util.LEVEL
+import app.woovictory.forearthforus.util.SharedPreferenceManager
 import app.woovictory.forearthforus.view.mypage.adapter.AchieveListAdapter
 import app.woovictory.forearthforus.vm.mypage.AchieveListViewModel
 import org.jetbrains.anko.dip
@@ -41,6 +43,9 @@ class EarthDetailActivity : BaseActivity<ActivityEarthDetailBinding, AchieveList
         viewDataBinding.apply {
             vm = viewModel
             lifecycleOwner = this@EarthDetailActivity
+            earthDetailLevel.text = "$LEVEL${SharedPreferenceManager.earthLevel} ${SharedPreferenceManager.userName}"
+            earthDetailState.text = SharedPreferenceManager.userContent.replace("\n", "")
+
         }
     }
 

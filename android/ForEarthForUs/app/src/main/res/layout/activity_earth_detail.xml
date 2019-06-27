@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
 >
     <data>
         <variable name="vm" type="app.woovictory.forearthforus.vm.mypage.AchieveListViewModel"/>
     </data>
     <androidx.constraintlayout.motion.widget.MotionLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layoutDescription="@xml/motion_scene2"
@@ -54,7 +53,7 @@
                 android:id="@+id/earthDetailLevel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="LV.1 지구씌"
+                android:layout_marginTop="@dimen/margin_16dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/earth_image"
@@ -68,7 +67,6 @@
                 android:layout_marginTop="@dimen/margin_8dp"
                 android:layout_marginStart="@dimen/margin_24dp"
                 android:layout_marginEnd="@dimen/margin_24dp"
-                android:text="으윽!! 화가난다!!!오늘 컨디션 최악이야!"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/earthDetailLevel"
@@ -83,7 +81,8 @@
                 android:layout_marginTop="@dimen/padding_16dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/earthDetailState"/>
+                app:layout_constraintTop_toBottomOf="@id/earthDetailState"
+        />
 
 
         <androidx.core.widget.NestedScrollView

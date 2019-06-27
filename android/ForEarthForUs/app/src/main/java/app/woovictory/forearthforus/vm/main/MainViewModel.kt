@@ -67,6 +67,7 @@ class MainViewModel(
                     if (it.first.isSuccessful && it.second.isSuccessful) {
                         _earthResponse.value = it.first.body()
                         _missionFeedResponse.value = it.second.body()
+                        SharedPreferenceManager.userContent = it.first.body()?.content!!
                         Log.v(TAG, it.second.body()?.size.toString())
                         Log.v("$TAG ${it.first.body()?.earthLevel}", it.first.body()?.earthLevel.toString())
                     }
