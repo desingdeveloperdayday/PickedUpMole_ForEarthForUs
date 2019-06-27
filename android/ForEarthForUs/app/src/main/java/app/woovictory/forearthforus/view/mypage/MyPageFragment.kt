@@ -2,7 +2,6 @@ package app.woovictory.forearthforus.view.mypage
 
 import android.app.AlertDialog
 import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -77,7 +76,6 @@ class MyPageFragment : Fragment() {
     private fun initDataBinding() {
         myPageViewModel.clickToAchieve.observe(this, Observer {
             startActivity<AchieveListActivity>()
-
 
 
             /*CustomDialog.CustomBuilder(activity!!.applicationContext)

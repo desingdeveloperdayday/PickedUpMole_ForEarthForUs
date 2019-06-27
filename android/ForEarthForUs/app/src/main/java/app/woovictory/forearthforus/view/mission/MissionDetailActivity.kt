@@ -62,8 +62,9 @@ class MissionDetailActivity : BaseActivity<ActivityMissionDetailBinding, Mission
         }
 
         viewModel.clickToMissionSelect.observe(this, Observer {
-            val mission = MissionSelectRequest(categoryId)
-            viewModel.postMissionSelect(SharedPreferenceManager.token, mission)
+            /*val mission = MissionSelectRequest(categoryId)
+            viewModel.postMissionSelect(SharedPreferenceManager.token, mission)*/
+            startActivity<MissionCompleteActivity>()
         })
     }
 
