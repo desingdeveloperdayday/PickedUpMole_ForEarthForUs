@@ -35,6 +35,7 @@
                 android:paddingBottom="16dp"
                 android:onClick="@{()->vm.clickToBack()}"
                 android:src="@drawable/back_button"
+                android:layout_marginTop="6dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"/>
 
