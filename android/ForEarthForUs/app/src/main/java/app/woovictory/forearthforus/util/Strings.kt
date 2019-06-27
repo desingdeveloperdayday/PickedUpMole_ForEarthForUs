@@ -6,3 +6,4 @@ package app.woovictory.forearthforus.util
 const val baseURL = "http://looksgoood.pythonanywhere.com"
 const val headerInterceptor = "headerInterceptor"
 const val loggingInterceptor = "loggingInterceptor"
+const val TAG = "VictoryWoo 94"
