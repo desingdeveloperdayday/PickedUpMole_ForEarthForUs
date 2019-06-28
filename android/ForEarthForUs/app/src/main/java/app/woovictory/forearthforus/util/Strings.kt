@@ -8,3 +8,4 @@ const val headerInterceptor = "headerInterceptor"
 const val loggingInterceptor = "loggingInterceptor"
 const val TAG = "VictoryWoo 94"
 const val LEVEL = "LV."
+const val TIME_INTERVAL: Long = 2000

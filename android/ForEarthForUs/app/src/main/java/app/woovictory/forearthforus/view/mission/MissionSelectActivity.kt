@@ -1,14 +1,19 @@
 package app.woovictory.forearthforus.view.mission
 
+import android.app.ActivityOptions
 import android.content.Context
+import android.content.Intent
 import android.graphics.Point
 import android.graphics.PorterDuff
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.view.WindowManager
+import android.widget.ImageView
 import android.widget.LinearLayout
+import androidx.core.app.ActivityOptionsCompat
 import androidx.core.content.ContextCompat
+import androidx.core.view.ViewCompat
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
@@ -22,6 +27,7 @@ import app.woovictory.forearthforus.vm.mission.MissionSelectViewModel
 import kotlinx.android.synthetic.main.activity_mission_select.*
 import org.jetbrains.anko.startActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
+
 
 class MissionSelectActivity : BaseActivity<ActivityMissionSelectBinding
         , MissionSelectViewModel>() {
@@ -91,8 +97,8 @@ class MissionSelectActivity : BaseActivity<ActivityMissionSelectBinding
     }
 
     private fun setUpRecyclerView() {
-        missionSelectAdapter = MissionSelectAdapter {
-            startDetailActivity(it)
+        missionSelectAdapter = MissionSelectAdapter { i: Int, imageView: ImageView, url: String ->
+            startDetailActivity(i, imageView, url)
         }
 
         viewDataBinding.missionSelectRv.apply {
@@ -134,8 +140,41 @@ class MissionSelectActivity : BaseActivity<ActivityMissionSelectBinding
         })
     }
 
-    private fun startDetailActivity(categoryId: Int) {
-        startActivity<MissionDetailActivity>("categoryId" to categoryId)
+    private fun startDetailActivity(categoryId: Int, imageView: ImageView, url: String) {
+
+        val options = ActivityOptionsCompat.makeSceneTransitionAnimation(
+            this
+            , imageView, imageView.transitionName
+        ).toBundle()
+
+        Log.v("210323", imageView.toString())
+        Log.v("210323", url)
+
+        Intent(this, MissionDetailActivity::class.java)
+            .putExtra("categoryId", categoryId)
+            .putExtra("url", url)
+            .let {
+                startActivity(it, options)
+            }
+
+
+        /*val intent = Intent(this@MissionSelectActivity, MissionDetailActivity::class.java)
+        intent.putExtra("categoryId", categoryId)
+
+        val options = ActivityOptionsCompat.makeSceneTransitionAnimation(
+            this@MissionSelectActivity,
+            imageView, ViewCompat.getTransitionName(imageView)!!
+        )
+
+        Log.v("210323", imageView.toString())
+        Log.v("210323", url)
+
+        startActivity(intent, options.toBundle())*/
+
+
+        val pair: Pair<View, String> = Pair(imageView, imageView.transitionName)
+
+        //startActivity<MissionDetailActivity>("categoryId" to categoryId)
     }
 
 }

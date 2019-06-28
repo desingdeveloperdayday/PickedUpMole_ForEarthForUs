@@ -46,8 +46,8 @@
                         android:layout_gravity="center"
                         android:adjustViewBounds="true"
                         android:fitsSystemWindows="true"
-                        android:loadUrlImage="@{String.valueOf(vm.missionDetailResponse.image)}"
                         app:layout_collapseMode="parallax"/>
+                <!--android:loadUrlImage="@{String.valueOf(vm.missionDetailResponse.image)}"-->
 
                 <androidx.appcompat.widget.Toolbar
                         android:id="@+id/missionDetailToolbar"
