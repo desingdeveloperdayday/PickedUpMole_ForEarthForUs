@@ -13,6 +13,7 @@ import app.woovictory.forearthforus.model.mission.MissionDetailResponse
 import app.woovictory.forearthforus.model.mission.MissionSelectRequest
 import app.woovictory.forearthforus.model.mission.MissionSelectResponse
 import io.reactivex.Completable
+import io.reactivex.Observable
 import io.reactivex.Single
 import retrofit2.Response
 import retrofit2.http.*
@@ -49,7 +50,7 @@ interface ApiService {
     fun getEarthList(
         @Header("Authorization") Authorization: String,
         @Path("earthLevel") earthLevel: Int
-    ): Single<EarthResponse>
+    ): Observable<Response<EarthResponse>>
 
 
     // 5. category 리스트
@@ -82,7 +83,7 @@ interface ApiService {
     fun getUserMissionFeed(
         @Header("Authorization") Authorization: String,
         @Query("status") progress: String
-    ): Single<Response<ArrayList<MissionFeedResponse>>>
+    ): Observable<Response<ArrayList<MissionFeedResponse>>>
 
 
     // 9. 사용자가 새로운 미션을 선택하는 api

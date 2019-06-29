@@ -2,6 +2,7 @@ package app.woovictory.forearthforus.data.source.feed
 
 import app.woovictory.forearthforus.api.ApiService
 import app.woovictory.forearthforus.model.mission.MissionFeedResponse
+import io.reactivex.Observable
 import io.reactivex.Single
 import retrofit2.Response
 
@@ -11,7 +12,7 @@ import retrofit2.Response
 class MissionFeedRemoteDataSource(val api: ApiService) {
 
     fun getUserMissionFeed(token: String, progress: String)
-            : Single<Response<ArrayList<MissionFeedResponse>>> {
+            : Observable<Response<ArrayList<MissionFeedResponse>>> {
         return api.getUserMissionFeed("JWT $token", progress)
     }
 }

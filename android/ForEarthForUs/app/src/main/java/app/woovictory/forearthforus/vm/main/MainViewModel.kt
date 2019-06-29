@@ -10,7 +10,9 @@ import app.woovictory.forearthforus.model.earth.EarthResponse
 import app.woovictory.forearthforus.model.mission.MissionFeedResponse
 import app.woovictory.forearthforus.util.SharedPreferenceManager
 import app.woovictory.forearthforus.util.SingleLiveEvent
+import app.woovictory.forearthforus.util.TAG
 import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.rxkotlin.Observables
 import io.reactivex.schedulers.Schedulers
 
 /**
@@ -47,49 +49,33 @@ class MainViewModel(
         _isLoading.value = true
     }
 
-    // 상단 지구 정보.
-    fun getEarthInformation() {
+    fun getInformation() {
+        val earthObservable = earthRepository
+            .getEarthInformation(SharedPreferenceManager.token, SharedPreferenceManager.earthLevel)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+
+        val missionFeedObservable = missionFeedRepository
+            .getUserMissionFeed(SharedPreferenceManager.token, "progress")
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+
         _isLoading.value = true
         addDisposable(
-            earthRepository
-                .getEarthInformation(SharedPreferenceManager.token, SharedPreferenceManager.earthLevel)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
+            Observables.zip(earthObservable, missionFeedObservable)
                 .subscribe({
-                    _earthResponse.value = it
-
-                    Log.v("11882 ${it.earthLevel}", it.earthLevel.toString())
-                    Log.v("11882", it.content)
-                    Log.v("11882", it.image)
-                    _isLoading.value = false
-                }, {
-                    Log.v("11882", it.message)
-                    _isLoading.value = true
-                })
-        )
-    }
-
-    // 아래에 진행 중인 미션.
-    fun getMissionFeed() {
-        _isLoading.value = true
-        addDisposable(
-            missionFeedRepository
-                .getUserMissionFeed(SharedPreferenceManager.token, "progress")
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ response ->
-                    if (response.isSuccessful) {
-                        response.body()?.let {
-                            _missionFeedResponse.value = it
-
-                            Log.v("199427 success", it.size.toString())
-                        }
+                    if (it.first.isSuccessful && it.second.isSuccessful) {
+                        _earthResponse.value = it.first.body()
+                        _missionFeedResponse.value = it.second.body()
+                        SharedPreferenceManager.userContent = it.first.body()?.content!!
+                        Log.v(TAG, it.second.body()?.size.toString())
+                        Log.v("$TAG ${it.first.body()?.earthLevel}", it.first.body()?.earthLevel.toString())
                     }
                     _isLoading.value = false
-                }, { e ->
-                    Log.v("199427 fail", e.message)
-                    _isLoading.value = true
+                }, { error ->
+                    Log.v(TAG, error.message)
                 })
         )
     }
+
 }

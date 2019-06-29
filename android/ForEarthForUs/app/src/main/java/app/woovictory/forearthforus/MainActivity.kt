@@ -11,6 +11,8 @@ import androidx.fragment.app.FragmentTransaction
 import app.woovictory.forearthforus.base.BaseActivity
 import app.woovictory.forearthforus.base.BaseViewModel
 import app.woovictory.forearthforus.databinding.ActivityMainBinding
+import app.woovictory.forearthforus.util.TAG
+import app.woovictory.forearthforus.util.TIME_INTERVAL
 import app.woovictory.forearthforus.view.article.ArticleFragment
 import app.woovictory.forearthforus.view.category.MissionCategoryFragment
 import app.woovictory.forearthforus.view.main.MainFragment
@@ -20,6 +22,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.google.android.material.bottomnavigation.BottomNavigationMenuView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
+import org.jetbrains.anko.toast
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : BaseActivity<ActivityMainBinding, BaseViewModel>() {
@@ -42,7 +45,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, BaseViewModel>() {
     var active = fragment1
 
     private var selectedItem: Int = 0
-    private val TAG = javaClass.`package`?.name.toString()
+    private var backPressedTime: Long = 0
     private val mainFragment: Fragment = MainFragment.newInstance()
     private val missionCategoryFragment: Fragment = MissionCategoryFragment.newInstance()
     private val articleFragment: Fragment = ArticleFragment.newInstance()
@@ -56,6 +59,17 @@ class MainActivity : BaseActivity<ActivityMainBinding, BaseViewModel>() {
         fm.beginTransaction().add(R.id.mainFrameContainer, fragment3, "3").hide(fragment3).commit()
         fm.beginTransaction().add(R.id.mainFrameContainer, fragment2, "2").hide(fragment2).commit()
         fm.beginTransaction().add(R.id.mainFrameContainer, fragment1, "1").commit()
+    }
+
+    override fun onBackPressed() {
+
+        if (System.currentTimeMillis() > backPressedTime + TIME_INTERVAL) {
+            backPressedTime = System.currentTimeMillis()
+            toast("\'뒤로\' 버튼을 한번 더 누르시면 종료됩니다.")
+        } else {
+            finish()
+        }
+
     }
 
     private fun addFragmentBasedOnId(itemId: Int) {

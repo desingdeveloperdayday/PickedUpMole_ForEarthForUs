@@ -48,6 +48,7 @@ class FieldSelectActivity : BaseActivity<ActivityFieldSelectBinding, FieldSelect
         initDataBinding()
     }
 
+    // TODO : 조금 더 효율적으로 구성할 수 있는 방법은 없는지 고민해보기.
     private fun setButtonClickListener() {
         viewDataBinding.apply {
             val it = this@FieldSelectActivity

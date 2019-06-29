@@ -16,6 +16,7 @@ object SharedPreferenceManager {
     private const val PREF_USER_NAME = "UserName"
     private const val PREF_USER_ID = "UserId"
     private const val PREF_USER_EMAIL = "UserEmail"
+    private const val PREF_USER_CONTENT = "UserContent"
     private const val MODE = Context.MODE_PRIVATE
     private lateinit var preferences: SharedPreferences
 
@@ -65,4 +66,11 @@ object SharedPreferenceManager {
         set(value) = preferences.edit {
             it.putString(PREF_USER_EMAIL, value)
         }
+
+    var userContent: String
+        get() = preferences.getString(PREF_USER_CONTENT," ")!!
+        set(value) = preferences.edit {
+            it.putString(PREF_USER_CONTENT, value)
+        }
+
 }

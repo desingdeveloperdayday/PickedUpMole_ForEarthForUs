@@ -11,7 +11,6 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import app.woovictory.forearthforus.R
 import app.woovictory.forearthforus.databinding.FragmentMainBinding
-import app.woovictory.forearthforus.model.mission.MissionResponse
 import app.woovictory.forearthforus.util.SharedPreferenceManager
 import app.woovictory.forearthforus.util.glide.GlideApp
 import app.woovictory.forearthforus.view.main.detail.EarthDetailActivity
@@ -32,7 +31,6 @@ class MainFragment : Fragment() {
     }
 
     private lateinit var fragmentMainBinding: FragmentMainBinding
-    private lateinit var itemList: ArrayList<MissionResponse>
     private var mainMissionAdapter: MainMissionAdapter? = null
     private val mainViewModel: MainViewModel by viewModel()
     private var earthLevelList = arrayListOf(R.drawable.main_bar_graph1, R.drawable.main_bar_graph2)
@@ -49,7 +47,6 @@ class MainFragment : Fragment() {
         init()
         setUpViewModel()
         setUpDataBinding()
-
     }
 
     private fun init() {
@@ -67,8 +64,7 @@ class MainFragment : Fragment() {
     }
 
     private fun setUpDataBinding() {
-        mainViewModel.getEarthInformation()
-        mainViewModel.getMissionFeed()
+        mainViewModel.getInformation()
 
         mainViewModel.clickToEarthDetail.observe(this, Observer {
             startActivity<EarthDetailActivity>()
@@ -94,17 +90,16 @@ class MainFragment : Fragment() {
             }
         })
 
-        mainViewModel.isLoading.observe(this, Observer {loading->
-            if(loading){
+        mainViewModel.isLoading.observe(this, Observer { loading ->
+            if (loading) {
                 fragmentMainBinding.loading.visibility = View.VISIBLE
-            }else{
+            } else {
                 fragmentMainBinding.loading.visibility = View.GONE
             }
         })
     }
 
     private fun setUpRecyclerView() {
-
         fragmentMainBinding.mainRv.apply {
             layoutManager = LinearLayoutManager(context.applicationContext)
             adapter = mainMissionAdapter
@@ -113,16 +108,11 @@ class MainFragment : Fragment() {
     }
 
     private fun setEarthLevel(earthLevel: Int) {
-        when (earthLevel) {
-            0 -> GlideApp.with(this).load(earthLevelList[earthLevel]).into(fragmentMainBinding.mainBarGraph)
-            1 -> GlideApp.with(this).load(earthLevelList[earthLevel]).into(fragmentMainBinding.mainBarGraph)
-            2 -> GlideApp.with(this).load(earthLevelList[earthLevel]).into(fragmentMainBinding.mainBarGraph)
-            3 -> GlideApp.with(this).load(earthLevelList[earthLevel]).into(fragmentMainBinding.mainBarGraph)
-            4 -> GlideApp.with(this).load(earthLevelList[earthLevel]).into(fragmentMainBinding.mainBarGraph)
-            5 -> GlideApp.with(this).load(earthLevelList[earthLevel]).into(fragmentMainBinding.mainBarGraph)
-            6 -> GlideApp.with(this).load(earthLevelList[earthLevel]).into(fragmentMainBinding.mainBarGraph)
-            7 -> GlideApp.with(this).load(earthLevelList[earthLevel]).into(fragmentMainBinding.mainBarGraph)
-        }
+        setEarthBarImage(earthLevel)
+    }
+
+    private fun setEarthBarImage(earthLevel: Int) {
+        GlideApp.with(this).load(earthLevelList[earthLevel]).into(fragmentMainBinding.mainBarGraph)
     }
 
     private fun startToDetailActivity(id: Int) {

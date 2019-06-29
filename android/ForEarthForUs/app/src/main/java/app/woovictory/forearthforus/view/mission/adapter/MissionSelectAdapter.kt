@@ -3,6 +3,7 @@ package app.woovictory.forearthforus.view.mission.adapter
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import app.woovictory.forearthforus.databinding.ItemListMissionSelectBinding
 import app.woovictory.forearthforus.model.mission.MissionSelectResponse
@@ -11,7 +12,7 @@ import app.woovictory.forearthforus.view.mission.viewholder.MissionSelectViewHol
 /**
  * Created by VictoryWoo
  */
-class MissionSelectAdapter(private var onMissionSelectItemClickListener: (Int) -> Unit) :
+class MissionSelectAdapter(private var onMissionSelectItemClickListener: (Int, ImageView,String) -> Unit) :
     RecyclerView.Adapter<MissionSelectViewHolder>() {
 
     private var selectMissionList = ArrayList<MissionSelectResponse>()

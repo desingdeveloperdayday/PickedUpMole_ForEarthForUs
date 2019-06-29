@@ -28,6 +28,7 @@
             android:paddingEnd="16dp"
             android:paddingTop="16dp"
             android:paddingBottom="16dp"
+            android:layout_marginTop="6dp"
             android:src="@drawable/back_button"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
@@ -47,6 +48,7 @@
             android:id="@+id/earthDetailLevel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_16dp"
             android:text="LV.1 지구씌"
             style="@style/SubTitleBodyCenterStyle"
             app:layout_constraintStart_toStartOf="parent"

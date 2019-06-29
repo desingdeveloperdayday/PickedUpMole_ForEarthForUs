@@ -30,7 +30,8 @@
             android:paddingBottom="16dp"
             android:src="@drawable/back_button"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/toolbar_image"/>
 
     <ImageView
             android:id="@+id/earth_image"
