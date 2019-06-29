@@ -63,10 +63,19 @@ class MainActivity : BaseActivity<ActivityMainBinding, BaseViewModel>() {
 
     override fun onBackPressed() {
 
+        // 뒤로 버튼 클릭 시간과 현재 시간을 비교하여 계산한다.
+
+        // 마지막 '뒤로' 버튼 클릭 시간이 이전 '뒤로' 버튼 클릭 시간과의 차이가
+        // TIME_INTERVAL(여기서 2초)보다 클 때는 토스트 메시지만 띄운다.
+        // System.currentTimeMillis() : 마지막 뒤로 버튼 클릭 시간을 의미
+        // backPressedTime + TIME_INTERVAL : 이전 뒤로 버튼 클릭 시간을 의미
+        // 이전에 누른 적이 없기 때문에 backPressedTime 은 0이다.
         if (System.currentTimeMillis() > backPressedTime + TIME_INTERVAL) {
             backPressedTime = System.currentTimeMillis()
             toast("\'뒤로\' 버튼을 한번 더 누르시면 종료됩니다.")
         } else {
+            // 마지막 '뒤로' 버튼 클릭 시간이 이전 '뒤로' 버튼 클릭 시간과의 차이가
+            // 2초 보다 작을 때 화면을 종료시킨다.
             finish()
         }
 
