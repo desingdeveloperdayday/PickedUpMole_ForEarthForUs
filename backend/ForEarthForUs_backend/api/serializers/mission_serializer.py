@@ -46,6 +46,11 @@ class MissionFeedSerializer(serializers.HyperlinkedModelSerializer):
         model = Mission
         fields = ('id', 'category', 'image', 'title', 'comment')
 
+    def to_representation(self, instance):
+        data = super(MissionFeedSerializer, self).to_representation(instance)
+        data['status'] = update_status(self.context['request'].user.id, data['id'])
+        return data
+
 def update_status(userId, missionId):
     start, end = calc_today()
     feed = Feed.objects.filter(
