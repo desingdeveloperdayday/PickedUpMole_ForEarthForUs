@@ -48,7 +48,7 @@ class AchieveListActivity : BaseActivity<ActivityAchieveListBinding, AchieveList
 
     private fun setUpMockData() {
         for (i in 0..7) {
-            itemList.add(AchieveResponseMock(R.drawable.fufe_illust_jh_04, "지역 농산물 이용하기"))
+            itemList.add(AchieveResponseMock(R.drawable.ic_mission_img_4, "지역 농산물 이용하기"))
         }
     }
 

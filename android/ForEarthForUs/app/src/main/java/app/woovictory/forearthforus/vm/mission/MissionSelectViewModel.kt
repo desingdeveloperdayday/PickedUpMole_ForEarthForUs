@@ -49,6 +49,7 @@ class MissionSelectViewModel(private val missionSelectListRepository: MissionSel
                         response?.let {
                             Log.v("228874", it.code().toString())
                             _missionSelectResponse.value = it.body()
+                            //_missionSelectResponse.value?.get(0)?.image = "http://upload.wikimedia.org/wikipedia/commons/e/e8/Svg_example3.svg"
                         }
                     }
                     _isLoading.value = false
