@@ -69,7 +69,6 @@ class MissionDetailActivity : BaseActivity<ActivityMissionDetailBinding, Mission
 
         viewDataBinding.missionDetailImage.transitionName = url
 
-
         GlideApp.with(this).load(url).into(viewDataBinding.missionDetailImage)
 
         viewModel.getMissionDetailInformation(SharedPreferenceManager.token, categoryId)
@@ -84,17 +83,43 @@ class MissionDetailActivity : BaseActivity<ActivityMissionDetailBinding, Mission
     }
 
     override fun initDataBinding() {
+
         viewDataBinding.missionDetailToolbar.setNavigationOnClickListener {
             onBackPressed()
-            supportStartPostponedEnterTransition()
+            //supportStartPostponedEnterTransition()
             Log.v("18238", it.toString())
             //finish()
         }
 
+        viewModel.missionDetailResponse.observe(this, Observer {
+            if(it.status == "progress"){
+                viewDataBinding.apply {
+                    missionDetailSelectButtonLayout.visibility = View.GONE
+                    missionDetailDecideButtonLayout.visibility = View.VISIBLE
+                }
+            }else{
+                viewDataBinding.apply {
+                    missionDetailSelectButtonLayout.visibility = View.VISIBLE
+                    missionDetailDecideButtonLayout.visibility = View.GONE
+                }
+            }
+        })
+
+        // 미션 선택
         viewModel.clickToMissionSelect.observe(this, Observer {
-            /*val mission = MissionSelectRequest(categoryId)
-            viewModel.postMissionSelect(SharedPreferenceManager.token, mission)*/
-            startActivity<MissionCompleteActivity>()
+            val mission = MissionSelectRequest(categoryId)
+            viewModel.postMissionSelect(SharedPreferenceManager.token, mission)
+            //startActivity<MissionCompleteActivity>()
+        })
+
+        // 미션 선택 후 결과 구독.
+        viewModel.missionFeedResponse.observe(this, Observer {
+            if (it.mission.status == "progress") {
+                viewDataBinding.apply {
+                    missionDetailSelectButtonLayout.visibility = View.GONE
+                    missionDetailDecideButtonLayout.visibility = View.VISIBLE
+                }
+            }
         })
     }
 
