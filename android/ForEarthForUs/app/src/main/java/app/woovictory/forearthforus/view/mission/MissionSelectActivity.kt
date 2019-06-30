@@ -1,6 +1,5 @@
 package app.woovictory.forearthforus.view.mission
 
-import android.app.ActivityOptions
 import android.content.Context
 import android.content.Intent
 import android.graphics.Point
@@ -13,7 +12,6 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.content.ContextCompat
-import androidx.core.view.ViewCompat
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper

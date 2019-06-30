@@ -27,7 +27,6 @@ data class MissionFeedResponse(
 
 
     data class Mission(
-
         @SerializedName("id")
         var id: Int,
         @SerializedName("category")
@@ -37,7 +36,9 @@ data class MissionFeedResponse(
         @SerializedName("title")
         var title: String,
         @SerializedName("comment")
-        var comment: String
+        var comment: String,
+        @SerializedName("status")
+        var status: String
     )
 }
 
