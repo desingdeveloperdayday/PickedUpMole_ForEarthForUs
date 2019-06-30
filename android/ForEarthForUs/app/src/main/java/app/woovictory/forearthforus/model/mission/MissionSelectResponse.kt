@@ -11,7 +11,7 @@ data class MissionSelectResponse(
     @SerializedName("category")
     val category: Int,
     @SerializedName("image")
-    val image: String,
+    var image: String,
     @SerializedName("title")
     val title: String,
     @SerializedName("content")
