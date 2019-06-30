@@ -50,7 +50,6 @@ class MissionDetailActivity : BaseActivity<ActivityMissionDetailBinding, Mission
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.v("21032", "onCreate")
-        postponeEnterTransition()
         getData()
         initToolbar()
         initStartView()
@@ -67,51 +66,13 @@ class MissionDetailActivity : BaseActivity<ActivityMissionDetailBinding, Mission
     private fun getData() {
         categoryId = intent.getIntExtra("categoryId", 0)
         url = intent.getStringExtra("url")
-        Log.v("1823899", categoryId.toString())
-        Log.v("1823899", url)
-
-        supportPostponeEnterTransition()
 
         viewDataBinding.missionDetailImage.transitionName = url
 
-        /*GlideApp.with(this)
-            .asBitmap()
-            .load(url)
-            .apply(RequestOptions().diskCacheStrategy(DiskCacheStrategy.RESOURCE))
-            .listener(object: RequestListener<Bitmap>{
-                override fun onLoadFailed(
-                    e: GlideException?,
-                    model: Any?,
-                    target: Target<Bitmap>?,
-                    isFirstResource: Boolean
-                ): Boolean {
-                    return false
-                }
 
-                override fun onResourceReady(
-                    resource: Bitmap?,
-                    model: Any?,
-                    target: Target<Bitmap>?,
-                    dataSource: DataSource?,
-                    isFirstResource: Boolean
-                ): Boolean {
-                    startPostponedEnterTransition()
-                    return false
-                }
-
-            })
-            .into(viewDataBinding.missionDetailImage)*/
         GlideApp.with(this).load(url).into(viewDataBinding.missionDetailImage)
 
-        /*GlideApp.with(this)
-            .`as`(PictureDrawable::class.java)
-            .transition(DrawableTransitionOptions.withCrossFade())
-            .listener(SvgSoftwareLayerSetter())
-            .load(url).into(viewDataBinding.missionDetailImage)*/
-
-        postponeEnterTransition()
         viewModel.getMissionDetailInformation(SharedPreferenceManager.token, categoryId)
-        startPostponedEnterTransition()
     }
 
 
