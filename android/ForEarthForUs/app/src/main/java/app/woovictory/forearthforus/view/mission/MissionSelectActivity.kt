@@ -60,7 +60,7 @@ class MissionSelectActivity : BaseActivity<ActivityMissionSelectBinding
         val categoryId = intent.getIntExtra("categoryId", 0)
         Log.v("7786", categoryId.toString())
 
-        // viewModel 에 missionSelectList 요청.
+        // viewModelFeed 에 missionSelectList 요청.
         viewModel.getMissionSelectList(categoryId)
     }
 
@@ -156,23 +156,8 @@ class MissionSelectActivity : BaseActivity<ActivityMissionSelectBinding
             }
 
 
-        /*val intent = Intent(this@MissionSelectActivity, MissionDetailActivity::class.java)
-        intent.putExtra("categoryId", categoryId)
+        //val pair: Pair<View, String> = Pair(imageView, imageView.transitionName)
 
-        val options = ActivityOptionsCompat.makeSceneTransitionAnimation(
-            this@MissionSelectActivity,
-            imageView, ViewCompat.getTransitionName(imageView)!!
-        )
-
-        Log.v("210323", imageView.toString())
-        Log.v("210323", url)
-
-        startActivity(intent, options.toBundle())*/
-
-
-        val pair: Pair<View, String> = Pair(imageView, imageView.transitionName)
-
-        //startActivity<MissionDetailActivity>("categoryId" to categoryId)
     }
 
 }

@@ -1,10 +1,13 @@
 package app.woovictory.forearthforus.view.main
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import androidx.core.app.ActivityOptionsCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -116,6 +119,9 @@ class MainFragment : Fragment() {
     }
 
     private fun startToDetailActivity(id: Int) {
-        startActivity<MissionDetailActivity>("categoryId" to id)
+        val intent = Intent(context, MissionDetailActivity::class.java)
+        intent.putExtra("categoryId", id)
+        intent.putExtra("url", "main")
+        startActivity(intent)
     }
 }

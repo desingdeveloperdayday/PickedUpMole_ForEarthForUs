@@ -3,15 +3,12 @@ package app.woovictory.forearthforus.api
 import app.woovictory.forearthforus.model.earth.EarthResponse
 import app.woovictory.forearthforus.model.account.LoginByEmailRequest
 import app.woovictory.forearthforus.model.account.LoginByEmailResponse
-import app.woovictory.forearthforus.model.mission.MissionFeedResponse
 import app.woovictory.forearthforus.model.account.SignByEmailRequest
 import app.woovictory.forearthforus.model.article.ArticleDetailResponse
 import app.woovictory.forearthforus.model.article.ArticleResponse
 import app.woovictory.forearthforus.model.article.DonationResponse
 import app.woovictory.forearthforus.model.category.MissionCategoryResponse
-import app.woovictory.forearthforus.model.mission.MissionDetailResponse
-import app.woovictory.forearthforus.model.mission.MissionSelectRequest
-import app.woovictory.forearthforus.model.mission.MissionSelectResponse
+import app.woovictory.forearthforus.model.mission.*
 import io.reactivex.Completable
 import io.reactivex.Observable
 import io.reactivex.Single
@@ -124,6 +121,13 @@ interface ApiService {
     fun getArticleList(
         @Header("Authorization") Authorization: String
     ): Single<Response<List<ArticleResponse>>>
+
+    @PATCH("api/v1/feed/{id}/")
+    fun completeMission(
+        @Header("Authorization") Authorization: String,
+        @Body missionFeedCompleteRequest: MissionFeedCompleteRequest,
+        @Path("id") id: Int
+    ): Single<Response<MissionFeedResponse>>
 
     // admin - 관리자.
 

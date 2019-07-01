@@ -18,7 +18,7 @@ class ArticleDetailActivity : BaseActivity<ActivityArticleDetailBinding, Article
         get() = R.layout.activity_article_detail
 
     /*
-    * viewModel 의 초기화는 viewModel() 이렇게 하면 안된다.
+    * viewModelFeed 의 초기화는 viewModelFeed() 이렇게 하면 안된다.
     * ViewModelProviders.of(this).get(ViewModel::class.java)
     * 이런식으로 초기화해야 동작한다.
     *
