@@ -35,13 +35,20 @@ class MissionCompleteActivity : BaseActivity<ActivityMissionCompleteBinding, Bas
     }
 
     override fun initStartView() {
-        viewDataBinding.apply {
+        /*viewDataBinding.apply {
             val it = this@MissionCompleteActivity
             missionCompleteRating1.setOnClickListener(it)
             missionCompleteRating2.setOnClickListener(it)
             missionCompleteRating3.setOnClickListener(it)
             missionCompleteRating4.setOnClickListener(it)
             missionCompleteRating5.setOnClickListener(it)
+        }*/
+
+        viewDataBinding.apply {
+            missionCompleteRating.setOnRatingBarChangeListener { ratingBar, fl, b ->
+                missionCompleteScore.text = "${fl.toInt()} 점만큼"
+                Log.v("2200123",fl.toInt().toString())
+            }
         }
 
     }
@@ -52,16 +59,16 @@ class MissionCompleteActivity : BaseActivity<ActivityMissionCompleteBinding, Bas
 
     override fun onClick(v: View) {
         when (v) {
-            missionCompleteRating1 -> checkCompleteRatingState(1)
+            /*missionCompleteRating1 -> checkCompleteRatingState(1)
             missionCompleteRating2 -> checkCompleteRatingState(2)
             missionCompleteRating3 -> checkCompleteRatingState(3)
             missionCompleteRating4 -> checkCompleteRatingState(4)
-            missionCompleteRating5 -> checkCompleteRatingState(5)
+            missionCompleteRating5 -> checkCompleteRatingState(5)*/
         }
     }
 
     private fun checkCompleteRatingState(count: Int) {
-        when (count) {
+        /*when (count) {
             1 -> {
                 viewDataBinding.apply {
 
@@ -85,10 +92,10 @@ class MissionCompleteActivity : BaseActivity<ActivityMissionCompleteBinding, Bas
                 viewDataBinding.apply {
                     // 아무것도 선택하지 않고 1만 선택한 경우.
 
-                    /*if(missionCompleteRating1.isSelected and  missionCompleteRating2.isSelected){
+                    *//*if(missionCompleteRating1.isSelected and  missionCompleteRating2.isSelected){
                         missionCompleteRating1.isSelected = false
                         missionCompleteRating2.isSelected = false
-                    }*/
+                    }*//*
                     // 1이 이미 선택된 상태에서 누르면 2만 선택된 상태로 바꾼다.
                     if (missionCompleteRating1.isSelected) {
                         missionCompleteRating2.isSelected = !missionCompleteRating2.isSelected
@@ -129,6 +136,6 @@ class MissionCompleteActivity : BaseActivity<ActivityMissionCompleteBinding, Bas
 
                 }
             }
-        }
+        }*/
     }
 }

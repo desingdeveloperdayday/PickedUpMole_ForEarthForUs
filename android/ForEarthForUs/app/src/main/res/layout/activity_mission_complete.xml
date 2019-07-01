@@ -73,7 +73,21 @@
                 style="@style/SubTitleHeaderCenterStyle"
         />
 
-        <LinearLayout
+        <RatingBar
+                android:id="@+id/missionCompleteRating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:isIndicator="false"
+                android:numStars="5"
+                android:rating="0"
+                android:stepSize="1.0"
+                android:layout_marginTop="@dimen/margin_24dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/missionCompleteSubTitle"
+                style="@style/ratingBarStyle"/>
+
+        <!--<LinearLayout
                 android:id="@+id/missionCompleteRatingLayout"
                 android:layout_marginTop="@dimen/margin_24dp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -119,7 +133,7 @@
                     android:layout_height="48dp"
                     android:src="@drawable/selector_mission_one"/>
 
-        </LinearLayout>
+        </LinearLayout>-->
 
         <LinearLayout
                 android:layout_marginTop="@dimen/margin_24dp"
@@ -128,7 +142,7 @@
                 android:orientation="horizontal"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/missionCompleteRatingLayout">
+                app:layout_constraintTop_toBottomOf="@id/missionCompleteRating">
 
             <TextView
                     style="@style/ContentsBodyStyle"
@@ -144,7 +158,7 @@
                     style="@style/ContentsHeaderMintCenterStyle2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="4점만큼"
+                    android:text="0 점만큼"
             />
 
             <TextView
