@@ -107,6 +107,22 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.CreateModel(
+            name='Scrap',
+            fields=[
+                ('id', models.CharField(max_length=100, primary_key=True, serialize=False, unique=True)),
+                ('kind', models.IntegerField(choices=[(1, 'Campaign type scrap'), (2, 'Article type scrap')])),
+                ('created', models.DateTimeField(auto_now_add=True)),
+                ('article', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='api.Article')),
+                ('campaign', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='api.Campaign')),
+                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+            ],
+            options={
+                'verbose_name': 'scrap',
+                'verbose_name_plural': 'scraps',
+                'db_table': 'scraps',
+            },
+        ),
+        migrations.CreateModel(
             name='Mission',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
