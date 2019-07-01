@@ -28,7 +28,8 @@
         <activity android:name=".view.account.SignUpActivity"
                   android:windowSoftInputMode="adjustResize"/>
         <activity android:name=".MainActivity"/>
-        <activity android:name=".view.SplashActivity"/>
+        <activity android:name=".view.SplashActivity">
+        </activity>
         <activity android:name=".view.account.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

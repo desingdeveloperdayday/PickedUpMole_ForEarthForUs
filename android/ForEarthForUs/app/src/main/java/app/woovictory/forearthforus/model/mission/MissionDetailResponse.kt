@@ -18,7 +18,7 @@ data class MissionDetailResponse(
     val content: String,
     @SerializedName("missionTipTitle")
     val missionTipTitle: String,
-    @SerializedName("idmissionTipContent")
+    @SerializedName("missionTipContent")
     val missionTipContent: String,
     @SerializedName("missionMethodContent")
     val missionMethodContent: String,
