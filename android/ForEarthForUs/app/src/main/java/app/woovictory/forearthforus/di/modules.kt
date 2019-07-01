@@ -12,6 +12,7 @@ import app.woovictory.forearthforus.data.repository.article.ArticleRepository
 import app.woovictory.forearthforus.data.repository.category.MissionCategoryRepository
 import app.woovictory.forearthforus.data.repository.feed.MissionFeedRepository
 import app.woovictory.forearthforus.data.repository.mission.MissionDetailRepository
+import app.woovictory.forearthforus.data.repository.mission.MissionFeedCompleteRepository
 import app.woovictory.forearthforus.data.repository.mission.MissionSelectListRepository
 import app.woovictory.forearthforus.data.repository.mission.MissionSelectRepository
 import app.woovictory.forearthforus.data.source.account.LoginRemoteDataSource
@@ -24,6 +25,7 @@ import app.woovictory.forearthforus.data.source.category.MissionCategoryRemoteDa
 import app.woovictory.forearthforus.data.source.feed.MissionFeedRemoteDataSource
 import app.woovictory.forearthforus.data.source.main.EarthRemoteDataSource
 import app.woovictory.forearthforus.data.source.mission.MissionDetailRemoteDataSource
+import app.woovictory.forearthforus.data.source.mission.MissionFeedCompleteRemoteDataSource
 import app.woovictory.forearthforus.data.source.mission.MissionSelectListRemoteDataSource
 import app.woovictory.forearthforus.data.source.mission.MissionSelectRemoteDataSource
 import app.woovictory.forearthforus.util.baseURL
@@ -92,6 +94,7 @@ val dataSourceModule = module {
     factory { ArticleDonationRemoteDataSource(get()) }
     factory { ArticleDetailRemoteDataSource(get()) }
     factory { ArticleRepository(get()) }
+    factory { MissionFeedCompleteRemoteDataSource(get()) }
 }
 
 val repositoryModule = module {
@@ -107,6 +110,7 @@ val repositoryModule = module {
     factory { ArticleDonationRepository(get()) }
     factory { ArticleDetailRepository(get()) }
     factory { ArticleRemoteDataSource(get()) }
+    factory { MissionFeedCompleteRepository(get()) }
 }
 
 var appModules = listOf(apiModule, dataSourceModule, viewModelModule, repositoryModule)

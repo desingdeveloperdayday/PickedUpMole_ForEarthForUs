@@ -43,13 +43,13 @@
                         app:riv_mutate_background="true"
                         app:riv_oval="false"/>
 
-                <!--<ImageView
+                <ImageView
                         android:background="@drawable/background_gradient_opacity"
                         android:layout_width="match_parent"
                         android:layout_height="80dp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"/>-->
+                        app:layout_constraintBottom_toBottomOf="parent"/>
 
                 <TextView
                         app:layout_constraintBottom_toBottomOf="@id/itemAchieveImage"

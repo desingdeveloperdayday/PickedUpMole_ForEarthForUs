@@ -14,8 +14,7 @@ class ItemDecoration(private val space: Int, private val side: Int) : RecyclerVi
 
     override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
         super.getItemOffsets(outRect, view, parent, state)
-        val position = parent.getChildAdapterPosition(view)
-        when (position) {
+        when (parent.getChildAdapterPosition(view)) {
             0 -> {
                 outRect.right = space //don't forget about recycling...
                 outRect.left = side

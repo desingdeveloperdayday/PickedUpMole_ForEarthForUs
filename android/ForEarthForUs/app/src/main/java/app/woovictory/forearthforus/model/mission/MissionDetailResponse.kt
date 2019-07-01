@@ -23,5 +23,7 @@ data class MissionDetailResponse(
     @SerializedName("missionMethodContent")
     val missionMethodContent: String,
     @SerializedName("missionEffectContent")
-    val missionEffectContent: String
+    val missionEffectContent: String,
+    @SerializedName("status")
+    var status: String
 )

@@ -112,7 +112,10 @@ class MainActivity : BaseActivity<ActivityMainBinding, BaseViewModel>() {
 
     override fun initStartView() {
 
-        changeFragment(MainFragment.newInstance())
+        //changeFragment(MainFragment.newInstance())
+        fm.beginTransaction().hide(active).show(fragment1).commit()
+        active = fragment1
+
         mainBottomNavigation.selectedItemId = R.id.navigation_main
 
         mainBottomNavigation.itemIconTintList = null

@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools" xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable name="vm" type="app.woovictory.forearthforus.vm.mission.MissionFeedCompleteWriteViewModel"/>
+    </data>
     <androidx.constraintlayout.widget.ConstraintLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
@@ -71,19 +75,21 @@
         />
 
         <EditText
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/missionCompleteButtonLayout"
-                app:layout_constraintTop_toBottomOf="@id/missionCompleteWriteImage"
+                android:id="@+id/missionCompleteEt"
                 android:layout_marginTop="16dp"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:padding="@dimen/padding_24dp"
                 android:hint="@string/text_mission_complete_write_hint"
                 android:gravity="top"
-                style="@style/ButtonBlackStyle"
                 android:maxLength="100"
-                android:background="@color/fe_fu_background"/>
+                android:background="@color/fe_fu_background"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/missionCompleteButtonLayout"
+                app:layout_constraintTop_toBottomOf="@id/missionCompleteWriteImage"
+                style="@style/ButtonBlackStyle"
+        />
 
         <LinearLayout
                 android:id="@+id/missionCompleteButtonLayout"
@@ -97,6 +103,7 @@
 
 
             <Button
+                    android:id="@+id/missionCompleteBack"
                     android:layout_width="0dp"
                     android:layout_weight="1.6"
                     android:layout_height="@dimen/size_button_height"
@@ -104,11 +111,12 @@
                     android:stateListAnimator="@null"
                     android:layout_marginStart="@dimen/margin_24dp"
                     android:text="@string/text_mission_complete_before"
+                    android:onClick="@{()->vm.clickToBackMission()}"
                     android:background="@drawable/border_button_background_mission_complete"
                     style="@style/ButtonGrayCenterStyle"/>
 
             <Button
-                    android:id="@+id/missionSelectButton"
+                    android:id="@+id/missionComplete"
                     android:layout_width="0dp"
                     android:layout_weight="2.4"
                     android:layout_height="@dimen/size_button_height"
@@ -121,6 +129,7 @@
                     android:textColor="@color/fe_fu_white"
                     android:textSize="@dimen/size_text_16dp"
                     android:stateListAnimator="@null"
+                    android:onClick="@{()->vm.clickToComplete()}"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"

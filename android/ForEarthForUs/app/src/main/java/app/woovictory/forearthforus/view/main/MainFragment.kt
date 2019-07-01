@@ -1,5 +1,6 @@
 package app.woovictory.forearthforus.view.main
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import app.woovictory.forearthforus.R
 import app.woovictory.forearthforus.databinding.FragmentMainBinding
 import app.woovictory.forearthforus.util.SharedPreferenceManager
+import app.woovictory.forearthforus.util.earthLevelList
 import app.woovictory.forearthforus.util.glide.GlideApp
 import app.woovictory.forearthforus.view.main.detail.EarthDetailActivity
 import app.woovictory.forearthforus.view.mission.MissionDetailActivity
@@ -33,7 +35,6 @@ class MainFragment : Fragment() {
     private lateinit var fragmentMainBinding: FragmentMainBinding
     private var mainMissionAdapter: MainMissionAdapter? = null
     private val mainViewModel: MainViewModel by viewModel()
-    private var earthLevelList = arrayListOf(R.drawable.main_bar_graph1, R.drawable.main_bar_graph2)
 
     //get() = ViewModelProviders.of(this@MainFragment).get(MainViewModel::class.java)
 
@@ -116,6 +117,9 @@ class MainFragment : Fragment() {
     }
 
     private fun startToDetailActivity(id: Int) {
-        startActivity<MissionDetailActivity>("categoryId" to id)
+        val intent = Intent(context, MissionDetailActivity::class.java)
+        intent.putExtra("categoryId", id)
+        intent.putExtra("url", "main")
+        startActivity(intent)
     }
 }

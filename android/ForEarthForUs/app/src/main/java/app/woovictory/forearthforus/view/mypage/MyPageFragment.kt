@@ -116,6 +116,10 @@ class MyPageFragment : Fragment() {
             startActivity<AlarmActivity>()
         })
 
+        myPageViewModel.clickToProfile.observe(this, Observer {
+            //toast("프로필 클릭.")
+        })
+
         fragmentMyPageDataBinding.apply {
             myPageProfileUserName.text = SharedPreferenceManager.userName
             myPageProfileEmail.text = SharedPreferenceManager.userEmail

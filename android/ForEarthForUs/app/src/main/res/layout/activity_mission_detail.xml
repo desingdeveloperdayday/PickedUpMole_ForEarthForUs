@@ -42,10 +42,11 @@
                 <ImageView
                         android:id="@+id/missionDetailImage"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="443dp"
                         android:layout_gravity="center"
                         android:adjustViewBounds="true"
                         android:fitsSystemWindows="true"
+                        android:loadUrlImage="@{String.valueOf(vm.missionDetailResponse.image)}"
                         app:layout_collapseMode="parallax"/>
                 <!--android:loadUrlImage="@{String.valueOf(vm.missionDetailResponse.image)}"-->
 
@@ -185,6 +186,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="@string/text_mission_detail_cancel"
+                    android:onClick="@{()-> vm.clickToMissionCancel()}"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:background="@color/fe_fu_gray"/>
@@ -195,6 +197,7 @@
                     android:layout_weight="2"
                     android:gravity="center"
                     android:text="@string/text_mission_detail_complete"
+                    android:onClick="@{()->vm.clickToMissionComplete()}"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:background="@color/fe_fu_main"/>

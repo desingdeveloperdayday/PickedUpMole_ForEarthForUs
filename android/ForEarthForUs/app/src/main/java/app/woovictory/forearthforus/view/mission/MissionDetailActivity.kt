@@ -1,10 +1,7 @@
 package app.woovictory.forearthforus.view.mission
 
 import android.annotation.SuppressLint
-import android.graphics.Bitmap
 import android.graphics.PorterDuff
-import android.graphics.drawable.Drawable
-import android.graphics.drawable.PictureDrawable
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -17,20 +14,11 @@ import app.woovictory.forearthforus.databinding.ActivityMissionDetailBinding
 import app.woovictory.forearthforus.model.mission.MissionSelectRequest
 import app.woovictory.forearthforus.util.SharedPreferenceManager
 import app.woovictory.forearthforus.util.glide.GlideApp
-import app.woovictory.forearthforus.util.glide.SvgSoftwareLayerSetter
 import app.woovictory.forearthforus.vm.mission.MissionDetailViewModel
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.DataSource
-import com.bumptech.glide.load.engine.DiskCacheStrategy
-import com.bumptech.glide.load.engine.GlideException
-import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
-import com.bumptech.glide.request.Request
-import com.bumptech.glide.request.RequestListener
-import com.bumptech.glide.request.RequestOptions
-import com.bumptech.glide.request.target.Target
 import com.google.android.material.appbar.AppBarLayout
 import kotlinx.android.synthetic.main.activity_mission_detail.*
 import org.jetbrains.anko.startActivity
+import org.jetbrains.anko.toast
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MissionDetailActivity : BaseActivity<ActivityMissionDetailBinding, MissionDetailViewModel>(),
@@ -41,6 +29,7 @@ class MissionDetailActivity : BaseActivity<ActivityMissionDetailBinding, Mission
 
     var categoryId: Int = 0
     var url: String = ""
+    var id: Int = 0
 
     override fun onEnterAnimationComplete() {
         super.onEnterAnimationComplete()
@@ -50,7 +39,6 @@ class MissionDetailActivity : BaseActivity<ActivityMissionDetailBinding, Mission
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.v("21032", "onCreate")
-        postponeEnterTransition()
         getData()
         initToolbar()
         initStartView()
@@ -67,51 +55,13 @@ class MissionDetailActivity : BaseActivity<ActivityMissionDetailBinding, Mission
     private fun getData() {
         categoryId = intent.getIntExtra("categoryId", 0)
         url = intent.getStringExtra("url")
-        Log.v("1823899", categoryId.toString())
-        Log.v("1823899", url)
+        Log.v("21032", url)
 
-        supportPostponeEnterTransition()
-
-        viewDataBinding.missionDetailImage.transitionName = url
-
-        /*GlideApp.with(this)
-            .asBitmap()
-            .load(url)
-            .apply(RequestOptions().diskCacheStrategy(DiskCacheStrategy.RESOURCE))
-            .listener(object: RequestListener<Bitmap>{
-                override fun onLoadFailed(
-                    e: GlideException?,
-                    model: Any?,
-                    target: Target<Bitmap>?,
-                    isFirstResource: Boolean
-                ): Boolean {
-                    return false
-                }
-
-                override fun onResourceReady(
-                    resource: Bitmap?,
-                    model: Any?,
-                    target: Target<Bitmap>?,
-                    dataSource: DataSource?,
-                    isFirstResource: Boolean
-                ): Boolean {
-                    startPostponedEnterTransition()
-                    return false
-                }
-
-            })
-            .into(viewDataBinding.missionDetailImage)*/
-        GlideApp.with(this).load(url).into(viewDataBinding.missionDetailImage)
-
-        /*GlideApp.with(this)
-            .`as`(PictureDrawable::class.java)
-            .transition(DrawableTransitionOptions.withCrossFade())
-            .listener(SvgSoftwareLayerSetter())
-            .load(url).into(viewDataBinding.missionDetailImage)*/
-
-        postponeEnterTransition()
+        if (url != "main") {
+            viewDataBinding.missionDetailImage.transitionName = url
+            GlideApp.with(this).load(url).into(viewDataBinding.missionDetailImage)
+        }
         viewModel.getMissionDetailInformation(SharedPreferenceManager.token, categoryId)
-        startPostponedEnterTransition()
     }
 
 
@@ -123,17 +73,55 @@ class MissionDetailActivity : BaseActivity<ActivityMissionDetailBinding, Mission
     }
 
     override fun initDataBinding() {
+
         viewDataBinding.missionDetailToolbar.setNavigationOnClickListener {
             onBackPressed()
-            supportStartPostponedEnterTransition()
             Log.v("18238", it.toString())
-            //finish()
         }
 
+        viewModel.missionDetailResponse.observe(this, Observer {
+            id = it.id
+            Log.v("2010023 detail",id.toString())
+            if (it.status == "progress") {
+                viewDataBinding.apply {
+                    missionDetailSelectButtonLayout.visibility = View.GONE
+                    missionDetailDecideButtonLayout.visibility = View.VISIBLE
+                }
+            } else {
+                viewDataBinding.apply {
+                    missionDetailSelectButtonLayout.visibility = View.VISIBLE
+                    missionDetailDecideButtonLayout.visibility = View.GONE
+                }
+            }
+
+        })
+
+        // 미션 선택
         viewModel.clickToMissionSelect.observe(this, Observer {
-            /*val mission = MissionSelectRequest(categoryId)
-            viewModel.postMissionSelect(SharedPreferenceManager.token, mission)*/
-            startActivity<MissionCompleteActivity>()
+            val mission = MissionSelectRequest(categoryId)
+            viewModel.postMissionSelect(SharedPreferenceManager.token, mission)
+            //startActivity<MissionCompleteActivity>()
+        })
+
+        // 미션 선택 후 결과 구독.
+        viewModel.missionFeedResponse.observe(this, Observer {
+            id = it.id
+            Log.v("2010023",id.toString())
+            if (it.mission.status == "progress") {
+                viewDataBinding.apply {
+                    missionDetailSelectButtonLayout.visibility = View.GONE
+                    missionDetailDecideButtonLayout.visibility = View.VISIBLE
+                }
+            }
+
+        })
+
+        viewModel.clickToMissionCancel.observe(this, Observer {
+            toast("그만 두기 버튼 클릭")
+        })
+
+        viewModel.clickToMissionComplete.observe(this, Observer {
+            startActivity<MissionCompleteActivity>("id" to id)
         })
     }
 
