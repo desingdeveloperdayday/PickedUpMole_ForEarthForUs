@@ -74,7 +74,6 @@
             android:id="@+id/earthDetailBar"
             android:layout_width="0dp"
             android:layout_height="35dp"
-            android:src="@drawable/main_bar_graph2"
             android:layout_marginTop="@dimen/padding_16dp"
             android:visibility="invisible"
             app:layout_constraintStart_toStartOf="parent"

@@ -16,9 +16,9 @@ class GridItemDecoration(private var space: Int, private var side: Int) : Recycl
         super.getItemOffsets(outRect, view, parent, state)
 
         // 각 아이템의 포지션을 받아온다.
-        var position = parent.getChildAdapterPosition(view)
+        val position = parent.getChildAdapterPosition(view)
         // 전체 아이템 갯수를 받아온다.
-        var itemCount = state.itemCount
+        val itemCount = state.itemCount
 
         // 상, 하 설정.
         /*if (position == 0 || position == 1) {
@@ -40,11 +40,10 @@ class GridItemDecoration(private var space: Int, private var side: Int) : Recycl
         // GridLayoutManager, StaggeredGridLayout 에서만 받아올 수 있는 함수이다.
         // spanCount = 2일 때, 0은 왼쪽, 1은 오른쪽 아이템을 나타낸다.
         val lp: GridLayoutManager.LayoutParams = view.layoutParams as GridLayoutManager.LayoutParams
-        val spanIndex = lp.spanIndex
 
         // 왼쪽 아이템.
 
-        when (spanIndex) {
+        when (lp.spanIndex) {
             0 -> { // 왼쪽 아이템.
                 outRect.left = space
             }

@@ -81,7 +81,7 @@ class MissionDetailActivity : BaseActivity<ActivityMissionDetailBinding, Mission
 
         viewModel.missionDetailResponse.observe(this, Observer {
             id = it.id
-            Log.v("2010023",id.toString())
+            Log.v("2010023 detail",id.toString())
             if (it.status == "progress") {
                 viewDataBinding.apply {
                     missionDetailSelectButtonLayout.visibility = View.GONE

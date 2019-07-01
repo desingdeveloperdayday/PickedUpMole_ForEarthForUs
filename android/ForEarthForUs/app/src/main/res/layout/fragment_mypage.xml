@@ -33,6 +33,7 @@
                 android:id="@+id/mypageProfileLayout"
                 android:layout_width="match_parent"
                 android:layout_height="72dp"
+                android:onClick="@{()->vm.clickToProfile()}"
                 android:background="@color/fe_fu_white"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -40,7 +41,6 @@
 
 
             <TextView
-
                     android:id="@+id/myPageProfileUserName"
                     style="@style/SubTitleHeaderStyle"
                     android:layout_width="wrap_content"

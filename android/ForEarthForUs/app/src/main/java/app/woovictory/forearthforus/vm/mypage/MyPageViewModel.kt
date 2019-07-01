@@ -25,6 +25,11 @@ class MyPageViewModel : BaseViewModel() {
     val clickToAlarm: LiveData<Any>
         get() = _clickToAlarm
 
+    private val _clickToProfile = SingleLiveEvent<Any>()
+    val clickToProfile: LiveData<Any>
+        get() = _clickToProfile
+
+
     fun clickToAchieve() {
         _clickToAchieve.call()
     }
@@ -39,6 +44,10 @@ class MyPageViewModel : BaseViewModel() {
 
     fun clickToAlarm(){
         _clickToAlarm.call()
+    }
+
+    fun clickToProfile(){
+        _clickToProfile.call()
     }
 
 }

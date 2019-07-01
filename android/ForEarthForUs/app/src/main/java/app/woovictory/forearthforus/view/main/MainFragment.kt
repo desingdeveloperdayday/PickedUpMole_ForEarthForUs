@@ -6,8 +6,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import androidx.core.app.ActivityOptionsCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -15,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import app.woovictory.forearthforus.R
 import app.woovictory.forearthforus.databinding.FragmentMainBinding
 import app.woovictory.forearthforus.util.SharedPreferenceManager
+import app.woovictory.forearthforus.util.earthLevelList
 import app.woovictory.forearthforus.util.glide.GlideApp
 import app.woovictory.forearthforus.view.main.detail.EarthDetailActivity
 import app.woovictory.forearthforus.view.mission.MissionDetailActivity
@@ -36,7 +35,6 @@ class MainFragment : Fragment() {
     private lateinit var fragmentMainBinding: FragmentMainBinding
     private var mainMissionAdapter: MainMissionAdapter? = null
     private val mainViewModel: MainViewModel by viewModel()
-    private var earthLevelList = arrayListOf(R.drawable.main_bar_graph1, R.drawable.main_bar_graph2)
 
     //get() = ViewModelProviders.of(this@MainFragment).get(MainViewModel::class.java)
 
