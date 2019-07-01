@@ -1,6 +1,8 @@
 from rest_framework import viewsets
 from api.models.mission_models import Mission
-from api.serializers.mission_serializer import MissionSerializer, MissionDetailSerializer
+from api.serializers.mission_serializer import (
+    MissionSerializer, MissionCreateSerializer,
+    MissionDetailSerializer)
 from api.permission import *
 from rest_framework.response import Response
 from rest_framework import status
@@ -31,7 +33,7 @@ class MissionDetailViewSet(viewsets.ModelViewSet):
             return Response({"message": "Mission is already exist"},
                 status=status.HTTP_400_BAD_REQUEST)
 
-        serializer = MissionDetailSerializer(data=request.data)
+        serializer = MissionCreateSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         instance = self.perform_create(serializer)
 

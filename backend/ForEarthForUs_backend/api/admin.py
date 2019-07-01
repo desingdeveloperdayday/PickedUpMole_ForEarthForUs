@@ -8,6 +8,7 @@ from api.models.feed_models import Feed
 from api.models.donation_models import Donation
 from api.models.campaign_models import Campaign
 from api.models.article_models import Article
+from api.models.scrap_models import Scrap
 
 admin.site.register(Prefer)
 admin.site.register(UserPrefer)
@@ -18,3 +19,4 @@ admin.site.register(Feed)
 admin.site.register(Donation)
 admin.site.register(Campaign)
 admin.site.register(Article)
+admin.site.register(Scrap)

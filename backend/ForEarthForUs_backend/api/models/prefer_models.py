@@ -17,6 +17,7 @@ class Prefer(models.Model):
         verbose_name_plural = 'prefers'
 
 class UserPrefer(models.Model):
+    id = models.CharField(max_length=100, primary_key=True, unique=True)
     user = models.ForeignKey(userModel, related_name='prefer', on_delete=models.CASCADE)
     prefer = models.ForeignKey(Prefer, on_delete=models.CASCADE)
 
