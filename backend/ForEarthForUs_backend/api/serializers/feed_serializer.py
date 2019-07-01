@@ -21,7 +21,7 @@ class FeedWriteSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Feed
-        fields = ('mission',)
+        fields = ('id', 'mission',)
 
 class FeedUpdateSerializer(serializers.HyperlinkedModelSerializer):
 

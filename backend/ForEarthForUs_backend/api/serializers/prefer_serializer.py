@@ -19,4 +19,4 @@ class UserPreferSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = UserPrefer
-        fields = ('prefer', 'user')
+        fields = ('id', 'prefer', 'user')

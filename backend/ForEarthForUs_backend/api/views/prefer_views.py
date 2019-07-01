@@ -38,7 +38,8 @@ class UserPreferCreate(generics.CreateAPIView):
                     {"message": "Forbidden request (duplicated prefer id)"},
                     status=status.HTTP_403_FORBIDDEN)
             prefer_id_list.append(prefer_item)
-            json_arr.append({'prefer': prefer_item, 'user':request.user.id})
+            id = str(request.user.id) + "_" + str(prefer_item)
+            json_arr.append({'id': id, 'prefer': prefer_item, 'user':request.user.id})
 
         if not is_many:
             return super(UserPreferCreate, self).create(request, *args, **kwargs)

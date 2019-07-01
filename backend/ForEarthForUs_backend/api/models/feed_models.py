@@ -22,6 +22,7 @@ FEED_RESULT_CHOICES = (
 CONTENT_LENGTH = 500
 
 class Feed(models.Model):
+    id = models.CharField(max_length=100, primary_key=True, unique=True)
     user = models.ForeignKey(userModel, on_delete=models.CASCADE)
     mission = models.ForeignKey(Mission, on_delete=models.CASCADE)
     result = models.IntegerField(choices=FEED_RESULT_CHOICES, default=RESULT_0)

@@ -17,8 +17,20 @@ class MissionSerializer(serializers.HyperlinkedModelSerializer):
 
     def to_representation(self, instance):
         data = super(MissionSerializer, self).to_representation(instance)
-        data['status'] = update_status(self.context['request'].user.id, data['id'])
+        data['status'], _ = update_status(self.context['request'].user.id, data['id'])
         return data
+
+class MissionCreateSerializer(serializers.HyperlinkedModelSerializer):
+    category = serializers.PrimaryKeyRelatedField(
+        read_only=False, queryset=Category.objects.all())
+    image = serializers.FileField(max_length=None, use_url=True,
+                                  validators=[validate_image_extension])
+
+    class Meta:
+        model = Mission
+        fields = ('id', 'category', 'image', 'title', 'comment', 'content',
+                  'missionTipTitle', 'missionTipContent',
+                  'missionMethodContent', 'missionEffectContent')
 
 class MissionDetailSerializer(serializers.HyperlinkedModelSerializer):
     category = serializers.PrimaryKeyRelatedField(
@@ -34,7 +46,7 @@ class MissionDetailSerializer(serializers.HyperlinkedModelSerializer):
 
     def to_representation(self, instance):
         data = super(MissionDetailSerializer, self).to_representation(instance)
-        data['status'] = update_status(self.context['request'].user.id, data['id'])
+        data['status'], data['feedId'] = update_status(self.context['request'].user.id, data['id'])
         return data
 
 class MissionFeedSerializer(serializers.HyperlinkedModelSerializer):
@@ -48,7 +60,7 @@ class MissionFeedSerializer(serializers.HyperlinkedModelSerializer):
 
     def to_representation(self, instance):
         data = super(MissionFeedSerializer, self).to_representation(instance)
-        data['status'] = update_status(self.context['request'].user.id, data['id'])
+        data['status'], _ = update_status(self.context['request'].user.id, data['id'])
         return data
 
 def update_status(userId, missionId):
@@ -61,12 +73,14 @@ def update_status(userId, missionId):
             )
 
     val = ''
+    feedId = 0
     if feed:
         if feed.values()[0]['complete'] is True:
             val = 'complete'
         else:
             val = 'progress'
+        feedId = feed.values()[0]['id']
     else:
         val = 'new'
 
-    return val
+    return val, feedId

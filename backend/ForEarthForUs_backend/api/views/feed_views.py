@@ -6,12 +6,13 @@ from api.serializers.feed_serializer import (
 from api.permission import *
 from rest_framework.response import Response
 from rest_framework import status
-from api.utils.time_func import calc_today
+from api.utils.time_func import calc_today, get_today
 from django.contrib.auth import get_user_model
 from api.utils.earth_check import increase_earthLevel, decrease_earthLevel
 
 STATUS_PROGRESS = 'progress'
 STATUS_COMPLETE = 'complete'
+STATUS_ALL = 'all'
 
 class FeedViewSet(viewsets.ModelViewSet):
     queryset = Feed.objects.all()
@@ -37,6 +38,8 @@ class FeedViewSet(viewsets.ModelViewSet):
             elif query == STATUS_COMPLETE:
                 complete = True
                 queryset = queryset.filter(user=user, complete=complete)
+            elif query == STATUS_ALL:
+                queryset = queryset.filter(user=user)
             else:
                 return Response({"message": "Invalid query"},
                     status=status.HTTP_400_BAD_REQUEST)
@@ -54,7 +57,14 @@ class FeedViewSet(viewsets.ModelViewSet):
         return Response(serializer.data)
 
     def create(self, request, *args, **kwargs):
-        write_serializer = FeedWriteSerializer(data=request.data)
+        today = get_today()
+        mission = request.data['mission']
+        id = "%s_%d" % (today, mission)
+
+        newData = request.data
+        newData['id'] = id
+
+        write_serializer = FeedWriteSerializer(data=newData)
         write_serializer.is_valid(raise_exception=True)
         instance = self.perform_create(write_serializer)
 
