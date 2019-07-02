@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
     <data>
-        <variable name="achieveListItem" type="app.woovictory.forearthforus.model.mypage.AchieveResponseMock"/>
+        <variable name="achieveListItem" type="app.woovictory.forearthforus.model.mission.MissionFeedResponse"/>
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
@@ -27,17 +27,16 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    >
-
+            >
 
                 <ImageView
                         android:id="@+id/itemAchieveImage"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
+                        android:loadUrlImage="@{String.valueOf(achieveListItem.mission.image)}"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        android:src="@drawable/ic_mission_img_4"
                         app:riv_corner_radius="4dp"
                         app:riv_border_color="#333333"
                         app:riv_mutate_background="true"
@@ -52,13 +51,14 @@
                         app:layout_constraintBottom_toBottomOf="parent"/>
 
                 <TextView
-                        app:layout_constraintBottom_toBottomOf="@id/itemAchieveImage"
-                        app:layout_constraintStart_toStartOf="@id/itemAchieveImage"
+                        android:id="@+id/itemAchieveTitle"
                         android:layout_marginStart="10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@{achieveListItem.title}"
                         android:layout_marginBottom="10dp"
+                        android:text="@{achieveListItem.mission.title}"
+                        app:layout_constraintBottom_toBottomOf="@id/itemAchieveImage"
+                        app:layout_constraintStart_toStartOf="@id/itemAchieveImage"
                         style="@style/ContentsHeaderWhiteStyle"
                 />
 
