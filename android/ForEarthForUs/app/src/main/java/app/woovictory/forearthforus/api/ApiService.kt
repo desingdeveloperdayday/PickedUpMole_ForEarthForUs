@@ -1,14 +1,15 @@
 package app.woovictory.forearthforus.api
 
-import app.woovictory.forearthforus.model.earth.EarthResponse
 import app.woovictory.forearthforus.model.account.LoginByEmailRequest
 import app.woovictory.forearthforus.model.account.LoginByEmailResponse
 import app.woovictory.forearthforus.model.account.SignByEmailRequest
-import app.woovictory.forearthforus.model.article.ArticleDetailResponse
 import app.woovictory.forearthforus.model.article.ArticleResponse
+import app.woovictory.forearthforus.model.article.DonationDetailResponse
 import app.woovictory.forearthforus.model.article.DonationResponse
 import app.woovictory.forearthforus.model.category.MissionCategoryResponse
+import app.woovictory.forearthforus.model.earth.EarthResponse
 import app.woovictory.forearthforus.model.mission.*
+import app.woovictory.forearthforus.model.mypage.ScrapResponse
 import io.reactivex.Completable
 import io.reactivex.Observable
 import io.reactivex.Single
@@ -91,37 +92,25 @@ interface ApiService {
         @Body mission: MissionSelectRequest
     ): Single<Response<MissionFeedResponse>>
 
-    // 10. 사용자가 진행중인 미션을 완료할 때 사용하는 api
-
-
-    // 11. 사용자가 진행중인 미션을 취소할 때 사용하는 api
-
-
-    // 12. 사용자가 선택한 특정 미션의 detail 내용을 보여주는 api
-    @GET("api/v1/feed/{id}/")
-    fun getMissionFeedDetail(
-        @Header("Authorization") Authorization: String,
-        @Path("id") id: Int
-    )
-
-    // 13. 후원처 리스트를 가져오는 api
+    // 10. 후원처 리스트를 가져오는 api
     @GET("api/v1/donation/")
     fun getDonationList(
         @Header("Authorization") Authorization: String
     ): Single<Response<List<DonationResponse>>>
 
-    // 14. 기부 더보기 리스트를 가져오는 api
+    // 11. 기부 더보기 리스트를 가져오는 api
     @GET("api/v1/campaign/")
     fun getCampaignList(
         @Header("Authorization") Authorization: String
-    ): Single<Response<List<ArticleDetailResponse>>>
+    ): Single<Response<List<DonationDetailResponse>>>
 
-    // 15.Article 리스트를 가져오는 api
+    // 12.Article 리스트를 가져오는 api
     @GET("api/v1/article/")
     fun getArticleList(
         @Header("Authorization") Authorization: String
     ): Single<Response<List<ArticleResponse>>>
 
+    // 13.
     @PATCH("api/v1/feed/{id}/")
     fun completeMission(
         @Header("Authorization") Authorization: String,
@@ -129,10 +118,17 @@ interface ApiService {
         @Path("id") id: String
     ): Single<Response<MissionFeedResponse>>
 
+    // 14. 미션 신청 혹은 완료 시 메인에서 유저 정보를 갱신하기 위한 api
     @GET("api/v1/account/user")
     fun getUserEarthInformation(
         @Header("Authorization") Authorization: String
     ): Observable<Response<EarthResponse>>
+
+    // 15. 스크랩 리스트 불러오기
+    @GET("api/v1/scrap/")
+    fun getScrapList(
+        @Header("Authorization") Authorization: String
+    ): Single<Response<ArrayList<ScrapResponse>>>
 
     // admin - 관리자.
 

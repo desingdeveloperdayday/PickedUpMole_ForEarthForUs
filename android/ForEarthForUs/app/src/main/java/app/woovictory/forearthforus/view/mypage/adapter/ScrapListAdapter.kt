@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import app.woovictory.forearthforus.databinding.ItemListArticleDetailBinding
-import app.woovictory.forearthforus.model.article.ArticleDetailResponse
+import app.woovictory.forearthforus.model.mypage.ScrapResponse
 import app.woovictory.forearthforus.view.mypage.viewholder.ScrapListViewHolder
 
 /**
@@ -12,7 +12,7 @@ import app.woovictory.forearthforus.view.mypage.viewholder.ScrapListViewHolder
  */
 class ScrapListAdapter : RecyclerView.Adapter<ScrapListViewHolder>() {
 
-    private val itemList = ArrayList<ArticleDetailResponse>()
+    private val itemList = ArrayList<ScrapResponse>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ScrapListViewHolder {
         val binding = ItemListArticleDetailBinding.inflate(
@@ -30,7 +30,7 @@ class ScrapListAdapter : RecyclerView.Adapter<ScrapListViewHolder>() {
         }
     }
 
-    fun addItem(items: ArrayList<ArticleDetailResponse>) {
+    fun addItem(items: ArrayList<ScrapResponse>) {
         itemList.addAll(items)
     }
 

@@ -11,6 +11,7 @@ import app.woovictory.forearthforus.vm.mission.MissionFeedCompleteWriteViewModel
 import app.woovictory.forearthforus.vm.mission.MissionDetailViewModel
 import app.woovictory.forearthforus.vm.mission.MissionSelectViewModel
 import app.woovictory.forearthforus.vm.mypage.AchieveListViewModel
+import app.woovictory.forearthforus.vm.mypage.ScrapListViewModel
 import org.koin.androidx.viewmodel.ext.koin.viewModel
 import org.koin.dsl.module.module
 
@@ -30,4 +31,5 @@ val viewModelModule = module {
     viewModel { ArticleDetailViewModel(get()) }
     viewModel { MissionFeedCompleteWriteViewModel(get()) }
     viewModel { AchieveListViewModel(get()) }
+    viewModel { ScrapListViewModel(get()) }
 }

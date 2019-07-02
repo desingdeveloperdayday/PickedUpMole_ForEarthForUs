@@ -11,6 +11,7 @@ import app.woovictory.forearthforus.databinding.ActivityArticleDetailBinding
 import app.woovictory.forearthforus.util.SharedPreferenceManager
 import app.woovictory.forearthforus.view.article.adapter.ArticleDetailAdapter
 import app.woovictory.forearthforus.vm.article.ArticleDetailViewModel
+import org.jetbrains.anko.toast
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ArticleDetailActivity : BaseActivity<ActivityArticleDetailBinding, ArticleDetailViewModel>() {
@@ -30,8 +31,12 @@ class ArticleDetailActivity : BaseActivity<ActivityArticleDetailBinding, Article
     private var articleDetailAdapter: ArticleDetailAdapter? = null
         set(value) {
             field = value
-            field?.articleDetailLikeClickListener = {}
-            field?.articleDetailImageClickListener = {}
+            field?.articleDetailLikeClickListener = {
+                clickLike(it)
+            }
+            field?.articleDetailImageClickListener = {
+                clickDetailImage(it)
+            }
         }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -65,7 +70,6 @@ class ArticleDetailActivity : BaseActivity<ActivityArticleDetailBinding, Article
             vm = viewModel
             lifecycleOwner = this@ArticleDetailActivity
         }
-
     }
 
     override fun initDataBinding() {
@@ -73,7 +77,7 @@ class ArticleDetailActivity : BaseActivity<ActivityArticleDetailBinding, Article
             finish()
         })
 
-        viewModel.articleDetailResponse.observe(this, Observer {
+        viewModel.donationDetailResponse.observe(this, Observer {
             if (it.isNotEmpty()) {
                 Log.v("0099", it.size.toString())
                 articleDetailAdapter?.addItem(it)
@@ -96,5 +100,13 @@ class ArticleDetailActivity : BaseActivity<ActivityArticleDetailBinding, Article
             layoutManager = LinearLayoutManager(this@ArticleDetailActivity)
             setHasFixedSize(true)
         }
+    }
+
+    private fun clickLike(id: Int){
+        toast("$id 좋아요 클릭.")
+    }
+
+    private fun clickDetailImage(id: Int){
+        toast("$id 번째 이미지 클릭.")
     }
 }

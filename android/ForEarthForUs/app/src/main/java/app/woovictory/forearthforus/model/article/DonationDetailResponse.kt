@@ -4,9 +4,8 @@ import com.google.gson.annotations.SerializedName
 
 /**
  * Created by VictoryWoo
- * DonationDetailResponse 랑 같음.
  */
-data class ArticleResponse(
+data class DonationDetailResponse(
     @SerializedName("id")
     val id: Int,
     @SerializedName("title")

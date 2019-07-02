@@ -3,7 +3,7 @@ package app.woovictory.forearthforus.view.article.viewholder
 import android.util.Log
 import androidx.recyclerview.widget.RecyclerView
 import app.woovictory.forearthforus.databinding.ItemListArticleDetailBinding
-import app.woovictory.forearthforus.model.article.ArticleDetailResponse
+import app.woovictory.forearthforus.model.article.DonationDetailResponse
 
 /**
  * Created by VictoryWoo
@@ -14,19 +14,19 @@ class ArticleDetailViewHolder(
     private val articleDetailLikeClickListener: ((Int) -> Unit)?
 ) : RecyclerView.ViewHolder(binding.root) {
 
-    fun onBind(item: ArticleDetailResponse, position: Int) {
-        Log.v("06606",item.toString())
+    fun onBind(item: DonationDetailResponse) {
+        Log.v("06606", item.toString())
         binding.articleDetailItems = item
         binding.executePendingBindings()
 
         // image click
         binding.itemArticleDetailImage.setOnClickListener {
-            articleDetailImageClickListener?.invoke(position)
+            articleDetailImageClickListener?.invoke(item.id)
         }
 
         // like click
         binding.itemArticleDetailLikeButton.setOnClickListener {
-            articleDetailLikeClickListener?.invoke(position)
+            articleDetailLikeClickListener?.invoke(item.id)
         }
     }
 }
