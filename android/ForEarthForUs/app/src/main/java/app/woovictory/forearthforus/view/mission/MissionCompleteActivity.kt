@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.activity_mission_complete.*
 import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
 
-class MissionCompleteActivity : BaseActivity<ActivityMissionCompleteBinding, BaseViewModel>(), View.OnClickListener {
+class MissionCompleteActivity : BaseActivity<ActivityMissionCompleteBinding, BaseViewModel>(){
 
     override val layoutResourceId: Int
         get() = R.layout.activity_mission_complete
@@ -45,7 +45,7 @@ class MissionCompleteActivity : BaseActivity<ActivityMissionCompleteBinding, Bas
         }*/
 
         viewDataBinding.apply {
-            missionCompleteRating.setOnRatingBarChangeListener { ratingBar, fl, b ->
+            missionCompleteRating.setOnRatingBarChangeListener { _, fl, _ ->
                 missionCompleteScore.text = "${fl.toInt()} 점만큼"
                 Log.v("2200123",fl.toInt().toString())
             }
@@ -55,16 +55,6 @@ class MissionCompleteActivity : BaseActivity<ActivityMissionCompleteBinding, Bas
 
     override fun initDataBinding() {
 
-    }
-
-    override fun onClick(v: View) {
-        when (v) {
-            /*missionCompleteRating1 -> checkCompleteRatingState(1)
-            missionCompleteRating2 -> checkCompleteRatingState(2)
-            missionCompleteRating3 -> checkCompleteRatingState(3)
-            missionCompleteRating4 -> checkCompleteRatingState(4)
-            missionCompleteRating5 -> checkCompleteRatingState(5)*/
-        }
     }
 
     private fun checkCompleteRatingState(count: Int) {

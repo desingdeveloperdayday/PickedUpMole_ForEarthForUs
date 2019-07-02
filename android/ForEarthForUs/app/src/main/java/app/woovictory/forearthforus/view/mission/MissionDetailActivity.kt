@@ -29,7 +29,7 @@ class MissionDetailActivity : BaseActivity<ActivityMissionDetailBinding, Mission
 
     var categoryId: Int = 0
     var url: String = ""
-    var id: Int = 0
+    var id: String = ""
 
     override fun onEnterAnimationComplete() {
         super.onEnterAnimationComplete()

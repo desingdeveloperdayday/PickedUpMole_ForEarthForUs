@@ -27,5 +27,5 @@ data class MissionDetailResponse(
     @SerializedName("status")
     var status: String,
     @SerializedName("feedId")
-    val feedId: Int
+    val feedId: String
 )
