@@ -76,7 +76,7 @@ class MissionDetailActivity : BaseActivity<ActivityMissionDetailBinding, Mission
 
         viewModel.missionDetailResponse.observe(this, Observer {
             id = it.feedId
-            Log.v("2010023 detail",id.toString())
+            Log.v("2010023 detail", id)
             if (it.status == "progress") {
                 viewDataBinding.apply {
                     missionDetailSelectButtonLayout.visibility = View.GONE
@@ -101,7 +101,7 @@ class MissionDetailActivity : BaseActivity<ActivityMissionDetailBinding, Mission
         // 미션 선택 후 결과 구독.
         viewModel.missionFeedResponse.observe(this, Observer {
             id = it.id
-            Log.v("2010023",id.toString())
+            Log.v("2010023", id)
             if (it.mission.status == "progress") {
                 viewDataBinding.apply {
                     missionDetailSelectButtonLayout.visibility = View.GONE

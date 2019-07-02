@@ -14,7 +14,7 @@ class MissionFeedCompleteRepository(
     : MissionFeedCompleteRemoteDataSource
 ) {
 
-    fun completeMissionFeed(token: String, missionFeedCompleteRequest: MissionFeedCompleteRequest, id: Int)
+    fun completeMissionFeed(token: String, missionFeedCompleteRequest: MissionFeedCompleteRequest, id: String)
             : Single<Response<MissionFeedResponse>> {
         return missionFeedCompleteRemoteDataSource.completeMissionFeed(token, missionFeedCompleteRequest, id)
     }

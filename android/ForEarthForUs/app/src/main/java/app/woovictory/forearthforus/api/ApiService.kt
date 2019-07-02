@@ -126,7 +126,7 @@ interface ApiService {
     fun completeMission(
         @Header("Authorization") Authorization: String,
         @Body missionFeedCompleteRequest: MissionFeedCompleteRequest,
-        @Path("id") id: Int
+        @Path("id") id: String
     ): Single<Response<MissionFeedResponse>>
 
     @GET("api/v1/account/user")

@@ -11,7 +11,7 @@ import retrofit2.Response
  */
 class MissionFeedCompleteRemoteDataSource(private val api: ApiService) {
 
-    fun completeMissionFeed(token: String, missionFeedCompleteRequest: MissionFeedCompleteRequest, id: Int)
+    fun completeMissionFeed(token: String, missionFeedCompleteRequest: MissionFeedCompleteRequest, id: String)
             : Single<Response<MissionFeedResponse>> {
         return api.completeMission("JWT $token", missionFeedCompleteRequest, id)
     }
