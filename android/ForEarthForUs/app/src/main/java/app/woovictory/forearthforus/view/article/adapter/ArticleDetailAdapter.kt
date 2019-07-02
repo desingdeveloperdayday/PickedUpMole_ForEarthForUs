@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import app.woovictory.forearthforus.databinding.ItemListArticleDetailBinding
-import app.woovictory.forearthforus.model.article.ArticleDetailResponse
+import app.woovictory.forearthforus.model.article.DonationDetailResponse
 import app.woovictory.forearthforus.view.article.viewholder.ArticleDetailViewHolder
 
 /**
@@ -13,7 +13,7 @@ import app.woovictory.forearthforus.view.article.viewholder.ArticleDetailViewHol
  */
 class ArticleDetailAdapter : RecyclerView.Adapter<ArticleDetailViewHolder>() {
 
-    private var itemList = ArrayList<ArticleDetailResponse>()
+    private var itemList = ArrayList<DonationDetailResponse>()
     var articleDetailImageClickListener: ((Int) -> Unit)? = null
     var articleDetailLikeClickListener: ((Int) -> Unit)? = null
 
@@ -37,11 +37,11 @@ class ArticleDetailAdapter : RecyclerView.Adapter<ArticleDetailViewHolder>() {
         */
         holder.apply {
             Log.v("0099 bindViewHolder", itemList.size.toString())
-            onBind(itemList[position],position)
+            onBind(itemList[position])
         }
     }
 
-    fun addItem(items: List<ArticleDetailResponse>) {
+    fun addItem(items: List<DonationDetailResponse>) {
         this.itemList.addAll(items)
         Log.v("0099 adapter", itemList.size.toString())
     }

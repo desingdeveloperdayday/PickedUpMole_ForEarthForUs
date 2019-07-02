@@ -17,8 +17,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import app.woovictory.forearthforus.R
 import app.woovictory.forearthforus.databinding.FragmentArticleBinding
-import app.woovictory.forearthforus.model.article.ArticleEarthResponse
-import app.woovictory.forearthforus.model.article.ArticleUsResponse
 import app.woovictory.forearthforus.model.article.DonationResponse
 import app.woovictory.forearthforus.util.ItemDecoration
 import app.woovictory.forearthforus.util.SharedPreferenceManager
@@ -42,8 +40,6 @@ class ArticleFragment : Fragment() {
 
     private lateinit var fragmentArticleBinding: FragmentArticleBinding
     private val articleViewModel: ArticleViewModel by viewModel()
-    private var itemEarthList = ArrayList<ArticleEarthResponse>() // Earth 데이터.
-    private var itemUsList = ArrayList<ArticleUsResponse>()
 
     private lateinit var itemDonationList: ArrayList<DonationResponse>
     private lateinit var size: Point

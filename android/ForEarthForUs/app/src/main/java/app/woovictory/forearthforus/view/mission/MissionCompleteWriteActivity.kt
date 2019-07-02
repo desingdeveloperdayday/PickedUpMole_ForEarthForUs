@@ -16,7 +16,8 @@ class MissionCompleteWriteActivity :
     override val layoutResourceId: Int
         get() = R.layout.activity_mission_complete_write
     override val viewModel: MissionFeedCompleteWriteViewModel by viewModel()
-    var id: Int = 0
+    var id: String = ""
+    var rating: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,8 +27,10 @@ class MissionCompleteWriteActivity :
     }
 
     private fun getData() {
-        id = intent.getIntExtra("id", 0)
-        Log.v("2103",id.toString())
+        id = intent.getStringExtra("id")
+        rating = intent.getIntExtra("rating", 0)
+        Log.v("2103001", id)
+        Log.v("2103001", rating.toString())
     }
 
     override fun initStartView() {

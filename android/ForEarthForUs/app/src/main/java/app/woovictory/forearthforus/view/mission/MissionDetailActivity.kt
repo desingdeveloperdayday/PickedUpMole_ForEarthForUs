@@ -29,7 +29,7 @@ class MissionDetailActivity : BaseActivity<ActivityMissionDetailBinding, Mission
 
     var categoryId: Int = 0
     var url: String = ""
-    var id: Int = 0
+    var id: String = ""
 
     override fun onEnterAnimationComplete() {
         super.onEnterAnimationComplete()
@@ -44,11 +44,6 @@ class MissionDetailActivity : BaseActivity<ActivityMissionDetailBinding, Mission
         initStartView()
         initDataBinding()
 
-        // 임시 방편.
-        missionDetailCompleteButton.setOnClickListener {
-            startActivity<MissionCompleteActivity>()
-            //startActivity<MissionCompleteWriteActivity>()
-        }
     }
 
     @SuppressLint("CheckResult")
@@ -80,8 +75,8 @@ class MissionDetailActivity : BaseActivity<ActivityMissionDetailBinding, Mission
         }
 
         viewModel.missionDetailResponse.observe(this, Observer {
-            id = it.id
-            Log.v("2010023 detail",id.toString())
+            id = it.feedId
+            Log.v("2010023 detail", id)
             if (it.status == "progress") {
                 viewDataBinding.apply {
                     missionDetailSelectButtonLayout.visibility = View.GONE
@@ -106,7 +101,7 @@ class MissionDetailActivity : BaseActivity<ActivityMissionDetailBinding, Mission
         // 미션 선택 후 결과 구독.
         viewModel.missionFeedResponse.observe(this, Observer {
             id = it.id
-            Log.v("2010023",id.toString())
+            Log.v("2010023", id)
             if (it.mission.status == "progress") {
                 viewDataBinding.apply {
                     missionDetailSelectButtonLayout.visibility = View.GONE

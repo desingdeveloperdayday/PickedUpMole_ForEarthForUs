@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import app.woovictory.forearthforus.databinding.ItemListAchieveMissionBinding
-import app.woovictory.forearthforus.model.mypage.AchieveResponseMock
+import app.woovictory.forearthforus.model.mission.MissionFeedResponse
 import app.woovictory.forearthforus.view.mypage.viewholder.AchieveListViewHolder
 
 /**
@@ -12,7 +12,7 @@ import app.woovictory.forearthforus.view.mypage.viewholder.AchieveListViewHolder
  */
 class AchieveListAdapter : RecyclerView.Adapter<AchieveListViewHolder>() {
 
-    private var itemList = ArrayList<AchieveResponseMock>()
+    private var itemList = ArrayList<MissionFeedResponse>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AchieveListViewHolder {
         val binding = ItemListAchieveMissionBinding.inflate(
@@ -30,7 +30,7 @@ class AchieveListAdapter : RecyclerView.Adapter<AchieveListViewHolder>() {
         }
     }
 
-    fun addAllItem(items: ArrayList<AchieveResponseMock>) {
+    fun addAllItem(items: List<MissionFeedResponse>) {
         itemList.addAll(items)
     }
 }

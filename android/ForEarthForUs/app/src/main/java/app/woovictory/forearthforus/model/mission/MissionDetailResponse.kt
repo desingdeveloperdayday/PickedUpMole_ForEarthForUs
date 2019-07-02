@@ -18,12 +18,14 @@ data class MissionDetailResponse(
     val content: String,
     @SerializedName("missionTipTitle")
     val missionTipTitle: String,
-    @SerializedName("idmissionTipContent")
+    @SerializedName("missionTipContent")
     val missionTipContent: String,
     @SerializedName("missionMethodContent")
     val missionMethodContent: String,
     @SerializedName("missionEffectContent")
     val missionEffectContent: String,
     @SerializedName("status")
-    var status: String
+    var status: String,
+    @SerializedName("feedId")
+    val feedId: String
 )

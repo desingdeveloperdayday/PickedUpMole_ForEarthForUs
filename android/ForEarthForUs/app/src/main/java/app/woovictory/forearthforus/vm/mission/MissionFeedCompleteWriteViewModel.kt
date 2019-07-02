@@ -38,7 +38,7 @@ class MissionFeedCompleteWriteViewModel(private val missionFeedCompleteRepositor
         _clickToComplete.call()
     }
 
-    fun completeMission(token: String, missionFeedCompleteRequest: MissionFeedCompleteRequest, id: Int) {
+    fun completeMission(token: String, missionFeedCompleteRequest: MissionFeedCompleteRequest, id: String) {
         addDisposable(
             missionFeedCompleteRepository.completeMissionFeed(token, missionFeedCompleteRequest, id)
                 .subscribeOn(Schedulers.io())

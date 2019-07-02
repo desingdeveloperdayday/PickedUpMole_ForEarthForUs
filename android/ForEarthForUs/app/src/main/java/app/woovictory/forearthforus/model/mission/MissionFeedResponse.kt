@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 
 data class MissionFeedResponse(
     @SerializedName("id")
-    var id: Int,
+    var id: String,
     @SerializedName("mission")
     var mission: Mission,
     @SerializedName("result")
@@ -22,9 +22,7 @@ data class MissionFeedResponse(
         var image: String,
         @SerializedName("completeMessage")
         var completeMessage: String
-
     )
-
 
     data class Mission(
         @SerializedName("id")
@@ -41,5 +39,3 @@ data class MissionFeedResponse(
         var status: String
     )
 }
-
-

@@ -2,8 +2,61 @@
 <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".view.SplashActivity">
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent" android:layout_height="match_parent"
+        tools:context=".view.SplashActivity"
+        android:background="@color/fe_fu_main">
+
+    <ImageView
+            android:id="@+id/splashOneImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/splash_1"
+            android:layout_marginTop="264dp"
+            android:visibility="visible"
+            android:foreground="@drawable/image_overlay"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+    />
+
+    <ImageView
+            android:id="@+id/splashTwoImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/splash_2"
+            android:layout_marginStart="43dp"
+            android:visibility="visible"
+            android:foreground="@drawable/image_overlay"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="264dp"/>
+
+    <ImageView
+            android:id="@+id/splashThreeImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/splash_3"
+            android:layout_marginTop="295.5dp"
+            android:layout_marginStart="8dp"
+            android:visibility="visible"
+            android:foreground="@drawable/image_overlay"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/fe_fu_white"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="36dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/splashTwoImage"
+            style="@style/ContentsBodyWhiteStyle"
+            tools:text="For Earth For Us"
+    />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

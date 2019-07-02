@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import app.woovictory.forearthforus.base.BaseViewModel
 import app.woovictory.forearthforus.data.repository.article.ArticleDetailRepository
-import app.woovictory.forearthforus.model.article.ArticleDetailResponse
+import app.woovictory.forearthforus.model.article.DonationDetailResponse
 import app.woovictory.forearthforus.util.SingleLiveEvent
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -19,8 +19,8 @@ class ArticleDetailViewModel(private val articleDetailRepository: ArticleDetailR
     val clickToBack: LiveData<Any>
         get() = _clickToBack
 
-    private val _articleDetailResponse = SingleLiveEvent<List<ArticleDetailResponse>>()
-    val articleDetailResponse: LiveData<List<ArticleDetailResponse>>
+    private val _articleDetailResponse = SingleLiveEvent<List<DonationDetailResponse>>()
+    val donationDetailResponse: LiveData<List<DonationDetailResponse>>
         get() = _articleDetailResponse
 
     private val _isLoading = MutableLiveData<Boolean>()
