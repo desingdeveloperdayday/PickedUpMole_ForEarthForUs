@@ -16,6 +16,13 @@ class ScrapViewSet(viewsets.ModelViewSet):
     serializer_class = ScrapSerializer
     permission_classes = (permissions.IsAuthenticated,)
 
+    def list(self, request):
+        user = request.user.id
+        queryset = Scrap.objects.filter(user=request.user.id)
+
+        serializer = ScrapSerializer(queryset, many=True, context={"request": request})
+        return Response(serializer.data)
+
     def create(self, request, *args, **kwargs):
         kind = request.data['kind']
         if kind is CAMPAIGN:
