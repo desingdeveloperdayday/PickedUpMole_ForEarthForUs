@@ -26,22 +26,13 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        checkSavedToken()
+        //checkSavedToken()
         checkEditText()
         initStartView()
         initDataBinding()
     }
 
-    private fun checkSavedToken() {
-        if (SharedPreferenceManager.token.isNotBlank()) {
-            Log.d(tag + 19992, "token exist")
-            Log.d(tag + 19992, SharedPreferenceManager.token.isBlank().toString())
 
-            goToMainActivity()
-        } else {
-            Log.d(tag + 19992, "No token")
-        }
-    }
 
     private fun checkEditText() {
         viewDataBinding.apply {

@@ -129,6 +129,11 @@ interface ApiService {
         @Path("id") id: Int
     ): Single<Response<MissionFeedResponse>>
 
+    @GET("api/v1/account/user")
+    fun getUserEarthInformation(
+        @Header("Authorization") Authorization: String
+    ): Observable<Response<EarthResponse>>
+
     // admin - 관리자.
 
 

@@ -8,11 +8,15 @@ import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
+import app.woovictory.forearthforus.MainActivity
 import app.woovictory.forearthforus.R
+import app.woovictory.forearthforus.util.SharedPreferenceManager
+import app.woovictory.forearthforus.view.account.LoginActivity
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_splash.*
+import org.jetbrains.anko.startActivity
 import java.util.concurrent.TimeUnit
 
 class SplashActivity : AppCompatActivity() {
@@ -27,19 +31,38 @@ class SplashActivity : AppCompatActivity() {
         fadeInAnimation = AnimationUtils.loadAnimation(this, R.anim.fade_in)
 
 
-        /*Observable.interval(500L, TimeUnit.MILLISECONDS)
-            .map { value ->
-                value.toInt()
-            }
-            .take(3)
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({
-                showImage(it)
-            }, {
-                Log.v("sas1", it.message)
+        /*  Observable.interval(500L, TimeUnit.MILLISECONDS)
+              .map { value ->
+                  value.toInt()
+              }
+              .take(3)
+              .subscribeOn(Schedulers.io())
+              .observeOn(AndroidSchedulers.mainThread())
+              .subscribe({
+                  showImage(it)
+              }, {
+                  Log.v("sas1", it.message)
 
-            })*/
+              })*/
+
+        Observable.timer(2000L, TimeUnit.MILLISECONDS)
+            .subscribe({
+                checkSavedToken()
+            }, { error ->
+                Log.v("tag" + 19992, error.message)
+            })
+    }
+
+    private fun checkSavedToken() {
+        if (SharedPreferenceManager.token.isNotBlank()) {
+            Log.d("tag" + 19992, "token exist")
+            Log.d("tag" + 19992, SharedPreferenceManager.token.isBlank().toString())
+            startActivity<MainActivity>()
+        } else {
+            startActivity<LoginActivity>()
+            Log.d("tag" + 19992, "No token")
+        }
+        finish()
     }
 
     private fun showImage(value: Int) {

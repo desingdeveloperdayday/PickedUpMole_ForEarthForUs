@@ -44,11 +44,6 @@ class MissionDetailActivity : BaseActivity<ActivityMissionDetailBinding, Mission
         initStartView()
         initDataBinding()
 
-        // 임시 방편.
-        missionDetailCompleteButton.setOnClickListener {
-            startActivity<MissionCompleteActivity>()
-            //startActivity<MissionCompleteWriteActivity>()
-        }
     }
 
     @SuppressLint("CheckResult")
@@ -80,7 +75,7 @@ class MissionDetailActivity : BaseActivity<ActivityMissionDetailBinding, Mission
         }
 
         viewModel.missionDetailResponse.observe(this, Observer {
-            id = it.id
+            id = it.feedId
             Log.v("2010023 detail",id.toString())
             if (it.status == "progress") {
                 viewDataBinding.apply {
