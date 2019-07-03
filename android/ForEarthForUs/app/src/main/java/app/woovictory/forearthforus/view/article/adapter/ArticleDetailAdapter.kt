@@ -15,7 +15,7 @@ class ArticleDetailAdapter : RecyclerView.Adapter<ArticleDetailViewHolder>() {
 
     private var itemList = ArrayList<DonationDetailResponse>()
     var articleDetailImageClickListener: ((Int) -> Unit)? = null
-    var articleDetailLikeClickListener: ((Int) -> Unit)? = null
+    var articleDetailLikeClickListener: ((Int,Int) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArticleDetailViewHolder {
         val binding = ItemListArticleDetailBinding.inflate(

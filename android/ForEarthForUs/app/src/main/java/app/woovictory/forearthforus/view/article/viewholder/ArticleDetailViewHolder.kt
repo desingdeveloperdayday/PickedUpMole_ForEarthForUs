@@ -11,7 +11,7 @@ import app.woovictory.forearthforus.model.article.DonationDetailResponse
 class ArticleDetailViewHolder(
     private val binding: ItemListArticleDetailBinding,
     private val articleDetailImageClickListener: ((Int) -> Unit)?,
-    private val articleDetailLikeClickListener: ((Int) -> Unit)?
+    private val articleDetailLikeClickListener: ((Int, Int) -> Unit)?
 ) : RecyclerView.ViewHolder(binding.root) {
 
     fun onBind(item: DonationDetailResponse) {
@@ -26,7 +26,16 @@ class ArticleDetailViewHolder(
 
         // like click
         binding.itemArticleDetailLikeButton.setOnClickListener {
-            articleDetailLikeClickListener?.invoke(item.id)
+            // 좋아요 해제.
+            if (binding.itemArticleDetailLikeButton.isSelected) {
+                articleDetailLikeClickListener?.invoke(item.id, 1)
+            } else {
+                // 좋아요 클릭.
+                articleDetailLikeClickListener?.invoke(item.id, 2)
+            }
+            binding.itemArticleDetailLikeButton.isSelected = !binding.itemArticleDetailLikeButton.isSelected
         }
+
+        binding.itemArticleDetailLikeButton.isSelected = item.scrap
     }
 }

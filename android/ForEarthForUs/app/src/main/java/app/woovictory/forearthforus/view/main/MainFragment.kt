@@ -91,7 +91,9 @@ class MainFragment : Fragment() {
 
         mainViewModel.earthResponse.observe(this, Observer {
             Log.v("40032", it.earthLevel.toString())
+            Log.v("40032 ee", it.toString())
             setEarthLevel(it.earthLevel - 1)
+            //eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMiwidXNlcm5hbWUiOiJsc3dAbHN3LmNvbSIsImV4cCI6MTU2MjIzODQ1OSwiZW1haWwiOiJsc3dAbHN3LmNvbSJ9.8XHuyEPqeuhlAJ-U-ZrmyfxwAHqTHzC4pIwFrLADTLg
         })
 
         mainViewModel.missionFeedResponse.observe(this, Observer {
