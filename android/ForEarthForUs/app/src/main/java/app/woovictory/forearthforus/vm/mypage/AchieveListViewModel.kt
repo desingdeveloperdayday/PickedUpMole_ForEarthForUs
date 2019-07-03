@@ -23,11 +23,20 @@ class AchieveListViewModel(private val missionFeedRepository: MissionFeedReposit
     val achieveListResponse: LiveData<List<MissionFeedResponse>>
         get() = _achieveListResponse
 
+    private val _isLoading = MutableLiveData<Boolean>()
+    val isLoading: LiveData<Boolean>
+        get() = _isLoading
+
+    init {
+        _isLoading.value = true
+    }
+
     fun clickToBack() {
         _clickToBack.call()
     }
 
     fun getAchieveList(token: String, progress: String) {
+        _isLoading.value = true
         addDisposable(
             missionFeedRepository.getUserMissionFeed(token, progress)
                 .subscribeOn(Schedulers.io())
@@ -40,8 +49,10 @@ class AchieveListViewModel(private val missionFeedRepository: MissionFeedReposit
                             _achieveListResponse.value = it
                         }
                     }
+                    _isLoading.value = false
                 }, { error ->
                     Log.v("a3302", error.message)
+                    _isLoading.value = true
                 })
         )
     }

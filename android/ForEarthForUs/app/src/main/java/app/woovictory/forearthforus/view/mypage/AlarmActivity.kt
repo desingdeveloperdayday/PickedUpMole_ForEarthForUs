@@ -28,6 +28,10 @@ class AlarmActivity : AppCompatActivity() {
                 flag = false
             }
         }
+
+        alarmBackButton.setOnClickListener {
+            finish()
+        }
     }
 
     private fun setVisibility(isChecked: Boolean) {

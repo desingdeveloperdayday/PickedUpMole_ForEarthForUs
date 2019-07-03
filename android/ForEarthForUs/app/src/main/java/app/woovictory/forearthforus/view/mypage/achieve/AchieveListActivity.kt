@@ -3,6 +3,7 @@ package app.woovictory.forearthforus.view.mypage.achieve
 import android.content.Context
 import android.graphics.Point
 import android.os.Bundle
+import android.view.View
 import android.view.WindowManager
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
@@ -61,6 +62,14 @@ class AchieveListActivity : BaseActivity<ActivityAchieveListBinding, AchieveList
             if (it.isNotEmpty()) {
                 achieveListAdapter.addAllItem(it)
                 setUpRecyclerView()
+            }
+        })
+
+        viewModel.isLoading.observe(this, Observer {
+            if (it) {
+                viewDataBinding.loading.visibility = View.VISIBLE
+            } else {
+                viewDataBinding.loading.visibility = View.GONE
             }
         })
     }

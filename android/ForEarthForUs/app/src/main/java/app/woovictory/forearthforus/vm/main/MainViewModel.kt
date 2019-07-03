@@ -41,6 +41,10 @@ class MainViewModel(
     val isLoading: LiveData<Boolean>
         get() = _isLoading
 
+    private val _earthUserResponse = MutableLiveData<EarthResponse>()
+    val earthUserReponse: LiveData<EarthResponse>
+        get() = _earthUserResponse
+
     fun clickToDetail() {
         _clickToEarthDetail.call()
     }
@@ -69,13 +73,31 @@ class MainViewModel(
                         _missionFeedResponse.value = it.second.body()
                         SharedPreferenceManager.userContent = it.first.body()?.content!!
                         Log.v(TAG, it.second.body()?.size.toString())
-                        Log.v("$TAG ${it.first.body()?.earthLevel}", it.first.body()?.earthLevel.toString())
+                        Log.v("12301 ${it.first.body()?.earthLevel}", it.first.body()?.earthLevel.toString())
                     }
                     Log.v("12301 s", "sdasd")
                     _isLoading.value = false
                 }, { error ->
                     Log.v("12301 f", error.message)
                     Log.v(TAG, error.message)
+                })
+        )
+    }
+
+    fun getUserInformation() {
+        addDisposable(
+            earthRepository.getUserInformation(SharedPreferenceManager.token)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({ response ->
+                    if (response.isSuccessful) {
+                        response.body()?.let {
+                            Log.v("9903021", it.toString())
+                            _earthUserResponse.value = it
+                        }
+                    }
+                }, { error ->
+                    Log.v("9903021", error.message)
                 })
         )
     }
