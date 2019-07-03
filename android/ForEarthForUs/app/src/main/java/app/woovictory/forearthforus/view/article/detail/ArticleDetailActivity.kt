@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import app.woovictory.forearthforus.R
 import app.woovictory.forearthforus.base.BaseActivity
 import app.woovictory.forearthforus.databinding.ActivityArticleDetailBinding
+import app.woovictory.forearthforus.model.article.ScrapRequest
 import app.woovictory.forearthforus.util.SharedPreferenceManager
 import app.woovictory.forearthforus.view.article.adapter.ArticleDetailAdapter
 import app.woovictory.forearthforus.vm.article.ArticleDetailViewModel
@@ -104,6 +105,8 @@ class ArticleDetailActivity : BaseActivity<ActivityArticleDetailBinding, Article
 
     private fun clickLike(id: Int){
         toast("$id 좋아요 클릭.")
+        val scrapRequest = ScrapRequest(1, id)
+        viewModel.postScrapArticle(SharedPreferenceManager.token,scrapRequest)
     }
 
     private fun clickDetailImage(id: Int){

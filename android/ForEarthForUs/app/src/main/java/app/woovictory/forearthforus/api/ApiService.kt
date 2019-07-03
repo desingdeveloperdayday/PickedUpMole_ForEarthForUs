@@ -6,6 +6,7 @@ import app.woovictory.forearthforus.model.account.SignByEmailRequest
 import app.woovictory.forearthforus.model.article.ArticleResponse
 import app.woovictory.forearthforus.model.article.DonationDetailResponse
 import app.woovictory.forearthforus.model.article.DonationResponse
+import app.woovictory.forearthforus.model.article.ScrapRequest
 import app.woovictory.forearthforus.model.category.MissionCategoryResponse
 import app.woovictory.forearthforus.model.earth.EarthResponse
 import app.woovictory.forearthforus.model.mission.*
@@ -129,6 +130,13 @@ interface ApiService {
     fun getScrapList(
         @Header("Authorization") Authorization: String
     ): Single<Response<ArrayList<ScrapResponse>>>
+
+    // 16. 스크랩 기능.
+    @POST("api/v1/scrap/")
+    fun postScrapArticle(
+        @Header("Authorization") Authorization: String,
+        @Body scrapRequest: ScrapRequest
+    ): Observable<Response<ScrapResponse>>
 
     // admin - 관리자.
 

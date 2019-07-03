@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import app.woovictory.forearthforus.base.BaseViewModel
 import app.woovictory.forearthforus.data.repository.article.ArticleDetailRepository
 import app.woovictory.forearthforus.model.article.DonationDetailResponse
+import app.woovictory.forearthforus.model.article.ScrapRequest
 import app.woovictory.forearthforus.util.SingleLiveEvent
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -56,4 +57,24 @@ class ArticleDetailViewModel(private val articleDetailRepository: ArticleDetailR
                 })
         )
     }
+
+    fun postScrapArticle(token: String, scrapRequest: ScrapRequest){
+        addDisposable(
+            articleDetailRepository.postScrapArticle(token, scrapRequest)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({response->
+                    if(response.isSuccessful){
+                        response.body()?.let {
+                            it.campaign.scrap
+                            Log.v("9920 scrap", it.campaign.scrap.toString())
+                        }
+                    }
+                    Log.v("9920 scrap s", response.code().toString())
+                },{error->
+                    Log.v("9920 scrap f", error.message)
+                })
+        )
+    }
+
 }

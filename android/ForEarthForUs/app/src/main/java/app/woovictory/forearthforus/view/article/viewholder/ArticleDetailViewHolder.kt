@@ -26,7 +26,10 @@ class ArticleDetailViewHolder(
 
         // like click
         binding.itemArticleDetailLikeButton.setOnClickListener {
+            binding.itemArticleDetailLikeButton.isSelected = !binding.itemArticleDetailLikeButton.isSelected
             articleDetailLikeClickListener?.invoke(item.id)
         }
+
+        binding.itemArticleDetailLikeButton.isSelected = item.scrap
     }
 }

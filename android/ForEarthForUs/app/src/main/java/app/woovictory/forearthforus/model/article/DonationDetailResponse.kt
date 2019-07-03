@@ -15,5 +15,7 @@ data class DonationDetailResponse(
     @SerializedName("image")
     val image: String = "",
     @SerializedName("link")
-    val link: String = ""
+    val link: String = "",
+    @SerializedName("scrap")
+    val scrap: Boolean
 )
