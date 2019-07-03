@@ -17,6 +17,8 @@ object SharedPreferenceManager {
     private const val PREF_USER_ID = "UserId"
     private const val PREF_USER_EMAIL = "UserEmail"
     private const val PREF_USER_CONTENT = "UserContent"
+    private const val PREF_USER_MISSION_COMPLETE_STATUS = "UserStatus"
+    private const val PREF_USER_MISSION_COMPLETE_COUNT = "UserCount"
     private const val MODE = Context.MODE_PRIVATE
     private lateinit var preferences: SharedPreferences
 
@@ -68,9 +70,20 @@ object SharedPreferenceManager {
         }
 
     var userContent: String
-        get() = preferences.getString(PREF_USER_CONTENT," ")!!
+        get() = preferences.getString(PREF_USER_CONTENT, " ")!!
         set(value) = preferences.edit {
             it.putString(PREF_USER_CONTENT, value)
         }
 
+    var missionCompleteStatus: Boolean
+        get() = preferences.getBoolean(PREF_USER_MISSION_COMPLETE_STATUS, false)
+        set(value) = preferences.edit {
+            it.putBoolean(PREF_USER_MISSION_COMPLETE_STATUS, value)
+        }
+
+    var missionCompleteCount: Int
+        get() = preferences.getInt(PREF_USER_MISSION_COMPLETE_COUNT, 0)
+        set(value) = preferences.edit {
+            it.putInt(PREF_USER_MISSION_COMPLETE_COUNT, value)
+        }
 }

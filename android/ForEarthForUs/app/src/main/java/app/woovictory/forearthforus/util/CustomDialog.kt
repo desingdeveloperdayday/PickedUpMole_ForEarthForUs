@@ -2,8 +2,10 @@ package app.woovictory.forearthforus.util
 
 import android.app.Dialog
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import app.woovictory.forearthforus.MainActivity
 import app.woovictory.forearthforus.R
 import kotlinx.android.synthetic.main.custom_dialog.*
 
@@ -29,29 +31,34 @@ class CustomDialog(context: Context) : Dialog(context), View.OnClickListener {
         dialogOkayButton.setOnClickListener(this)
     }
 
- /*   class CustomBuilder(context: Context) {
-        private val dialog = CustomDialog(context)
+    /*   class CustomBuilder(context: Context) {
+           private val dialog = CustomDialog(context)
 
-        fun setTitle(title: String): CustomBuilder {
-            dialog.title = title
-            return this
-        }
+           fun setTitle(title: String): CustomBuilder {
+               dialog.title = title
+               return this
+           }
 
-        fun setContent(content: String): CustomBuilder {
-            dialog.content = content
-            return this
-        }
+           fun setContent(content: String): CustomBuilder {
+               dialog.content = content
+               return this
+           }
 
-        fun show(): CustomDialog {
-            dialog.show()
-            return dialog
-        }
-    }
-*/
+           fun show(): CustomDialog {
+               dialog.show()
+               return dialog
+           }
+       }
+   */
     override fun onClick(v: View) {
         when (v.id) {
             R.id.dialogOkayButton -> {
                 dismiss()
+                SharedPreferenceManager.missionCompleteStatus = false
+                SharedPreferenceManager.missionCompleteCount--
+                /*val intent = Intent(context, MainActivity::class.java)
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                context.startActivity(intent)*/
             }
         }
     }

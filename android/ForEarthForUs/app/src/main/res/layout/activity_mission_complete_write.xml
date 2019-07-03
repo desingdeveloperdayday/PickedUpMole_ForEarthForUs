@@ -11,21 +11,42 @@
             tools:context=".view.mission.MissionCompleteWriteActivity"
             android:background="@color/fe_fu_white">
 
-        <androidx.appcompat.widget.Toolbar
+<!--        <androidx.appcompat.widget.Toolbar
                 android:id="@+id/missionCompleteWriteToolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:elevation="0dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent"/>-->
+
+
+        <RelativeLayout
+                android:id="@+id/missionCompleteWriteToolbar"
+                android:background="@color/fe_fu_white"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                    android:id="@+id/missionCompleteWriteBackButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:paddingStart="@dimen/padding_24dp"
+                    android:paddingEnd="@dimen/padding_24dp"
+                    android:src="@drawable/back_button"/>
+
+        </RelativeLayout>
 
 
         <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/missionCompleteWriteImage"
                 android:src="@drawable/fufe_illust_jh_04"
-                android:layout_width="96dp"
-                android:layout_height="96dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:layout_marginStart="@dimen/margin_24dp"
                 android:layout_marginTop="@dimen/margin_8dp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -42,6 +63,7 @@
                 app:layout_constraintTop_toBottomOf="@id/missionCompleteWriteToolbar">
 
             <TextView
+                    android:id="@+id/missionCompleteWriteTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="지역 농산물 이용하기"
@@ -50,6 +72,21 @@
 
         </LinearLayout>
 
+        <RatingBar
+                android:id="@+id/missionCompleteRating"
+                android:layout_width="wrap_content"
+                android:layout_height="33dp"
+                android:isIndicator="true"
+                android:numStars="5"
+                android:rating="0"
+                android:stepSize="1.0"
+                android:scaleX="0.8"
+                android:scaleY="0.8"
+                android:layout_marginTop="@dimen/margin_8dp"
+                app:layout_constraintStart_toEndOf="@id/missionCompleteWriteImage"
+                app:layout_constraintTop_toBottomOf="@id/missionCompleteWriteLayout"
+                style="@style/ratingBarStyle"/>
+
         <TextView
                 android:id="@+id/missionCompleteWriteScore"
                 android:layout_marginStart="@dimen/margin_24dp"
@@ -57,7 +94,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="4점만큼"
-                app:layout_constraintTop_toBottomOf="@id/missionCompleteWriteLayout"
+                app:layout_constraintTop_toBottomOf="@id/missionCompleteRating"
                 app:layout_constraintStart_toEndOf="@id/missionCompleteWriteImage"
                 style="@style/ContentsHeaderMintCenterStyle2"
 
@@ -70,9 +107,11 @@
                 android:layout_height="wrap_content"
                 android:text="달성했어요!"
                 app:layout_constraintStart_toEndOf="@id/missionCompleteWriteScore"
-                app:layout_constraintTop_toBottomOf="@id/missionCompleteWriteLayout"
+                app:layout_constraintTop_toBottomOf="@id/missionCompleteRating"
                 style="@style/ContentsBodyStyle"
         />
+
+
 
         <EditText
                 android:id="@+id/missionCompleteEt"

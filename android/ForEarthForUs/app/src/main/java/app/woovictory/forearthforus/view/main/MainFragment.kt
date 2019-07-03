@@ -19,6 +19,7 @@ import app.woovictory.forearthforus.view.main.detail.EarthDetailActivity
 import app.woovictory.forearthforus.view.mission.MissionDetailActivity
 import app.woovictory.forearthforus.vm.main.MainViewModel
 import org.jetbrains.anko.support.v4.startActivity
+import org.jetbrains.anko.support.v4.toast
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 /**
@@ -48,6 +49,19 @@ class MainFragment : Fragment() {
         init()
         setUpViewModel()
         setUpDataBinding()
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        if (SharedPreferenceManager.missionCompleteCount >= 0) {
+            Log.v("99201", "reload 시점!!")
+            mainViewModel.getInformation()
+        } else {
+            Log.v("99201", "reload 안함!!")
+            Log.v("99201 count", SharedPreferenceManager.missionCompleteCount.toString())
+            toast("변경 사항이 없음.")
+        }
     }
 
     private fun init() {
@@ -122,4 +136,6 @@ class MainFragment : Fragment() {
         intent.putExtra("url", "main")
         startActivity(intent)
     }
+
+
 }

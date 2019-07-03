@@ -59,6 +59,8 @@ class MainActivity : BaseActivity<ActivityMainBinding, BaseViewModel>() {
         fm.beginTransaction().add(R.id.mainFrameContainer, fragment3, "3").hide(fragment3).commit()
         fm.beginTransaction().add(R.id.mainFrameContainer, fragment2, "2").hide(fragment2).commit()
         fm.beginTransaction().add(R.id.mainFrameContainer, fragment1, "1").commit()
+
+        //refreshFragment()
     }
 
     override fun onBackPressed() {
@@ -138,6 +140,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, BaseViewModel>() {
         fragmentTransaction.replace(R.id.mainFrameContainer, fragment).commit()
     }
 
+
     @SuppressLint("RestrictedApi")
     private fun disableShiftMode(view: BottomNavigationView) {
         val menuView = view.getChildAt(0) as BottomNavigationMenuView
@@ -159,5 +162,16 @@ class MainActivity : BaseActivity<ActivityMainBinding, BaseViewModel>() {
         } catch (e: IllegalAccessException) {
             Log.e(TAG, e.message)
         }
+    }
+
+    fun refreshFragment() {
+        /*val fragment = fm.findFragmentByTag("1")!!
+        Log.v("22932",fragment.tag)
+        fm.beginTransaction().detach(fragment)
+            .attach(fragment)
+            .commit()*/
+
+        val fragment = MainFragment.newInstance()
+        fm.beginTransaction().replace(R.id.mainFrameContainer, fragment).commit()
     }
 }
