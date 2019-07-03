@@ -14,4 +14,9 @@ class EarthRepository(private val earthRemoteDataSource: EarthRemoteDataSource) 
     fun getEarthInformation(token: String, earthLevel: Int): Observable<Response<EarthResponse>> {
         return earthRemoteDataSource.getEarthInformation(token, earthLevel)
     }
+
+    fun getUserInformation(token: String): Observable<Response<EarthResponse>> {
+        return earthRemoteDataSource.getUserInformation(token)
+    }
+
 }

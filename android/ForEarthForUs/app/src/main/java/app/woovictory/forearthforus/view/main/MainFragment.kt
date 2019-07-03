@@ -54,14 +54,18 @@ class MainFragment : Fragment() {
     override fun onResume() {
         super.onResume()
 
-        if (SharedPreferenceManager.missionCompleteCount >= 0) {
+        mainViewModel.getInformation()
+        mainViewModel.getUserInformation()
+
+     /*   if (SharedPreferenceManager.missionCompleteCount >= 0) {
             Log.v("99201", "reload 시점!!")
             mainViewModel.getInformation()
+            mainViewModel.getUserInformation()
         } else {
             Log.v("99201", "reload 안함!!")
             Log.v("99201 count", SharedPreferenceManager.missionCompleteCount.toString())
             toast("변경 사항이 없음.")
-        }
+        }*/
     }
 
     private fun init() {
@@ -110,6 +114,13 @@ class MainFragment : Fragment() {
                 fragmentMainBinding.loading.visibility = View.VISIBLE
             } else {
                 fragmentMainBinding.loading.visibility = View.GONE
+            }
+        })
+
+        mainViewModel.earthUserReponse.observe(this, Observer {
+            if (SharedPreferenceManager.earthLevel != it.earthLevel) {
+                SharedPreferenceManager.earthLevel = it.earthLevel
+                mainViewModel.getInformation()
             }
         })
     }

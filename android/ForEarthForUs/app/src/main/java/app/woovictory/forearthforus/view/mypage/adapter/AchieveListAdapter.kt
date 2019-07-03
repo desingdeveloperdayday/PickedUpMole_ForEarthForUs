@@ -31,6 +31,7 @@ class AchieveListAdapter : RecyclerView.Adapter<AchieveListViewHolder>() {
     }
 
     fun addAllItem(items: List<MissionFeedResponse>) {
+        itemList.clear()
         itemList.addAll(items)
     }
 }

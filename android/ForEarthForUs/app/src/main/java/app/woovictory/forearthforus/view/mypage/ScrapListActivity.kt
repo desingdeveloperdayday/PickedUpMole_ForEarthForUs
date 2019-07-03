@@ -4,12 +4,10 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import app.woovictory.forearthforus.R
 import app.woovictory.forearthforus.base.BaseActivity
 import app.woovictory.forearthforus.databinding.ActivityScrapListBinding
-import app.woovictory.forearthforus.model.article.DonationDetailResponse
 import app.woovictory.forearthforus.util.SharedPreferenceManager
 import app.woovictory.forearthforus.view.mypage.adapter.ScrapListAdapter
 import app.woovictory.forearthforus.vm.mypage.ScrapListViewModel
@@ -21,8 +19,6 @@ class ScrapListActivity : BaseActivity<ActivityScrapListBinding, ScrapListViewMo
     override val viewModel: ScrapListViewModel by viewModel()
     //get() = ViewModelProviders.of(this@ScrapListActivity).get(ScrapListViewModel::class.java)
 
-
-    private val itemList = ArrayList<DonationDetailResponse>()
     private var scrapListAdapter: ScrapListAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {

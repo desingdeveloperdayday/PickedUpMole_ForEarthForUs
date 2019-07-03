@@ -13,4 +13,8 @@ class EarthRemoteDataSource(val api: ApiService) {
     fun getEarthInformation(token: String, earthLevel: Int): Observable<Response<EarthResponse>> {
         return api.getEarthList("JWT $token", earthLevel)
     }
+
+    fun getUserInformation(token: String): Observable<Response<EarthResponse>>{
+        return api.getUserEarthInformation("JWT $token")
+    }
 }
