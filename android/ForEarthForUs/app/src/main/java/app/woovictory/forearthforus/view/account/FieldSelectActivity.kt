@@ -6,10 +6,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
-import app.woovictory.forearthforus.MainActivity
 import app.woovictory.forearthforus.R
 import app.woovictory.forearthforus.base.BaseActivity
 import app.woovictory.forearthforus.databinding.ActivityFieldSelectBinding
+import app.woovictory.forearthforus.view.intro.OnBoardingActivity
 import app.woovictory.forearthforus.vm.account.FieldSelectViewModel
 import kotlinx.android.synthetic.main.activity_field_select.*
 import org.jetbrains.anko.startActivity
@@ -83,7 +83,8 @@ class FieldSelectActivity : BaseActivity<ActivityFieldSelectBinding, FieldSelect
 
         viewModel.preferenceResponse.observe(this, Observer { flag ->
             if (flag) {
-                startActivity<MainActivity>()
+                //startActivity<MainActivity>()
+                startActivity<OnBoardingActivity>()
                 finish()
             } else {
                 toast("이미 선택하신 관심사입니다.")

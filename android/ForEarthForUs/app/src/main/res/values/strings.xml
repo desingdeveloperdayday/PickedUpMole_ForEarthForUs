@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ForEarthForUs</string>
+    <string name="app_name">FOR URTH</string>
 
     <!--login-->
     <string name="text_login_email">이메일</string>
@@ -16,7 +16,9 @@
     <string name="text_sign_up_email">이메일</string>
     <string name="text_sign_up_password">패스워드</string>
     <string name="text_sign_up_password_check">패스워드 확인</string>
-    <string name="text_sign_up"><u>회원가입</u></string>
+    <string name="text_sign_up">
+        <u>회원가입</u>
+    </string>
 
     <!--field select-->
     <string name="text_field_select_title">어떤 분야의\n환경보호에 관심이 있나요?</string>
@@ -82,6 +84,9 @@
     <string name="text_field_acid_rain">산성비</string>
     <string name="text_field_weather_change">기후변화</string>
     <string name="text_field_endangered_species_">멸종위기 동물</string>
+
+    <!--온보딩 페이지-->
+    <string name="text_on_boarding_skip">건너뛰기</string>
 
 
 </resources>

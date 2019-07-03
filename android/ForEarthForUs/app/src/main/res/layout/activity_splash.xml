@@ -56,7 +56,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/splashTwoImage"
             style="@style/ContentsBodyWhiteStyle"
-            tools:text="For Earth For Us"
+            android:text="For Earth For Us"
     />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

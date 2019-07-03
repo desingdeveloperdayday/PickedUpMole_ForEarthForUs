@@ -17,7 +17,7 @@ class ItemDecoration(private val space: Int, private val side: Int) : RecyclerVi
         when (parent.getChildAdapterPosition(view)) {
             0 -> {
                 outRect.right = space //don't forget about recycling...
-                outRect.left = side
+                outRect.left = side + 20
 
             }
             state.itemCount - 1 -> {
