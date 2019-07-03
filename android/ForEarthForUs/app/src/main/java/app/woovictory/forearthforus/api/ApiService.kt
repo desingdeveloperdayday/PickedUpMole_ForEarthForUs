@@ -138,6 +138,13 @@ interface ApiService {
         @Body scrapRequest: ScrapRequest
     ): Observable<Response<ScrapResponse>>
 
+    // 17. 스크랩 취소
+    @HTTP(method = "DELETE", path = "api/v1/scrap/{id}", hasBody = false)
+    fun deleteScrap(
+        @Header("Authorization") Authorization: String,
+        @Path("id") id: String
+    ): Completable
+
     // admin - 관리자.
 
 

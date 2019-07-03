@@ -15,6 +15,7 @@ class ScrapListViewHolder(private val binding: ItemListArticleDetailBinding) : R
     fun onBind(item: ScrapResponse) {
         Log.v("12351", item.toString())
         binding.articleDetailItems = item.campaign
+        binding.itemArticleDetailLikeButton.isSelected = item.campaign.scrap
     }
 
 }

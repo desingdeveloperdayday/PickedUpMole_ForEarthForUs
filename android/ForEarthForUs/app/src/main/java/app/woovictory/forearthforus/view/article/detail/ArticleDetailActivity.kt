@@ -18,6 +18,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class ArticleDetailActivity : BaseActivity<ActivityArticleDetailBinding, ArticleDetailViewModel>() {
     override val layoutResourceId: Int
         get() = R.layout.activity_article_detail
+    var campaignId: String = ""
 
     /*
     * viewModelFeed 의 초기화는 viewModelFeed() 이렇게 하면 안된다.
@@ -32,8 +33,8 @@ class ArticleDetailActivity : BaseActivity<ActivityArticleDetailBinding, Article
     private var articleDetailAdapter: ArticleDetailAdapter? = null
         set(value) {
             field = value
-            field?.articleDetailLikeClickListener = {
-                clickLike(it)
+            field?.articleDetailLikeClickListener = { it, i ->
+                clickLike(it, i)
             }
             field?.articleDetailImageClickListener = {
                 clickDetailImage(it)
@@ -93,6 +94,14 @@ class ArticleDetailActivity : BaseActivity<ActivityArticleDetailBinding, Article
                 viewDataBinding.loading.visibility = View.GONE
             }
         })
+
+        // 스크랩 결과 구독.
+        viewModel.scrapResponse.observe(this, Observer {
+            // 스크랩 취소 통신.
+            if (it.campaign.scrap) {
+                campaignId = it.id
+            }
+        })
     }
 
     private fun setUpRecyclerView() {
@@ -103,13 +112,19 @@ class ArticleDetailActivity : BaseActivity<ActivityArticleDetailBinding, Article
         }
     }
 
-    private fun clickLike(id: Int){
-        toast("$id 좋아요 클릭.")
-        val scrapRequest = ScrapRequest(1, id)
-        viewModel.postScrapArticle(SharedPreferenceManager.token,scrapRequest)
+    private fun clickLike(id: Int, i: Int) {
+        if (i == 1) {
+            //toast("$id 좋아요 해제.")
+            viewModel.deleteScrapArticle(SharedPreferenceManager.token, campaignId)
+        } else {
+            //toast("좋아요 클릭이다~~")
+            val scrapRequest = ScrapRequest(1, id)
+            viewModel.postScrapArticle(SharedPreferenceManager.token, scrapRequest)
+        }
+
     }
 
-    private fun clickDetailImage(id: Int){
-        toast("$id 번째 이미지 클릭.")
+    private fun clickDetailImage(id: Int) {
+        //toast("$id 번째 이미지 클릭.")
     }
 }
