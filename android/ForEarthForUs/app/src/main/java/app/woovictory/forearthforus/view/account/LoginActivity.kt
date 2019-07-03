@@ -33,7 +33,6 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
     }
 
 
-
     private fun checkEditText() {
         viewDataBinding.apply {
             loginEmailEt.addTextChangedListener(object : TextWatcher {
@@ -112,6 +111,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
 
         viewModel.clickToSignActivity.observe(this, Observer {
             startActivity<SignUpActivity>()
+            finish()
         })
     }
 

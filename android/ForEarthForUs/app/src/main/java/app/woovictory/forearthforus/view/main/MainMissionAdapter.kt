@@ -31,6 +31,7 @@ class MainMissionAdapter(private var onMainMissionItemClick: (Int) -> Unit) :
     }
 
     fun addItems(items: ArrayList<MissionFeedResponse>) {
+        itemsMock.clear()
         itemsMock.addAll(items)
         notifyDataSetChanged()
     }

@@ -8,17 +8,16 @@
             android:layout_height="match_parent"
             tools:context=".view.mission.MissionCompleteActivity"
             android:background="@color/fe_fu_white">
-        <!--
-                <com.google.android.material.appbar.AppBarLayout
-                        android:id="@+id/missionCompleteAppbar"
-                        android:layout_width="0dp"
-                        android:layout_height="?attr/actionBarSize"
-                        app:elevation="0dp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent">
+      <!--  <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/missionCompleteAppbar"
+                android:layout_width="0dp"
+                android:layout_height="?attr/actionBarSize"
+                app:elevation="0dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-                </com.google.android.material.appbar.AppBarLayout>-->
+        </com.google.android.material.appbar.AppBarLayout>-->
 
         <RelativeLayout
                 android:id="@+id/missionCompleteToolbar"
@@ -30,10 +29,12 @@
                 app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
+                    android:id="@+id/missionCompleteBackButton"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_centerVertical="true"
-                    android:paddingHorizontal="@dimen/margin_24dp"
+                    android:paddingStart="@dimen/padding_24dp"
+                    android:paddingEnd="@dimen/padding_24dp"
                     android:src="@drawable/back_button"/>
 
         </RelativeLayout>
@@ -81,6 +82,8 @@
                 android:numStars="5"
                 android:rating="0"
                 android:stepSize="1.0"
+                android:scaleX="1.2"
+                android:scaleY="1.2"
                 android:layout_marginTop="@dimen/margin_24dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

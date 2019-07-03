@@ -5,12 +5,11 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import app.woovictory.forearthforus.base.BaseViewModel
 import app.woovictory.forearthforus.data.repository.mission.MissionDetailRepository
-import app.woovictory.forearthforus.data.repository.mission.MissionFeedCompleteRepository
 import app.woovictory.forearthforus.data.repository.mission.MissionSelectRepository
 import app.woovictory.forearthforus.model.mission.MissionDetailResponse
-import app.woovictory.forearthforus.model.mission.MissionFeedCompleteRequest
 import app.woovictory.forearthforus.model.mission.MissionFeedResponse
 import app.woovictory.forearthforus.model.mission.MissionSelectRequest
+import app.woovictory.forearthforus.util.SharedPreferenceManager
 import app.woovictory.forearthforus.util.SingleLiveEvent
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -72,8 +71,10 @@ class MissionDetailViewModel(
                     if (response.isSuccessful) {
                         Log.v("2285223", response.code().toString())
                         _missionFeedResponse.value = response.body()
+                        SharedPreferenceManager.missionCompleteCount++
 
                     }
+                    Log.v("2285223", response.code().toString())
                 }, { e ->
                     Log.v("2285223", e.message)
                 })

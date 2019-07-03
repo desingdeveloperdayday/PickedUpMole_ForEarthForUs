@@ -27,9 +27,10 @@ class MissionDetailActivity : BaseActivity<ActivityMissionDetailBinding, Mission
         get() = R.layout.activity_mission_detail
     override val viewModel: MissionDetailViewModel by viewModel()
 
-    var categoryId: Int = 0
-    var url: String = ""
-    var id: String = ""
+    private var categoryId: Int = 0
+    private var url: String = ""
+    private var feedId: String = ""
+    private var title: String = ""
 
     override fun onEnterAnimationComplete() {
         super.onEnterAnimationComplete()
@@ -75,17 +76,20 @@ class MissionDetailActivity : BaseActivity<ActivityMissionDetailBinding, Mission
         }
 
         viewModel.missionDetailResponse.observe(this, Observer {
-            id = it.feedId
-            Log.v("2010023 detail", id)
+            feedId = it.feedId
+            title = it.title
+            Log.v("2010023 detail", feedId)
             if (it.status == "progress") {
                 viewDataBinding.apply {
                     missionDetailSelectButtonLayout.visibility = View.GONE
                     missionDetailDecideButtonLayout.visibility = View.VISIBLE
+                    SharedPreferenceManager.missionCompleteStatus = true
                 }
             } else {
                 viewDataBinding.apply {
                     missionDetailSelectButtonLayout.visibility = View.VISIBLE
                     missionDetailDecideButtonLayout.visibility = View.GONE
+                    SharedPreferenceManager.missionCompleteStatus = false
                 }
             }
 
@@ -100,23 +104,28 @@ class MissionDetailActivity : BaseActivity<ActivityMissionDetailBinding, Mission
 
         // 미션 선택 후 결과 구독.
         viewModel.missionFeedResponse.observe(this, Observer {
-            id = it.id
-            Log.v("2010023", id)
+            feedId = it.id
+            title = it.mission.title
+            Log.v("2010023", feedId)
             if (it.mission.status == "progress") {
                 viewDataBinding.apply {
                     missionDetailSelectButtonLayout.visibility = View.GONE
                     missionDetailDecideButtonLayout.visibility = View.VISIBLE
+                    SharedPreferenceManager.missionCompleteStatus = true
                 }
             }
-
         })
 
         viewModel.clickToMissionCancel.observe(this, Observer {
             toast("그만 두기 버튼 클릭")
         })
 
+        // 미션 완료하기 버튼 클릭.
         viewModel.clickToMissionComplete.observe(this, Observer {
-            startActivity<MissionCompleteActivity>("id" to id)
+            startActivity<MissionCompleteActivity>(
+                "id" to feedId
+                , "title" to title
+            )
         })
     }
 

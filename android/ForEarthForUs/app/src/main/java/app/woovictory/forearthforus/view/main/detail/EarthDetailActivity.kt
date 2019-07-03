@@ -3,6 +3,7 @@ package app.woovictory.forearthforus.view.main.detail
 import android.content.Context
 import android.graphics.Point
 import android.os.Bundle
+import android.view.View
 import android.view.WindowManager
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
@@ -53,8 +54,19 @@ class EarthDetailActivity : BaseActivity<ActivityEarthDetailBinding, AchieveList
 
         viewModel.achieveListResponse.observe(this, Observer {
             if (it.isNotEmpty()) {
+                viewDataBinding.apply {
+                    earthDetailAchieveRv.visibility = View.VISIBLE
+                    earthDetailAchieved.visibility = View.VISIBLE
+                    achievedNullIconImage.visibility = View.GONE
+                }
                 achieveListAdapter.addAllItem(it)
                 setUpRecyclerView()
+            } else {
+                viewDataBinding.apply {
+                    achievedNullIconImage.visibility = View.VISIBLE
+                    earthDetailAchieveRv.visibility = View.GONE
+                    earthDetailAchieved.visibility = View.GONE
+                }
             }
         })
     }

@@ -15,6 +15,9 @@
             android:theme="@style/AppTheme"
             android:usesCleartextTraffic="true"
             tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".view.intro.OnBoardingActivity"
+                  android:theme="@style/MainColorTheme">
+        </activity>
         <activity android:name=".view.mypage.AlarmActivity"/>
         <activity android:name=".view.mypage.ScrapListActivity"/>
         <activity android:name=".view.mypage.achieve.AchieveListActivity"/>
@@ -25,10 +28,13 @@
         <activity android:name=".view.mission.MissionDetailActivity"/>
         <activity android:name=".view.mission.MissionSelectActivity"/>
         <activity android:name=".view.account.FieldSelectActivity"/>
-        <activity android:name=".view.account.SignUpActivity"
-                  android:windowSoftInputMode="adjustResize"/>
+        <activity
+                android:name=".view.account.SignUpActivity"
+                android:windowSoftInputMode="adjustResize"/>
         <activity android:name=".MainActivity"/>
-        <activity android:name=".view.SplashActivity">
+        <activity
+                android:name=".view.SplashActivity"
+                android:theme="@style/MainColorTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

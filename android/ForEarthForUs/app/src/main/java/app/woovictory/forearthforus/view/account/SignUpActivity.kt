@@ -1,5 +1,6 @@
 package app.woovictory.forearthforus.view.account
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -160,7 +161,8 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding, SignUpViewModel>() {
         viewModel.signUpResponse.observe(this, Observer {
             if (it) {
                 //startActivity<MainActivity>()
-                startActivity<FieldSelectActivity>()
+                val intent =  Intent(this, FieldSelectActivity::class.java)
+                startActivity(intent)
                 finish()
             }
         })
