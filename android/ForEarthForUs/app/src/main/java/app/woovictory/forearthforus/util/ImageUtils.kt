@@ -30,3 +30,10 @@ fun loadPngImage(imageView: ImageView, url: String) {
         .error(R.color.fe_fu_white)
         .into(imageView)
 }
+
+fun loadDrawableImage(imageView: ImageView, drawable: Int) {
+    GlideApp.with(imageView.context)
+        .load(drawable)
+        .error(R.color.fe_fu_white)
+        .into(imageView)
+}

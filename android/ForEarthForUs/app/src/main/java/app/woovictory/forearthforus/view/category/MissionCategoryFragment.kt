@@ -10,8 +10,8 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import app.woovictory.forearthforus.R
 import app.woovictory.forearthforus.databinding.FragmentMissionCategoryBinding
-import app.woovictory.forearthforus.view.mission.MissionSelectActivity
 import app.woovictory.forearthforus.view.category.adapter.MissionCategoryAdapter
+import app.woovictory.forearthforus.view.mission.MissionSelectActivity
 import app.woovictory.forearthforus.vm.category.MissionCategoryViewModel
 import org.jetbrains.anko.support.v4.startActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -25,8 +25,8 @@ class MissionCategoryFragment : Fragment() {
     private var missionCategoryAdapter: MissionCategoryAdapter? = null
         set(value) {
             field = value
-            field?.onMissionItemClickListener = { categoryId ->
-                startMissionSelectActivity(categoryId)
+            field?.onMissionItemClickListener = { categoryId, completeMessage ->
+                startMissionSelectActivity(categoryId, completeMessage)
             }
         }
     private val missionCategoryViewModel: MissionCategoryViewModel by viewModel()
@@ -73,8 +73,11 @@ class MissionCategoryFragment : Fragment() {
         }
     }
 
-    private fun startMissionSelectActivity(categoryId: Int) {
-        startActivity<MissionSelectActivity>("categoryId" to categoryId)
+    private fun startMissionSelectActivity(categoryId: Int, completeMessage: String) {
+        startActivity<MissionSelectActivity>(
+            "categoryId" to categoryId,
+            "completeMessage" to completeMessage
+        )
     }
 
     companion object {

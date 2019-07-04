@@ -8,6 +8,7 @@ import app.woovictory.forearthforus.data.repository.feed.MissionFeedRepository
 import app.woovictory.forearthforus.data.repository.main.EarthRepository
 import app.woovictory.forearthforus.model.earth.EarthResponse
 import app.woovictory.forearthforus.model.mission.MissionFeedResponse
+import app.woovictory.forearthforus.util.MISSION_STATUS_PROGRESS
 import app.woovictory.forearthforus.util.SharedPreferenceManager
 import app.woovictory.forearthforus.util.SingleLiveEvent
 import app.woovictory.forearthforus.util.TAG
@@ -42,7 +43,7 @@ class MainViewModel(
         get() = _isLoading
 
     private val _earthUserResponse = MutableLiveData<EarthResponse>()
-    val earthUserReponse: LiveData<EarthResponse>
+    val earthUserResponse: LiveData<EarthResponse>
         get() = _earthUserResponse
 
     fun clickToDetail() {
@@ -60,7 +61,7 @@ class MainViewModel(
             .observeOn(AndroidSchedulers.mainThread())
 
         val missionFeedObservable = missionFeedRepository
-            .getUserMissionFeed(SharedPreferenceManager.token, "progress")
+            .getUserMissionFeed(SharedPreferenceManager.token, MISSION_STATUS_PROGRESS)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
 

@@ -8,7 +8,7 @@
             android:layout_height="match_parent"
             android:background="@color/fe_fu_white"
             android:animateLayoutChanges="true"
-            tools:context=".view.mypage.AlarmActivity">
+            tools:context=".view.mypage.alarm.AlarmActivity">
 
         <!--AppBar Layout 으로 변경하자.-->
 

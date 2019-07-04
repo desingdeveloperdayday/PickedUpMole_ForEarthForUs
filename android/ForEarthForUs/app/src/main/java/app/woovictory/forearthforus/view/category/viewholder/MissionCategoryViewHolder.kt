@@ -9,7 +9,7 @@ import app.woovictory.forearthforus.model.category.MissionCategoryResponse
  */
 class MissionCategoryViewHolder(
     private val binding: ItemListMissionCategoryBinding,
-    private val onClickListener: ((Int) -> Unit)?
+    private val onClickListener: ((Int, String) -> Unit)?
 ) :
     RecyclerView.ViewHolder(binding.root) {
 
@@ -17,7 +17,7 @@ class MissionCategoryViewHolder(
         binding.item = item
         binding.executePendingBindings()
         binding.itemMissionLayout.setOnClickListener {
-            onClickListener?.invoke(item.categoryId)
+            onClickListener?.invoke(item.categoryId, item.completeMessage)
         }
     }
 }

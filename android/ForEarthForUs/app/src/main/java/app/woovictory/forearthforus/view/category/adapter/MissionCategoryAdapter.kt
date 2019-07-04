@@ -14,7 +14,7 @@ import app.woovictory.forearthforus.view.category.viewholder.MissionCategoryView
 class MissionCategoryAdapter : RecyclerView.Adapter<MissionCategoryViewHolder>() {
 
     private val itemList = ArrayList<MissionCategoryResponse>()
-    var onMissionItemClickListener: ((Int) -> Unit)? = null
+    var onMissionItemClickListener: ((Int, String) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MissionCategoryViewHolder {
         val binding = ItemListMissionCategoryBinding.inflate(

@@ -20,6 +20,7 @@ import app.woovictory.forearthforus.base.BaseActivity
 import app.woovictory.forearthforus.databinding.ActivityMissionSelectBinding
 import app.woovictory.forearthforus.model.mission.MissionSelectResponse
 import app.woovictory.forearthforus.util.ItemDecoration
+import app.woovictory.forearthforus.util.missionCategoryTitleList
 import app.woovictory.forearthforus.view.mission.adapter.MissionSelectAdapter
 import app.woovictory.forearthforus.vm.mission.MissionSelectViewModel
 import kotlinx.android.synthetic.main.activity_mission_select.*
@@ -58,10 +59,14 @@ class MissionSelectActivity : BaseActivity<ActivityMissionSelectBinding
 
     private fun getData() {
         val categoryId = intent.getIntExtra("categoryId", 0)
-        Log.v("7786", categoryId.toString())
-
         // viewModelFeed 에 missionSelectList 요청.
         viewModel.getMissionSelectList(categoryId)
+        setToolbarTitle(categoryId)
+
+    }
+
+    private fun setToolbarTitle(categoryId: Int) {
+        viewDataBinding.missionSelectTitle.text = missionCategoryTitleList[categoryId - 1]
     }
 
     private fun getWindowSize() {
@@ -80,10 +85,6 @@ class MissionSelectActivity : BaseActivity<ActivityMissionSelectBinding
             ContextCompat.getColor(this, R.color.colorBlack)
             , PorterDuff.Mode.SRC_ATOP
         )
-
-        viewDataBinding.missionSelectToolbar.setNavigationOnClickListener {
-            onBackPressed()
-        }
     }
 
     // RecyclerView 설정.
@@ -136,10 +137,14 @@ class MissionSelectActivity : BaseActivity<ActivityMissionSelectBinding
                 viewDataBinding.loading.visibility = View.GONE
             }
         })
+
+        viewDataBinding.missionSelectToolbar.setNavigationOnClickListener {
+            onBackPressed()
+        }
     }
 
-    private fun startDetailActivity(categoryId: Int, imageView: ImageView, url: String) {
-
+    // 일단 Shared Element Transition 우선순위 뒤로 미루기.
+/*    private fun startDetailActivity(categoryId: Int, imageView: ImageView, url: String) {
         val options = ActivityOptionsCompat.makeSceneTransitionAnimation(
             this
             , imageView, imageView.transitionName
@@ -154,10 +159,9 @@ class MissionSelectActivity : BaseActivity<ActivityMissionSelectBinding
             .let {
                 startActivity(it, options)
             }
+    }*/
 
-
-        //val pair: Pair<View, String> = Pair(imageView, imageView.transitionName)
-
+    private fun startDetailActivity(categoryId: Int, imageView: ImageView, url: String) {
+        startActivity<MissionDetailActivity>("categoryId" to categoryId)
     }
-
 }

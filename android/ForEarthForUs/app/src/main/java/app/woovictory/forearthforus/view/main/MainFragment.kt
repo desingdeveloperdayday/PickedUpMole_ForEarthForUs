@@ -10,16 +10,16 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import app.woovictory.forearthforus.MainActivity
 import app.woovictory.forearthforus.R
 import app.woovictory.forearthforus.databinding.FragmentMainBinding
 import app.woovictory.forearthforus.util.SharedPreferenceManager
 import app.woovictory.forearthforus.util.earthLevelList
-import app.woovictory.forearthforus.util.glide.GlideApp
+import app.woovictory.forearthforus.util.loadDrawableImage
 import app.woovictory.forearthforus.view.main.detail.EarthDetailActivity
 import app.woovictory.forearthforus.view.mission.MissionDetailActivity
 import app.woovictory.forearthforus.vm.main.MainViewModel
 import org.jetbrains.anko.support.v4.startActivity
-import org.jetbrains.anko.support.v4.toast
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 /**
@@ -57,15 +57,15 @@ class MainFragment : Fragment() {
         mainViewModel.getInformation()
         mainViewModel.getUserInformation()
 
-     /*   if (SharedPreferenceManager.missionCompleteCount >= 0) {
-            Log.v("99201", "reload 시점!!")
-            mainViewModel.getInformation()
-            mainViewModel.getUserInformation()
-        } else {
-            Log.v("99201", "reload 안함!!")
-            Log.v("99201 count", SharedPreferenceManager.missionCompleteCount.toString())
-            toast("변경 사항이 없음.")
-        }*/
+        /*   if (SharedPreferenceManager.missionCompleteCount >= 0) {
+               Log.v("99201", "reload 시점!!")
+               mainViewModel.getInformation()
+               mainViewModel.getUserInformation()
+           } else {
+               Log.v("99201", "reload 안함!!")
+               Log.v("99201 count", SharedPreferenceManager.missionCompleteCount.toString())
+               toast("변경 사항이 없음.")
+           }*/
     }
 
     private fun init() {
@@ -92,7 +92,7 @@ class MainFragment : Fragment() {
         mainViewModel.earthResponse.observe(this, Observer {
             Log.v("40032", it.earthLevel.toString())
             Log.v("40032 ee", it.toString())
-            setEarthLevel(it.earthLevel - 1)
+            setEarthLevel(it.earthLevel)
             //eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMiwidXNlcm5hbWUiOiJsc3dAbHN3LmNvbSIsImV4cCI6MTU2MjIzODQ1OSwiZW1haWwiOiJsc3dAbHN3LmNvbSJ9.8XHuyEPqeuhlAJ-U-ZrmyfxwAHqTHzC4pIwFrLADTLg
         })
 
@@ -101,13 +101,23 @@ class MainFragment : Fragment() {
             if (it.size > 0) {
                 fragmentMainBinding.apply {
                     mainRv.visibility = View.VISIBLE
+                    mainNullIconImage.visibility = View.GONE
                     mainMissionAdapter?.addItems(it)
                     setUpRecyclerView()
                 }
-                fragmentMainBinding.mainNullIconImage.visibility = View.GONE
             } else {
-                fragmentMainBinding.mainNullIconImage.visibility = View.VISIBLE
-                fragmentMainBinding.mainRv.visibility = View.GONE
+                fragmentMainBinding.apply {
+
+                    mainNullIconImage.visibility = View.VISIBLE
+                    mainNullIconImage.let { imageView ->
+                        imageView.visibility = View.VISIBLE
+                        imageView.setOnClickListener {
+                            val a = activity as MainActivity
+                            a.replaceFragment()
+                        }
+                    }
+                    mainRv.visibility = View.GONE
+                }
             }
         })
 
@@ -119,7 +129,7 @@ class MainFragment : Fragment() {
             }
         })
 
-        mainViewModel.earthUserReponse.observe(this, Observer {
+        mainViewModel.earthUserResponse.observe(this, Observer {
             if (SharedPreferenceManager.earthLevel != it.earthLevel) {
                 SharedPreferenceManager.earthLevel = it.earthLevel
                 mainViewModel.getInformation()
@@ -136,11 +146,7 @@ class MainFragment : Fragment() {
     }
 
     private fun setEarthLevel(earthLevel: Int) {
-        setEarthBarImage(earthLevel)
-    }
-
-    private fun setEarthBarImage(earthLevel: Int) {
-        GlideApp.with(this).load(earthLevelList[earthLevel]).into(fragmentMainBinding.mainBarGraph)
+        loadDrawableImage(fragmentMainBinding.mainBarGraph, earthLevelList[earthLevel - 1])
     }
 
     private fun startToDetailActivity(id: Int) {
@@ -149,6 +155,4 @@ class MainFragment : Fragment() {
         intent.putExtra("url", "main")
         startActivity(intent)
     }
-
-
 }

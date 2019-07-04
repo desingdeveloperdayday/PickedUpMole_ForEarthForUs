@@ -34,14 +34,24 @@
                     app:riv_mutate_background="true"
                     app:riv_oval="false"/>
 
-            <ImageView
+           <!-- <ImageView
                     android:id="@+id/itemArticleLikeButton"
                     android:layout_gravity="end"
                     android:layout_marginTop="@dimen/margin_16dp"
                     android:layout_marginEnd="@dimen/margin_16dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/selector_like_button"/>
+                    android:src="@drawable/selector_like_button"/>-->
+
+            <ImageView
+                    android:background="@drawable/background_gradient_opacity"
+                    android:layout_width="match_parent"
+                    android:layout_height="170dp"
+                    android:layout_gravity="bottom"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
 
             <LinearLayout
                     android:layout_marginStart="@dimen/margin_16dp"

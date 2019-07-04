@@ -12,6 +12,7 @@ import app.woovictory.forearthforus.R
 import app.woovictory.forearthforus.base.BaseActivity
 import app.woovictory.forearthforus.databinding.ActivityMissionDetailBinding
 import app.woovictory.forearthforus.model.mission.MissionSelectRequest
+import app.woovictory.forearthforus.util.MISSION_STATUS_PROGRESS
 import app.woovictory.forearthforus.util.SharedPreferenceManager
 import app.woovictory.forearthforus.util.glide.GlideApp
 import app.woovictory.forearthforus.vm.mission.MissionDetailViewModel
@@ -50,13 +51,13 @@ class MissionDetailActivity : BaseActivity<ActivityMissionDetailBinding, Mission
     @SuppressLint("CheckResult")
     private fun getData() {
         categoryId = intent.getIntExtra("categoryId", 0)
-        url = intent.getStringExtra("url")
-        Log.v("21032", url)
+        //url = intent.getStringExtra("url")
+        //Log.v("21032", url)
 
-        if (url != "main") {
+        /*if (url != "main") {
             viewDataBinding.missionDetailImage.transitionName = url
             GlideApp.with(this).load(url).into(viewDataBinding.missionDetailImage)
-        }
+        }*/
         viewModel.getMissionDetailInformation(SharedPreferenceManager.token, categoryId)
     }
 
@@ -79,7 +80,7 @@ class MissionDetailActivity : BaseActivity<ActivityMissionDetailBinding, Mission
             feedId = it.feedId
             title = it.title
             Log.v("2010023 detail", feedId)
-            if (it.status == "progress") {
+            if (it.status == MISSION_STATUS_PROGRESS) {
                 viewDataBinding.apply {
                     missionDetailSelectButtonLayout.visibility = View.GONE
                     missionDetailDecideButtonLayout.visibility = View.VISIBLE
@@ -107,7 +108,7 @@ class MissionDetailActivity : BaseActivity<ActivityMissionDetailBinding, Mission
             feedId = it.id
             title = it.mission.title
             Log.v("2010023", feedId)
-            if (it.mission.status == "progress") {
+            if (it.mission.status == MISSION_STATUS_PROGRESS) {
                 viewDataBinding.apply {
                     missionDetailSelectButtonLayout.visibility = View.GONE
                     missionDetailDecideButtonLayout.visibility = View.VISIBLE

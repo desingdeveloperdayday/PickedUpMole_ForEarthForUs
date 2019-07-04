@@ -1,4 +1,4 @@
-package app.woovictory.forearthforus.view.mypage
+package app.woovictory.forearthforus.view.mypage.scrap
 
 import android.os.Bundle
 import android.util.Log
