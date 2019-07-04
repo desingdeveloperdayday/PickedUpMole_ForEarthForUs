@@ -21,7 +21,22 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"/>
+
+        <ImageView
+                android:id="@+id/achieveImageNull"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:visibility="gone"
+                android:scaleType="fitXY"
+                android:src="@drawable/icon_achieved_null"
+                android:layout_marginStart="@dimen/margin_56dp"
+                android:layout_marginEnd="@dimen/margin_56dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
 
         <!--TODO AppBar 로 변경해야 함.-->
 

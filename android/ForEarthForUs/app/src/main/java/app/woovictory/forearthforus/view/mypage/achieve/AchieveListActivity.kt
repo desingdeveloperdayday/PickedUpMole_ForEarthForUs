@@ -3,6 +3,7 @@ package app.woovictory.forearthforus.view.mypage.achieve
 import android.content.Context
 import android.graphics.Point
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import androidx.lifecycle.Observer
@@ -62,6 +63,12 @@ class AchieveListActivity : BaseActivity<ActivityAchieveListBinding, AchieveList
             if (it.isNotEmpty()) {
                 achieveListAdapter.addAllItem(it)
                 setUpRecyclerView()
+            } else {
+                Log.v("109203", "비어있음.")
+                viewDataBinding.apply {
+                    achieveImageNull.visibility = View.VISIBLE
+                    achieveListRv.visibility = View.GONE
+                }
             }
         })
 

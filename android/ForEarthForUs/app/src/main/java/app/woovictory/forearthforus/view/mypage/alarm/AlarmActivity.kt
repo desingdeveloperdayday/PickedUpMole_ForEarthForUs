@@ -1,4 +1,4 @@
-package app.woovictory.forearthforus.view.mypage
+package app.woovictory.forearthforus.view.mypage.alarm
 
 import android.os.Bundle
 import android.view.View

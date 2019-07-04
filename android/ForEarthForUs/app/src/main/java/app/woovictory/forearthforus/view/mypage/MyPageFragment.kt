@@ -1,21 +1,22 @@
 package app.woovictory.forearthforus.view.mypage
 
 import android.app.AlertDialog
-import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import app.woovictory.forearthforus.R
 import app.woovictory.forearthforus.databinding.FragmentMypageBinding
-import app.woovictory.forearthforus.util.CustomDialog
 import app.woovictory.forearthforus.util.SharedPreferenceManager
 import app.woovictory.forearthforus.view.account.LoginActivity
 import app.woovictory.forearthforus.view.mypage.achieve.AchieveListActivity
+import app.woovictory.forearthforus.view.mypage.alarm.AlarmActivity
+import app.woovictory.forearthforus.view.mypage.scrap.ScrapListActivity
 import app.woovictory.forearthforus.vm.mypage.MyPageViewModel
 import org.jetbrains.anko.support.v4.alert
 import org.jetbrains.anko.support.v4.startActivity
@@ -57,13 +58,8 @@ class MyPageFragment : Fragment() {
         initDataBinding()
 
         fragmentMyPageDataBinding.myPageMissionSuggest.setOnClickListener {
-            toast(requireContext().toString())
-            val dialog = CustomDialog(requireContext())
-            dialog.setCanceledOnTouchOutside(false)
-            dialog.show()
+            toast("준비 중입니다.")
         }
-
-
     }
 
     private fun setViewModel() {
@@ -99,10 +95,10 @@ class MyPageFragment : Fragment() {
                 }
             }.show().apply {
                 getButton(AlertDialog.BUTTON_POSITIVE)?.let { button ->
-                    button.textColor = Color.BLACK
+                    button.textColor = ContextCompat.getColor(context, R.color.fe_fu_main)
                 }
                 getButton(AlertDialog.BUTTON_NEGATIVE)?.let { button ->
-                    button.textColor = Color.BLACK
+                    button.textColor = ContextCompat.getColor(context, R.color.fe_fu_main)
                 }
             }
 

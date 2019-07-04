@@ -57,7 +57,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/earth_image"
-                style="@style/SubTitleBodyCenterStyle"
+                style="@style/SubTitleHeaderCenterStyle"
         />
 
         <TextView
@@ -78,7 +78,7 @@
                 android:layout_width="0dp"
                 android:layout_height="35dp"
                 android:src="@drawable/main_bar_graph1"
-                android:layout_marginTop="@dimen/padding_16dp"
+                android:layout_marginTop="@dimen/margin_16dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/earthDetailState"
@@ -101,12 +101,12 @@
 
                 <TextView
                         android:id="@+id/earthDetailAchieved"
-                        android:layout_marginTop="@dimen/margin_32dp"
+                        android:layout_marginTop="@dimen/margin_56dp"
                         android:layout_marginStart="@dimen/margin_24dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/text_my_page_achieve_list_title"
-                        android:visibility="visible"
+                        android:visibility="gone"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         style="@style/SubTitleHeaderStyle"
@@ -118,6 +118,7 @@
                         android:clipToPadding="false"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:visibility="gone"
                         android:layout_marginTop="@dimen/margin_24dp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/earthDetailAchieved"/>
@@ -133,8 +134,8 @@
                         android:layout_marginStart="@dimen/margin_56dp"
                         android:layout_marginEnd="@dimen/margin_56dp"
                         android:layout_marginBottom="@dimen/margin_24dp"
-                        android:src="@drawable/ic_icon_achieved_null"
-                        android:layout_marginTop="@dimen/margin_56dp"
+                        android:src="@drawable/icon_achieved_null"
+                        android:layout_marginTop="80dp"
                         app:layout_constraintTop_toBottomOf="@id/earthDetailAchieved"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"

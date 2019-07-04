@@ -18,8 +18,8 @@
         <activity android:name=".view.intro.OnBoardingActivity"
                   android:theme="@style/MainColorTheme">
         </activity>
-        <activity android:name=".view.mypage.AlarmActivity"/>
-        <activity android:name=".view.mypage.ScrapListActivity"/>
+        <activity android:name=".view.mypage.alarm.AlarmActivity"/>
+        <activity android:name=".view.mypage.scrap.ScrapListActivity"/>
         <activity android:name=".view.mypage.achieve.AchieveListActivity"/>
         <activity android:name=".view.article.detail.ArticleDetailActivity"/>
         <activity android:name=".view.mission.MissionCompleteWriteActivity"/>

@@ -3,20 +3,20 @@ package app.woovictory.forearthforus.view.main.detail
 import android.content.Context
 import android.graphics.Point
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.WindowManager
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import app.woovictory.forearthforus.R
 import app.woovictory.forearthforus.base.BaseActivity
 import app.woovictory.forearthforus.databinding.ActivityEarthDetailBinding
-import app.woovictory.forearthforus.util.GridItemDecoration
-import app.woovictory.forearthforus.util.LEVEL
-import app.woovictory.forearthforus.util.MISSION_STATUS_COMPLETE
-import app.woovictory.forearthforus.util.SharedPreferenceManager
+import app.woovictory.forearthforus.util.*
 import app.woovictory.forearthforus.view.mypage.adapter.AchieveListAdapter
 import app.woovictory.forearthforus.vm.mypage.AchieveListViewModel
 import org.jetbrains.anko.dip
+import org.jetbrains.anko.textColor
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class EarthDetailActivity : BaseActivity<ActivityEarthDetailBinding, AchieveListViewModel>() {
@@ -33,17 +33,33 @@ class EarthDetailActivity : BaseActivity<ActivityEarthDetailBinding, AchieveList
         super.onCreate(savedInstanceState)
         viewModel.getAchieveList(SharedPreferenceManager.token, MISSION_STATUS_COMPLETE)
 
+        getData()
         getWindowSize()
         initStartView()
         initDataBinding()
+    }
+
+    private fun getData() {
+        val earthLevel = SharedPreferenceManager.earthLevel - 1
+        loadDrawableImage(viewDataBinding.earthDetailBar, earthLevelList[earthLevel])
+        loadDrawableImage(viewDataBinding.earthImage, earthStatusList[earthLevel])
     }
 
     override fun initStartView() {
         viewDataBinding.apply {
             vm = viewModel
             lifecycleOwner = this@EarthDetailActivity
-            earthDetailLevel.text = "$LEVEL${SharedPreferenceManager.earthLevel} ${SharedPreferenceManager.userName}"
-            earthDetailState.text = SharedPreferenceManager.userContent.replace("\n", "")
+            SharedPreferenceManager.apply {
+                earthDetailLevel.text = "$LEVEL$earthLevel $userName"
+                earthDetailState.text = userContent
+                if (earthLevel <= 4) {
+                    earthDetailLevel.textColor = ContextCompat.getColor(this@EarthDetailActivity, R.color.fe_fu_sub)
+                } else {
+                    earthDetailLevel.textColor = ContextCompat.getColor(this@EarthDetailActivity, R.color.fe_fu_main)
+                }
+
+            }
+
         }
     }
 

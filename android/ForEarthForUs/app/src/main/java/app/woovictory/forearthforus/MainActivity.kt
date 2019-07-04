@@ -7,7 +7,6 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
 import app.woovictory.forearthforus.base.BaseActivity
 import app.woovictory.forearthforus.base.BaseViewModel
 import app.woovictory.forearthforus.databinding.ActivityMainBinding
@@ -37,30 +36,20 @@ class MainActivity : BaseActivity<ActivityMainBinding, BaseViewModel>() {
     /*
     * TODO : 이 부분 수정해야 한다.
     * */
-    val fragment1: Fragment = MainFragment.newInstance()
-    val fragment2: Fragment = MissionCategoryFragment.newInstance()
-    val fragment3: Fragment = ArticleFragment.newInstance()
-    val fragment4: Fragment = MyPageFragment.newInstance()
-    val fm = supportFragmentManager
-    var active = fragment1
+    private val fm = supportFragmentManager
 
-    private var selectedItem: Int = 0
     private var backPressedTime: Long = 0
     private val mainFragment: Fragment = MainFragment.newInstance()
     private val missionCategoryFragment: Fragment = MissionCategoryFragment.newInstance()
     private val articleFragment: Fragment = ArticleFragment.newInstance()
     private val myPageFragment: Fragment = MyPageFragment.newInstance()
+    private var active = mainFragment
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initStartView()
         initDataBinding()
-        fm.beginTransaction().add(R.id.mainFrameContainer, fragment4, "4").hide(fragment4).commit()
-        fm.beginTransaction().add(R.id.mainFrameContainer, fragment3, "3").hide(fragment3).commit()
-        fm.beginTransaction().add(R.id.mainFrameContainer, fragment2, "2").hide(fragment2).commit()
-        fm.beginTransaction().add(R.id.mainFrameContainer, fragment1, "1").commit()
-
-        //refreshFragment()
     }
 
     override fun onBackPressed() {
@@ -84,27 +73,19 @@ class MainActivity : BaseActivity<ActivityMainBinding, BaseViewModel>() {
     }
 
     private fun addFragmentBasedOnId(itemId: Int) {
-        selectedItem = itemId
+        Log.v("001230", itemId.toString())
         when (itemId) {
             R.id.navigation_main -> {
-                fm.beginTransaction().hide(active).show(fragment1).commit()
-                active = fragment1
-                //changeFragment(mainFragment)
+                changeFragment(active, mainFragment)
             }
             R.id.navigation_mission -> {
-                fm.beginTransaction().hide(active).show(fragment2).commit()
-                active = fragment2
-                //changeFragment(missionCategoryFragment)
+                changeFragment(active, missionCategoryFragment)
             }
             R.id.navigation_article -> {
-                fm.beginTransaction().hide(active).show(fragment3).commit()
-                active = fragment3
-                //changeFragment(articleFragment)
+                changeFragment(active, articleFragment)
             }
             R.id.navigation_my -> {
-                fm.beginTransaction().hide(active).show(fragment4).commit()
-                active = fragment4
-                //changeFragment(myPageFragment)
+                changeFragment(active, myPageFragment)
             }
             else -> {
                 Toast.makeText(this, "home", Toast.LENGTH_SHORT).show()
@@ -112,14 +93,28 @@ class MainActivity : BaseActivity<ActivityMainBinding, BaseViewModel>() {
         }
     }
 
-    override fun initStartView() {
+    private fun changeFragment(activeFragment: Fragment, fragment: Fragment) {
+        fm.beginTransaction().hide(activeFragment).show(fragment).commit()
+        active = fragment
+    }
 
-        //changeFragment(MainFragment.newInstance())
-        fm.beginTransaction().hide(active).show(fragment1).commit()
-        active = fragment1
+    // 미션 탭 대신 클릭.
+    fun replaceFragment() {
+        fm.beginTransaction().hide(active).show(missionCategoryFragment).commit()
+        active = missionCategoryFragment
+        mainBottomNavigation.selectedItemId = R.id.navigation_mission
+    }
+
+    override fun initStartView() {
+        fm.beginTransaction().add(R.id.mainFrameContainer, myPageFragment, "4").hide(myPageFragment).commit()
+        fm.beginTransaction().add(R.id.mainFrameContainer, articleFragment, "3").hide(articleFragment).commit()
+        fm.beginTransaction().add(R.id.mainFrameContainer, missionCategoryFragment, "2").hide(missionCategoryFragment)
+            .commit()
+        fm.beginTransaction().add(R.id.mainFrameContainer, mainFragment, "1").commit()
+
+        active = mainFragment
 
         mainBottomNavigation.selectedItemId = R.id.navigation_main
-
         mainBottomNavigation.itemIconTintList = null
         // bottom navigation ripple 투명으로 변경.
         mainBottomNavigation.itemRippleColor = ContextCompat.getColorStateList(this, R.color.fe_fu_transparent)
@@ -128,18 +123,16 @@ class MainActivity : BaseActivity<ActivityMainBinding, BaseViewModel>() {
             true
         }
         disableShiftMode(mainBottomNavigation)
-
     }
 
     override fun initDataBinding() {
 
     }
 
-    private fun changeFragment(fragment: Fragment) {
+    /*private fun changeFragment(fragment: Fragment) {
         val fragmentTransaction: FragmentTransaction = supportFragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.mainFrameContainer, fragment).commit()
-    }
-
+    }*/
 
     @SuppressLint("RestrictedApi")
     private fun disableShiftMode(view: BottomNavigationView) {
@@ -162,16 +155,5 @@ class MainActivity : BaseActivity<ActivityMainBinding, BaseViewModel>() {
         } catch (e: IllegalAccessException) {
             Log.e(TAG, e.message)
         }
-    }
-
-    fun refreshFragment() {
-        /*val fragment = fm.findFragmentByTag("1")!!
-        Log.v("22932",fragment.tag)
-        fm.beginTransaction().detach(fragment)
-            .attach(fragment)
-            .commit()*/
-
-        val fragment = MainFragment.newInstance()
-        fm.beginTransaction().replace(R.id.mainFrameContainer, fragment).commit()
     }
 }
