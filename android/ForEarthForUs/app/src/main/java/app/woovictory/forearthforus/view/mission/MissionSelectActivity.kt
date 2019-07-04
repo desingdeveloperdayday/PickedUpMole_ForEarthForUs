@@ -1,7 +1,6 @@
 package app.woovictory.forearthforus.view.mission
 
 import android.content.Context
-import android.content.Intent
 import android.graphics.Point
 import android.graphics.PorterDuff
 import android.os.Bundle
@@ -10,7 +9,6 @@ import android.view.View
 import android.view.WindowManager
 import android.widget.ImageView
 import android.widget.LinearLayout
-import androidx.core.app.ActivityOptionsCompat
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -25,6 +23,7 @@ import app.woovictory.forearthforus.view.mission.adapter.MissionSelectAdapter
 import app.woovictory.forearthforus.vm.mission.MissionSelectViewModel
 import kotlinx.android.synthetic.main.activity_mission_select.*
 import org.jetbrains.anko.startActivity
+import org.jetbrains.anko.toast
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
@@ -46,6 +45,7 @@ class MissionSelectActivity : BaseActivity<ActivityMissionSelectBinding>() {
     private lateinit var size: Point
     private var categoryId: Int = 0
     private var completeMessage: String = ""
+    private var clickId: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -101,6 +101,7 @@ class MissionSelectActivity : BaseActivity<ActivityMissionSelectBinding>() {
 
     private fun setUpRecyclerView() {
         missionSelectAdapter = MissionSelectAdapter { id: Int, imageView: ImageView, url: String ->
+            clickId = id
             startDetailActivity(id, imageView, url)
         }
 
@@ -125,7 +126,9 @@ class MissionSelectActivity : BaseActivity<ActivityMissionSelectBinding>() {
         // 미션 시작하기 버튼을 클릭해서 이동하면 이미 미션을 시작한 상태이기 때문에
         // 하단 탭 버튼은 그만두기 / 미션 완료하기 형태가 되어야 한다.
         viewModel.clickToMissionStart.observe(this, Observer {
-            startActivity<MissionDetailActivity>()
+            toast("준비 중입니다.")
+            // recyclerView 리스너 이용해서 보여지는 뷰의 포지션을 얻고 그에 해당하는 id 얻어야 함.
+            //startActivity<MissionDetailActivity>()
         })
 
         viewModel.missionSelectResponse.observe(this, Observer {

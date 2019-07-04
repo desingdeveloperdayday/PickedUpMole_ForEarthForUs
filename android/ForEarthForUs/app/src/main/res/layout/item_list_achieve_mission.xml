@@ -29,6 +29,7 @@
                     android:layout_height="match_parent"
             >
 
+
                 <ImageView
                         android:id="@+id/itemAchieveImage"
                         android:layout_width="match_parent"
@@ -41,6 +42,8 @@
                         app:riv_border_color="#333333"
                         app:riv_mutate_background="true"
                         app:riv_oval="false"/>
+
+
 
                 <ImageView
                         android:background="@drawable/background_gradient_opacity"
@@ -61,6 +64,7 @@
                         app:layout_constraintStart_toStartOf="@id/itemAchieveImage"
                         style="@style/ContentsHeaderWhiteStyle"
                 />
+
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

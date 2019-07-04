@@ -36,13 +36,13 @@ val earthStatusList = arrayListOf(
 )
 
 val missionCategoryList = arrayListOf(
-    R.drawable.mission_category_greenlife,
-    R.drawable.mission_category_bear,
-    R.drawable.mission_category_fish,
-    R.drawable.mission_category_reduce,
-    R.drawable.mission_category_earth,
-    R.drawable.mission_category_desert,
-    R.drawable.mission_category_dust
+    R.drawable.mission_clear_greenlife,
+    R.drawable.mission_clear_bear,
+    R.drawable.mission_clear_fish,
+    R.drawable.mission_clear_reduce,
+    R.drawable.mission_clear_earth,
+    R.drawable.mission_clear_desert,
+    R.drawable.mission_clear_dust
 )
 
 val missionCategoryTitleList = arrayListOf(

@@ -9,17 +9,15 @@
             xmlns:app="http://schemas.android.com/apk/res-auto"
             xmlns:tools="http://schemas.android.com/tools"
             android:orientation="vertical"
-            android:layout_width="312dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_24dp"
-            android:layout_marginStart="@dimen/margin_24dp"
-            android:background="@drawable/border_image_corner">
+            android:layout_width="330dp"
+            android:layout_height="wrap_content">
 
         <ImageView
                 android:id="@+id/dialogImage"
                 android:layout_width="0dp"
-                android:layout_height="112dp"
-                android:src="@drawable/mission_category_bear"
+                android:layout_height="120dp"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"/>
