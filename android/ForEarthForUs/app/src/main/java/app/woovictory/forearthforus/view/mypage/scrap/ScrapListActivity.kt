@@ -13,10 +13,10 @@ import app.woovictory.forearthforus.view.mypage.adapter.ScrapListAdapter
 import app.woovictory.forearthforus.vm.mypage.ScrapListViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class ScrapListActivity : BaseActivity<ActivityScrapListBinding, ScrapListViewModel>() {
+class ScrapListActivity : BaseActivity<ActivityScrapListBinding>() {
     override val layoutResourceId: Int
         get() = R.layout.activity_scrap_list
-    override val viewModel: ScrapListViewModel by viewModel()
+    val viewModel: ScrapListViewModel by viewModel()
     //get() = ViewModelProviders.of(this@ScrapListActivity).get(ScrapListViewModel::class.java)
 
     private var scrapListAdapter: ScrapListAdapter? = null

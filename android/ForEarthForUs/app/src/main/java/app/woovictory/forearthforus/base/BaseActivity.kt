@@ -8,11 +8,10 @@ import androidx.databinding.ViewDataBinding
 /**
  * Created by VictoryWoo
  */
-abstract class BaseActivity<B : ViewDataBinding, V : BaseViewModel> : AppCompatActivity() {
+abstract class BaseActivity<B : ViewDataBinding> : AppCompatActivity() {
 
     lateinit var viewDataBinding: B
     abstract val layoutResourceId: Int
-    abstract val viewModel: V
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

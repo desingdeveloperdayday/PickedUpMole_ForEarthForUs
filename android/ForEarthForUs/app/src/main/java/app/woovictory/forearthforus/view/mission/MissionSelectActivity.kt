@@ -1,7 +1,6 @@
 package app.woovictory.forearthforus.view.mission
 
 import android.content.Context
-import android.content.Intent
 import android.graphics.Point
 import android.graphics.PorterDuff
 import android.os.Bundle
@@ -10,7 +9,6 @@ import android.view.View
 import android.view.WindowManager
 import android.widget.ImageView
 import android.widget.LinearLayout
-import androidx.core.app.ActivityOptionsCompat
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -25,15 +23,15 @@ import app.woovictory.forearthforus.view.mission.adapter.MissionSelectAdapter
 import app.woovictory.forearthforus.vm.mission.MissionSelectViewModel
 import kotlinx.android.synthetic.main.activity_mission_select.*
 import org.jetbrains.anko.startActivity
+import org.jetbrains.anko.toast
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
-class MissionSelectActivity : BaseActivity<ActivityMissionSelectBinding
-        , MissionSelectViewModel>() {
+class MissionSelectActivity : BaseActivity<ActivityMissionSelectBinding>() {
 
     override val layoutResourceId: Int
         get() = R.layout.activity_mission_select
-    override val viewModel: MissionSelectViewModel by viewModel()
+    val viewModel: MissionSelectViewModel by viewModel()
     private lateinit var items: ArrayList<MissionSelectResponse>
     private var missionSelectAdapter: MissionSelectAdapter? = null
     /*set(value) {
@@ -45,6 +43,9 @@ class MissionSelectActivity : BaseActivity<ActivityMissionSelectBinding
     }*/
 
     private lateinit var size: Point
+    private var categoryId: Int = 0
+    private var completeMessage: String = ""
+    private var clickId: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,7 +59,10 @@ class MissionSelectActivity : BaseActivity<ActivityMissionSelectBinding
     }
 
     private fun getData() {
-        val categoryId = intent.getIntExtra("categoryId", 0)
+        categoryId = intent.getIntExtra("categoryId", 0)
+        completeMessage = intent.getStringExtra("completeMessage")
+        Log.v("878723 Select", categoryId.toString())
+        Log.v("878723 Select", completeMessage)
         // viewModelFeed 에 missionSelectList 요청.
         viewModel.getMissionSelectList(categoryId)
         setToolbarTitle(categoryId)
@@ -96,8 +100,9 @@ class MissionSelectActivity : BaseActivity<ActivityMissionSelectBinding
     }
 
     private fun setUpRecyclerView() {
-        missionSelectAdapter = MissionSelectAdapter { i: Int, imageView: ImageView, url: String ->
-            startDetailActivity(i, imageView, url)
+        missionSelectAdapter = MissionSelectAdapter { id: Int, imageView: ImageView, url: String ->
+            clickId = id
+            startDetailActivity(id, imageView, url)
         }
 
         viewDataBinding.missionSelectRv.apply {
@@ -121,7 +126,9 @@ class MissionSelectActivity : BaseActivity<ActivityMissionSelectBinding
         // 미션 시작하기 버튼을 클릭해서 이동하면 이미 미션을 시작한 상태이기 때문에
         // 하단 탭 버튼은 그만두기 / 미션 완료하기 형태가 되어야 한다.
         viewModel.clickToMissionStart.observe(this, Observer {
-            startActivity<MissionDetailActivity>()
+            toast("준비 중입니다.")
+            // recyclerView 리스너 이용해서 보여지는 뷰의 포지션을 얻고 그에 해당하는 id 얻어야 함.
+            //startActivity<MissionDetailActivity>()
         })
 
         viewModel.missionSelectResponse.observe(this, Observer {
@@ -161,7 +168,10 @@ class MissionSelectActivity : BaseActivity<ActivityMissionSelectBinding
             }
     }*/
 
-    private fun startDetailActivity(categoryId: Int, imageView: ImageView, url: String) {
-        startActivity<MissionDetailActivity>("categoryId" to categoryId)
+    private fun startDetailActivity(id: Int, imageView: ImageView, url: String) {
+        startActivity<MissionDetailActivity>(
+            "id" to id,
+            "completeMessage" to completeMessage
+        )
     }
 }

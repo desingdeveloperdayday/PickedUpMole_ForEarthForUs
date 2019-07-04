@@ -15,7 +15,7 @@ import app.woovictory.forearthforus.vm.article.ArticleDetailViewModel
 import org.jetbrains.anko.toast
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class ArticleDetailActivity : BaseActivity<ActivityArticleDetailBinding, ArticleDetailViewModel>() {
+class ArticleDetailActivity : BaseActivity<ActivityArticleDetailBinding>() {
     override val layoutResourceId: Int
         get() = R.layout.activity_article_detail
     var campaignId: String = ""
@@ -28,7 +28,7 @@ class ArticleDetailActivity : BaseActivity<ActivityArticleDetailBinding, Article
     * TODO
     * ViewModel 초기화에 대해서 조금 더 찾아보기.
     * */
-    override val viewModel: ArticleDetailViewModel by viewModel()
+    val viewModel: ArticleDetailViewModel by viewModel()
     //ViewModelProviders.of(this).get(ArticleDetailViewModel::class.java)
     private var articleDetailAdapter: ArticleDetailAdapter? = null
         set(value) {

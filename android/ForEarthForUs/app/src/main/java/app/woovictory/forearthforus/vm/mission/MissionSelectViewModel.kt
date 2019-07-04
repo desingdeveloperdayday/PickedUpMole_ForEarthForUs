@@ -28,6 +28,7 @@ class MissionSelectViewModel(private val missionSelectListRepository: MissionSel
     val isLoading: LiveData<Boolean>
         get() = _isLoading
 
+
     init {
         _isLoading.value = true
     }

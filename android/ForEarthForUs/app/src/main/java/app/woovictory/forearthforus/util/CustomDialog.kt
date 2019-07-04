@@ -7,13 +7,17 @@ import android.os.Bundle
 import android.view.View
 import app.woovictory.forearthforus.MainActivity
 import app.woovictory.forearthforus.R
+import app.woovictory.forearthforus.util.glide.GlideApp
 import kotlinx.android.synthetic.main.custom_dialog.*
 
 /**
  * Created by VictoryWoo
  * TODO : DataBinding 으로 변경하기.
  */
-class CustomDialog(context: Context) : Dialog(context), View.OnClickListener {
+class CustomDialog(
+    context: Context, val categoryId: Int,
+    val title: String, val completeMessage: String
+) : Dialog(context), View.OnClickListener {
 
     private val layout = R.layout.custom_dialog
 /*    private val bind = CustomDialogBinding.inflate(LayoutInflater.from(context))
@@ -29,6 +33,15 @@ class CustomDialog(context: Context) : Dialog(context), View.OnClickListener {
 
     private fun init() {
         dialogOkayButton.setOnClickListener(this)
+        setUpDialog(categoryId)
+    }
+
+    private fun setUpDialog(categoryId: Int) {
+        dialogText.text = title
+        dialogContent.text = completeMessage
+        GlideApp.with(context)
+            .load(missionCategoryList[categoryId - 1])
+            .into(dialogImage)
     }
 
     /*   class CustomBuilder(context: Context) {
@@ -56,9 +69,9 @@ class CustomDialog(context: Context) : Dialog(context), View.OnClickListener {
                 dismiss()
                 SharedPreferenceManager.missionCompleteStatus = false
                 SharedPreferenceManager.missionCompleteCount--
-                /*val intent = Intent(context, MainActivity::class.java)
+                val intent = Intent(context, MainActivity::class.java)
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                context.startActivity(intent)*/
+                context.startActivity(intent)
             }
         }
     }

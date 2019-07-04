@@ -9,7 +9,7 @@ import app.woovictory.forearthforus.model.mission.MissionFeedResponse
 /**
  * Created by VictoryWoo
  */
-class MainMissionAdapter(private var onMainMissionItemClick: (Int) -> Unit) :
+class MainMissionAdapter(private var onMainMissionItemClick: (Int, String) -> Unit) :
     RecyclerView.Adapter<MainMissionViewHolder>() {
 
     private var itemsMock = ArrayList<MissionFeedResponse>()

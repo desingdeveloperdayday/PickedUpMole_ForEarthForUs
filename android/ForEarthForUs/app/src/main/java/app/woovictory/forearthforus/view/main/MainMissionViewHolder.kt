@@ -1,5 +1,6 @@
 package app.woovictory.forearthforus.view.main
 
+import android.util.Log
 import androidx.recyclerview.widget.RecyclerView
 import app.woovictory.forearthforus.databinding.ItemListMainMissionBinding
 import app.woovictory.forearthforus.model.mission.MissionFeedResponse
@@ -9,7 +10,7 @@ import app.woovictory.forearthforus.model.mission.MissionFeedResponse
  */
 class MainMissionViewHolder(
     private val binding: ItemListMainMissionBinding
-    , private val onMainMissionItemClick: (Int) -> Unit
+    , private val onMainMissionItemClick: (Int, String) -> Unit
 ) : RecyclerView.ViewHolder(binding.root) {
 
     fun onBind(item: MissionFeedResponse) {
@@ -17,7 +18,9 @@ class MainMissionViewHolder(
         binding.executePendingBindings()
 
         binding.itemMainImage.setOnClickListener {
-            onMainMissionItemClick.invoke(item.mission.id)
+            Log.v("2010023 mainMissionholder 1",item.mission.category.categoryId.toString())
+            Log.v("2010023 mainMissionholder 2",item.mission.id.toString())
+            onMainMissionItemClick.invoke(item.mission.id, item.mission.category.completeMessage)
         }
 
     }

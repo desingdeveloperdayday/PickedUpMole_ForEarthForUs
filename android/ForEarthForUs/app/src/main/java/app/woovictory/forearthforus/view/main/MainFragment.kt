@@ -3,15 +3,12 @@ package app.woovictory.forearthforus.view.main
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import app.woovictory.forearthforus.MainActivity
 import app.woovictory.forearthforus.R
+import app.woovictory.forearthforus.base.BaseFragment
 import app.woovictory.forearthforus.databinding.FragmentMainBinding
 import app.woovictory.forearthforus.util.SharedPreferenceManager
 import app.woovictory.forearthforus.util.earthLevelList
@@ -25,7 +22,10 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 /**
  * Created by VictoryWoo
  */
-class MainFragment : Fragment() {
+class MainFragment : BaseFragment<FragmentMainBinding, MainViewModel>() {
+    override val layoutResourceId: Int
+        get() = R.layout.fragment_main
+    override val viewModel: MainViewModel by viewModel()
 
     companion object {
         fun newInstance(): MainFragment {
@@ -33,29 +33,21 @@ class MainFragment : Fragment() {
         }
     }
 
-    private lateinit var fragmentMainBinding: FragmentMainBinding
     private var mainMissionAdapter: MainMissionAdapter? = null
-    private val mainViewModel: MainViewModel by viewModel()
 
     //get() = ViewModelProviders.of(this@MainFragment).get(MainViewModel::class.java)
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        fragmentMainBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_main, container, false)
-        return fragmentMainBinding.root
-    }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        init()
-        setUpViewModel()
-        setUpDataBinding()
+        initStartView()
+        subscribeViewModel()
     }
 
     override fun onResume() {
         super.onResume()
-
-        mainViewModel.getInformation()
-        mainViewModel.getUserInformation()
+        viewModel.getInformation()
+        viewModel.getUserInformation()
 
         /*   if (SharedPreferenceManager.missionCompleteCount >= 0) {
                Log.v("99201", "reload 시점!!")
@@ -68,46 +60,42 @@ class MainFragment : Fragment() {
            }*/
     }
 
-    private fun init() {
-        mainMissionAdapter = MainMissionAdapter {
-            startToDetailActivity(it)
-        }
-        fragmentMainBinding.itemMainEarthUserName.text = SharedPreferenceManager.userName
-    }
-
-    private fun setUpViewModel() {
-        fragmentMainBinding.apply {
-            vm = mainViewModel
+    override fun initStartView() {
+        viewDataBinding.apply {
+            vm = viewModel
             lifecycleOwner = this@MainFragment
+            itemMainEarthUserName.text = SharedPreferenceManager.userName
         }
+
+        mainMissionAdapter = MainMissionAdapter { id, message ->
+            startToDetailActivity(id, message)
+        }
+
+        viewModel.getInformation()
     }
 
-    private fun setUpDataBinding() {
-        mainViewModel.getInformation()
-
-        mainViewModel.clickToEarthDetail.observe(this, Observer {
+    override fun subscribeViewModel() {
+        viewModel.clickToEarthDetail.observe(this, Observer {
             startActivity<EarthDetailActivity>()
         })
 
-        mainViewModel.earthResponse.observe(this, Observer {
+        viewModel.earthResponse.observe(this, Observer {
             Log.v("40032", it.earthLevel.toString())
             Log.v("40032 ee", it.toString())
             setEarthLevel(it.earthLevel)
             //eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMiwidXNlcm5hbWUiOiJsc3dAbHN3LmNvbSIsImV4cCI6MTU2MjIzODQ1OSwiZW1haWwiOiJsc3dAbHN3LmNvbSJ9.8XHuyEPqeuhlAJ-U-ZrmyfxwAHqTHzC4pIwFrLADTLg
         })
 
-        mainViewModel.missionFeedResponse.observe(this, Observer {
-            Log.v("22883", it.size.toString())
+        viewModel.missionFeedResponse.observe(this, Observer {
             if (it.size > 0) {
-                fragmentMainBinding.apply {
+                viewDataBinding.apply {
                     mainRv.visibility = View.VISIBLE
                     mainNullIconImage.visibility = View.GONE
                     mainMissionAdapter?.addItems(it)
                     setUpRecyclerView()
                 }
             } else {
-                fragmentMainBinding.apply {
-
+                viewDataBinding.apply {
                     mainNullIconImage.visibility = View.VISIBLE
                     mainNullIconImage.let { imageView ->
                         imageView.visibility = View.VISIBLE
@@ -121,24 +109,27 @@ class MainFragment : Fragment() {
             }
         })
 
-        mainViewModel.isLoading.observe(this, Observer { loading ->
+        viewModel.isLoading.observe(this, Observer { loading ->
             if (loading) {
-                fragmentMainBinding.loading.visibility = View.VISIBLE
+                viewDataBinding.loading.visibility = View.VISIBLE
             } else {
-                fragmentMainBinding.loading.visibility = View.GONE
+                viewDataBinding.loading.visibility = View.GONE
             }
         })
 
-        mainViewModel.earthUserResponse.observe(this, Observer {
+        // earthUserResponse 구독
+        // earthLevel 이 다르다면 viewModel 의 getInformation()을 호출함으로써
+        // 통신을 한 번 더 진행한다. 이를 통해서 earthLevel 을 받아온다.
+        viewModel.earthUserResponse.observe(this, Observer {
             if (SharedPreferenceManager.earthLevel != it.earthLevel) {
                 SharedPreferenceManager.earthLevel = it.earthLevel
-                mainViewModel.getInformation()
+                viewModel.getInformation()
             }
         })
     }
 
     private fun setUpRecyclerView() {
-        fragmentMainBinding.mainRv.apply {
+        viewDataBinding.mainRv.apply {
             layoutManager = LinearLayoutManager(context.applicationContext)
             adapter = mainMissionAdapter
             setHasFixedSize(true)
@@ -146,13 +137,15 @@ class MainFragment : Fragment() {
     }
 
     private fun setEarthLevel(earthLevel: Int) {
-        loadDrawableImage(fragmentMainBinding.mainBarGraph, earthLevelList[earthLevel - 1])
+        loadDrawableImage(viewDataBinding.mainBarGraph, earthLevelList[earthLevel - 1])
     }
 
-    private fun startToDetailActivity(id: Int) {
+    private fun startToDetailActivity(id: Int, message: String) {
         val intent = Intent(context, MissionDetailActivity::class.java)
-        intent.putExtra("categoryId", id)
-        intent.putExtra("url", "main")
+        intent.putExtra("id", id)
+        Log.v("2991230",id.toString())
+        intent.putExtra("completeMessage", message)
+        intent.putExtra("main","main")
         startActivity(intent)
     }
 }

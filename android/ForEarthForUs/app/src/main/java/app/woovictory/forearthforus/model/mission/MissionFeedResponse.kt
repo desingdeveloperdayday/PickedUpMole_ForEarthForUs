@@ -17,7 +17,7 @@ data class MissionFeedResponse(
 ) {
     data class Category(
         @SerializedName("categoryId")
-        var categoryId: Int?,
+        var categoryId: Int,
         @SerializedName("image")
         var image: String,
         @SerializedName("completeMessage")

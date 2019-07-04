@@ -25,7 +25,8 @@ class MissionSelectViewHolder(
             // invoke() 함수는 정의한 missionSelectItemClickListener 함수를 호출하는 역할이다.
             //Log.v("878723","3")
             missionSelectItemClickListener?.invoke(item.id, binding.itemMissionSelectImage, item.image)
-            Log.v("878723", item.id.toString())
+            Log.v("878723 select ViewHolder id", item.id.toString())
+            Log.v("878723 select ViewHolder id", item.title)
         }
 
     }

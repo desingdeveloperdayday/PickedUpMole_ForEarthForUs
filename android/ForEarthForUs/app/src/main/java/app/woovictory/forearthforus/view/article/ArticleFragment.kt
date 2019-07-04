@@ -5,19 +5,14 @@ import android.content.Intent
 import android.graphics.Point
 import android.net.Uri
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.LinearLayout
-import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import app.woovictory.forearthforus.R
+import app.woovictory.forearthforus.base.BaseFragment
 import app.woovictory.forearthforus.databinding.FragmentArticleBinding
-import app.woovictory.forearthforus.model.article.DonationResponse
 import app.woovictory.forearthforus.util.ItemDecoration
 import app.woovictory.forearthforus.util.SharedPreferenceManager
 import app.woovictory.forearthforus.view.article.adapter.ArticleEarthAdapter
@@ -30,7 +25,10 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 /**
  * Created by VictoryWoo
  */
-class ArticleFragment : Fragment() {
+class ArticleFragment : BaseFragment<FragmentArticleBinding, ArticleViewModel>() {
+    override val layoutResourceId: Int
+        get() = R.layout.fragment_article
+    override val viewModel: ArticleViewModel by viewModel()
 
     companion object {
         fun newInstance(): ArticleFragment {
@@ -38,10 +36,6 @@ class ArticleFragment : Fragment() {
         }
     }
 
-    private lateinit var fragmentArticleBinding: FragmentArticleBinding
-    private val articleViewModel: ArticleViewModel by viewModel()
-
-    private lateinit var itemDonationList: ArrayList<DonationResponse>
     private lateinit var size: Point
     private var articleEarthAdapter: ArticleEarthAdapter? = null
         set(value) {
@@ -57,64 +51,53 @@ class ArticleFragment : Fragment() {
             }
         }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        fragmentArticleBinding = DataBindingUtil.inflate(
-            inflater, R.layout.fragment_article, container
-            , false
-        )
-        return fragmentArticleBinding.root
-    }
-
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-
-        // 요청.
-        articleViewModel.getDonationList(SharedPreferenceManager.token)
-        articleViewModel.getArticleList(SharedPreferenceManager.token)
-
         initAdapter()
         getWindowSize()
         addSnapHelper()
-        setViewModel()
-        setUpDataBinding()
+        initStartView()
+        subscribeViewModel()
     }
 
+    // adapter 초기화.
     private fun initAdapter() {
-        // adapter 초기화.
         articleEarthAdapter = ArticleEarthAdapter()
         articleListAdapter = ArticleListAdapter()
     }
 
-    private fun setViewModel() {
-        fragmentArticleBinding.apply {
-            viewModel = articleViewModel
+    override fun initStartView() {
+        viewDataBinding.apply {
+            vm = viewModel
             lifecycleOwner = this@ArticleFragment
         }
+
+        // 요청.
+        viewModel.getDonationList(SharedPreferenceManager.token)
+        viewModel.getArticleList(SharedPreferenceManager.token)
     }
 
-    private fun setUpDataBinding() {
-        articleViewModel.clickToArticleEarthDetail.observe(this, Observer {
+    override fun subscribeViewModel() {
+        viewModel.clickToArticleEarthDetail.observe(this, Observer {
             startActivity<ArticleDetailActivity>("key" to "For Earth")
         })
-        articleViewModel.clickToArticleUsDetail.observe(this, Observer {
+        viewModel.clickToArticleUsDetail.observe(this, Observer {
             startActivity<ArticleDetailActivity>("key" to "For Us")
         })
 
-        articleViewModel.donationResponse.observe(this, Observer {
+        viewModel.donationResponse.observe(this, Observer {
             if (it.isNotEmpty()) {
                 articleEarthAdapter?.addItem(it)
             }
         })
 
-        articleViewModel.articleResponse.observe(this, Observer {
-            if(it.isNotEmpty()){
+        viewModel.articleResponse.observe(this, Observer {
+            if (it.isNotEmpty()) {
                 articleListAdapter?.addItem(it)
+                setUpRecyclerView()
             }
         })
-
-        setUpRecyclerView()
     }
-
 
     private fun getWindowSize() {
         val windowManager = activity?.applicationContext?.getSystemService(Context.WINDOW_SERVICE)
@@ -127,7 +110,7 @@ class ArticleFragment : Fragment() {
 
     private fun setUpRecyclerView() {
         // Donation RecyclerView
-        fragmentArticleBinding.articleEarthRv.apply {
+        viewDataBinding.articleEarthRv.apply {
             adapter = articleEarthAdapter
             layoutManager = LinearLayoutManager(context.applicationContext, LinearLayout.HORIZONTAL, false)
             addItemDecoration(ItemDecoration(size.x / 80, size.x / 20))
@@ -135,7 +118,7 @@ class ArticleFragment : Fragment() {
         }
 
         // 아티클 리싸이클러뷰
-        fragmentArticleBinding.articleUsRv.apply {
+        viewDataBinding.articleUsRv.apply {
             adapter = articleListAdapter
             layoutManager = LinearLayoutManager(activity?.applicationContext, LinearLayout.HORIZONTAL, false)
             addItemDecoration(ItemDecoration(size.x / 110, size.x / 20))
@@ -145,10 +128,10 @@ class ArticleFragment : Fragment() {
 
     private fun addSnapHelper() {
         var pagerSnapHelper = PagerSnapHelper()
-        pagerSnapHelper.attachToRecyclerView(fragmentArticleBinding.articleEarthRv)
+        pagerSnapHelper.attachToRecyclerView(viewDataBinding.articleEarthRv)
         //PagerSnapHelper().attachToRecyclerView(fragmentArticleBinding.articleEarthRv)
         pagerSnapHelper = PagerSnapHelper()
-        pagerSnapHelper.attachToRecyclerView(fragmentArticleBinding.articleUsRv)
+        pagerSnapHelper.attachToRecyclerView(viewDataBinding.articleUsRv)
 
     }
 
@@ -156,7 +139,5 @@ class ArticleFragment : Fragment() {
         val intent = Intent(Intent.ACTION_VIEW)
         intent.data = Uri.parse(link)
         startActivity(intent)
-        //toast("$link 눌림")
     }
-
 }

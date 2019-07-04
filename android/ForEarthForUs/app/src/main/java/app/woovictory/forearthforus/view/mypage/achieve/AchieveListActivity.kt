@@ -19,11 +19,11 @@ import app.woovictory.forearthforus.vm.mypage.AchieveListViewModel
 import org.jetbrains.anko.dip
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class AchieveListActivity : BaseActivity<ActivityAchieveListBinding, AchieveListViewModel>() {
+class AchieveListActivity : BaseActivity<ActivityAchieveListBinding>() {
 
     override val layoutResourceId: Int
         get() = R.layout.activity_achieve_list
-    override val viewModel: AchieveListViewModel by viewModel()
+    val viewModel: AchieveListViewModel by viewModel()
 
     //ViewModelProviders.of(this@AchieveListActivity).get(AchieveListViewModel::class.java)
     private var achieveListAdapter = AchieveListAdapter()
