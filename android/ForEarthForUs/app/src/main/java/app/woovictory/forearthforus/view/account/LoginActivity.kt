@@ -15,10 +15,10 @@ import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
+class LoginActivity : BaseActivity<ActivityLoginBinding>() {
     override val layoutResourceId: Int
         get() = R.layout.activity_login
-    override val viewModel: LoginViewModel by viewModel()
+    val viewModel: LoginViewModel by viewModel()
     private val tag = javaClass.simpleName
 
     var loginEmailFlag: Boolean = false

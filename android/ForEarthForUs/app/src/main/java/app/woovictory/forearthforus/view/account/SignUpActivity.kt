@@ -15,10 +15,10 @@ import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class SignUpActivity : BaseActivity<ActivitySignUpBinding, SignUpViewModel>() {
+class SignUpActivity : BaseActivity<ActivitySignUpBinding>() {
     override val layoutResourceId: Int
         get() = R.layout.activity_sign_up
-    override val viewModel: SignUpViewModel by viewModel()
+    val viewModel: SignUpViewModel by viewModel()
 
     var emailFlag: Boolean = false
     var nameFlag: Boolean = false

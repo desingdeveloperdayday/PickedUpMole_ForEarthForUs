@@ -11,14 +11,14 @@
             tools:context=".view.mission.MissionCompleteWriteActivity"
             android:background="@color/fe_fu_white">
 
-<!--        <androidx.appcompat.widget.Toolbar
-                android:id="@+id/missionCompleteWriteToolbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                app:elevation="0dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>-->
+        <!--        <androidx.appcompat.widget.Toolbar
+                        android:id="@+id/missionCompleteWriteToolbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="?attr/actionBarSize"
+                        app:elevation="0dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>-->
 
 
         <RelativeLayout
@@ -35,16 +35,17 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_centerVertical="true"
+                    android:onClick="@{()-> vm.clickToBackMission()}"
                     android:paddingStart="@dimen/padding_24dp"
                     android:paddingEnd="@dimen/padding_24dp"
-                    android:src="@drawable/back_button"/>
+                    android:src="@drawable/back_button"
+                    android:background="?android:attr/selectableItemBackground"/>
 
         </RelativeLayout>
 
 
         <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/missionCompleteWriteImage"
-                android:src="@drawable/fufe_illust_jh_04"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_marginStart="@dimen/margin_24dp"
@@ -112,7 +113,6 @@
         />
 
 
-
         <EditText
                 android:id="@+id/missionCompleteEt"
                 android:layout_marginTop="16dp"
@@ -122,6 +122,10 @@
                 android:hint="@string/text_mission_complete_write_hint"
                 android:gravity="top"
                 android:maxLength="100"
+                android:inputType="textMultiLine"
+                android:singleLine="false"
+                android:scrollHorizontally="false"
+                android:imeOptions="actionNext"
                 android:background="@color/fe_fu_background"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

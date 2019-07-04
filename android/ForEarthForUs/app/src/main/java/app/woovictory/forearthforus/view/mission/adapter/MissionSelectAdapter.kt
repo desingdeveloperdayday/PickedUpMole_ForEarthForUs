@@ -26,7 +26,6 @@ class MissionSelectAdapter(private var onMissionSelectItemClickListener: (Int, I
             LayoutInflater.from(parent.context)
             , parent, false
         )
-        Log.v("878723", "2")
         return MissionSelectViewHolder(binding, onMissionSelectItemClickListener)
     }
 

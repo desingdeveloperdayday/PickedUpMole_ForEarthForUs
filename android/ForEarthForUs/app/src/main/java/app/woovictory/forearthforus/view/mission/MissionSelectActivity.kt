@@ -28,12 +28,11 @@ import org.jetbrains.anko.startActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
-class MissionSelectActivity : BaseActivity<ActivityMissionSelectBinding
-        , MissionSelectViewModel>() {
+class MissionSelectActivity : BaseActivity<ActivityMissionSelectBinding>() {
 
     override val layoutResourceId: Int
         get() = R.layout.activity_mission_select
-    override val viewModel: MissionSelectViewModel by viewModel()
+    val viewModel: MissionSelectViewModel by viewModel()
     private lateinit var items: ArrayList<MissionSelectResponse>
     private var missionSelectAdapter: MissionSelectAdapter? = null
     /*set(value) {
@@ -45,6 +44,8 @@ class MissionSelectActivity : BaseActivity<ActivityMissionSelectBinding
     }*/
 
     private lateinit var size: Point
+    private var categoryId: Int = 0
+    private var completeMessage: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,7 +59,10 @@ class MissionSelectActivity : BaseActivity<ActivityMissionSelectBinding
     }
 
     private fun getData() {
-        val categoryId = intent.getIntExtra("categoryId", 0)
+        categoryId = intent.getIntExtra("categoryId", 0)
+        completeMessage = intent.getStringExtra("completeMessage")
+        Log.v("878723 Select", categoryId.toString())
+        Log.v("878723 Select", completeMessage)
         // viewModelFeed 에 missionSelectList 요청.
         viewModel.getMissionSelectList(categoryId)
         setToolbarTitle(categoryId)
@@ -96,8 +100,8 @@ class MissionSelectActivity : BaseActivity<ActivityMissionSelectBinding
     }
 
     private fun setUpRecyclerView() {
-        missionSelectAdapter = MissionSelectAdapter { i: Int, imageView: ImageView, url: String ->
-            startDetailActivity(i, imageView, url)
+        missionSelectAdapter = MissionSelectAdapter { id: Int, imageView: ImageView, url: String ->
+            startDetailActivity(id, imageView, url)
         }
 
         viewDataBinding.missionSelectRv.apply {
@@ -161,7 +165,10 @@ class MissionSelectActivity : BaseActivity<ActivityMissionSelectBinding
             }
     }*/
 
-    private fun startDetailActivity(categoryId: Int, imageView: ImageView, url: String) {
-        startActivity<MissionDetailActivity>("categoryId" to categoryId)
+    private fun startDetailActivity(id: Int, imageView: ImageView, url: String) {
+        startActivity<MissionDetailActivity>(
+            "id" to id,
+            "completeMessage" to completeMessage
+        )
     }
 }

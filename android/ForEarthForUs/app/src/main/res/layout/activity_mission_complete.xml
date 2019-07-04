@@ -8,16 +8,16 @@
             android:layout_height="match_parent"
             tools:context=".view.mission.MissionCompleteActivity"
             android:background="@color/fe_fu_white">
-      <!--  <com.google.android.material.appbar.AppBarLayout
-                android:id="@+id/missionCompleteAppbar"
-                android:layout_width="0dp"
-                android:layout_height="?attr/actionBarSize"
-                app:elevation="0dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+        <!--  <com.google.android.material.appbar.AppBarLayout
+                  android:id="@+id/missionCompleteAppbar"
+                  android:layout_width="0dp"
+                  android:layout_height="?attr/actionBarSize"
+                  app:elevation="0dp"
+                  app:layout_constraintStart_toStartOf="parent"
+                  app:layout_constraintEnd_toEndOf="parent"
+                  app:layout_constraintTop_toTopOf="parent">
 
-        </com.google.android.material.appbar.AppBarLayout>-->
+          </com.google.android.material.appbar.AppBarLayout>-->
 
         <RelativeLayout
                 android:id="@+id/missionCompleteToolbar"
@@ -35,7 +35,8 @@
                     android:layout_centerVertical="true"
                     android:paddingStart="@dimen/padding_24dp"
                     android:paddingEnd="@dimen/padding_24dp"
-                    android:src="@drawable/back_button"/>
+                    android:src="@drawable/back_button"
+                    android:background="?android:attr/selectableItemBackground"/>
 
         </RelativeLayout>
 
@@ -56,8 +57,8 @@
                 android:id="@+id/missionCompleteImage"
                 android:layout_width="176dp"
                 android:layout_height="176dp"
-                android:src="@drawable/fufe_illust_jh_04"
                 android:layout_marginTop="@dimen/margin_32dp"
+                android:scaleType="centerCrop"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/missionCompleteTitle"/>

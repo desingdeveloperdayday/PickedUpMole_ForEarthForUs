@@ -22,16 +22,19 @@ import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class MissionDetailActivity : BaseActivity<ActivityMissionDetailBinding, MissionDetailViewModel>(),
+class MissionDetailActivity : BaseActivity<ActivityMissionDetailBinding>(),
     AppBarLayout.OnOffsetChangedListener {
     override val layoutResourceId: Int
         get() = R.layout.activity_mission_detail
-    override val viewModel: MissionDetailViewModel by viewModel()
+    val viewModel: MissionDetailViewModel by viewModel()
 
-    private var categoryId: Int = 0
+    private var id: Int = 0
+    private var category: Int=0
     private var url: String = ""
     private var feedId: String = ""
     private var title: String = ""
+    private var imageUrl: String = ""
+    private var completeMessage: String = ""
 
     override fun onEnterAnimationComplete() {
         super.onEnterAnimationComplete()
@@ -50,7 +53,14 @@ class MissionDetailActivity : BaseActivity<ActivityMissionDetailBinding, Mission
 
     @SuppressLint("CheckResult")
     private fun getData() {
-        categoryId = intent.getIntExtra("categoryId", 0)
+        id = intent.getIntExtra("id", 0)
+        completeMessage = intent.getStringExtra("completeMessage")
+
+        // main 에서 왔을 때.
+        if(intent.getStringExtra("main") !=null){
+
+        }
+
         //url = intent.getStringExtra("url")
         //Log.v("21032", url)
 
@@ -58,7 +68,7 @@ class MissionDetailActivity : BaseActivity<ActivityMissionDetailBinding, Mission
             viewDataBinding.missionDetailImage.transitionName = url
             GlideApp.with(this).load(url).into(viewDataBinding.missionDetailImage)
         }*/
-        viewModel.getMissionDetailInformation(SharedPreferenceManager.token, categoryId)
+
     }
 
 
@@ -67,10 +77,10 @@ class MissionDetailActivity : BaseActivity<ActivityMissionDetailBinding, Mission
             vm = viewModel
             lifecycleOwner = this@MissionDetailActivity
         }
+        viewModel.getMissionDetailInformation(SharedPreferenceManager.token, id)
     }
 
     override fun initDataBinding() {
-
         viewDataBinding.missionDetailToolbar.setNavigationOnClickListener {
             onBackPressed()
             Log.v("18238", it.toString())
@@ -79,7 +89,11 @@ class MissionDetailActivity : BaseActivity<ActivityMissionDetailBinding, Mission
         viewModel.missionDetailResponse.observe(this, Observer {
             feedId = it.feedId
             title = it.title
+            imageUrl = it.image
+            category = it.category
             Log.v("2010023 detail", feedId)
+            Log.v("2010023 detail", it.image)
+            Log.v("2010023 category", it.category.toString())
             if (it.status == MISSION_STATUS_PROGRESS) {
                 viewDataBinding.apply {
                     missionDetailSelectButtonLayout.visibility = View.GONE
@@ -98,7 +112,7 @@ class MissionDetailActivity : BaseActivity<ActivityMissionDetailBinding, Mission
 
         // 미션 선택
         viewModel.clickToMissionSelect.observe(this, Observer {
-            val mission = MissionSelectRequest(categoryId)
+            val mission = MissionSelectRequest(id)
             viewModel.postMissionSelect(SharedPreferenceManager.token, mission)
             //startActivity<MissionCompleteActivity>()
         })
@@ -124,8 +138,12 @@ class MissionDetailActivity : BaseActivity<ActivityMissionDetailBinding, Mission
         // 미션 완료하기 버튼 클릭.
         viewModel.clickToMissionComplete.observe(this, Observer {
             startActivity<MissionCompleteActivity>(
-                "id" to feedId
-                , "title" to title
+                "feedId" to feedId,
+                "title" to title,
+                "imageUrl" to imageUrl,
+                "id" to id,
+                "completeMessage" to completeMessage,
+                "category" to category
             )
         })
     }

@@ -17,7 +17,7 @@ import org.jetbrains.anko.textColor
 import org.jetbrains.anko.toast
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class FieldSelectActivity : BaseActivity<ActivityFieldSelectBinding, FieldSelectViewModel>(), View.OnClickListener {
+class FieldSelectActivity : BaseActivity<ActivityFieldSelectBinding>(), View.OnClickListener {
 
     private fun checkSelected(imageView: ImageView, textView: TextView, number: Int) {
         imageView.isSelected = !imageView.isSelected
@@ -38,7 +38,7 @@ class FieldSelectActivity : BaseActivity<ActivityFieldSelectBinding, FieldSelect
 
     override val layoutResourceId: Int
         get() = R.layout.activity_field_select
-    override val viewModel: FieldSelectViewModel by viewModel()
+    val viewModel: FieldSelectViewModel by viewModel()
     private var preferList: MutableList<Int> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {

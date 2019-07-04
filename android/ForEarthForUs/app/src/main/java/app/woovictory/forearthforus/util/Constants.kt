@@ -35,6 +35,16 @@ val earthStatusList = arrayListOf(
     R.drawable.earth_8
 )
 
+val missionCategoryList = arrayListOf(
+    R.drawable.mission_category_greenlife,
+    R.drawable.mission_category_bear,
+    R.drawable.mission_category_fish,
+    R.drawable.mission_category_reduce,
+    R.drawable.mission_category_earth,
+    R.drawable.mission_category_desert,
+    R.drawable.mission_category_dust
+)
+
 val missionCategoryTitleList = arrayListOf(
     "실천하는 그린 라이프",
     "갈 곳 잃은 북극곰을 구해주세요",

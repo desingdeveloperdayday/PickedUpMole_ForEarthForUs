@@ -19,10 +19,10 @@ import org.jetbrains.anko.dip
 import org.jetbrains.anko.textColor
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class EarthDetailActivity : BaseActivity<ActivityEarthDetailBinding, AchieveListViewModel>() {
+class EarthDetailActivity : BaseActivity<ActivityEarthDetailBinding>() {
     override val layoutResourceId: Int
         get() = R.layout.activity_earth_detail
-    override val viewModel: AchieveListViewModel by viewModel()
+    val viewModel: AchieveListViewModel by viewModel()
     //get() = ViewModelProviders.of(this@EarthDetailActivity).get(AchieveListViewModel::class.java)
 
     private var achieveListAdapter = AchieveListAdapter()

@@ -8,7 +8,6 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import app.woovictory.forearthforus.base.BaseActivity
-import app.woovictory.forearthforus.base.BaseViewModel
 import app.woovictory.forearthforus.databinding.ActivityMainBinding
 import app.woovictory.forearthforus.util.TAG
 import app.woovictory.forearthforus.util.TIME_INTERVAL
@@ -16,20 +15,16 @@ import app.woovictory.forearthforus.view.article.ArticleFragment
 import app.woovictory.forearthforus.view.category.MissionCategoryFragment
 import app.woovictory.forearthforus.view.main.MainFragment
 import app.woovictory.forearthforus.view.mypage.MyPageFragment
-import app.woovictory.forearthforus.vm.main.MainViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.google.android.material.bottomnavigation.BottomNavigationMenuView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.toast
-import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class MainActivity : BaseActivity<ActivityMainBinding, BaseViewModel>() {
+class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     override val layoutResourceId: Int
         get() = R.layout.activity_main
-
-    override val viewModel: MainViewModel by viewModel()
 
     //get() = ViewModelProviders.of(this@MainActivity).get(MainViewModel::class.java)
 
@@ -73,7 +68,6 @@ class MainActivity : BaseActivity<ActivityMainBinding, BaseViewModel>() {
     }
 
     private fun addFragmentBasedOnId(itemId: Int) {
-        Log.v("001230", itemId.toString())
         when (itemId) {
             R.id.navigation_main -> {
                 changeFragment(active, mainFragment)
