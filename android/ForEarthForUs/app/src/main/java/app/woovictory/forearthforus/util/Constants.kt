@@ -13,6 +13,17 @@ const val LEVEL = "LV."
 const val TIME_INTERVAL: Long = 2000
 const val MISSION_STATUS_COMPLETE: String = "complete"
 const val MISSION_STATUS_PROGRESS: String = "progress"
+const val MISSION_STATUS_NEW: String = "new"
+const val NAME = "ForEarth"
+const val PREF_USER_TOKEN = "ForEarthForUs"
+const val PREF_EARTH_LEVEL = "EarthLevel"
+const val PREF_USER_NAME = "UserName"
+const val PREF_USER_ID = "UserId"
+const val PREF_USER_EMAIL = "UserEmail"
+const val PREF_USER_CONTENT = "UserContent"
+const val PREF_USER_MISSION_COMPLETE_STATUS = "UserStatus"
+const val PREF_USER_MISSION_COMPLETE_COUNT = "UserCount"
+const val PREF_USER_FIRST_STATE = "UserFirstState"
 val earthLevelList = arrayListOf(
     R.drawable.main_bar_graph1,
     R.drawable.main_bar_graph2,

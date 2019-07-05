@@ -9,23 +9,12 @@ import android.content.SharedPreferences
  * 사용 시 token 과 같은 변수 추가해서 사용하면 된다.
  */
 object SharedPreferenceManager {
-
-    private const val NAME = "ForEarth"
-    private const val PREF_USER_TOKEN = "ForEarthForUs"
-    private const val PREF_EARTH_LEVEL = "EarthLevel"
-    private const val PREF_USER_NAME = "UserName"
-    private const val PREF_USER_ID = "UserId"
-    private const val PREF_USER_EMAIL = "UserEmail"
-    private const val PREF_USER_CONTENT = "UserContent"
-    private const val PREF_USER_MISSION_COMPLETE_STATUS = "UserStatus"
-    private const val PREF_USER_MISSION_COMPLETE_COUNT = "UserCount"
     private const val MODE = Context.MODE_PRIVATE
     private lateinit var preferences: SharedPreferences
 
     fun init(context: Context) {
         preferences = context.getSharedPreferences(NAME, MODE)
     }
-
 
     private inline fun SharedPreferences.edit(operation: (SharedPreferences.Editor) -> Unit) {
         val editor = edit()
@@ -85,5 +74,11 @@ object SharedPreferenceManager {
         get() = preferences.getInt(PREF_USER_MISSION_COMPLETE_COUNT, 0)
         set(value) = preferences.edit {
             it.putInt(PREF_USER_MISSION_COMPLETE_COUNT, value)
+        }
+
+    var userFirstState: Boolean
+        get() = preferences.getBoolean(PREF_USER_FIRST_STATE, false)
+        set(value) = preferences.edit {
+            it.putBoolean(PREF_USER_FIRST_STATE, value)
         }
 }

@@ -6,10 +6,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
+import app.woovictory.forearthforus.MainActivity
 import app.woovictory.forearthforus.R
 import app.woovictory.forearthforus.base.BaseActivity
 import app.woovictory.forearthforus.databinding.ActivityFieldSelectBinding
-import app.woovictory.forearthforus.view.intro.OnBoardingActivity
 import app.woovictory.forearthforus.vm.account.FieldSelectViewModel
 import kotlinx.android.synthetic.main.activity_field_select.*
 import org.jetbrains.anko.startActivity
@@ -83,8 +83,7 @@ class FieldSelectActivity : BaseActivity<ActivityFieldSelectBinding>(), View.OnC
 
         viewModel.preferenceResponse.observe(this, Observer { flag ->
             if (flag) {
-                //startActivity<MainActivity>()
-                startActivity<OnBoardingActivity>()
+                startActivity<MainActivity>()
                 finish()
             } else {
                 toast("이미 선택하신 관심사입니다.")
@@ -93,16 +92,16 @@ class FieldSelectActivity : BaseActivity<ActivityFieldSelectBinding>(), View.OnC
     }
 
     override fun onClick(v: View) {
-        when (v.id) {
-            R.id.fieldAirPollution -> checkSelected(fieldAirPollution, fieldAirPollutionText, 1)
-            R.id.fieldWaterPollution -> checkSelected(fieldWaterPollution, fieldWaterPollutionText, 2)
-            R.id.fieldGroundPollution -> checkSelected(fieldGroundPollution, fieldGroundPollutionText, 3)
-            R.id.fieldGlobalWarming -> checkSelected(fieldGlobalWarming, fieldGlobalWarmingText, 4)
-            R.id.fieldSavingEnergy -> checkSelected(fieldSavingEnergy, fieldSavingEnergyText, 5)
-            R.id.fieldDesert -> checkSelected(fieldDesert, fieldDesertText, 6)
-            R.id.fieldAcidRain -> checkSelected(fieldAcidRain, fieldAcidRainText, 7)
-            R.id.fieldWeatherChange -> checkSelected(fieldWeatherChange, fieldWeatherChangeText, 8)
-            R.id.fieldEndangeredSpecies -> checkSelected(fieldEndangeredSpecies, fieldEndangeredSpeciesText, 9)
+        when (v) {
+            fieldAirPollution -> checkSelected(fieldAirPollution, fieldAirPollutionText, 1)
+            fieldWaterPollution -> checkSelected(fieldWaterPollution, fieldWaterPollutionText, 2)
+            fieldGroundPollution -> checkSelected(fieldGroundPollution, fieldGroundPollutionText, 3)
+            fieldGlobalWarming -> checkSelected(fieldGlobalWarming, fieldGlobalWarmingText, 4)
+            fieldSavingEnergy -> checkSelected(fieldSavingEnergy, fieldSavingEnergyText, 5)
+            fieldDesert -> checkSelected(fieldDesert, fieldDesertText, 6)
+            fieldAcidRain -> checkSelected(fieldAcidRain, fieldAcidRainText, 7)
+            fieldWeatherChange -> checkSelected(fieldWeatherChange, fieldWeatherChangeText, 8)
+            fieldEndangeredSpecies -> checkSelected(fieldEndangeredSpecies, fieldEndangeredSpeciesText, 9)
         }
     }
 }
