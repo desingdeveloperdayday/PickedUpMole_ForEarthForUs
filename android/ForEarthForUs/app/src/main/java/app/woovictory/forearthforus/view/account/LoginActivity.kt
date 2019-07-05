@@ -3,13 +3,11 @@ package app.woovictory.forearthforus.view.account
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import androidx.lifecycle.Observer
 import app.woovictory.forearthforus.MainActivity
 import app.woovictory.forearthforus.R
 import app.woovictory.forearthforus.base.BaseActivity
 import app.woovictory.forearthforus.databinding.ActivityLoginBinding
-import app.woovictory.forearthforus.util.SharedPreferenceManager
 import app.woovictory.forearthforus.vm.account.LoginViewModel
 import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
@@ -19,14 +17,12 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
     override val layoutResourceId: Int
         get() = R.layout.activity_login
     val viewModel: LoginViewModel by viewModel()
-    private val tag = javaClass.simpleName
 
     var loginEmailFlag: Boolean = false
     var loginPasswordFlag: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //checkSavedToken()
         checkEditText()
         initStartView()
         initDataBinding()
@@ -104,7 +100,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
         viewModel.loginResponse.observe(this, Observer {
             if (it) {
                 goToMainActivity()
-            }else{
+            } else {
                 toast("정보를 확인해주세요.")
             }
         })
