@@ -12,6 +12,8 @@ import app.woovictory.forearthforus.R
 import app.woovictory.forearthforus.base.BaseActivity
 import app.woovictory.forearthforus.databinding.ActivityMissionDetailBinding
 import app.woovictory.forearthforus.model.mission.MissionSelectRequest
+import app.woovictory.forearthforus.util.MISSION_STATUS_COMPLETE
+import app.woovictory.forearthforus.util.MISSION_STATUS_NEW
 import app.woovictory.forearthforus.util.MISSION_STATUS_PROGRESS
 import app.woovictory.forearthforus.util.SharedPreferenceManager
 import app.woovictory.forearthforus.util.glide.GlideApp
@@ -29,7 +31,7 @@ class MissionDetailActivity : BaseActivity<ActivityMissionDetailBinding>(),
     val viewModel: MissionDetailViewModel by viewModel()
 
     private var id: Int = 0
-    private var category: Int=0
+    private var category: Int = 0
     private var url: String = ""
     private var feedId: String = ""
     private var title: String = ""
@@ -57,7 +59,7 @@ class MissionDetailActivity : BaseActivity<ActivityMissionDetailBinding>(),
         completeMessage = intent.getStringExtra("completeMessage")
 
         // main 에서 왔을 때.
-        if(intent.getStringExtra("main") !=null){
+        if (intent.getStringExtra("main") != null) {
 
         }
 
@@ -100,11 +102,18 @@ class MissionDetailActivity : BaseActivity<ActivityMissionDetailBinding>(),
                     missionDetailDecideButtonLayout.visibility = View.VISIBLE
                     SharedPreferenceManager.missionCompleteStatus = true
                 }
-            } else {
+            } else if (it.status == MISSION_STATUS_NEW) {
                 viewDataBinding.apply {
                     missionDetailSelectButtonLayout.visibility = View.VISIBLE
                     missionDetailDecideButtonLayout.visibility = View.GONE
                     SharedPreferenceManager.missionCompleteStatus = false
+                }
+            } else if (it.status == MISSION_STATUS_COMPLETE) {
+                Log.v("2010023 status", it.status.toString())
+                missionDetailSelectButtonLayout.apply {
+                    visibility = View.VISIBLE
+                    setBackgroundResource(R.drawable.border_button_background_inactive)
+                    missionDetailSelectText.text = "완료된 미션"
                 }
             }
 
@@ -132,7 +141,7 @@ class MissionDetailActivity : BaseActivity<ActivityMissionDetailBinding>(),
         })
 
         viewModel.clickToMissionCancel.observe(this, Observer {
-            toast("그만 두기 버튼 클릭")
+            //toast("그만 두기 버튼 클릭")
         })
 
         // 미션 완료하기 버튼 클릭.

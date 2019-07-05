@@ -13,6 +13,7 @@ const val LEVEL = "LV."
 const val TIME_INTERVAL: Long = 2000
 const val MISSION_STATUS_COMPLETE: String = "complete"
 const val MISSION_STATUS_PROGRESS: String = "progress"
+const val MISSION_STATUS_NEW: String = "new"
 const val NAME = "ForEarth"
 const val PREF_USER_TOKEN = "ForEarthForUs"
 const val PREF_EARTH_LEVEL = "EarthLevel"

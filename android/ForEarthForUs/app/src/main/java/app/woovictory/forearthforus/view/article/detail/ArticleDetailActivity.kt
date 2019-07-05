@@ -115,6 +115,7 @@ class ArticleDetailActivity : BaseActivity<ActivityArticleDetailBinding>() {
     private fun clickLike(id: Int, i: Int) {
         if (i == 1) {
             //toast("$id 좋아요 해제.")
+            Log.v("8812031",campaignId)
             viewModel.deleteScrapArticle(SharedPreferenceManager.token, campaignId)
         } else {
             //toast("좋아요 클릭이다~~")
