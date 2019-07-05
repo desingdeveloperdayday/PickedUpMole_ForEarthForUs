@@ -58,8 +58,9 @@ class FeedViewSet(viewsets.ModelViewSet):
 
     def create(self, request, *args, **kwargs):
         today = get_today()
+        userId = request.user.id
         mission = request.data['mission']
-        id = "%s_%d" % (today, mission)
+        id = "%s_%d_%d" % (today, userId, mission)
 
         newData = request.data
         newData['id'] = id
