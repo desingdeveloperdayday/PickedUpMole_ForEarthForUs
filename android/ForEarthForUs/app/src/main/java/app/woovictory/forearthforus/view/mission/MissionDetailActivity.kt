@@ -30,20 +30,13 @@ class MissionDetailActivity : BaseActivity<ActivityMissionDetailBinding>(),
 
     private var id: Int = 0
     private var category: Int = 0
-    private var url: String = ""
     private var feedId: String = ""
     private var title: String = ""
     private var imageUrl: String = ""
     private var completeMessage: String = ""
 
-    override fun onEnterAnimationComplete() {
-        super.onEnterAnimationComplete()
-        Log.v("21032", "onEnter")
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.v("21032", "onCreate")
         getData()
         initToolbar()
         initStartView()
@@ -60,15 +53,6 @@ class MissionDetailActivity : BaseActivity<ActivityMissionDetailBinding>(),
         if (intent.getStringExtra("main") != null) {
 
         }
-
-        //url = intent.getStringExtra("url")
-        //Log.v("21032", url)
-
-        /*if (url != "main") {
-            viewDataBinding.missionDetailImage.transitionName = url
-            GlideApp.with(this).load(url).into(viewDataBinding.missionDetailImage)
-        }*/
-
     }
 
 
@@ -83,7 +67,6 @@ class MissionDetailActivity : BaseActivity<ActivityMissionDetailBinding>(),
     override fun subscribeViewModel() {
         viewDataBinding.missionDetailToolbar.setNavigationOnClickListener {
             onBackPressed()
-            Log.v("18238", it.toString())
         }
 
         viewModel.missionDetailResponse.observe(this, Observer {
@@ -98,15 +81,15 @@ class MissionDetailActivity : BaseActivity<ActivityMissionDetailBinding>(),
                 it.status == MISSION_STATUS_PROGRESS -> viewDataBinding.apply {
                     missionDetailSelectButtonLayout.visibility = View.GONE
                     missionDetailDecideButtonLayout.visibility = View.VISIBLE
-                    SharedPreferenceManager.missionCompleteStatus = true
+                    //SharedPreferenceManager.missionCompleteStatus = true
                 }
                 it.status == MISSION_STATUS_NEW -> viewDataBinding.apply {
                     missionDetailSelectButtonLayout.visibility = View.VISIBLE
                     missionDetailDecideButtonLayout.visibility = View.GONE
-                    SharedPreferenceManager.missionCompleteStatus = false
+                    //SharedPreferenceManager.missionCompleteStatus = false
                 }
                 it.status == MISSION_STATUS_COMPLETE -> {
-                    Log.v("2010023 status", it.status.toString())
+                    Log.v("2010023 status", it.status)
                     missionDetailSelectButtonLayout.apply {
                         visibility = View.VISIBLE
                         setBackgroundResource(R.drawable.border_button_background_inactive)
@@ -133,7 +116,7 @@ class MissionDetailActivity : BaseActivity<ActivityMissionDetailBinding>(),
                 viewDataBinding.apply {
                     missionDetailSelectButtonLayout.visibility = View.GONE
                     missionDetailDecideButtonLayout.visibility = View.VISIBLE
-                    SharedPreferenceManager.missionCompleteStatus = true
+                    //SharedPreferenceManager.missionCompleteStatus = true
                 }
             }
         })

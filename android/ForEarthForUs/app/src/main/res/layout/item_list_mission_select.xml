@@ -31,11 +31,11 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
-                <androidx.appcompat.widget.AppCompatImageView
+                <ImageView
                         android:id="@+id/itemMissionSelectImage"
                         android:layout_width="312dp"
                         android:layout_height="336dp"
-                        android:loadUrlAppImage="@{String.valueOf(selectItem.image)}"
+                        android:loadUrlImage="@{String.valueOf(selectItem.image)}"
                         android:layerType="software"
 
                 />

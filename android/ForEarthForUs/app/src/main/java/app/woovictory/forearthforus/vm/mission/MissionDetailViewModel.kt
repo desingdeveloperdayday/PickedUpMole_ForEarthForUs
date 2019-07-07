@@ -71,7 +71,6 @@ class MissionDetailViewModel(
                     if (response.isSuccessful) {
                         Log.v("2285223", response.code().toString())
                         _missionFeedResponse.value = response.body()
-                        SharedPreferenceManager.missionCompleteCount++
 
                     }
                     Log.v("2285223", response.code().toString())

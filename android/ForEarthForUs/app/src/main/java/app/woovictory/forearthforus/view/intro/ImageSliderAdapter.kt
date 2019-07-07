@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.viewpager.widget.PagerAdapter
 import app.woovictory.forearthforus.R
-import app.woovictory.forearthforus.util.glide.GlideApp
+import app.woovictory.forearthforus.util.loadDrawableImage
 import kotlinx.android.synthetic.main.image_slider.view.*
 
 /**
@@ -27,12 +27,7 @@ class ImageSliderAdapter(private val context: Context) : PagerAdapter() {
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
         val view = LayoutInflater.from(context).inflate(R.layout.image_slider, container, false)
-
-
-        GlideApp.with(context)
-            .load(imageItems[position])
-            .into(view.onBoardingImage)
-
+        loadDrawableImage(view.onBoardingImage, imageItems[position])
         container.addView(view)
 
         return view

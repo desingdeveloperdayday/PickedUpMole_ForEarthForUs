@@ -26,7 +26,7 @@ class MissionCompleteActivity : BaseActivity<ActivityMissionCompleteBinding>(), 
     private var title: String = ""
     private var imageUrl: String = ""
     private var completeMessage: String = ""
-    private var category: Int=0
+    private var category: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,8 +42,6 @@ class MissionCompleteActivity : BaseActivity<ActivityMissionCompleteBinding>(), 
         category = intent.getIntExtra("category", 0)
         completeMessage = intent.getStringExtra("completeMessage")
 
-        Log.v("2103", feedId)
-        Log.v("2103", imageUrl)
         viewDataBinding.apply {
             missionCompleteTitle.text = title
             GlideApp.with(missionCompleteImage.context).load(imageUrl).into(missionCompleteImage)

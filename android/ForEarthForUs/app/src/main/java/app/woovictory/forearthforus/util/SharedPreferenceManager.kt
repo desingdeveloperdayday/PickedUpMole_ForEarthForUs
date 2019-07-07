@@ -64,18 +64,6 @@ object SharedPreferenceManager {
             it.putString(PREF_USER_CONTENT, value)
         }
 
-    var missionCompleteStatus: Boolean
-        get() = preferences.getBoolean(PREF_USER_MISSION_COMPLETE_STATUS, false)
-        set(value) = preferences.edit {
-            it.putBoolean(PREF_USER_MISSION_COMPLETE_STATUS, value)
-        }
-
-    var missionCompleteCount: Int
-        get() = preferences.getInt(PREF_USER_MISSION_COMPLETE_COUNT, 0)
-        set(value) = preferences.edit {
-            it.putInt(PREF_USER_MISSION_COMPLETE_COUNT, value)
-        }
-
     var userFirstState: Boolean
         get() = preferences.getBoolean(PREF_USER_FIRST_STATE, false)
         set(value) = preferences.edit {

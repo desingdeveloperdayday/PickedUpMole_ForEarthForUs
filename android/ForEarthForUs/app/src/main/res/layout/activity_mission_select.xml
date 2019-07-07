@@ -92,7 +92,6 @@
                 android:stateListAnimator="@null"
                 android:onClick="@{()-> vm.clickToMissionStart()}"
                 style="@style/ButtonWhiteCenterStyle"
-                app:layout_constraintTop_toBottomOf="@id/missionSelectIndicator"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
