@@ -8,7 +8,6 @@ import androidx.lifecycle.ViewModelProviders
 import app.woovictory.forearthforus.R
 import app.woovictory.forearthforus.base.BaseFragment
 import app.woovictory.forearthforus.databinding.FragmentMypageBinding
-import app.woovictory.forearthforus.util.CustomDialog
 import app.woovictory.forearthforus.util.SharedPreferenceManager
 import app.woovictory.forearthforus.view.account.LoginActivity
 import app.woovictory.forearthforus.view.mypage.achieve.AchieveListActivity
@@ -49,9 +48,6 @@ class MyPageFragment : BaseFragment<FragmentMypageBinding, MyPageViewModel>() {
 
         viewDataBinding.myPageMissionSuggest.setOnClickListener {
             toast("준비 중입니다.")
-            /*val dialog = CustomDialog(context!!, 1, "ttt", "ddd")
-            dialog.setCanceledOnTouchOutside(false)
-            dialog.show()*/
         }
     }
 
@@ -100,7 +96,7 @@ class MyPageFragment : BaseFragment<FragmentMypageBinding, MyPageViewModel>() {
         })
 
         myPageViewModel.clickToProfile.observe(this, Observer {
-            //toast("프로필 클릭.")
+
         })
     }
 }

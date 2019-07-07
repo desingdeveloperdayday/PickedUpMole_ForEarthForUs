@@ -36,7 +36,7 @@ class AchieveListActivity : BaseActivity<ActivityAchieveListBinding>() {
 
         getWindowSize()
         initStartView()
-        initDataBinding()
+        subscribeViewModel()
     }
 
     private fun getWindowSize() {
@@ -54,7 +54,7 @@ class AchieveListActivity : BaseActivity<ActivityAchieveListBinding>() {
         }
     }
 
-    override fun initDataBinding() {
+    override fun subscribeViewModel() {
         viewModel.clickToBack.observe(this, Observer {
             finish()
         })

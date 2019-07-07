@@ -55,7 +55,7 @@ class MissionSelectActivity : BaseActivity<ActivityMissionSelectBinding>() {
         initStartView()
         setUpRecyclerView()
         setUpIndicator()
-        initDataBinding()
+        subscribeViewModel()
     }
 
     private fun getData() {
@@ -121,7 +121,7 @@ class MissionSelectActivity : BaseActivity<ActivityMissionSelectBinding>() {
         missionSelectAdapter?.registerAdapterDataObserver(viewDataBinding.missionSelectIndicator.adapterDataObserver)
     }
 
-    override fun initDataBinding() {
+    override fun subscribeViewModel() {
         // FIXME
         // 미션 시작하기 버튼을 클릭해서 이동하면 이미 미션을 시작한 상태이기 때문에
         // 하단 탭 버튼은 그만두기 / 미션 완료하기 형태가 되어야 한다.

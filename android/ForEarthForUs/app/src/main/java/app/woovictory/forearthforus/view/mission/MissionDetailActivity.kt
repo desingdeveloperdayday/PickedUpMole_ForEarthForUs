@@ -16,12 +16,10 @@ import app.woovictory.forearthforus.util.MISSION_STATUS_COMPLETE
 import app.woovictory.forearthforus.util.MISSION_STATUS_NEW
 import app.woovictory.forearthforus.util.MISSION_STATUS_PROGRESS
 import app.woovictory.forearthforus.util.SharedPreferenceManager
-import app.woovictory.forearthforus.util.glide.GlideApp
 import app.woovictory.forearthforus.vm.mission.MissionDetailViewModel
 import com.google.android.material.appbar.AppBarLayout
 import kotlinx.android.synthetic.main.activity_mission_detail.*
 import org.jetbrains.anko.startActivity
-import org.jetbrains.anko.toast
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MissionDetailActivity : BaseActivity<ActivityMissionDetailBinding>(),
@@ -49,7 +47,7 @@ class MissionDetailActivity : BaseActivity<ActivityMissionDetailBinding>(),
         getData()
         initToolbar()
         initStartView()
-        initDataBinding()
+        subscribeViewModel()
 
     }
 
@@ -82,7 +80,7 @@ class MissionDetailActivity : BaseActivity<ActivityMissionDetailBinding>(),
         viewModel.getMissionDetailInformation(SharedPreferenceManager.token, id)
     }
 
-    override fun initDataBinding() {
+    override fun subscribeViewModel() {
         viewDataBinding.missionDetailToolbar.setNavigationOnClickListener {
             onBackPressed()
             Log.v("18238", it.toString())
@@ -96,24 +94,24 @@ class MissionDetailActivity : BaseActivity<ActivityMissionDetailBinding>(),
             Log.v("2010023 detail", feedId)
             Log.v("2010023 detail", it.image)
             Log.v("2010023 category", it.category.toString())
-            if (it.status == MISSION_STATUS_PROGRESS) {
-                viewDataBinding.apply {
+            when {
+                it.status == MISSION_STATUS_PROGRESS -> viewDataBinding.apply {
                     missionDetailSelectButtonLayout.visibility = View.GONE
                     missionDetailDecideButtonLayout.visibility = View.VISIBLE
                     SharedPreferenceManager.missionCompleteStatus = true
                 }
-            } else if (it.status == MISSION_STATUS_NEW) {
-                viewDataBinding.apply {
+                it.status == MISSION_STATUS_NEW -> viewDataBinding.apply {
                     missionDetailSelectButtonLayout.visibility = View.VISIBLE
                     missionDetailDecideButtonLayout.visibility = View.GONE
                     SharedPreferenceManager.missionCompleteStatus = false
                 }
-            } else if (it.status == MISSION_STATUS_COMPLETE) {
-                Log.v("2010023 status", it.status.toString())
-                missionDetailSelectButtonLayout.apply {
-                    visibility = View.VISIBLE
-                    setBackgroundResource(R.drawable.border_button_background_inactive)
-                    missionDetailSelectText.text = "완료된 미션"
+                it.status == MISSION_STATUS_COMPLETE -> {
+                    Log.v("2010023 status", it.status.toString())
+                    missionDetailSelectButtonLayout.apply {
+                        visibility = View.VISIBLE
+                        setBackgroundResource(R.drawable.border_button_background_inactive)
+                        missionDetailSelectText.text = "완료된 미션"
+                    }
                 }
             }
 

@@ -42,7 +42,7 @@
                 <ImageView
                         android:id="@+id/missionDetailImage"
                         android:layout_width="match_parent"
-                        android:layout_height="443dp"
+                        android:layout_height="410dp"
                         android:layout_gravity="center"
                         android:adjustViewBounds="true"
                         android:fitsSystemWindows="true"

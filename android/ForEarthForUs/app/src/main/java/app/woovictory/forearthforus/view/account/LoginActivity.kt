@@ -25,7 +25,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
         super.onCreate(savedInstanceState)
         checkEditText()
         initStartView()
-        initDataBinding()
+        subscribeViewModel()
     }
 
 
@@ -84,7 +84,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
         }
     }
 
-    override fun initDataBinding() {
+    override fun subscribeViewModel() {
         viewModel.clickToLogin.observe(this, Observer {
             viewDataBinding.let {
                 if (it.loginButton.isSelected) {

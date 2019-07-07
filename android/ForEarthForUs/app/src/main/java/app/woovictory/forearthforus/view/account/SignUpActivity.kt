@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import androidx.lifecycle.Observer
 import app.woovictory.forearthforus.R
 import app.woovictory.forearthforus.base.BaseActivity
@@ -29,7 +28,7 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>() {
         setUpToolbar()
         checkEditText()
         initStartView()
-        initDataBinding()
+        subscribeViewModel()
     }
 
     private fun setUpToolbar() {
@@ -43,7 +42,6 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>() {
             signNameEt.addTextChangedListener(object : TextWatcher {
                 override fun afterTextChanged(e: Editable?) {
                     if (e.toString().isEmpty()) {
-                        Log.v("996655", "after로?")
                         nameFlag = false
                         checkAllInfo()
                     }
@@ -56,7 +54,6 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>() {
                     s?.length?.let {
                         nameFlag = it > 0
                     }
-                    Log.v("996655 nf", "$nameFlag")
                     checkAllInfo()
                 }
 
@@ -65,7 +62,6 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>() {
             signEmailEt.addTextChangedListener(object : TextWatcher {
                 override fun afterTextChanged(e: Editable?) {
                     if (e.toString().isEmpty()) {
-                        Log.v("996655", "2 after로?")
                         emailFlag = false
                         checkAllInfo()
                     }
@@ -78,7 +74,6 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>() {
                     s?.length?.let {
                         emailFlag = it > 0
                     }
-                    Log.v("996655 ef", "$emailFlag")
                     checkAllInfo()
                 }
 
@@ -87,7 +82,6 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>() {
             signPasswordEt.addTextChangedListener(object : TextWatcher {
                 override fun afterTextChanged(e: Editable?) {
                     if (e.toString().isEmpty()) {
-                        Log.v("996655", "3 after로?")
                         passwordFlag = false
                         checkAllInfo()
                     }
@@ -100,7 +94,6 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>() {
                     s?.length?.let {
                         passwordFlag = it > 0
                     }
-                    Log.v("996655 pf", "$passwordFlag")
                     checkAllInfo()
                 }
 
@@ -109,7 +102,6 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>() {
             signPasswordCheckEt.addTextChangedListener(object : TextWatcher {
                 override fun afterTextChanged(e: Editable?) {
                     if (e.toString().isEmpty()) {
-                        Log.v("996655", "4 after로?")
                         passwordCheckFlag = false
                         checkAllInfo()
                     }
@@ -125,17 +117,11 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>() {
                     checkAllInfo()
                 }
             })
-
         }
     }
 
     fun checkAllInfo() {
-        if (emailFlag && nameFlag && passwordFlag && passwordCheckFlag) {
-            Log.v("996655", "$emailFlag, $nameFlag, $passwordCheckFlag, $passwordFlag")
-            signButton.isSelected = true
-        } else {
-            signButton.isSelected = false
-        }
+        signButton.isSelected = emailFlag && nameFlag && passwordFlag && passwordCheckFlag
     }
 
     override fun initStartView() {
@@ -145,7 +131,7 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>() {
         }
     }
 
-    override fun initDataBinding() {
+    override fun subscribeViewModel() {
         viewModel.clickToSignUp.observe(this, Observer {
             if (viewDataBinding.signButton.isSelected) {
                 viewModel.postSignUp(
@@ -165,5 +151,4 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>() {
             }
         })
     }
-
 }

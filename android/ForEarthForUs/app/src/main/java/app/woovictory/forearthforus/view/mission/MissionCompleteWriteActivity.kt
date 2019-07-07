@@ -61,7 +61,7 @@ class MissionCompleteWriteActivity :
         super.onCreate(savedInstanceState)
         getData()
         initStartView()
-        initDataBinding()
+        subscribeViewModel()
     }
 
     private fun getData() {
@@ -93,7 +93,7 @@ class MissionCompleteWriteActivity :
         missionFeedCompleteRequest = MissionFeedCompleteRequest(rating, message)
     }
 
-    override fun initDataBinding() {
+    override fun subscribeViewModel() {
         viewModel.clickToBackMission.observe(this, Observer {
             finish()
         })

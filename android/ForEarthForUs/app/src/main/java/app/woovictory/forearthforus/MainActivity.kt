@@ -44,7 +44,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initStartView()
-        initDataBinding()
+        subscribeViewModel()
     }
 
     override fun onBackPressed() {
@@ -119,7 +119,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         disableShiftMode(mainBottomNavigation)
     }
 
-    override fun initDataBinding() {
+    override fun subscribeViewModel() {
 
     }
 

@@ -26,7 +26,7 @@ class ScrapListActivity : BaseActivity<ActivityScrapListBinding>() {
         viewModel.getScrapList(SharedPreferenceManager.token)
 
         initStartView()
-        initDataBinding()
+        subscribeViewModel()
     }
 
     override fun initStartView() {
@@ -44,7 +44,7 @@ class ScrapListActivity : BaseActivity<ActivityScrapListBinding>() {
         }
     }
 
-    override fun initDataBinding() {
+    override fun subscribeViewModel() {
         viewModel.clickToBack.observe(this, Observer {
             finish()
         })

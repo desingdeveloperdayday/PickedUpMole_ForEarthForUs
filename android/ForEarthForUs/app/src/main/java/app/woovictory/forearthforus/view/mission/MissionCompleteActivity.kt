@@ -32,7 +32,7 @@ class MissionCompleteActivity : BaseActivity<ActivityMissionCompleteBinding>(), 
         super.onCreate(savedInstanceState)
         getData()
         initStartView()
-        initDataBinding()
+        subscribeViewModel()
     }
 
     private fun getData() {
@@ -74,7 +74,7 @@ class MissionCompleteActivity : BaseActivity<ActivityMissionCompleteBinding>(), 
         }
     }
 
-    override fun initDataBinding() {
+    override fun subscribeViewModel() {
 
     }
 }

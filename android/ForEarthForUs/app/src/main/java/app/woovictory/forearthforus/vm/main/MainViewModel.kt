@@ -74,12 +74,9 @@ class MainViewModel(
                         _missionFeedResponse.value = it.second.body()
                         SharedPreferenceManager.userContent = it.first.body()?.content!!
                         Log.v(TAG, it.second.body()?.size.toString())
-                        Log.v("12301 ${it.first.body()?.earthLevel}", it.first.body()?.earthLevel.toString())
                     }
-                    Log.v("12301 s", "sdasd")
                     _isLoading.value = false
                 }, { error ->
-                    Log.v("12301 f", error.message)
                     Log.v(TAG, error.message)
                 })
         )
@@ -93,12 +90,11 @@ class MainViewModel(
                 .subscribe({ response ->
                     if (response.isSuccessful) {
                         response.body()?.let {
-                            Log.v("9903021", it.toString())
                             _earthUserResponse.value = it
                         }
                     }
                 }, { error ->
-                    Log.v("9903021", error.message)
+                    Log.d("Error", error.message)
                 })
         )
     }

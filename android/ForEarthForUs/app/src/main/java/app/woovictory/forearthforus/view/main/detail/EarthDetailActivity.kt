@@ -3,7 +3,6 @@ package app.woovictory.forearthforus.view.main.detail
 import android.content.Context
 import android.graphics.Point
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import androidx.core.content.ContextCompat
@@ -36,7 +35,7 @@ class EarthDetailActivity : BaseActivity<ActivityEarthDetailBinding>() {
         getData()
         getWindowSize()
         initStartView()
-        initDataBinding()
+        subscribeViewModel()
     }
 
     private fun getData() {
@@ -63,7 +62,7 @@ class EarthDetailActivity : BaseActivity<ActivityEarthDetailBinding>() {
         }
     }
 
-    override fun initDataBinding() {
+    override fun subscribeViewModel() {
         viewModel.clickToBack.observe(this, Observer {
             finish()
         })

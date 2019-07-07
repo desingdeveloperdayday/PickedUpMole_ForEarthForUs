@@ -22,5 +22,5 @@ abstract class BaseActivity<B : ViewDataBinding> : AppCompatActivity() {
     abstract fun initStartView()
 
     // 데이터 바인딩을 통해 observe 할 때 주로 사용.
-    abstract fun initDataBinding()
+    abstract fun subscribeViewModel()
 }

@@ -74,13 +74,11 @@
                     android:layout_height="120dp"
                     android:text="@{selectItem.content}"
                     android:layout_marginBottom="@dimen/margin_12dp"
-                    android:textSize="13dp"
+                    android:textSize="14dp"
                     android:maxLines="4"
                     style="@style/ContentsBodyStyle"
                     tools:text="옆 동네 토마토를 가져오기 위해서는 많은 연료가 필요하다고 해요! 토마토가 우리의 식탁에 오르기까지의 이산화탄소를 줄이기 위해 지역농산품을 이용해봐요!"
             />
         </LinearLayout>
-
-
     </LinearLayout>
 </layout>

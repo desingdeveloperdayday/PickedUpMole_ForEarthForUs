@@ -45,7 +45,7 @@ class FieldSelectActivity : BaseActivity<ActivityFieldSelectBinding>(), View.OnC
         super.onCreate(savedInstanceState)
         setButtonClickListener()
         initStartView()
-        initDataBinding()
+        subscribeViewModel()
     }
 
     // TODO : 조금 더 효율적으로 구성할 수 있는 방법은 없는지 고민해보기.
@@ -72,7 +72,7 @@ class FieldSelectActivity : BaseActivity<ActivityFieldSelectBinding>(), View.OnC
         }
     }
 
-    override fun initDataBinding() {
+    override fun subscribeViewModel() {
         viewModel.clickToSelectPreference.observe(this, Observer {
             if (fieldSelectButton.isSelected && preferList.size != 0) {
                 viewModel.selectUserPreference(preferList)
