@@ -1,7 +1,7 @@
-# For Earth For Us
+# For Earth For Us 
+<img src="android/ForEarthForUs/image/logo_image.png" width="80">
 
 DDD. 2기에서 활동한 주워온 두더지팀의 **For Earth For Us**입니다.
-
 
 # OverView
 
