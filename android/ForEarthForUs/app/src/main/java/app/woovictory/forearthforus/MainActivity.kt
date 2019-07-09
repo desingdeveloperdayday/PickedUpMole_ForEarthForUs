@@ -7,6 +7,7 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import app.woovictory.forearthforus.base.BaseActivity
 import app.woovictory.forearthforus.databinding.ActivityMainBinding
 import app.woovictory.forearthforus.util.TAG
@@ -26,19 +27,14 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     override val layoutResourceId: Int
         get() = R.layout.activity_main
 
-    //get() = ViewModelProviders.of(this@MainActivity).get(MainViewModel::class.java)
 
-    /*
-    * TODO : 이 부분 수정해야 한다.
-    * */
-    private val fm = supportFragmentManager
-
+    private val fm: FragmentManager = supportFragmentManager
     private var backPressedTime: Long = 0
     private val mainFragment: Fragment = MainFragment.newInstance()
     private val missionCategoryFragment: Fragment = MissionCategoryFragment.newInstance()
     private val articleFragment: Fragment = ArticleFragment.newInstance()
     private val myPageFragment: Fragment = MyPageFragment.newInstance()
-    private var active = mainFragment
+    private var active: Fragment = mainFragment
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -122,11 +118,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     override fun subscribeViewModel() {
 
     }
-
-    /*private fun changeFragment(fragment: Fragment) {
-        val fragmentTransaction: FragmentTransaction = supportFragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.mainFrameContainer, fragment).commit()
-    }*/
 
     @SuppressLint("RestrictedApi")
     private fun disableShiftMode(view: BottomNavigationView) {

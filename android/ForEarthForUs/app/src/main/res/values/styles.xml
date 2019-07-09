@@ -41,7 +41,7 @@
     </style>
 
     <style name="ButtonWhiteCenterStyle">
-        <!--<item name="android:gravity">center_horizontal</item>-->
+        <item name="android:gravity">center</item>
         <item name="android:textSize">@dimen/size_text_16dp</item>
         <item name="android:textColor">@color/fe_fu_white</item>
         <item name="android:fontFamily">@font/notosanscjkkr_regular</item>

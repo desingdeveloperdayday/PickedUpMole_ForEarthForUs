@@ -16,10 +16,10 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class LoginActivity : BaseActivity<ActivityLoginBinding>() {
     override val layoutResourceId: Int
         get() = R.layout.activity_login
-    val viewModel: LoginViewModel by viewModel()
+    private val viewModel: LoginViewModel by viewModel()
 
-    var loginEmailFlag: Boolean = false
-    var loginPasswordFlag: Boolean = false
+    private var loginEmailFlag: Boolean = false
+    private var loginPasswordFlag: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +27,6 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
         initStartView()
         subscribeViewModel()
     }
-
 
     private fun checkEditText() {
         viewDataBinding.apply {

@@ -12,8 +12,7 @@
             android:id="@+id/itemMissionSelect"
             android:orientation="vertical"
             android:layout_width="312dp"
-            android:layout_height="wrap_content"
-    >
+            android:layout_height="wrap_content">
 
         <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/itemMissionSelectLayout"
@@ -61,20 +60,20 @@
             <TextView
                     android:layout_marginTop="@dimen/margin_24dp"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:text="@{selectItem.title}"
                     tools:text="지역 농산물 이용하기"
-                    android:textSize="21dp"
+                    android:textSize="20dp"
                     style="@style/TitleBlackStyle"
                     android:baselineAligned="false"/>
 
             <TextView
                     android:layout_marginTop="6dp"
                     android:layout_width="wrap_content"
-                    android:layout_height="120dp"
+                    android:layout_height="160dp"
                     android:text="@{selectItem.content}"
                     android:layout_marginBottom="@dimen/margin_12dp"
-                    android:textSize="14dp"
+                    android:textSize="13dp"
                     android:maxLines="4"
                     style="@style/ContentsBodyStyle"
                     tools:text="옆 동네 토마토를 가져오기 위해서는 많은 연료가 필요하다고 해요! 토마토가 우리의 식탁에 오르기까지의 이산화탄소를 줄이기 위해 지역농산품을 이용해봐요!"

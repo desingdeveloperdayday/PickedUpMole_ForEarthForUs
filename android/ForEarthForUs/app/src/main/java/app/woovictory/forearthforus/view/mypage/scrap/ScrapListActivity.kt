@@ -16,7 +16,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class ScrapListActivity : BaseActivity<ActivityScrapListBinding>() {
     override val layoutResourceId: Int
         get() = R.layout.activity_scrap_list
-    val viewModel: ScrapListViewModel by viewModel()
+    private val viewModel: ScrapListViewModel by viewModel()
     //get() = ViewModelProviders.of(this@ScrapListActivity).get(ScrapListViewModel::class.java)
 
     private var scrapListAdapter: ScrapListAdapter? = null

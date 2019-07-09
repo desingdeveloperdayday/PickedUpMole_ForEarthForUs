@@ -33,8 +33,13 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>() {
 
     private fun setUpToolbar() {
         setSupportActionBar(signUpToolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setDisplayShowTitleEnabled(false)
+        supportActionBar?.run {
+            setSupportActionBar(signUpToolbar)
+            setDisplayHomeAsUpEnabled(true)
+            setDisplayShowTitleEnabled(false)
+        }
+        /*supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowTitleEnabled(false)*/
     }
 
     private fun checkEditText() {

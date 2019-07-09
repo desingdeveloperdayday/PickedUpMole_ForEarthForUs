@@ -27,7 +27,7 @@ class FieldSelectActivity : BaseActivity<ActivityFieldSelectBinding>(), View.OnC
             textView.textColor = ContextCompat.getColor(applicationContext, R.color.fe_fu_main)
         } else {
             preferList.remove(number)
-            textView.textColor = ContextCompat.getColor(this, R.color.fe_fu_body)
+            textView.textColor = ContextCompat.getColor(applicationContext, R.color.fe_fu_body)
         }
 
         fieldSelectButton.isSelected = fieldAirPollution.isSelected || fieldWaterPollution.isSelected ||
@@ -38,7 +38,7 @@ class FieldSelectActivity : BaseActivity<ActivityFieldSelectBinding>(), View.OnC
 
     override val layoutResourceId: Int
         get() = R.layout.activity_field_select
-    val viewModel: FieldSelectViewModel by viewModel()
+    private val viewModel: FieldSelectViewModel by viewModel()
     private var preferList: MutableList<Int> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,9 +48,8 @@ class FieldSelectActivity : BaseActivity<ActivityFieldSelectBinding>(), View.OnC
         subscribeViewModel()
     }
 
-    // TODO : 조금 더 효율적으로 구성할 수 있는 방법은 없는지 고민해보기.
     private fun setButtonClickListener() {
-        viewDataBinding.apply {
+        with(viewDataBinding){
             val it = this@FieldSelectActivity
             fieldAirPollution.setOnClickListener(it)
             fieldWaterPollution.setOnClickListener(it)

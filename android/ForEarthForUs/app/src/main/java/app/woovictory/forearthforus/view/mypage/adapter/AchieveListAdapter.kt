@@ -12,7 +12,7 @@ import app.woovictory.forearthforus.view.mypage.viewholder.AchieveListViewHolder
  */
 class AchieveListAdapter : RecyclerView.Adapter<AchieveListViewHolder>() {
 
-    private var itemList = ArrayList<MissionFeedResponse>()
+    private var itemList = mutableListOf<MissionFeedResponse>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AchieveListViewHolder {
         val binding = ItemListAchieveMissionBinding.inflate(
