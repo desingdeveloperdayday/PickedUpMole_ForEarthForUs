@@ -5,11 +5,11 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion rootProject.ext.compileSdkVersion
     defaultConfig {
         applicationId "app.woovictory.forearthforus"
-        minSdkVersion 24
-        targetSdkVersion 28
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
         vectorDrawables.useSupportLibrary = true
@@ -28,62 +28,61 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.1.0-alpha05'
-    //implementation 'androidx.appcompat:appcompat:1.0.0'
-    implementation 'androidx.core:core-ktx:1.2.0-alpha01'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    implementation "androidx.cardview:cardview:1.0.0"
-    implementation "androidx.recyclerview:recyclerview:1.1.0-alpha05"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
+    implementation "androidx.appcompat:appcompat:$appCompatVersion"
+    implementation "androidx.core:core-ktx:$ktxVersion"
+    implementation "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
+    implementation "androidx.cardview:cardview:$cardViewVersion"
+    implementation "androidx.recyclerview:recyclerview:$recyclerViewVersion"
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.2.0-alpha04'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0-alpha04'
+    androidTestImplementation 'androidx.test:runner:1.3.0-alpha01'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0-alpha01'
 
     // material design
-    implementation 'com.google.android.material:material:1.1.0-alpha06'
-    implementation 'com.android.support.constraint:constraint-layout:2.0.0-beta1'
+    implementation 'com.google.android.material:material:1.1.0-alpha07'
+    implementation 'com.android.support.constraint:constraint-layout:2.0.0-beta2'
 
     // anko
-    implementation "org.jetbrains.anko:anko:0.10.8"
+    implementation "org.jetbrains.anko:anko:$ankoVersion"
 
     // lifecycle
-    implementation "androidx.lifecycle:lifecycle-extensions:2.1.0-alpha04"
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifeCycleVersion"
 
     // circle imageView
-    implementation 'de.hdodenhof:circleimageview:3.0.0'
+    implementation "de.hdodenhof:circleimageview:$circleImageViewVersion"
 
     // RxJava
-    implementation "io.reactivex.rxjava2:rxjava:2.2.9"
-    implementation "io.reactivex.rxjava2:rxandroid:2.1.1"
-    implementation 'io.reactivex.rxjava2:rxkotlin:2.3.0'
+    implementation "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
+    implementation "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
+    implementation "io.reactivex.rxjava2:rxkotlin:$rxKotlinVersion"
 
     // retrofit
-    implementation "com.squareup.retrofit2:retrofit:2.6.0"
-    implementation "com.squareup.retrofit2:converter-gson:2.6.0"
-    implementation "com.squareup.retrofit2:adapter-rxjava2:2.6.0"
-    implementation 'com.squareup.okhttp3:logging-interceptor:3.12.1'
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okHttpLoggingVersion"
 
     // glide
-    implementation 'com.github.bumptech.glide:glide:4.9.0'
-    implementation 'com.github.bumptech.glide:annotations:4.9.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
-    kapt 'com.github.bumptech.glide:compiler:4.9.0'
+    implementation "com.github.bumptech.glide:glide:$glideVersion"
+    implementation "com.github.bumptech.glide:annotations:$glideVersion"
+    annotationProcessor "com.github.bumptech.glide:compiler:$glideVersion"
+    kapt "com.github.bumptech.glide:compiler:$glideVersion"
 
     // android svg
-    implementation 'com.caverock:androidsvg:1.2.1'
+    implementation "com.caverock:androidsvg:$svgVersion"
 
     // rounded imageView
-    implementation 'com.makeramen:roundedimageview:2.3.0'
+    implementation "com.makeramen:roundedimageview:$roundedImageViewVersion"
 
     // circle indicator
-    implementation 'me.relex:circleindicator:2.1.0'
+    implementation "me.relex:circleindicator:$circleIndicatorVersion"
 
     // koin
     implementation 'org.koin:koin-android:1.0.0-beta-3'
     implementation "org.koin:koin-androidx-viewmodel:1.0.2"
 
     // motion layout
-    implementation "androidx.constraintlayout:constraintlayout:2.0.0-beta2"
+    implementation "androidx.constraintlayout:constraintlayout:$motionLayoutVersion"
 
 
 }

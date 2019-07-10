@@ -39,12 +39,14 @@ class MissionSelectViewModel(private val missionSelectListRepository: MissionSel
 
 
     fun getMissionSelectList(categoryId: Int) {
-        _isLoading.value = true
+        //_isLoading.value = true
 
         addDisposable(
             missionSelectListRepository.getMissionSelectList(SharedPreferenceManager.token, categoryId)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
+                .doOnSubscribe { _isLoading.value = true }
+                .doOnTerminate { _isLoading.value = false }
                 .subscribe({ response ->
                     if (response.isSuccessful) {
                         response?.let {
@@ -53,10 +55,10 @@ class MissionSelectViewModel(private val missionSelectListRepository: MissionSel
                             //_missionSelectResponse.value?.get(0)?.image = "http://upload.wikimedia.org/wikipedia/commons/e/e8/Svg_example3.svg"
                         }
                     }
-                    _isLoading.value = false
+                    //_isLoading.value = false
                 }, { e ->
                     Log.v("228874", e.message)
-                    _isLoading.value = true
+                    //_isLoading.value = true
                 })
         )
     }

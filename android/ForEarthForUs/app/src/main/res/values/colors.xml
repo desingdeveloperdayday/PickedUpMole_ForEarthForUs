@@ -14,4 +14,7 @@
     <color name="fe_fu_sub">#ff6b31</color>
     <color name="fe_fu_white">#ffffff</color>
     <color name="fe_fu_transparent">@android:color/transparent</color>
+    <color name="for_earth_background">#FFFFFF</color>
 </resources>
+
+

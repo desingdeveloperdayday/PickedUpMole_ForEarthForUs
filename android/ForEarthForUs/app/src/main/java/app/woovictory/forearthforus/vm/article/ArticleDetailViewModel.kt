@@ -34,7 +34,6 @@ class ArticleDetailViewModel(private val articleDetailRepository: ArticleDetailR
         get() = _scrapResponse
 
     fun clickToBack() {
-        Log.v("0099", "들어오니? 1")
         _clickToBack.call()
     }
 

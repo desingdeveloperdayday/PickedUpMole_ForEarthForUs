@@ -18,6 +18,10 @@ import io.reactivex.schedulers.Schedulers
 
 /**
  * Created by VictoryWoo
+ * 서버에서 3초 이상 데이터를 받아오지 못한다면 로컬 데이터 보여주기?!
+ * TODO
+ * 1. 로컬에 데이터 캐싱?!
+ * 2. 리프레쉬 레이아웃 추가하기.
  */
 class MainViewModel(
     private val earthRepository: EarthRepository, private val missionFeedRepository

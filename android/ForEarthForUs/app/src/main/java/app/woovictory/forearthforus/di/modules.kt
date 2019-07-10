@@ -58,7 +58,7 @@ val apiModule = module {
                     .build()
             )
             .baseUrl(baseURL)
-            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.createAsync())
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(ApiService::class.java)
@@ -84,37 +84,37 @@ val apiModule = module {
 }
 
 val dataSourceModule = module {
-    factory { LoginRemoteDataSource(get()) }
-    factory { SignUpRemoteDataSource(get()) }
-    factory { EarthRemoteDataSource(get()) }
-    factory { MissionFeedRemoteDataSource(get()) }
-    factory { PreferenceRemoteDataSource(get()) }
-    factory { MissionCategoryRemoteDataSource(get()) }
-    factory { MissionSelectListRemoteDataSource(get()) }
-    factory { MissionDetailRemoteDataSource(get()) }
-    factory { MissionSelectRemoteDataSource(get()) }
-    factory { ArticleDonationRemoteDataSource(get()) }
-    factory { ArticleDetailRemoteDataSource(get()) }
-    factory { ArticleRepository(get()) }
-    factory { MissionFeedCompleteRemoteDataSource(get()) }
-    factory { ScrapRemoteDataSource(get()) }
+    single { LoginRemoteDataSource(get()) }
+    single { SignUpRemoteDataSource(get()) }
+    single { EarthRemoteDataSource(get()) }
+    single { MissionFeedRemoteDataSource(get()) }
+    single { PreferenceRemoteDataSource(get()) }
+    single { MissionCategoryRemoteDataSource(get()) }
+    single { MissionSelectListRemoteDataSource(get()) }
+    single { MissionDetailRemoteDataSource(get()) }
+    single { MissionSelectRemoteDataSource(get()) }
+    single { ArticleDonationRemoteDataSource(get()) }
+    single { ArticleDetailRemoteDataSource(get()) }
+    single { ArticleRepository(get()) }
+    single { MissionFeedCompleteRemoteDataSource(get()) }
+    single { ScrapRemoteDataSource(get()) }
 }
 
 val repositoryModule = module {
-    factory { SignUpRepository(get()) }
-    factory { LoginRepository(get()) }
-    factory { EarthRepository(get()) }
-    factory { MissionFeedRepository(get()) }
-    factory { PreferenceRepository(get()) }
-    factory { MissionCategoryRepository(get()) }
-    factory { MissionSelectListRepository(get()) }
-    factory { MissionDetailRepository(get()) }
-    factory { MissionSelectRepository(get()) }
-    factory { ArticleDonationRepository(get()) }
-    factory { ArticleDetailRepository(get()) }
-    factory { ArticleRemoteDataSource(get()) }
-    factory { MissionFeedCompleteRepository(get()) }
-    factory { ScrapRepository(get()) }
+    single { SignUpRepository(get()) }
+    single { LoginRepository(get()) }
+    single { EarthRepository(get()) }
+    single { MissionFeedRepository(get()) }
+    single { PreferenceRepository(get()) }
+    single { MissionCategoryRepository(get()) }
+    single { MissionSelectListRepository(get()) }
+    single { MissionDetailRepository(get()) }
+    single { MissionSelectRepository(get()) }
+    single { ArticleDonationRepository(get()) }
+    single { ArticleDetailRepository(get()) }
+    single { ArticleRemoteDataSource(get()) }
+    single { MissionFeedCompleteRepository(get()) }
+    single { ScrapRepository(get()) }
 }
 
 var appModules = listOf(apiModule, dataSourceModule, viewModelModule, repositoryModule)
