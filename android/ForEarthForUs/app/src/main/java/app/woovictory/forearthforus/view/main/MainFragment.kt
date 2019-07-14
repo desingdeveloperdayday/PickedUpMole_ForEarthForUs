@@ -13,6 +13,7 @@ import app.woovictory.forearthforus.databinding.FragmentMainBinding
 import app.woovictory.forearthforus.util.SharedPreferenceManager
 import app.woovictory.forearthforus.util.earthLevelList
 import app.woovictory.forearthforus.util.loadDrawableImage
+import app.woovictory.forearthforus.view.main.adapter.MainMissionAdapter
 import app.woovictory.forearthforus.view.main.detail.EarthDetailActivity
 import app.woovictory.forearthforus.view.mission.MissionDetailActivity
 import app.woovictory.forearthforus.vm.main.MainViewModel

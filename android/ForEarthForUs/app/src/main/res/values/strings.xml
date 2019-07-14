@@ -1,4 +1,6 @@
 <resources>
+
+    <!--xml 에서 사용되는 string 모임.-->
     <string name="app_name">FOR URTH</string>
 
     <!--login-->

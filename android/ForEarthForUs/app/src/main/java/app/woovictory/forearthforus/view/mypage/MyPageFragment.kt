@@ -8,6 +8,9 @@ import androidx.lifecycle.ViewModelProviders
 import app.woovictory.forearthforus.R
 import app.woovictory.forearthforus.base.BaseFragment
 import app.woovictory.forearthforus.databinding.FragmentMypageBinding
+import app.woovictory.forearthforus.util.DIALOG_NO
+import app.woovictory.forearthforus.util.DIALOG_YES
+import app.woovictory.forearthforus.util.STATE_READY
 import app.woovictory.forearthforus.util.SharedPreferenceManager
 import app.woovictory.forearthforus.view.account.LoginActivity
 import app.woovictory.forearthforus.view.mypage.achieve.AchieveListActivity
@@ -24,10 +27,6 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
  * Created by VictoryWoo
  */
 class MyPageFragment : BaseFragment<FragmentMypageBinding, MyPageViewModel>() {
-    override val layoutResourceId: Int
-        get() = R.layout.fragment_mypage
-    override val viewModel: MyPageViewModel by viewModel()
-
     companion object {
         private var fragment: MyPageFragment? = null
         fun newInstance(): MyPageFragment {
@@ -38,6 +37,10 @@ class MyPageFragment : BaseFragment<FragmentMypageBinding, MyPageViewModel>() {
         }
     }
 
+    override val layoutResourceId: Int
+        get() = R.layout.fragment_mypage
+    override val viewModel: MyPageViewModel by viewModel()
+
     private val myPageViewModel: MyPageViewModel
         get() = ViewModelProviders.of(this@MyPageFragment).get(MyPageViewModel::class.java)
 
@@ -47,7 +50,7 @@ class MyPageFragment : BaseFragment<FragmentMypageBinding, MyPageViewModel>() {
         subscribeViewModel()
 
         viewDataBinding.myPageMissionSuggest.setOnClickListener {
-            toast("준비 중입니다.")
+            toast(STATE_READY)
         }
     }
 
@@ -68,12 +71,12 @@ class MyPageFragment : BaseFragment<FragmentMypageBinding, MyPageViewModel>() {
         // TODO : 로그아웃 로직을 ViewModel 에서 처리할지 View 에서 처리할지 생각해봐야 함.
         myPageViewModel.clickToLogOut.observe(this, Observer {
             alert(title = "로그아웃", message = "로그아웃을 하시겠습니까?") {
-                positiveButton("예") {
+                positiveButton(DIALOG_YES) {
                     SharedPreferenceManager.removeAllData()
                     startActivity<LoginActivity>()
                     activity?.finish()
                 }
-                negativeButton("아니오") {
+                negativeButton(DIALOG_NO) {
                     it.dismiss()
                 }
             }.show().apply {
@@ -96,7 +99,11 @@ class MyPageFragment : BaseFragment<FragmentMypageBinding, MyPageViewModel>() {
         })
 
         myPageViewModel.clickToProfile.observe(this, Observer {
+            toast(STATE_READY)
+        })
 
+        myPageViewModel.clickToSuggest.observe(this, Observer {
+            toast(STATE_READY)
         })
     }
 }

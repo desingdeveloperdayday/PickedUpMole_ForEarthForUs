@@ -5,7 +5,6 @@ import app.woovictory.forearthforus.R
 /**
  * Created by VictoryWoo
  */
-const val baseURL = "http://looksgoood.pythonanywhere.com"
 const val headerInterceptor = "headerInterceptor"
 const val loggingInterceptor = "loggingInterceptor"
 const val TAG = "VictoryWoo 94"
@@ -21,9 +20,11 @@ const val PREF_USER_NAME = "UserName"
 const val PREF_USER_ID = "UserId"
 const val PREF_USER_EMAIL = "UserEmail"
 const val PREF_USER_CONTENT = "UserContent"
-const val PREF_USER_MISSION_COMPLETE_STATUS = "UserStatus"
-const val PREF_USER_MISSION_COMPLETE_COUNT = "UserCount"
 const val PREF_USER_FIRST_STATE = "UserFirstState"
+const val DIALOG_YES = "예"
+const val DIALOG_NO = "아니오"
+const val STATE_READY = "준비 중입니다."
+const val ITEM_COUNT = 2
 val earthLevelList = arrayListOf(
     R.drawable.main_bar_graph1,
     R.drawable.main_bar_graph2,

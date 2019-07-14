@@ -22,10 +22,8 @@ class EarthDetailActivity : BaseActivity<ActivityEarthDetailBinding>() {
     override val layoutResourceId: Int
         get() = R.layout.activity_earth_detail
     val viewModel: AchieveListViewModel by viewModel()
-    //get() = ViewModelProviders.of(this@EarthDetailActivity).get(AchieveListViewModel::class.java)
 
     private var achieveListAdapter = AchieveListAdapter()
-    private val itemCount: Int = 2
     private lateinit var size: Point
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -56,9 +54,7 @@ class EarthDetailActivity : BaseActivity<ActivityEarthDetailBinding>() {
                 } else {
                     earthDetailLevel.textColor = ContextCompat.getColor(this@EarthDetailActivity, R.color.fe_fu_main)
                 }
-
             }
-
         }
     }
 
@@ -97,10 +93,8 @@ class EarthDetailActivity : BaseActivity<ActivityEarthDetailBinding>() {
     private fun setUpRecyclerView() {
         viewDataBinding.earthDetailAchieveRv.apply {
             adapter = achieveListAdapter
-            layoutManager = GridLayoutManager(this@EarthDetailActivity, itemCount)
-            val space = dip(20)
-            val side = dip(8)
-            addItemDecoration(GridItemDecoration(space, side))
+            layoutManager = GridLayoutManager(this@EarthDetailActivity, ITEM_COUNT)
+            addItemDecoration(GridItemDecoration(space = dip(20), side = dip(8)))
         }
     }
 }

@@ -1,4 +1,4 @@
-package app.woovictory.forearthforus.view.main
+package app.woovictory.forearthforus.view.main.viewholder
 
 import android.util.Log
 import androidx.recyclerview.widget.RecyclerView

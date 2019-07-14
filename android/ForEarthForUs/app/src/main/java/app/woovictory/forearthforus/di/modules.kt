@@ -30,7 +30,6 @@ import app.woovictory.forearthforus.data.source.mission.MissionFeedCompleteRemot
 import app.woovictory.forearthforus.data.source.mission.MissionSelectListRemoteDataSource
 import app.woovictory.forearthforus.data.source.mission.MissionSelectRemoteDataSource
 import app.woovictory.forearthforus.data.source.scrap.ScrapRemoteDataSource
-import app.woovictory.forearthforus.util.baseURL
 import app.woovictory.forearthforus.util.headerInterceptor
 import app.woovictory.forearthforus.util.loggingInterceptor
 import okhttp3.Interceptor
@@ -57,7 +56,7 @@ val apiModule = module {
                     .addInterceptor(get(loggingInterceptor))
                     .build()
             )
-            .baseUrl(baseURL)
+            .baseUrl(BuildConfig.BASE_URL)
             .addCallAdapterFactory(RxJava2CallAdapterFactory.createAsync())
             .addConverterFactory(GsonConverterFactory.create())
             .build()

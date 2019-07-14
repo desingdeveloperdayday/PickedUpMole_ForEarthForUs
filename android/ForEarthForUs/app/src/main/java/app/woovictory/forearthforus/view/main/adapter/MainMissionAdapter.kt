@@ -1,10 +1,11 @@
-package app.woovictory.forearthforus.view.main
+package app.woovictory.forearthforus.view.main.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import app.woovictory.forearthforus.databinding.ItemListMainMissionBinding
 import app.woovictory.forearthforus.model.mission.MissionFeedResponse
+import app.woovictory.forearthforus.view.main.viewholder.MainMissionViewHolder
 
 /**
  * Created by VictoryWoo
