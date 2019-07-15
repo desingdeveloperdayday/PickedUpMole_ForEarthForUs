@@ -59,4 +59,13 @@ DDD. 2기에서 활동한 주워온 두더지팀의 **For Earth For Us**입니�
 - [circle indicator](https://github.com/ongakuer/CircleIndicator)
 - [koin](https://github.com/InsertKoinIO/koin)
 
+# ToDo
+- 자체적인 알람 기능 구현.
+- 스크랩 통신 기능 수정.
+- 로딩 시 UX를 고려해서 갑자기 뜨는 것 말고 로딩을 위한 작업 필요.
+
+
+# WireFrame
+
+<img src="android/ForEarthForUs/image/for_urth_wire_frame.png">
 
