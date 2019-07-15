@@ -1,6 +1,7 @@
 package app.woovictory.forearthforus
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
@@ -15,6 +16,7 @@ import app.woovictory.forearthforus.util.TIME_INTERVAL
 import app.woovictory.forearthforus.view.article.ArticleFragment
 import app.woovictory.forearthforus.view.category.MissionCategoryFragment
 import app.woovictory.forearthforus.view.main.MainFragment
+import app.woovictory.forearthforus.view.main.detail.EarthDetailActivity
 import app.woovictory.forearthforus.view.mypage.MyPageFragment
 import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.google.android.material.bottomnavigation.BottomNavigationMenuView
@@ -116,7 +118,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     }
 
     override fun subscribeViewModel() {
-
+        val intent = Intent(this@MainActivity, EarthDetailActivity::class.java)
+        startActivity(intent)
     }
 
     @SuppressLint("RestrictedApi")
