@@ -118,8 +118,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     }
 
     override fun subscribeViewModel() {
-        val intent = Intent(this@MainActivity, EarthDetailActivity::class.java)
-        startActivity(intent)
+
     }
 
     @SuppressLint("RestrictedApi")
