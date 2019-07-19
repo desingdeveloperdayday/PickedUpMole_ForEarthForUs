@@ -2,7 +2,6 @@ package app.woovictory.forearthforus.di
 
 import app.woovictory.forearthforus.BuildConfig
 import app.woovictory.forearthforus.api.ApiService
-import app.woovictory.forearthforus.data.repository.main.EarthRepository
 import app.woovictory.forearthforus.data.repository.account.LoginRepository
 import app.woovictory.forearthforus.data.repository.account.PreferenceRepository
 import app.woovictory.forearthforus.data.repository.account.SignUpRepository
@@ -11,6 +10,7 @@ import app.woovictory.forearthforus.data.repository.article.ArticleDonationRepos
 import app.woovictory.forearthforus.data.repository.article.ArticleRepository
 import app.woovictory.forearthforus.data.repository.category.MissionCategoryRepository
 import app.woovictory.forearthforus.data.repository.feed.MissionFeedRepository
+import app.woovictory.forearthforus.data.repository.main.EarthRepository
 import app.woovictory.forearthforus.data.repository.mission.MissionDetailRepository
 import app.woovictory.forearthforus.data.repository.mission.MissionFeedCompleteRepository
 import app.woovictory.forearthforus.data.repository.mission.MissionSelectListRepository
@@ -35,7 +35,8 @@ import app.woovictory.forearthforus.util.loggingInterceptor
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import org.koin.dsl.module.module
+import org.koin.core.qualifier.named
+import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
@@ -52,8 +53,8 @@ val apiModule = module {
         Retrofit.Builder()
             .client(
                 OkHttpClient.Builder()
-                    .addInterceptor(get(headerInterceptor))
-                    .addInterceptor(get(loggingInterceptor))
+                    .addInterceptor(get(named(headerInterceptor)))
+                    .addInterceptor(get(named(loggingInterceptor)))
                     .build()
             )
             .baseUrl(BuildConfig.BASE_URL)
@@ -63,7 +64,7 @@ val apiModule = module {
             .create(ApiService::class.java)
     }
 
-    single(headerInterceptor) {
+    single(named(headerInterceptor)) {
         Interceptor { chain ->
             val builder = chain.request().newBuilder().apply {
                 header("Content-Type", "application/json")
@@ -72,7 +73,7 @@ val apiModule = module {
         }
     }
 
-    single(loggingInterceptor) {
+    single(named(loggingInterceptor)) {
         HttpLoggingInterceptor().apply {
             level = if (BuildConfig.DEBUG)
                 HttpLoggingInterceptor.Level.BODY

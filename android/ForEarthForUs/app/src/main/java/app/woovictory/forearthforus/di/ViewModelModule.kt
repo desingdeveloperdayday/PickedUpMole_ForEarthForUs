@@ -1,19 +1,20 @@
 package app.woovictory.forearthforus.di
 
-import app.woovictory.forearthforus.vm.account.LoginViewModel
-import app.woovictory.forearthforus.vm.main.MainViewModel
 import app.woovictory.forearthforus.vm.account.FieldSelectViewModel
+import app.woovictory.forearthforus.vm.account.LoginViewModel
 import app.woovictory.forearthforus.vm.account.SignUpViewModel
 import app.woovictory.forearthforus.vm.article.ArticleDetailViewModel
 import app.woovictory.forearthforus.vm.article.ArticleViewModel
 import app.woovictory.forearthforus.vm.category.MissionCategoryViewModel
-import app.woovictory.forearthforus.vm.mission.MissionFeedCompleteWriteViewModel
+import app.woovictory.forearthforus.vm.main.MainViewModel
 import app.woovictory.forearthforus.vm.mission.MissionDetailViewModel
+import app.woovictory.forearthforus.vm.mission.MissionFeedCompleteWriteViewModel
 import app.woovictory.forearthforus.vm.mission.MissionSelectViewModel
 import app.woovictory.forearthforus.vm.mypage.AchieveListViewModel
 import app.woovictory.forearthforus.vm.mypage.ScrapListViewModel
-import org.koin.androidx.viewmodel.ext.koin.viewModel
-import org.koin.dsl.module.module
+import org.koin.androidx.viewmodel.dsl.viewModel
+import org.koin.core.qualifier.named
+import org.koin.dsl.module
 
 /**
  * Created by VictoryWoo

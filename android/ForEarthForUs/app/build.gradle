@@ -81,9 +81,11 @@ dependencies {
     // circle indicator
     implementation "me.relex:circleindicator:$circleIndicatorVersion"
 
-    // koin
-    implementation 'org.koin:koin-android:1.0.0-beta-3'
-    implementation "org.koin:koin-androidx-viewmodel:1.0.2"
+    // Koin for Android
+    implementation "org.koin:koin-android:2.0.1"
+    implementation "org.koin:koin-androidx-viewmodel:2.0.1"
+    // Koin AndroidX Experimental features
+    implementation "org.koin:koin-androidx-ext:2.0.1"
 
     // motion layout
     implementation "androidx.constraintlayout:constraintlayout:$motionLayoutVersion"
