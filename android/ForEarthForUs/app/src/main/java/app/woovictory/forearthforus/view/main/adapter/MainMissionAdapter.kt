@@ -26,7 +26,7 @@ class MainMissionAdapter(private var onMainMissionItemClick: (Int, String) -> Un
     override fun getItemCount(): Int = itemsMock.size
 
     override fun onBindViewHolder(holder: MainMissionViewHolder, position: Int) {
-        holder.apply {
+        holder.run {
             onBind(itemsMock[position])
         }
     }

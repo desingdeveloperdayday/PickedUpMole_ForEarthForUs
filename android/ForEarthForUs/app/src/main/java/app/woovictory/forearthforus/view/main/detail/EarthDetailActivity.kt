@@ -17,6 +17,7 @@ import app.woovictory.forearthforus.vm.mypage.AchieveListViewModel
 import org.jetbrains.anko.dip
 import org.jetbrains.anko.textColor
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import java.lang.StringBuilder
 
 class EarthDetailActivity : BaseActivity<ActivityEarthDetailBinding>() {
     override val layoutResourceId: Int
@@ -47,7 +48,9 @@ class EarthDetailActivity : BaseActivity<ActivityEarthDetailBinding>() {
             vm = viewModel
             lifecycleOwner = this@EarthDetailActivity
             SharedPreferenceManager.apply {
-                earthDetailLevel.text = "$LEVEL$earthLevel $userName"
+                val sb = StringBuilder()
+                sb.append(LEVEL).append(earthLevel).append(userName)
+                earthDetailLevel.text = "$sb"
                 earthDetailState.text = userContent
                 if (earthLevel <= 4) {
                     earthDetailLevel.textColor = ContextCompat.getColor(this@EarthDetailActivity, R.color.fe_fu_sub)

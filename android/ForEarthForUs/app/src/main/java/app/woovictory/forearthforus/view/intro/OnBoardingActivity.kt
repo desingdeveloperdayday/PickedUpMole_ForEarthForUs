@@ -5,12 +5,10 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
-import app.woovictory.forearthforus.MainActivity
 import app.woovictory.forearthforus.R
 import app.woovictory.forearthforus.util.SharedPreferenceManager
 import app.woovictory.forearthforus.view.account.LoginActivity
 import kotlinx.android.synthetic.main.activity_on_boarding.*
-import org.jetbrains.anko.startActivity
 
 class OnBoardingActivity : AppCompatActivity() {
 
