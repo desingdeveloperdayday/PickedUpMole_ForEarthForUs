@@ -8,7 +8,7 @@ import app.woovictory.forearthforus.data.repository.article.ArticleDetailReposit
 import app.woovictory.forearthforus.model.article.DonationDetailResponse
 import app.woovictory.forearthforus.model.article.ScrapRequest
 import app.woovictory.forearthforus.model.mypage.ScrapResponse
-import app.woovictory.forearthforus.util.SingleLiveEvent
+import app.woovictory.forearthforus.utils.SingleLiveEvent
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 

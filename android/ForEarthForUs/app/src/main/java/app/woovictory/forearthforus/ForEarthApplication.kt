@@ -2,7 +2,7 @@ package app.woovictory.forearthforus
 
 import android.app.Application
 import app.woovictory.forearthforus.di.appModules
-import app.woovictory.forearthforus.util.SharedPreferenceManager
+import app.woovictory.forearthforus.data.SharedPreferenceManager
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 

@@ -1,4 +1,4 @@
-package app.woovictory.forearthforus.util.glide
+package app.woovictory.forearthforus.utils.glide
 
 import com.bumptech.glide.load.Options
 import com.bumptech.glide.load.ResourceDecoder

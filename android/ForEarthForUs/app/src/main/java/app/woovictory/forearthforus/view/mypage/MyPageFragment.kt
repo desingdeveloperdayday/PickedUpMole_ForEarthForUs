@@ -1,19 +1,17 @@
 package app.woovictory.forearthforus.view.mypage
 
 import android.app.AlertDialog
-import android.content.Intent
 import android.os.Bundle
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import app.woovictory.forearthforus.MainActivity
 import app.woovictory.forearthforus.R
 import app.woovictory.forearthforus.base.BaseFragment
 import app.woovictory.forearthforus.databinding.FragmentMypageBinding
-import app.woovictory.forearthforus.util.DIALOG_NO
-import app.woovictory.forearthforus.util.DIALOG_YES
-import app.woovictory.forearthforus.util.STATE_READY
-import app.woovictory.forearthforus.util.SharedPreferenceManager
+import app.woovictory.forearthforus.utils.DIALOG_NO
+import app.woovictory.forearthforus.utils.DIALOG_YES
+import app.woovictory.forearthforus.utils.STATE_READY
+import app.woovictory.forearthforus.data.SharedPreferenceManager
 import app.woovictory.forearthforus.view.account.LoginActivity
 import app.woovictory.forearthforus.view.mypage.achieve.AchieveListActivity
 import app.woovictory.forearthforus.view.mypage.alarm.AlarmActivity

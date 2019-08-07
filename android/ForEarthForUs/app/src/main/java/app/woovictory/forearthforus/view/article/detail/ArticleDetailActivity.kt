@@ -9,7 +9,7 @@ import app.woovictory.forearthforus.R
 import app.woovictory.forearthforus.base.BaseActivity
 import app.woovictory.forearthforus.databinding.ActivityArticleDetailBinding
 import app.woovictory.forearthforus.model.article.ScrapRequest
-import app.woovictory.forearthforus.util.SharedPreferenceManager
+import app.woovictory.forearthforus.data.SharedPreferenceManager
 import app.woovictory.forearthforus.view.article.adapter.ArticleDetailAdapter
 import app.woovictory.forearthforus.vm.article.ArticleDetailViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel

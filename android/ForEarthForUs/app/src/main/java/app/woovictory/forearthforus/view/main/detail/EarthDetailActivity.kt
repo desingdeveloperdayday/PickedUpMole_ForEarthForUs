@@ -10,8 +10,9 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import app.woovictory.forearthforus.R
 import app.woovictory.forearthforus.base.BaseActivity
+import app.woovictory.forearthforus.data.SharedPreferenceManager
 import app.woovictory.forearthforus.databinding.ActivityEarthDetailBinding
-import app.woovictory.forearthforus.util.*
+import app.woovictory.forearthforus.utils.*
 import app.woovictory.forearthforus.view.mypage.adapter.AchieveListAdapter
 import app.woovictory.forearthforus.vm.mypage.AchieveListViewModel
 import org.jetbrains.anko.dip
@@ -38,9 +39,10 @@ class EarthDetailActivity : BaseActivity<ActivityEarthDetailBinding>() {
     }
 
     private fun getData() {
-        val earthLevel = SharedPreferenceManager.earthLevel - 1
-        loadDrawableImage(viewDataBinding.earthDetailBar, earthLevelList[earthLevel])
-        loadDrawableImage(viewDataBinding.earthImage, earthStatusList[earthLevel])
+        viewDataBinding.run {
+            earthDetailBar.loadDrawableImage(earthLevelList[SharedPreferenceManager.earthLevel - 1])
+            earthImage.loadDrawableImage(earthStatusList[SharedPreferenceManager.earthLevel - 1])
+        }
     }
 
     override fun initStartView() {

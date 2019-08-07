@@ -6,7 +6,7 @@ import android.view.View
 import app.woovictory.forearthforus.R
 import app.woovictory.forearthforus.base.BaseActivity
 import app.woovictory.forearthforus.databinding.ActivityMissionCompleteBinding
-import app.woovictory.forearthforus.util.glide.GlideApp
+import app.woovictory.forearthforus.utils.glide.GlideApp
 import io.reactivex.Observable
 import kotlinx.android.synthetic.main.activity_mission_complete.*
 import org.jetbrains.anko.startActivity

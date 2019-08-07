@@ -6,7 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import app.woovictory.forearthforus.base.BaseViewModel
 import app.woovictory.forearthforus.data.repository.feed.MissionFeedRepository
 import app.woovictory.forearthforus.model.mission.MissionFeedResponse
-import app.woovictory.forearthforus.util.SingleLiveEvent
+import app.woovictory.forearthforus.utils.SingleLiveEvent
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 

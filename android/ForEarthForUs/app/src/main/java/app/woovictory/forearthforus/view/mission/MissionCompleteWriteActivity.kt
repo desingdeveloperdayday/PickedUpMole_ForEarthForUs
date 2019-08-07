@@ -9,9 +9,9 @@ import app.woovictory.forearthforus.R
 import app.woovictory.forearthforus.base.BaseActivity
 import app.woovictory.forearthforus.databinding.ActivityMissionCompleteWriteBinding
 import app.woovictory.forearthforus.model.mission.MissionFeedCompleteRequest
-import app.woovictory.forearthforus.util.CustomDialog
-import app.woovictory.forearthforus.util.SharedPreferenceManager
-import app.woovictory.forearthforus.util.glide.GlideApp
+import app.woovictory.forearthforus.utils.CustomDialog
+import app.woovictory.forearthforus.data.SharedPreferenceManager
+import app.woovictory.forearthforus.utils.glide.GlideApp
 import app.woovictory.forearthforus.vm.mission.MissionFeedCompleteWriteViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

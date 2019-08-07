@@ -85,10 +85,10 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
 
     override fun subscribeViewModel() {
         viewModel.clickToLogin.observe(this, Observer {
-            viewDataBinding.let {
-                if (it.loginButton.isSelected) {
-                    val email = it.loginEmailEt.text.toString()
-                    val password = it.loginPasswordEt.text.toString()
+            with(viewDataBinding) {
+                if (loginButton.isSelected) {
+                    val email = loginEmailEt.text.toString()
+                    val password = loginPasswordEt.text.toString()
                     viewModel.postLogin(email, password)
                 } else {
                     toast(getString(R.string.text_login_alert_text))

@@ -1,4 +1,4 @@
-package app.woovictory.forearthforus.util
+package app.woovictory.forearthforus.utils
 
 import android.annotation.SuppressLint
 import android.graphics.drawable.PictureDrawable
@@ -6,8 +6,8 @@ import android.net.Uri
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import app.woovictory.forearthforus.R
-import app.woovictory.forearthforus.util.glide.GlideApp
-import app.woovictory.forearthforus.util.glide.SvgSoftwareLayerSetter
+import app.woovictory.forearthforus.utils.glide.GlideApp
+import app.woovictory.forearthforus.utils.glide.SvgSoftwareLayerSetter
 import com.bumptech.glide.RequestBuilder
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
@@ -17,12 +17,6 @@ import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
  */
 object BindingUtil {
 
-    /*private val requestOptions = RequestOptions()
-        .centerCrop()
-        .placeholder(R.color.fe_fu_gray)
-        .error(R.color.fe_fu_main)
-        .diskCacheStrategy(DiskCacheStrategy.ALL)
-        .priority(Priority.HIGH)*/
 
     @SuppressLint("StaticFieldLeak")
     private var requestBuilder: RequestBuilder<PictureDrawable>? = null

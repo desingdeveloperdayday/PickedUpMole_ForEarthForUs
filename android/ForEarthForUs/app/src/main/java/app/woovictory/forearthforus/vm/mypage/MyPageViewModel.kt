@@ -2,7 +2,7 @@ package app.woovictory.forearthforus.vm.mypage
 
 import androidx.lifecycle.LiveData
 import app.woovictory.forearthforus.base.BaseViewModel
-import app.woovictory.forearthforus.util.SingleLiveEvent
+import app.woovictory.forearthforus.utils.SingleLiveEvent
 
 /**
  * Created by VictoryWoo

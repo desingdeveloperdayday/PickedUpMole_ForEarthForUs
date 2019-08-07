@@ -1,6 +1,5 @@
 package app.woovictory.forearthforus.view.account
 
-import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -8,6 +7,7 @@ import androidx.lifecycle.Observer
 import app.woovictory.forearthforus.R
 import app.woovictory.forearthforus.base.BaseActivity
 import app.woovictory.forearthforus.databinding.ActivitySignUpBinding
+import app.woovictory.forearthforus.utils.openActivity
 import app.woovictory.forearthforus.vm.account.SignUpViewModel
 import kotlinx.android.synthetic.main.activity_sign_up.*
 import org.jetbrains.anko.toast
@@ -32,14 +32,12 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>() {
     }
 
     private fun setUpToolbar() {
-        setSupportActionBar(signUpToolbar)
+        //setSupportActionBar(signUpToolbar)
         supportActionBar?.run {
             setSupportActionBar(signUpToolbar)
             setDisplayHomeAsUpEnabled(true)
             setDisplayShowTitleEnabled(false)
         }
-        /*supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setDisplayShowTitleEnabled(false)*/
     }
 
     private fun checkEditText() {
@@ -150,8 +148,7 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>() {
 
         viewModel.signUpResponse.observe(this, Observer {
             if (it) {
-                val intent = Intent(this, FieldSelectActivity::class.java)
-                startActivity(intent)
+                this@SignUpActivity.openActivity(FieldSelectActivity::class.java)
                 finish()
             }
         })

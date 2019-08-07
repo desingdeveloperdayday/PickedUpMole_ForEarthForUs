@@ -5,14 +5,14 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import app.woovictory.forearthforus.MainActivity
 import app.woovictory.forearthforus.R
-import app.woovictory.forearthforus.util.SharedPreferenceManager
+import app.woovictory.forearthforus.data.SharedPreferenceManager
 import app.woovictory.forearthforus.view.account.LoginActivity
 import app.woovictory.forearthforus.view.intro.OnBoardingActivity
 import io.reactivex.Observable
 import io.reactivex.disposables.CompositeDisposable
 import org.jetbrains.anko.startActivity
 import java.util.concurrent.TimeUnit
-import app.woovictory.forearthforus.util.TAG
+import app.woovictory.forearthforus.utils.TAG
 
 /*
 * TODO : 스플래쉬 로티 애니메이션 적용하기.

@@ -1,4 +1,4 @@
-package app.woovictory.forearthforus.util.glide
+package app.woovictory.forearthforus.utils.glide
 
 import android.graphics.Picture
 import android.graphics.drawable.PictureDrawable

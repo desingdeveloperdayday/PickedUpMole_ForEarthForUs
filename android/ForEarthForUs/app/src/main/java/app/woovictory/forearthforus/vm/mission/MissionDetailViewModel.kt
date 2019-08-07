@@ -9,8 +9,7 @@ import app.woovictory.forearthforus.data.repository.mission.MissionSelectReposit
 import app.woovictory.forearthforus.model.mission.MissionDetailResponse
 import app.woovictory.forearthforus.model.mission.MissionFeedResponse
 import app.woovictory.forearthforus.model.mission.MissionSelectRequest
-import app.woovictory.forearthforus.util.SharedPreferenceManager
-import app.woovictory.forearthforus.util.SingleLiveEvent
+import app.woovictory.forearthforus.utils.SingleLiveEvent
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 

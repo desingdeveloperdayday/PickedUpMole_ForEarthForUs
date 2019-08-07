@@ -8,10 +8,10 @@ import app.woovictory.forearthforus.data.repository.feed.MissionFeedRepository
 import app.woovictory.forearthforus.data.repository.main.EarthRepository
 import app.woovictory.forearthforus.model.earth.EarthResponse
 import app.woovictory.forearthforus.model.mission.MissionFeedResponse
-import app.woovictory.forearthforus.util.MISSION_STATUS_PROGRESS
-import app.woovictory.forearthforus.util.SharedPreferenceManager
-import app.woovictory.forearthforus.util.SingleLiveEvent
-import app.woovictory.forearthforus.util.TAG
+import app.woovictory.forearthforus.utils.MISSION_STATUS_PROGRESS
+import app.woovictory.forearthforus.data.SharedPreferenceManager
+import app.woovictory.forearthforus.utils.SingleLiveEvent
+import app.woovictory.forearthforus.utils.TAG
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.rxkotlin.Observables
 import io.reactivex.schedulers.Schedulers

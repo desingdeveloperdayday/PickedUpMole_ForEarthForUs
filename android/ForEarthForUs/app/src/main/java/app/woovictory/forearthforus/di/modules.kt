@@ -30,8 +30,8 @@ import app.woovictory.forearthforus.data.source.mission.MissionFeedCompleteRemot
 import app.woovictory.forearthforus.data.source.mission.MissionSelectListRemoteDataSource
 import app.woovictory.forearthforus.data.source.mission.MissionSelectRemoteDataSource
 import app.woovictory.forearthforus.data.source.scrap.ScrapRemoteDataSource
-import app.woovictory.forearthforus.util.headerInterceptor
-import app.woovictory.forearthforus.util.loggingInterceptor
+import app.woovictory.forearthforus.utils.headerInterceptor
+import app.woovictory.forearthforus.utils.loggingInterceptor
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

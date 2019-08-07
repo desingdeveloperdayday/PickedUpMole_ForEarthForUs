@@ -1,7 +1,6 @@
 package app.woovictory.forearthforus
 
 import android.annotation.SuppressLint
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
@@ -11,12 +10,11 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import app.woovictory.forearthforus.base.BaseActivity
 import app.woovictory.forearthforus.databinding.ActivityMainBinding
-import app.woovictory.forearthforus.util.TAG
-import app.woovictory.forearthforus.util.TIME_INTERVAL
+import app.woovictory.forearthforus.utils.TAG
+import app.woovictory.forearthforus.utils.TIME_INTERVAL
 import app.woovictory.forearthforus.view.article.ArticleFragment
 import app.woovictory.forearthforus.view.category.MissionCategoryFragment
 import app.woovictory.forearthforus.view.main.MainFragment
-import app.woovictory.forearthforus.view.main.detail.EarthDetailActivity
 import app.woovictory.forearthforus.view.mypage.MyPageFragment
 import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.google.android.material.bottomnavigation.BottomNavigationMenuView

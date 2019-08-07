@@ -1,7 +1,8 @@
-package app.woovictory.forearthforus.util
+package app.woovictory.forearthforus.data
 
 import android.content.Context
 import android.content.SharedPreferences
+import app.woovictory.forearthforus.utils.*
 
 /**
  * Created by VictoryWoo
@@ -13,7 +14,10 @@ object SharedPreferenceManager {
     private lateinit var preferences: SharedPreferences
 
     fun init(context: Context) {
-        preferences = context.getSharedPreferences(NAME, MODE)
+        preferences = context.getSharedPreferences(
+            NAME,
+            MODE
+        )
     }
 
     private inline fun SharedPreferences.edit(operation: (SharedPreferences.Editor) -> Unit) {

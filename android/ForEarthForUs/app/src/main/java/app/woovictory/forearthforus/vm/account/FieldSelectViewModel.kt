@@ -5,8 +5,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import app.woovictory.forearthforus.base.BaseViewModel
 import app.woovictory.forearthforus.data.repository.account.PreferenceRepository
-import app.woovictory.forearthforus.util.SharedPreferenceManager
-import app.woovictory.forearthforus.util.SingleLiveEvent
+import app.woovictory.forearthforus.data.SharedPreferenceManager
+import app.woovictory.forearthforus.utils.SingleLiveEvent
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 

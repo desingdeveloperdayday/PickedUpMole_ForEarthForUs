@@ -12,10 +12,10 @@ import app.woovictory.forearthforus.R
 import app.woovictory.forearthforus.base.BaseActivity
 import app.woovictory.forearthforus.databinding.ActivityMissionDetailBinding
 import app.woovictory.forearthforus.model.mission.MissionSelectRequest
-import app.woovictory.forearthforus.util.MISSION_STATUS_COMPLETE
-import app.woovictory.forearthforus.util.MISSION_STATUS_NEW
-import app.woovictory.forearthforus.util.MISSION_STATUS_PROGRESS
-import app.woovictory.forearthforus.util.SharedPreferenceManager
+import app.woovictory.forearthforus.utils.MISSION_STATUS_COMPLETE
+import app.woovictory.forearthforus.utils.MISSION_STATUS_NEW
+import app.woovictory.forearthforus.utils.MISSION_STATUS_PROGRESS
+import app.woovictory.forearthforus.data.SharedPreferenceManager
 import app.woovictory.forearthforus.vm.mission.MissionDetailViewModel
 import com.google.android.material.appbar.AppBarLayout
 import kotlinx.android.synthetic.main.activity_mission_detail.*

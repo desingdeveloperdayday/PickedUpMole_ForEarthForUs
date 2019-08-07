@@ -6,7 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import app.woovictory.forearthforus.base.BaseViewModel
 import app.woovictory.forearthforus.data.repository.category.MissionCategoryRepository
 import app.woovictory.forearthforus.model.category.MissionCategoryResponse
-import app.woovictory.forearthforus.util.SharedPreferenceManager
+import app.woovictory.forearthforus.data.SharedPreferenceManager
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 

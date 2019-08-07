@@ -10,9 +10,9 @@ import app.woovictory.forearthforus.MainActivity
 import app.woovictory.forearthforus.R
 import app.woovictory.forearthforus.base.BaseFragment
 import app.woovictory.forearthforus.databinding.FragmentMainBinding
-import app.woovictory.forearthforus.util.SharedPreferenceManager
-import app.woovictory.forearthforus.util.earthLevelList
-import app.woovictory.forearthforus.util.loadDrawableImage
+import app.woovictory.forearthforus.data.SharedPreferenceManager
+import app.woovictory.forearthforus.utils.earthLevelList
+import app.woovictory.forearthforus.utils.loadDrawableImage
 import app.woovictory.forearthforus.view.main.adapter.MainMissionAdapter
 import app.woovictory.forearthforus.view.main.detail.EarthDetailActivity
 import app.woovictory.forearthforus.view.mission.MissionDetailActivity
@@ -138,15 +138,15 @@ class MainFragment : BaseFragment<FragmentMainBinding, MainViewModel>() {
     }
 
     private fun setEarthLevel(earthLevel: Int) {
-        loadDrawableImage(viewDataBinding.mainBarGraph, earthLevelList[earthLevel - 1])
+        viewDataBinding.mainBarGraph.loadDrawableImage(earthLevelList[earthLevel - 1])
     }
 
     private fun startToDetailActivity(id: Int, message: String) {
         val intent = Intent(context, MissionDetailActivity::class.java)
         intent.putExtra("id", id)
-        Log.v("2991230",id.toString())
+        Log.v("2991230", id.toString())
         intent.putExtra("completeMessage", message)
-        intent.putExtra("main","main")
+        intent.putExtra("main", "main")
         startActivity(intent)
     }
 }

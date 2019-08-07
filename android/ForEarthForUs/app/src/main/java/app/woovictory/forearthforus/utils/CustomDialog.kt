@@ -1,4 +1,4 @@
-package app.woovictory.forearthforus.util
+package app.woovictory.forearthforus.utils
 
 import android.app.Dialog
 import android.content.Context
@@ -35,14 +35,14 @@ class CustomDialog(
     private fun setUpDialog(categoryId: Int) {
         dialogText.text = title
         dialogContent.text = completeMessage
-        loadDrawableImage(dialogImage, missionCategoryList[categoryId - 1])
+        dialogImage.loadDrawableImage(missionCategoryList[categoryId - 1])
+        //loadDrawableImage(dialogImage, missionCategoryList[categoryId - 1])
     }
 
     override fun onClick(v: View) {
         when (v.id) {
             R.id.dialogOkayButton -> {
                 dismiss()
-                //SharedPreferenceManager.missionCompleteStatus = false
                 val intent = Intent(context, MainActivity::class.java)
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                 context.startActivity(intent)

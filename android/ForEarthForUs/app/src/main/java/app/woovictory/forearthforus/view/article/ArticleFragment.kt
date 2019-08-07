@@ -13,8 +13,8 @@ import androidx.recyclerview.widget.PagerSnapHelper
 import app.woovictory.forearthforus.R
 import app.woovictory.forearthforus.base.BaseFragment
 import app.woovictory.forearthforus.databinding.FragmentArticleBinding
-import app.woovictory.forearthforus.util.ItemDecoration
-import app.woovictory.forearthforus.util.SharedPreferenceManager
+import app.woovictory.forearthforus.utils.ItemDecoration
+import app.woovictory.forearthforus.data.SharedPreferenceManager
 import app.woovictory.forearthforus.view.article.adapter.ArticleEarthAdapter
 import app.woovictory.forearthforus.view.article.adapter.ArticleListAdapter
 import app.woovictory.forearthforus.view.article.detail.ArticleDetailActivity

@@ -6,7 +6,7 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
 import app.woovictory.forearthforus.R
-import app.woovictory.forearthforus.util.SharedPreferenceManager
+import app.woovictory.forearthforus.data.SharedPreferenceManager
 import app.woovictory.forearthforus.view.account.LoginActivity
 import kotlinx.android.synthetic.main.activity_on_boarding.*
 

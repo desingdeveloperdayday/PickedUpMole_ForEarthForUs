@@ -17,8 +17,8 @@ import app.woovictory.forearthforus.R
 import app.woovictory.forearthforus.base.BaseActivity
 import app.woovictory.forearthforus.databinding.ActivityMissionSelectBinding
 import app.woovictory.forearthforus.model.mission.MissionSelectResponse
-import app.woovictory.forearthforus.util.ItemDecoration
-import app.woovictory.forearthforus.util.missionCategoryTitleList
+import app.woovictory.forearthforus.utils.ItemDecoration
+import app.woovictory.forearthforus.utils.missionCategoryTitleList
 import app.woovictory.forearthforus.view.mission.adapter.MissionSelectAdapter
 import app.woovictory.forearthforus.vm.mission.MissionSelectViewModel
 import kotlinx.android.synthetic.main.activity_mission_select.*

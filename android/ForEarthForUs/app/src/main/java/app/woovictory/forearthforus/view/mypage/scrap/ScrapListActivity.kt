@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import app.woovictory.forearthforus.R
 import app.woovictory.forearthforus.base.BaseActivity
 import app.woovictory.forearthforus.databinding.ActivityScrapListBinding
-import app.woovictory.forearthforus.util.SharedPreferenceManager
+import app.woovictory.forearthforus.data.SharedPreferenceManager
 import app.woovictory.forearthforus.view.mypage.adapter.ScrapListAdapter
 import app.woovictory.forearthforus.vm.mypage.ScrapListViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
