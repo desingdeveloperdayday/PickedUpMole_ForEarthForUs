@@ -1,9 +1,9 @@
-package app.woovictory.forearthforus.view
+package app.woovictory.forearthforus.view.splash
 
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import app.woovictory.forearthforus.MainActivity
+import app.woovictory.forearthforus.view.MainActivity
 import app.woovictory.forearthforus.R
 import app.woovictory.forearthforus.data.SharedPreferenceManager
 import app.woovictory.forearthforus.view.account.LoginActivity

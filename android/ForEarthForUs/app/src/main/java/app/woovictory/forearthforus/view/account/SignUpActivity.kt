@@ -7,10 +7,10 @@ import androidx.lifecycle.Observer
 import app.woovictory.forearthforus.R
 import app.woovictory.forearthforus.base.BaseActivity
 import app.woovictory.forearthforus.databinding.ActivitySignUpBinding
-import app.woovictory.forearthforus.utils.openActivity
+import app.woovictory.forearthforus.utils.extensions.openActivity
+import app.woovictory.forearthforus.utils.extensions.showToast
 import app.woovictory.forearthforus.vm.account.SignUpViewModel
 import kotlinx.android.synthetic.main.activity_sign_up.*
-import org.jetbrains.anko.toast
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SignUpActivity : BaseActivity<ActivitySignUpBinding>() {
@@ -32,7 +32,6 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>() {
     }
 
     private fun setUpToolbar() {
-        //setSupportActionBar(signUpToolbar)
         supportActionBar?.run {
             setSupportActionBar(signUpToolbar)
             setDisplayHomeAsUpEnabled(true)
@@ -142,13 +141,13 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>() {
                     , signPasswordEt.text.toString(), signPasswordCheckEt.text.toString()
                 )
             } else {
-                toast(getString(R.string.text_login_alert_text))
+                showToast(getString(R.string.text_login_alert_text))
             }
         })
 
         viewModel.signUpResponse.observe(this, Observer {
             if (it) {
-                this@SignUpActivity.openActivity(FieldSelectActivity::class.java)
+                openActivity(FieldSelectActivity::class.java)
                 finish()
             }
         })

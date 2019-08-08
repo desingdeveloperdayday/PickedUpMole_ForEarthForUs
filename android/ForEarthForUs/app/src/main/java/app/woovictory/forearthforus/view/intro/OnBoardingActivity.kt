@@ -43,8 +43,6 @@ class OnBoardingActivity : AppCompatActivity() {
             override fun onPageSelected(position: Int) {
                 onBoardingTitle.text = titleList[position]
                 onBoardingSubTitle.text = subTitleList[position]
-
-                Log.v("991023", position.toString())
                 when (position) {
                     0, 1 -> onBoardingSkipButton.text = "건너뛰기"
                     2 -> onBoardingSkipButton.text = "시작하기"
@@ -58,15 +56,11 @@ class OnBoardingActivity : AppCompatActivity() {
         onBoardingSkipButton.setOnClickListener {
             Intent(this, LoginActivity::class.java)
                 .apply {
-                    //addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY)
                     SharedPreferenceManager.userFirstState = true
-                }.let {
-                    startActivity(it)
+                    startActivity(this)
                 }
 
             finish()
-            /*startActivity<MainActivity>()
-            finish()*/
         }
     }
 

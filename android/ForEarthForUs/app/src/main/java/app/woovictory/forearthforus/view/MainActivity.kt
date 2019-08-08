@@ -1,4 +1,4 @@
-package app.woovictory.forearthforus
+package app.woovictory.forearthforus.view
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import app.woovictory.forearthforus.R
 import app.woovictory.forearthforus.base.BaseActivity
 import app.woovictory.forearthforus.databinding.ActivityMainBinding
 import app.woovictory.forearthforus.utils.TAG
@@ -107,7 +108,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         mainBottomNavigation.selectedItemId = R.id.navigation_main
         mainBottomNavigation.itemIconTintList = null
         // bottom navigation ripple 투명으로 변경.
-        mainBottomNavigation.itemRippleColor = ContextCompat.getColorStateList(this, R.color.fe_fu_transparent)
+        mainBottomNavigation.itemRippleColor = ContextCompat.getColorStateList(this,
+            R.color.fe_fu_transparent
+        )
         mainBottomNavigation.setOnNavigationItemSelectedListener { item: MenuItem ->
             addFragmentBasedOnId(item.itemId)
             true

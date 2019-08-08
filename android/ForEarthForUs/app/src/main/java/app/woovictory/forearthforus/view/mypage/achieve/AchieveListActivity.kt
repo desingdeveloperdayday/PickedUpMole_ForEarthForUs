@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import app.woovictory.forearthforus.R
 import app.woovictory.forearthforus.base.BaseActivity
 import app.woovictory.forearthforus.databinding.ActivityAchieveListBinding
-import app.woovictory.forearthforus.utils.GridItemDecoration
+import app.woovictory.forearthforus.utils.decoration.GridItemDecoration
 import app.woovictory.forearthforus.utils.MISSION_STATUS_COMPLETE
 import app.woovictory.forearthforus.data.SharedPreferenceManager
 import app.woovictory.forearthforus.view.mypage.adapter.AchieveListAdapter

@@ -6,13 +6,13 @@ import android.util.Log
 import android.view.View
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import app.woovictory.forearthforus.MainActivity
+import app.woovictory.forearthforus.view.MainActivity
 import app.woovictory.forearthforus.R
 import app.woovictory.forearthforus.base.BaseFragment
 import app.woovictory.forearthforus.databinding.FragmentMainBinding
 import app.woovictory.forearthforus.data.SharedPreferenceManager
 import app.woovictory.forearthforus.utils.earthLevelList
-import app.woovictory.forearthforus.utils.loadDrawableImage
+import app.woovictory.forearthforus.utils.extensions.loadDrawableImage
 import app.woovictory.forearthforus.view.main.adapter.MainMissionAdapter
 import app.woovictory.forearthforus.view.main.detail.EarthDetailActivity
 import app.woovictory.forearthforus.view.mission.MissionDetailActivity

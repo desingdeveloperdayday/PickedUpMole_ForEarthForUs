@@ -31,9 +31,9 @@
         <activity
                 android:name=".view.account.SignUpActivity"
                 android:windowSoftInputMode="adjustResize"/>
-        <activity android:name=".MainActivity"/>
+        <activity android:name=".view.MainActivity"/>
         <activity
-                android:name=".view.SplashActivity"
+                android:name=".view.splash.SplashActivity"
                 android:theme="@style/MainColorTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

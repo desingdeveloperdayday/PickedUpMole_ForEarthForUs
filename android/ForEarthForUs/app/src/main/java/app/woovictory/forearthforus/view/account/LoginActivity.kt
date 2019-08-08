@@ -4,13 +4,15 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import androidx.lifecycle.Observer
-import app.woovictory.forearthforus.MainActivity
+import app.woovictory.forearthforus.view.MainActivity
 import app.woovictory.forearthforus.R
 import app.woovictory.forearthforus.base.BaseActivity
 import app.woovictory.forearthforus.databinding.ActivityLoginBinding
+import app.woovictory.forearthforus.utils.extensions.hideKeyboard
+import app.woovictory.forearthforus.utils.extensions.openActivity
+import app.woovictory.forearthforus.utils.extensions.showToast
 import app.woovictory.forearthforus.vm.account.LoginViewModel
 import org.jetbrains.anko.startActivity
-import org.jetbrains.anko.toast
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class LoginActivity : BaseActivity<ActivityLoginBinding>() {
@@ -26,6 +28,10 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
         checkEditText()
         initStartView()
         subscribeViewModel()
+
+        viewDataBinding.loginParent.setOnClickListener {
+            hideKeyboard(applicationContext)
+        }
     }
 
     private fun checkEditText() {
@@ -85,27 +91,26 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
 
     override fun subscribeViewModel() {
         viewModel.clickToLogin.observe(this, Observer {
+            this.hideKeyboard(applicationContext)
             with(viewDataBinding) {
                 if (loginButton.isSelected) {
-                    val email = loginEmailEt.text.toString()
-                    val password = loginPasswordEt.text.toString()
-                    viewModel.postLogin(email, password)
+                    viewModel.postLogin(loginEmailEt.text.toString(), loginPasswordEt.text.toString())
                 } else {
-                    toast(getString(R.string.text_login_alert_text))
+                    showToast(getString(R.string.text_login_alert_text))
                 }
             }
         })
 
         viewModel.loginResponse.observe(this, Observer {
-            if (it) {
-                goToMainActivity()
-            } else {
-                toast("정보를 확인해주세요.")
-            }
+            if (it)
+                openActivity(MainActivity::class.java)
+            else
+                showToast("정보를 확인해주세요.")
+
         })
 
         viewModel.clickToSignActivity.observe(this, Observer {
-            startActivity<SignUpActivity>()
+            openActivity(SignUpActivity::class.java)
             finish()
         })
     }

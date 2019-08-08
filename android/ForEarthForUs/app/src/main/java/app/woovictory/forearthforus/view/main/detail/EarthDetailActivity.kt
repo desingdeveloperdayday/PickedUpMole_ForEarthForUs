@@ -13,6 +13,8 @@ import app.woovictory.forearthforus.base.BaseActivity
 import app.woovictory.forearthforus.data.SharedPreferenceManager
 import app.woovictory.forearthforus.databinding.ActivityEarthDetailBinding
 import app.woovictory.forearthforus.utils.*
+import app.woovictory.forearthforus.utils.decoration.GridItemDecoration
+import app.woovictory.forearthforus.utils.extensions.loadDrawableImage
 import app.woovictory.forearthforus.view.mypage.adapter.AchieveListAdapter
 import app.woovictory.forearthforus.vm.mypage.AchieveListViewModel
 import org.jetbrains.anko.dip
@@ -99,7 +101,12 @@ class EarthDetailActivity : BaseActivity<ActivityEarthDetailBinding>() {
         viewDataBinding.earthDetailAchieveRv.apply {
             adapter = achieveListAdapter
             layoutManager = GridLayoutManager(this@EarthDetailActivity, ITEM_COUNT)
-            addItemDecoration(GridItemDecoration(space = dip(20), side = dip(8)))
+            addItemDecoration(
+                GridItemDecoration(
+                    space = dip(20),
+                    side = dip(8)
+                )
+            )
         }
     }
 }

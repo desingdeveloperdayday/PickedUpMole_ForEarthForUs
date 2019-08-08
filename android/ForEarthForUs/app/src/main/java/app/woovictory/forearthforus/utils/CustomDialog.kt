@@ -5,8 +5,9 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import app.woovictory.forearthforus.MainActivity
+import app.woovictory.forearthforus.view.MainActivity
 import app.woovictory.forearthforus.R
+import app.woovictory.forearthforus.utils.extensions.loadDrawableImage
 import kotlinx.android.synthetic.main.custom_dialog.*
 
 /**

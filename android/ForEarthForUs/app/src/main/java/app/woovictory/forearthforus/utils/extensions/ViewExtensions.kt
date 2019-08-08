@@ -1,5 +1,6 @@
-package app.woovictory.forearthforus.utils
+package app.woovictory.forearthforus.utils.extensions
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.graphics.BlendMode
@@ -26,12 +27,14 @@ fun ImageView.loadDrawableImage(drawable: Int) {
         .into(this)
 }
 
-fun EditText.hideKeyboard(context: Context) {
-    val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-    imm.hideSoftInputFromWindow(this.windowToken, 0)
+fun Activity.hideKeyboard(context: Context) {
+    this.currentFocus?.let { view ->
+        val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(view.windowToken, 0)
+    }
 }
 
-fun Context.toast(message: String) {
+fun Context.showToast(message: String) {
     Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
 }
 
@@ -44,7 +47,7 @@ fun Drawable.changeColorFilter(color: Int) {
     }
 }
 
-fun <T> Context.openActivity(activity: Class<T>){
+fun <T> Context.openActivity(activity: Class<T>) {
     Intent(this, activity).apply {
         startActivity(this)
     }

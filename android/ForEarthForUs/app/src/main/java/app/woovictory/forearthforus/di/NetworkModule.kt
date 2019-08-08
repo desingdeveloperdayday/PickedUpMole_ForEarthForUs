@@ -83,38 +83,6 @@ val apiModule = module {
     }
 }
 
-val dataSourceModule = module {
-    single { LoginRemoteDataSource(get()) }
-    single { SignUpRemoteDataSource(get()) }
-    single { EarthRemoteDataSource(get()) }
-    single { MissionFeedRemoteDataSource(get()) }
-    single { PreferenceRemoteDataSource(get()) }
-    single { MissionCategoryRemoteDataSource(get()) }
-    single { MissionSelectListRemoteDataSource(get()) }
-    single { MissionDetailRemoteDataSource(get()) }
-    single { MissionSelectRemoteDataSource(get()) }
-    single { ArticleDonationRemoteDataSource(get()) }
-    single { ArticleDetailRemoteDataSource(get()) }
-    single { ArticleRepository(get()) }
-    single { MissionFeedCompleteRemoteDataSource(get()) }
-    single { ScrapRemoteDataSource(get()) }
-}
 
-val repositoryModule = module {
-    single { SignUpRepository(get()) }
-    single { LoginRepository(get()) }
-    single { EarthRepository(get()) }
-    single { MissionFeedRepository(get()) }
-    single { PreferenceRepository(get()) }
-    single { MissionCategoryRepository(get()) }
-    single { MissionSelectListRepository(get()) }
-    single { MissionDetailRepository(get()) }
-    single { MissionSelectRepository(get()) }
-    single { ArticleDonationRepository(get()) }
-    single { ArticleDetailRepository(get()) }
-    single { ArticleRemoteDataSource(get()) }
-    single { MissionFeedCompleteRepository(get()) }
-    single { ScrapRepository(get()) }
-}
 
-var appModules = listOf(apiModule, dataSourceModule, viewModelModule, repositoryModule)
+

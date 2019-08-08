@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.viewpager.widget.PagerAdapter
 import app.woovictory.forearthforus.R
-import app.woovictory.forearthforus.utils.loadDrawableImage
+import app.woovictory.forearthforus.utils.extensions.loadDrawableImage
 import kotlinx.android.synthetic.main.image_slider.view.*
 
 /**

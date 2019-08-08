@@ -1,4 +1,4 @@
-package app.woovictory.forearthforus.utils
+package app.woovictory.forearthforus.utils.decoration
 
 import android.graphics.Rect
 import android.view.View
