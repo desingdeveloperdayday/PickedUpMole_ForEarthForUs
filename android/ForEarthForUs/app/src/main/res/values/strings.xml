@@ -86,6 +86,7 @@
     <string name="text_field_acid_rain">산성비</string>
     <string name="text_field_weather_change">기후변화</string>
     <string name="text_field_endangered_species_">멸종위기 동물</string>
+    <string name="text_check">확인</string>
 
     <!--온보딩 페이지-->
     <string name="text_on_boarding_skip">건너뛰기</string>

@@ -65,7 +65,8 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/dialogLine"
-                android:text="확인"
+                android:text="@string/text_check"
+                android:background="?selectableItemBackground"
                 style="@style/ButtonMintCenterStyle"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -116,6 +116,7 @@
                         android:stateListAnimator="@null"
                         android:gravity="center"
                         android:onClick="@{()-> vm.clickToSignUp()}"
+                        android:background="?selectableItemBackground"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/signPasswordCheckEt"

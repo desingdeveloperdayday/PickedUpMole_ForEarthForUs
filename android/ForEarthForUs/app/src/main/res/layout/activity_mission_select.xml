@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
+
     <data>
-        <variable name="vm" type="app.woovictory.forearthforus.vm.mission.MissionSelectViewModel"/>
+
+        <variable
+                name="vm"
+                type="app.woovictory.forearthforus.vm.mission.MissionSelectViewModel" />
     </data>
-    <androidx.constraintlayout.widget.ConstraintLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:tools="http://schemas.android.com/tools"
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#edeef6"
@@ -21,60 +25,58 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.appbar.AppBarLayout
                 android:id="@+id/missionSelectAppbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:elevation="0dp"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
             <androidx.appcompat.widget.Toolbar
                     android:id="@+id/missionSelectToolbar"
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
-                    android:background="#edeef6"
                     android:layout_gravity="center"
+                    android:background="#edeef6"
                     android:gravity="center">
 
                 <TextView
                         android:id="@+id/missionSelectTitle"
+                        style="@style/SubTitleBodyCenterStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        style="@style/SubTitleBodyCenterStyle"
-                        android:text="@string/text_mission_select_title"
-                />
+                        android:text="@string/text_mission_select_title" />
 
             </androidx.appcompat.widget.Toolbar>
 
         </com.google.android.material.appbar.AppBarLayout>
 
-   <!--     <RelativeLayout
-                android:id="@+id/missionSelectAppbar"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+        <!--     <RelativeLayout
+                     android:id="@+id/missionSelectAppbar"
+                     android:layout_width="match_parent"
+                     android:layout_height="60dp"
+                     app:layout_constraintStart_toStartOf="parent"
+                     app:layout_constraintEnd_toEndOf="parent"
+                     app:layout_constraintTop_toTopOf="parent">
 
 
-        </RelativeLayout>-->
+             </RelativeLayout>-->
 
         <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/missionSelectRv"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:layout_marginTop="@dimen/margin_16dp"
                 android:layout_gravity="center_horizontal"
-                app:layout_constraintTop_toBottomOf="@id/missionSelectAppbar"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="@dimen/margin_16dp"
                 app:layout_constraintBottom_toTopOf="@id/missionSelectIndicator"
-        />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/missionSelectAppbar" />
 
         <me.relex.circleindicator.CircleIndicator2
                 android:id="@+id/missionSelectIndicator"
@@ -84,26 +86,27 @@
                 app:ci_animator="@animator/dot_indicator_animated"
                 app:ci_drawable="@drawable/dot_indicator_selected"
                 app:ci_drawable_unselected="@drawable/dot_indicator_unselected"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/missionSelectButton"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/missionSelectButton"/>
+                app:layout_constraintStart_toStartOf="parent" />
 
         <Button
                 android:id="@+id/missionSelectButton"
+                style="@style/ButtonWhiteCenterStyle"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/size_button_height"
-                android:background="@drawable/border_button_background_active"
                 android:layout_marginStart="@dimen/margin_24dp"
                 android:layout_marginEnd="@dimen/margin_24dp"
                 android:layout_marginBottom="@dimen/margin_16dp"
+                android:background="@drawable/border_button_background_active"
+                android:foreground="?selectableItemBackground"
+                android:onClick="@{()-> vm.clickToMissionStart()}"
+                android:stateListAnimator="@null"
                 android:text="@string/text_mission_start"
                 android:textColor="@color/fe_fu_white"
-                android:stateListAnimator="@null"
-                android:onClick="@{()-> vm.clickToMissionStart()}"
-                style="@style/ButtonWhiteCenterStyle"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"/>
+                app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
