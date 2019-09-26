@@ -1,52 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent" android:layout_height="match_parent"
-        tools:context=".view.intro.OnBoardingActivity"
-        android:background="@color/fe_fu_main">
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/fe_fu_main"
+        tools:context=".view.intro.OnBoardingActivity">
 
 
     <androidx.viewpager.widget.ViewPager
             android:id="@+id/onBoardingViewPager"
             android:layout_width="0dp"
             android:layout_height="401dp"
-            android:layout_marginBottom="@dimen/margin_32dp"
             android:layout_marginTop="@dimen/margin_16dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginBottom="@dimen/margin_32dp"
             app:layout_constraintEnd_toEndOf="parent"
-    />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
             android:id="@+id/onBoardingTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/notosanscjkkr_bold"
-            android:includeFontPadding="false"
-            android:textSize="20dp"
-            android:textColor="@color/fe_fu_white"
-            android:gravity="center_horizontal"
             android:layout_marginTop="@dimen/margin_24dp"
-            app:layout_constraintStart_toStartOf="parent"
+            android:fontFamily="@font/notosanscjkkr_bold"
+            android:gravity="center_horizontal"
+            android:includeFontPadding="false"
+            android:textColor="@color/fe_fu_white"
+            android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/onBoardingViewPager"
-    />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/onBoardingViewPager" />
 
     <TextView
             android:id="@+id/onBoardingSubTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/notosanscjkkr_regular"
-            android:includeFontPadding="false"
-            android:textSize="14dp"
-            android:textColor="@color/fe_fu_white"
-            android:gravity="center_horizontal"
             android:layout_marginTop="@dimen/margin_16dp"
-            app:layout_constraintStart_toStartOf="parent"
+            android:fontFamily="@font/notosanscjkkr_regular"
+            android:gravity="center_horizontal"
+            android:includeFontPadding="false"
+            android:textColor="@color/fe_fu_white"
+            android:textSize="14dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/onBoardingTitle"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/onBoardingTitle" />
 
     <me.relex.circleindicator.CircleIndicator
             android:id="@+id/onBoardingIndicator"
@@ -56,22 +54,24 @@
             app:ci_animator="@animator/dot_indicator_animated"
             app:ci_drawable="@drawable/dot_indicator_selected_white"
             app:ci_drawable_unselected="@drawable/dot_indicator_unselected"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/onBoardingSubTitle"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/onBoardingSubTitle" />
+
     <Button
             android:id="@+id/onBoardingSkipButton"
-            android:text="@string/text_on_boarding_skip"
+            style="@style/ButtonWhiteCenterStyle"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginStart="@dimen/margin_24dp"
             android:layout_marginEnd="@dimen/margin_24dp"
             android:layout_marginBottom="@dimen/margin_16dp"
             android:background="@drawable/border_white_button"
+            android:foreground="?selectableItemBackground"
             android:stateListAnimator="@null"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@string/text_on_boarding_skip"
             app:layout_constraintBottom_toBottomOf="parent"
-            style="@style/ButtonWhiteCenterStyle"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,7 +13,8 @@ import io.reactivex.schedulers.Schedulers
 /**
  * Created by VictoryWoo
  */
-class FieldSelectViewModel(private val preferenceRepository: PreferenceRepository) : BaseViewModel() {
+class FieldSelectViewModel(private val preferenceRepository: PreferenceRepository) :
+    BaseViewModel() {
 
     private val _clickToSelectPreference = SingleLiveEvent<Any>()
     val clickToSelectPreference: LiveData<Any>
@@ -28,21 +29,16 @@ class FieldSelectViewModel(private val preferenceRepository: PreferenceRepositor
     }
 
     fun selectUserPreference(preferList: MutableList<Int>) {
-
-        Log.v("8822 type ", preferList.toString())
-
-        addDisposable(
-            preferenceRepository.selectUserPreference(SharedPreferenceManager.token, preferList)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({
-                    Log.v("8822 s", "success")
-                    _preferenceResponse.value = true
-                }, { error ->
-                    Log.v("Field Select error", error.message)
-                    _preferenceResponse.value = false
-                })
-        )
+        preferenceRepository.selectUserPreference(SharedPreferenceManager.token, preferList)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({
+                Log.v("8822 s", "success")
+                _preferenceResponse.value = true
+            }, { error ->
+                Log.v("Field Select error", error?.message)
+                _preferenceResponse.value = false
+            }).apply { addDisposable(this) }
 
     }
 }
