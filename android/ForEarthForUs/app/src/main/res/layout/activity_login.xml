@@ -1,92 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
+
     <data>
+
         <variable
                 name="vm"
-                type="app.woovictory.forearthforus.vm.account.LoginViewModel"
-        />
+                type="app.woovictory.forearthforus.vm.account.LoginViewModel" />
     </data>
-    <androidx.constraintlayout.widget.ConstraintLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:tools="http://schemas.android.com/tools"
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
             android:id="@+id/loginParent"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".view.account.LoginActivity"
-            android:background="@color/fe_fu_white">
+            android:background="@color/fe_fu_white"
+            android:onClick="@{()->vm.clickToLayout()}"
+            tools:context=".view.account.LoginActivity">
 
 
         <ImageView
                 android:id="@+id/loginLogoImage"
                 android:layout_width="80dp"
                 android:layout_height="66dp"
-                android:src="@drawable/logo_main"
                 android:gravity="center"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                android:src="@drawable/logo_main"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.498"
-                app:layout_constraintVertical_bias="0.137"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.137" />
 
         <EditText
                 android:id="@+id/loginEmailEt"
-                android:layout_marginTop="@dimen/margin_56dp"
-                android:layout_marginStart="@dimen/margin_24dp"
-                android:layout_marginEnd="@dimen/margin_24dp"
+                style="@style/EditTextStyle"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:layout_marginStart="@dimen/margin_24dp"
+                android:layout_marginTop="@dimen/margin_56dp"
+                android:layout_marginEnd="@dimen/margin_24dp"
                 android:hint="@string/text_login_email"
                 android:inputType="textEmailAddress"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/loginLogoImage"
-                style="@style/EditTextStyle"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/loginLogoImage" />
 
         <EditText
                 android:id="@+id/loginPasswordEt"
-                android:layout_marginTop="@dimen/margin_16dp"
-                android:layout_marginStart="@dimen/margin_24dp"
-                android:layout_marginEnd="@dimen/margin_24dp"
+                style="@style/EditTextStyle"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:layout_marginStart="@dimen/margin_24dp"
+                android:layout_marginTop="@dimen/margin_16dp"
+                android:layout_marginEnd="@dimen/margin_24dp"
                 android:hint="@string/text_login_password"
                 android:inputType="textPassword"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/loginEmailEt"
-                style="@style/EditTextStyle"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/loginEmailEt" />
 
         <Button
                 android:id="@+id/loginButton"
-                android:layout_marginTop="@dimen/margin_32dp"
-                android:layout_marginStart="@dimen/margin_24dp"
-                android:layout_marginEnd="@dimen/margin_24dp"
+                style="@style/ButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:text="@string/text_login"
+                android:layout_marginStart="@dimen/margin_24dp"
+                android:layout_marginTop="@dimen/margin_32dp"
+                android:layout_marginEnd="@dimen/margin_24dp"
+                android:foreground="?selectableItemBackgroundBorderless"
                 android:onClick="@{()-> vm.clickToLogin()}"
                 android:stateListAnimator="@null"
-                app:layout_constraintStart_toStartOf="parent"
+                android:text="@string/text_login"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/loginPasswordEt"
-                style="@style/ButtonStyle"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/loginPasswordEt" />
 
         <TextView
                 android:id="@+id/loginEmail"
+                style="@style/ContentsBodyMintCenterStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/text_sign_up"
-                android:gravity="center_horizontal"
-                android:padding="@dimen/margin_8dp"
-                android:onClick="@{()->vm.clickToSignActivity()}"
                 android:layout_marginTop="@dimen/margin_32dp"
-                app:layout_constraintStart_toStartOf="parent"
+                android:gravity="center_horizontal"
+                android:onClick="@{()->vm.clickToSignActivity()}"
+                android:padding="@dimen/margin_8dp"
+                android:text="@string/text_sign_up"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/loginButton"
-                style="@style/ContentsBodyMintCenterStyle"
-        />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/loginButton" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
