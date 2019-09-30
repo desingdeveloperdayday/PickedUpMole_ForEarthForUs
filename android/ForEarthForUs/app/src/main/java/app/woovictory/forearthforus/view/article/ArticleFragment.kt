@@ -112,7 +112,8 @@ class ArticleFragment : BaseFragment<FragmentArticleBinding, ArticleViewModel>()
         // Donation RecyclerView
         viewDataBinding.articleEarthRv.apply {
             adapter = articleEarthAdapter
-            layoutManager = LinearLayoutManager(context.applicationContext, LinearLayout.HORIZONTAL, false)
+            layoutManager =
+                LinearLayoutManager(context.applicationContext, LinearLayout.HORIZONTAL, false)
             addItemDecoration(ItemDecoration(size.x / 80, size.x / 20))
             setHasFixedSize(true)
         }
@@ -120,7 +121,8 @@ class ArticleFragment : BaseFragment<FragmentArticleBinding, ArticleViewModel>()
         // 아티클 리싸이클러뷰
         viewDataBinding.articleUsRv.apply {
             adapter = articleListAdapter
-            layoutManager = LinearLayoutManager(activity?.applicationContext, LinearLayout.HORIZONTAL, false)
+            layoutManager =
+                LinearLayoutManager(activity?.applicationContext, LinearLayout.HORIZONTAL, false)
             addItemDecoration(ItemDecoration(size.x / 110, size.x / 20))
             setHasFixedSize(true)
         }
@@ -136,8 +138,9 @@ class ArticleFragment : BaseFragment<FragmentArticleBinding, ArticleViewModel>()
     }
 
     private fun startWebView(link: String) {
-        val intent = Intent(Intent.ACTION_VIEW)
-        intent.data = Uri.parse(link)
-        startActivity(intent)
+        Intent(Intent.ACTION_VIEW).apply {
+            data = Uri.parse(link)
+            startActivity(this)
+        }
     }
 }

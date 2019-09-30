@@ -104,6 +104,7 @@
         <item name="android:textSize">@dimen/size_text_14dp</item>
         <item name="android:textColor">@color/fe_fu_black</item>
     </style>
+
     <style name="ContentsHeaderWhiteStyle">
         <item name="android:textSize">@dimen/size_text_14dp</item>
         <item name="android:textColor">@color/fe_fu_white</item>
@@ -179,10 +180,15 @@
     <style name="ToolbarStyle" parent="@style/ThemeOverlay.AppCompat.ActionBar">
         <!-- Customize color of navigation drawer icon and back arrow -->
         <item name="colorControlNormal">@color/fe_fu_black</item>
+        <item name="android:textSize">@dimen/size_text_16dp</item>
     </style>
 
+    <style name="ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+        <item name="android:fontFamily">@font/notosanscjkkr_medium</item>
+    </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light">
         <item name="colorControlNormal">@color/fe_fu_white</item>
         <item name="colorControlHighlight">@color/colorPrimaryDark</item>
