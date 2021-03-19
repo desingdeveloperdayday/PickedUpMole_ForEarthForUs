@@ -12,7 +12,7 @@ django-oauth-toolkit==1.2.0
 django-rest-auth==0.9.5
 django-rest-framework-social-oauth2==1.1.0
 django-rest-swagger==2.2.0
-djangorestframework==3.9.2
+djangorestframework==3.11.2
 djangorestframework-jwt==1.11.0
 idna==2.8
 isort==4.3.17
